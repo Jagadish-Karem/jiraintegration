@@ -58,7 +58,10 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-    - script: |
+     - task: PowerShell@2
+       inputs:
+        targetType: 'inline'
+     - script: |
               # Set Jira parameters
               $jiraUrl = "https://compliance-g.atlassian.net"
               $jiraTicketId = "PSD-103"
