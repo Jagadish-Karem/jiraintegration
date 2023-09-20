@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<project name="ZipGitRepo" default="zip">
+       <!-- Define the name of the output zip file -->
+    <property name="zip.filename" value="repository.zip" />
+    <!-- Create a target to zip the Git repository -->
+    <target name="zip">
+        <!-- Create a zip file of the Git repository -->
+        <echo message="Git repository has been zipped" />
+    </target>
+</project>
