@@ -57,8 +57,8 @@ stages:
     displayName: 'Validation Stage'
     pool:
       vmImage: 'windows-2019'
-      steps:
-        - script: |
+    steps:
+    - script: |
               # Set Jira parameters
               $jiraUrl = "https://compliance-g.atlassian.net"
               $jiraTicketId = "PSD-103"
@@ -72,6 +72,3 @@ stages:
               # Make an HTTP GET request to Jira API
               $ticketStatus = $response.fields.status.name
               echo "name is $response.fields.status.name"
-
-
-
