@@ -83,15 +83,3 @@ stages:
     }
   displayName: 'Check Jira Ticket Status'
 
-- stage: CopyFilesOverSSH
-  jobs:
-  - job: CopyFilesOverSSHJob
-    pool:
-      vmImage: 'windows-2019'
-    displayName: 'Copy Files Over SSH Stage'
-    steps:
-    - task: CopyFilesOverSSH@0
-      displayName: 'Securely copy files to the remote machine'
-      inputs:
-        sshEndpoint: 'POC_Verification'
-        targetFolder: 'C:\GIT_Deployment_Package'
