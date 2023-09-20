@@ -58,7 +58,7 @@ stages:
     pool:
       name: server
     steps:
-- script: |
+    - script: |
     # Set Jira parameters
     $jiraUrl = "https://compliance-g.atlassian.net"
     $jiraTicketId = "PSD-103"
@@ -70,7 +70,6 @@ stages:
     # Make an HTTP GET request to Jira API
     $response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($jiraApiKey)")))} -Method Get
 
-    # Extract ticket status from the response
     $ticketStatus = $response.fields.status.name
 
     # Check the ticket status
