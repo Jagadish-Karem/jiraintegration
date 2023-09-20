@@ -1,0 +1,97 @@
+trigger:
+- cicd
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    displayName: 'Build Stage'
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+    - task: Ant@1
+      displayName: 'Ant build.xml'
+      inputs:
+        buildFile: '$(Parameters.antBuildFile)'
+
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+      inputs:
+        SourceFolder: '$(system.defaultworkingdirectory)'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+      condition: succeededOrFailed()
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+      condition: succeededOrFailed()
+
+- stage: Publish
+  jobs:
+  - job: PublishJob
+    displayName: 'Publish Stage'
+    pool:
+      vmImage: 'windows-2019'
+    steps:
+    - task: UniversalPackages@0
+      displayName: 'Universal publish'
+      inputs:
+        command: publish
+        vstsFeed: '52591567-6866-4998-9f76-4e79b9c7fbbf/8de3d97e-b449-47cd-ba34-7db012db1b87'
+        vstsFeedPublish: '52591567-6866-4998-9f76-4e79b9c7fbbf/8de3d97e-b449-47cd-ba34-7db012db1b87'
+        vstsFeedPackagePublish: csv
+
+    - task: DownloadPackage@1
+      displayName: 'Download Package 21b51a48-49df-4ed4-bc8a-26a5a5d3ae37'
+      inputs:
+        packageType: upack
+        feed: '52591567-6866-4998-9f76-4e79b9c7fbbf/8de3d97e-b449-47cd-ba34-7db012db1b87'
+        view: '1c363b9d-2b9e-465e-8f7b-07f407dcfec2'
+        definition: '21b51a48-49df-4ed4-bc8a-26a5a5d3ae37'
+        version: '*'
+
+- stage: Validation
+  jobs:
+  - job: ValidationJob
+    displayName: 'Validation Stage'
+    pool:
+      name: server
+    steps:
+- script: |
+    # Set Jira parameters
+    $jiraUrl = "https://compliance-g.atlassian.net"
+    $jiraTicketId = "PSD-103"
+    $jiraApiKey = "ATATT3xFfGF0DgMTKUNYXvvHLXOVADXuftr1cs5x8CQcWL0g9C5zuyoiTiWhpP1IdX5owcmvmZmrMx9l8FAMYCFu0ypeBG3CZa-eGg0Z7Lts0wzFBQ8GpUxDQcptjYRBRTv1cK606DFVDFFXXzOZzC8Sw1XCN4ZlewTK1Sd_eBrqs5xakOfOLB8=A1956388"
+
+    # Construct the Jira API URL to get ticket status
+    $apiUrl = "$jiraUrl/rest/api/latest/issue/$jiraTicketId"
+
+    # Make an HTTP GET request to Jira API
+    $response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($jiraApiKey)")))} -Method Get
+
+    # Extract ticket status from the response
+    $ticketStatus = $response.fields.status.name
+
+    # Check the ticket status
+    if ($ticketStatus -eq "Done") {
+      Write-Host "Jira ticket $jiraTicketId is Done."
+    }
+    else {
+      Write-Host "Jira ticket $jiraTicketId is not Done. Status: $ticketStatus"
+      exit 1
+    }
+  displayName: 'Check Jira Ticket Status'
+
+- stage: CopyFilesOverSSH
+  jobs:
+  - job: CopyFilesOverSSHJob
+    pool:
+      vmImage: 'windows-2019'
+    displayName: 'Copy Files Over SSH Stage'
+    steps:
+    - task: CopyFilesOverSSH@0
+      displayName: 'Securely copy files to the remote machine'
+      inputs:
+        sshEndpoint: 'POC_Verification'
+        targetFolder: 'C:\GIT_Deployment_Package'
