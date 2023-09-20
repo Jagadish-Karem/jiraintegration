@@ -56,7 +56,7 @@ stages:
   - job: ValidationJob
     displayName: 'Validation Stage'
     pool:
-      name: server
+      vmImage: 'windows-2019'
     steps:
     - script: |
               # Set Jira parameters
