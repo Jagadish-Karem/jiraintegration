@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2019-06-17 23:15:08.016 +0000</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <div id="polarion_client2" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">&lt;h1&gt;Validation Document Workflow Status&lt;/h1&gt;</sub>
+      </sub>
+    </span>
+  </div>
+  <div id="polarion_client8" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">###############################################################################
+##
+## Velocity Context - following objects are in the velocity context
+##
+## com.polarion.alm.shared.api.transaction.ReadOnlyTransaction $transaction
+## com.polarion.alm.shared.api.model.rp.RichPage $page
+## com.polarion.alm.shared.api.model.document.Document $document
+## com.polarion.alm.server.api.model.document.ProxyDocumentWorkflowSignature $signature
+##
+
+###############################################################################
+##
+## Styles
+##
+&lt;style&gt;
+	.polarion-approval-status-table {
+		margin: auto; 
+		empty-cells: show; 
+		border-collapse: collapse; 
+		width: 100%; 
+		max-width: 1200px; 
+		border: 1px solid #CCCCCC;
+	}
+	.polarion-approval-status-table-td {
+		text-align: left; 
+		vertical-align: top; 
+		height: 12px; 
+		border: 1px solid #CCCCCC; 
+		padding: 5px; 
+		width: 33%;
+	}
+	.polarion-status-block-table {
+		margin: auto; 
+		empty-cells: show; 
+		border-collapse: collapse; 
+		width: 100%;
+	}
+&lt;/style&gt;
+
+###############################################################################
+##
+## Render
+##
+#set($projectId = $page.getReference().projectId())
+#set($allDocumentsQuery = &quot;project.id:$projectId AND type:validation_plan&quot;)
+#set($statusesForType = $transaction.enumerations().getEnumeration(&quot;documents/document-status&quot;).forType(&quot;validation_plan&quot;).forProject(&quot;$projectId&quot;).options())
+&lt;table class=&quot;polarion-approval-status-table&quot;&gt;
+	&lt;tr&gt;
+		#foreach($status in $statusesForType)
+			#if($velocityCount %4 == 0)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;polarion-approval-status-table-td&quot;&gt;#end
+			&lt;td class=&quot;polarion-approval-status-table-td&quot;&gt;
+				#set($documents = $transaction.documents().search().query(&quot;$allDocumentsQuery AND status:$status.getReference().id()&quot;))
+				&lt;table class=&quot;polarion-status-block-table&quot;&gt;
+					&lt;tr&gt;
+						&lt;td style=&quot;text-align: left;&quot;&gt;
+							&lt;h3 style=&quot;margin: 5px 0px 10px 0px;&quot;&gt;$status.render() ($documents.size())&lt;/h3&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;
+							#foreach($document in $documents)
+								&lt;b&gt;&lt;span style=&quot;font-size: 1.1em;&quot;&gt;$document.render().withLinks()&lt;/span&gt;&lt;/b&gt;
+								&lt;ul&gt;
+									&lt;li&gt;
+										Current Version:#if(!$document.fields().get(&quot;version&quot;).get().equals(&quot;&quot;)) $document.fields().get(&quot;version&quot;).render()#else -#end
+									&lt;/li&gt;
+									&lt;li&gt;
+										Approved Versions: 
+										#set($isAlreadyApproved = false)
+										#set($activeSignatureExists = false)
+										#set($approvedVersions = &quot;&quot;)
+										#foreach($signature in $document.fields().workflowSignatures())
+											#if($signature.fields().targetStatus().optionId().equals(&quot;approved&quot;))
+												#set($revisionId = $signature.fields().transitionRevision().get())
+												#set($documentInBaseline = $document.getReference().getFromRevision($transaction, $revisionId))
+												#if($documentInBaseline.fields().status().optionId().equals(&quot;approved&quot;))
+													#set($documentSpace = $document.getReference().spaceReference().spacePath())
+													#set($documentName = $document.getReference().name())
+													#set($baselineLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$documentSpace&quot;, &quot;$documentName&quot;).revision($revisionId).toEncodedRelativeUrl())
+													#set($completeLink = &quot;&lt;a href=&#39;$baselineLink&#39; target=&#39;_top&#39;&gt;$documentInBaseline.fields().get(&#39;version&#39;).render()&lt;/a&gt;&quot;)
+													#if($isAlreadyApproved)
+														#set($approvedVersions = &quot;$approvedVersions, &quot;)
+													#end
+													#set($approvedVersions = &quot;$approvedVersions$completeLink&quot;)												
+													#set($isAlreadyApproved = true)
+												#end
+											#end
+											#if(!$signature.fields().signatureState().optionId().equals(&quot;obsolete&quot;))
+												#set($activeSignatureExists = true)
+											#end
+										#end
+										#if(!$isAlreadyApproved)
+											-
+										#else
+											$approvedVersions
+										#end
+									&lt;/li&gt;
+									&lt;li&gt;
+										Signatures:
+										#if($activeSignatureExists)
+											&lt;br/&gt;
+											#foreach($signature in $document.fields().workflowSignatures())
+												#if(!$signature.fields().signatureState().optionId().equals(&quot;obsolete&quot;))
+													&lt;span style=&quot;margin: 1px;&quot;&gt;
+														$signature.render().htmlFor().forFrame().replace(&quot;, &quot;, &quot;&quot;)
+													&lt;/span&gt;
+												#end
+											#end
+										#else
+											 -
+										#end
+									&lt;/li&gt;
+								&lt;/ul&gt;
+							#end
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/table&gt;
+			&lt;/td&gt;
+		#end
+	&lt;/tr&gt;
+&lt;/table&gt;
+        </sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 75.32547%;">
+  <h2 id="polarion_client14">Recently Updated Validation Document </h2>
+  <div id="polarion_client9" class="polarion-rp-widget-part" data-widget="com.polarion.spaceIndexWidget">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="scope"></sub><sub id="space" data-inherit="space"></sub>
+      <sub id="advanced">
+        <sub id="top">20</sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client4">
+    <span style="font-style: italic;color: #999999;"><br/>
+      </span>
+  </p>
+</div>
+<div class="polarion-rp-column" style="width: 24.674532%;">
+  <p id="polarion_client22" style="text-align: center;">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.genericButton">
+      <span class="polarion-rp-widget-parameters">
+        <sub id="label">Create New...</sub>
+        <sub id="sublabel">
+          <sub style="white-space:pre;" id="script">Document or Page</sub>
+        </sub>
+        <sub id="action">
+          <sub style="white-space:pre;" id="script">$renderingContext.createJsActionsBuilder().createNewArtifact()</sub>
+        </sub>
+        <sub id="url"></sub>
+        <sub id="advanced">
+          <sub id="labelColor"></sub>
+          <sub id="disabled">
+            <sub style="white-space:pre;" id="script"></sub>
+          </sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<pre id="polarion-rp-page-script">#set($space = $page.reference.spaceReference.spacePath)
+
+$!scriptedPageParameters.put(&quot;space&quot;, $factory.string(&quot;Space&quot;).value($space).build())</pre>]]></field>
+    <field id="title">Implementation</field>
+</rich-page>

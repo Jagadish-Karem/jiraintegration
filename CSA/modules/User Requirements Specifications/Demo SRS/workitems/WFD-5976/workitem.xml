@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="created">2023-06-27 09:19:59.151 -0700</field>
+    <field id="previousStatus">in_draft</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="title">Polarion ALM System Requirement Specification</field>
+    <field id="type">heading</field>
+    <field id="version" type="string">1.0</field>
+</work-item>

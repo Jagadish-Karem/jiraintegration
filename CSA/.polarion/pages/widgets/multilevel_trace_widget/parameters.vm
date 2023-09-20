@@ -1,0 +1,54 @@
+$parameters.put("workItems", $factory.dataSet("Work Items").build())
+## $parameters.put("sortBy", $factory.sorting("Sort By").build())
+#set ($myFields=$objectFactory.newSet())
+#set ($void=$myFields.add("none"))
+##set ($void=$myFields.add("status"))
+##set ($void=$myFields.add("severity"))
+
+
+$parameters.put("wgetSuspect", $factory.bool("Show Suspect Items Only").build())
+$parameters.put("showLinkingItems", $factory.bool("Show Linking/Children (Yes) or Backlinking/Parents (No) Items").value(true).build())
+#if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+   $parameters.put("showReferencedItems", $factory.bool("Show Referenced Items").build())
+#end
+$parameters.put("showCrossProjLinks", $factory.bool("Follow Links across Projects").build())
+###if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015"))&&(!$platformService.getPolarionVersion().equals("17"))&&(!$platformService.getPolarionVersion().equals("18")))
+##   $parameters.put("showExternalLinks", $factory.bool("Show OSLC Links").build())
+###end
+#set($firstColTitle = $factory.string("Title").value("").build())
+#set($displayFirstColFields = $factory.bool("Display Workitem Fields").value(true).build())
+#set($firstColFields = $factory.fields("Workitem Fields to Display").fields($myFields).build())
+#set($firstColCollapseFields = $factory.bool("Collapse Fields by Default").value(true).build())
+
+#if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+   #set($firstDisplayLinksToResource = $factory.bool("Display Links to Resources").value(false).build())
+#end
+#set($firstDisplayLastTestExecutionResult = $factory.bool("Display Last Test Execution Results").value(false).build())
+#set($firstDisplayTestStepResults = $factory.bool("Display Test Step Results").value(false).build())
+#if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+  $parameters.put("firstColumn", $factory.composite("First Column Details").add("title", $firstColTitle).add("displayFields", $displayFirstColFields).add("fields", $firstColFields).add("collapseFieldsDisplay", $firstColCollapseFields).add("firstDisplayLinksToResource", $firstDisplayLinksToResource).add("firstDisplayLastTestExecutionResult", $firstDisplayLastTestExecutionResult).add("firstDisplayTestStepResults", $firstDisplayTestStepResults).collapsedByDefault(true).build())
+#else
+  $parameters.put("firstColumn", $factory.composite("First Column Details").add("title", $firstColTitle).add("displayFields", $displayFirstColFields).add("fields", $firstColFields).add("collapseFieldsDisplay", $firstColCollapseFields).add("firstDisplayLastTestExecutionResult", $firstDisplayLastTestExecutionResult).collapsedByDefault(true).build())
+#end
+#set($titleComposite = $factory.string("Column Title").value("").build())
+#set($linkRolesComposite = $factory.enumeration("Link Role", "wi-link-role").dependencyTarget(true).allowMultipleValues(true).allowNoValue(true).build())
+#set($workItemsComposite = $factory.enumeration("Work Item Type","workitem-type").dependencyTarget(true).allowMultipleValues(true).allowNoValue(true).build())
+#set($showOnlyRefInCurrProject = $factory.bool("Show Items from different Project only if referenced in current Project").build())
+#set($displayToggleComposite = $factory.bool("Display Workitem Fields").value(true).build())
+#set($fieldsComposite = $factory.fields("Workitem Fields to Display").fields($myFields).build())
+#set($showFieldsToggleComposite = $factory.bool("Collapse Fields by Default").value(true).build())
+#if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+   #set($displayLinksToResource = $factory.bool("Display Links to Resources").value(false).build())
+#end
+#set($displayLastTestExecutionResult = $factory.bool("Display Last Test Execution Results").value(false).build())
+#set($displayTestStepResults = $factory.bool("Display Test Step Results").value(false).build())
+#if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+   #set($composite = $factory.composite("Column").add("title", $titleComposite).add("linkroles", $linkRolesComposite).add("showProjRef", $showOnlyRefInCurrProject ).add("witypes", $workItemsComposite).add("displayFields", $displayToggleComposite).add("fields", $fieldsComposite).add("collapseFieldsDisplay", $showFieldsToggleComposite).add("displayLinksToResource", $displayLinksToResource).add("displayLastTestExecutionResult", $displayLastTestExecutionResult).add("displayTestStepResults", $displayTestStepResults).build())
+#else
+   #set($composite = $factory.composite("Column").add("title", $titleComposite).add("linkroles", $linkRolesComposite).add("witypes", $workItemsComposite).add("displayFields", $displayToggleComposite).add("fields", $fieldsComposite).add("collapseFieldsDisplay", $showFieldsToggleComposite).build())
+#end
+$parameters.put("columns", $factory.multi("Additional Columns", $composite).build())
+
+$parameters.put("backgroundColor", $factory.string("Background Color Table").build()).build())
+$parameters.put("headingColor", $factory.string("Heading Color Table").build())
+$parameters.put("addTableBorder", $factory.bool("Table Border").build())

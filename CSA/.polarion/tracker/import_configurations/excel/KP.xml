@@ -1,0 +1,46 @@
+<excelImportConfiguration>
+  <sheetName>Sheet1</sheetName>
+  <startCell>A2</startCell>
+  <tableWithHeader>true</tableWithHeader>
+  <splitValues>false</splitValues>
+  <workItemRules>
+    <workItemRule>
+      <workItemTypeId>test_script_OQ</workItemTypeId>
+      <fieldRules>
+        <fieldRule>
+          <column>Title</column>
+          <field>title</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Pre-Requisite</column>
+          <field>pr</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Description</column>
+          <field>description</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Step Description</column>
+          <field>teststeps.description</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Step Expected Result</column>
+          <field>teststeps.expectedResult</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Test Type</column>
+          <field>testtype</field>
+          <mapping>
+            <entry>
+              <string>Robust Scripted Testing</string>
+              <string>robust_scripted</string>
+            </entry>
+          </mapping>
+        </fieldRule>
+      </fieldRules>
+      <testStepsImport>
+        <importFromSeparateRows>false</importFromSeparateRows>
+      </testStepsImport>
+    </workItemRule>
+  </workItemRules>
+</excelImportConfiguration>

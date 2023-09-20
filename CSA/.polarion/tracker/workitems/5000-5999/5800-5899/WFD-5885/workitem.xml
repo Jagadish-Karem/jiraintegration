@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="calcRiskRating" type="string">4</field>
+    <field id="created">2023-03-30 07:25:00.709 -0700</field>
+    <field id="implementationMethod" type="string">3</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">refines</item>
+                <item id="workItem">WFD-5881</item>
+            </struct>
+        </list>
+    </field>
+    <field id="patientRisk" type="string">3</field>
+    <field id="previousStatus">in_draft</field>
+    <field id="priority">50.0</field>
+    <field id="riskRating" type="string">high</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="testingType" type="string">scripted</field>
+    <field id="title">Test</field>
+    <field id="type">functionalRequirement</field>
+    <field id="version" type="string">1.0</field>
+</work-item>

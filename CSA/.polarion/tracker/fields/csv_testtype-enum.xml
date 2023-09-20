@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="scripted" name="Scripted Testing" sortOrder="1"/>
+    <option id="unscripted" name="Unscripted Testing" sortOrder="3"/>
+    <option id="audit" name="Vendor Audit and Assurance " sortOrder="5"/>
+    <option iconURL="/polarion/icons/default/enums/variation_optional.gif" id="unanalyzed" name="Unanalyzed" sortOrder="6"/>
+</enumeration>

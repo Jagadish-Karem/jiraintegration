@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field description="The detailed explanation of resolution actions taken to resolve the defect." id="defectResolution" name="Defect Resolution" type="text/html"/>
+    <field description="The high-level category of defect." id="defectCategory" name="Defect Category" type="enum:DefectCategory"/>
+    <field description="The high-level resolution for the defect." id="defectResolutionType" name="Resolution Type" type="enum:Resolution"/>
+    <field description="The detailed explanation of investigation into the defect cause and impacts." id="defectInvestigation" name="Defect Investigation" type="text/html"/>
+    <field description="The detailed explanation of testing or verification evidence to support defect closure." id="defectTestVerify" name="Defect Testing / Verification Evidence" type="text/html"/>
+</fields>

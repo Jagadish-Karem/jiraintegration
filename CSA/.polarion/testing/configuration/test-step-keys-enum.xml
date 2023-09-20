@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option columnWidth="20%" id="testStep" name="Test Step" sortOrder="2"/>
+    <option columnWidth="35%" id="description" name="Description" sortOrder="3"/>
+    <option columnWidth="35%" id="expectedResult" name="Expected Result" sortOrder="4"/>
+</enumeration>

@@ -1,0 +1,75 @@
+## ==============================================================================
+## Date       Author         Change
+## -------------------------------------------------------------------------------
+## 03 Aug 2018    GDN            Add new options to render workitem. Title Only Option
+##                               Add new option to search workitem, by title
+##                               Add new option to report direction, both (linked and backlinked)##
+## 03 Oct 2018    GDN            Add new parameter to select workitems of interest
+##                               Add new parameter to select criteria to exclude workitems
+## 04 Oct 2018    GDN            Changed parameter to select criteria to exclude workitems
+## 05 Oct 2018    JFT            Adding parameter for node title truncation size
+## 12 Sep 2019   Sagar - GDN     Allow Export to PDF - Tree
+## 12 Sep 2019   Sagar - GDN     Flip Tree nodes (Children - Left and Parent - Right)
+## 07-Oct-2019   Goutham - GDN   Parameter options change for parameter Direction.
+##                          	 New parameter for Tree Node Display and removed Flip Tree Nodes parameter.
+## =============================================================================
+##
+## parameter for tree graph display feature
+$parameters.put("workItems", $factory.dataSet("Work Items").dependencySource(true).build())
+$parameters.put("outputFormat", $factory.customEnum("Report Format").addEnumItem("tree","Tree").addEnumItem("table","Table").singleValue("table").build())
+
+## Tree size
+#set($treeSizeWidth = $factory.string("Width").value("1300").build())
+#set($treeSizeHeight = $factory.string("Height").value("1300").build())
+$parameters.put("treeSize", $factory.composite("Tree Size").add("width", $treeSizeWidth).add("height", $treeSizeHeight).collapsedByDefault(true).build())
+
+##zoom location
+$parameters.put("zoomcenter", $factory.customEnum("Zoom Location").addEnumItem("rootNode","Root Node").addEnumItem("mouseCursor","Mouse Cursor").singleValue("mouseCursor").build())
+
+## parameter for node display feature
+$parameters.put("displayOptionParam", $factory.customEnum("Node Label").addEnumItem("Tooltip","Tool-tip").addEnumItem("WorkItemID","WorkItem ID").addEnumItem("WorkItemTitle","WorkItem Title").addEnumItem("WorkItemIDTitle","WorkItem ID + Title").singleValue("WorkItemIDTitle").dependencyTarget(true).build())
+$parameters.put("nodeTitleTruncation", $factory.string("Node Title Truncation (# Characters)").value("25").build())
+## Link roles to filter
+$parameters.put("linkRole", $factory.enumeration("Link Role(s)","wi-link-role").allowMultipleValues(true).allowNoValue(true).build())
+## direction of trace links.. linked or backlinked
+$parameters.put("direction", $factory.customEnum("Direction").addEnumItem("linked","Parent (Linked)").addEnumItem("backlinked","Children (BackLinked)").addEnumItem("both","Both (Parent & Children)").singleValue("both").build())
+$parameters.put("level", $factory.customEnum("Depth of Trace").addEnumItem("0","0").addEnumItem("1","1").addEnumItem("2","2").addEnumItem("3","3").addEnumItem("4","4").addEnumItem("5","5").addEnumItem("6","6").addEnumItem("7","7").addEnumItem("8","8").addEnumItem("9","9").addEnumItem("10","10").addEnumItem("11","11").addEnumItem("12","12").addEnumItem("13","13").addEnumItem("14","14").addEnumItem("15","15").addEnumItem("16","16").addEnumItem("17","17").addEnumItem("18","18").addEnumItem("19","19").addEnumItem("20","20").singleValue("4").build())
+
+$parameters.put("configrules", $factory.customEnum("User Configurable Parameters").addEnumItem("title","WorkItem Title").addEnumItem("Id","WorkItem ID").addEnumItem("direction","Direction").addEnumItem("output","Report Format").addEnumItem("flipGraph","Tree Node Display").addEnumItem("depth","Depth of Trace").addEnumItem("zoomcenter","Zoom Location").allowMultipleValues(true).allowNoValue(true).build())
+$parameters.put("enableautocomplete", $factory.bool("Enable Auto Complete to search by ID or Title").value(false).build())
+$parameters.put("qry2exclude", $factory.string("Query to Exclude WorkItems (Lucene)").build())
+
+$parameters.put("useSuspectLinks", $factory.bool("Use a dashed red line for Suspect Links").value(false).build())
+
+## parameters for link color selection feature
+#set($blueColorLinks = $factory.enumeration("Roles for Blue color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build() )
+#set($redColorLinks = $factory.enumeration("Roles for Red color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($greenColorLinks = $factory.enumeration("Roles for Green color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($orangeColorLinks = $factory.enumeration("Roles for Orange color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($magentaColorLinks = $factory.enumeration("Roles for Magenta color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($lightgreenColorLinks = $factory.enumeration("Roles for Light Green color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($lightblueColorLinks = $factory.enumeration("Roles for Light Blue color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+
+## Colors for dotted lines
+
+#set($dottedblueColorLinks = $factory.enumeration("Roles for dotted Blue color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build() )
+#set($dottedredColorLinks = $factory.enumeration("Roles for dotted Red color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($dottedgreenColorLinks = $factory.enumeration("Roles for dotted Green color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($dottedorangeColorLinks = $factory.enumeration("Roles for dotted Orange color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($dottedmagentaColorLinks = $factory.enumeration("Roles for dotted Magenta color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($dottedlightgreenColorLinks = $factory.enumeration("Roles for dotted Light Green color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+#set($dottedlightblueColorLinks = $factory.enumeration("Roles for dotted Light Blue color","workitem-link-role").allowMultipleValues(true).allowNoValue(true).dependencyTarget(true).build())
+
+
+$parameters.put("roleColors", $factory.composite("Link Role Colors").add("blueColor", $blueColorLinks).add("redColor", $redColorLinks).add("greenColor", $greenColorLinks).add("orangeColor", $orangeColorLinks).add("magentaColor", $magentaColorLinks).add("lightgreenColor", $lightgreenColorLinks).add("lightblueColor", $lightblueColorLinks).add("dottedblueColor", $dottedblueColorLinks).add("dottedredColor", $dottedredColorLinks).add("dottedgreenColor", $dottedgreenColorLinks).add("dottedorangeColor", $dottedorangeColorLinks).add("dottedmagentaColor", $dottedmagentaColorLinks).add("dottedlightgreenColor", $dottedlightgreenColorLinks).add("dottedlightblueColor", $dottedlightblueColorLinks).collapsedByDefault(true).build())
+
+
+## Column Titles
+#set($titleComposite = $factory.string("Column Title").value("").build())
+$parameters.put("columns", $factory.multi("Columns Titles", $titleComposite).build())
+$parameters.put("displayLegend", $factory.bool("Display WorkItem Type Legend").value(false).build())
+$parameters.put("export2Excel", $factory.bool("Allow Export to Excel - Table").value(false).build())
+$parameters.put("export2Pdf", $factory.bool("Allow Export to PDF- Table").value(false).build())
+$parameters.put("export2PdfTree", $factory.bool("Allow Export to PDF- Tree").value(false).build())
+##$parameters.put("flipChildrenToLeft", $factory.bool("Flip Tree nodes (Children - Left and Parent - Right)").value(false).build())
+$parameters.put("flipGraph", $factory.customEnum("Tree Node Display").addEnumItem("parent-children","Left - Parents, Right - Children").addEnumItem("children-parent","Left - Children, Right - Parents").singleValue("parent-children").build())

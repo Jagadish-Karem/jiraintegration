@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comment>
+    <field id="author">sDeveloper</field>
+    <field id="created">2023-08-02 10:14:49.117 -0700</field>
+    <field id="parentComment">WFD-6054#2</field>
+    <field id="text" text-type="text/plain">No - 21 CFR considerations are covered under a separate set of tests.  This test will simply verify the points at which a signature is required but will not perform full testing of all regulations.</field>
+</comment>

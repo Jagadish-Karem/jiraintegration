@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field id="version" name="Version" type="string"/>
+    <field id="testtype" name="Testing Type" type="enum:csv_testtype"/>
+    <field id="briefDescription" name="Brief Description" type="text/html"/>
+    <field id="businessCriticality" name="Business Criticality" type="enum:businessCriticality"/>
+    <field id="technology" name="Technology" type="string"/>
+    <field id="applicationLevel" name="Application Level" type="enum:applicationLevel"/>
+    <field id="inhouseSAAS" name="Inhouse/SAAS" type="enum:InhouseSaas"/>
+    <field id="softwareControl" name="Software Control" type="enum:SoftwareControl"/>
+    <field id="sCRTool" name="Software Code Review Tool" type="enum:scrTool"/>
+    <field id="psai" name="Part of the Standard Architecture Image?" type="enum:boolean"/>
+    <field id="lkLocation" name="License Keys Location" type="text"/>
+    <field id="relatedApplications" name="Related Applications" type="text"/>
+    <field id="serversdBases" name="Servers/dBases" type="text"/>
+    <field id="supportedBy" name="supportedBy" type="text"/>
+    <field id="bsOwner" name="Business System Owner" type="enum:bsOwner"/>
+    <field id="isOwner" name="IT System Owner" type="enum:isOwner"/>
+</fields>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-run>
+    <field id="author">admin</field>
+    <field id="created">2023-07-22 10:10:22.918 -0700</field>
+    <field id="query">status:approved AND type:(scriptedTest unscriptedTest)</field>
+    <field id="records">
+        <list>
+            <struct>
+                <item id="comment" text-type="text/html"><![CDATA[Test executed with no issues, defect WFD-6020 verified fixed.<br/>
+ <span style="font-weight: bold;">Retest comment:</span><br/>
+Run passed overall.<br/>
+<span style="font-weight: bold;">Retest comment:</span><br/>
+Failed.]]></item>
+                <item id="defect">WFD-6094</item>
+                <item id="duration">13.0</item>
+                <item id="executed">2023-08-04 11:53:52.626 -0700</item>
+                <item id="executedBy">admin</item>
+                <item id="result">failed</item>
+                <item id="signed">true</item>
+                <item id="testCase">WFD-5883</item>
+                <item id="testCaseRevision">1162</item>
+                <item id="testStepResults">
+                    <list>
+                        <struct>
+                            <item id="comment" text-type="text/html">Failed.</item>
+                            <item id="result">failed</item>
+                        </struct>
+                    </list>
+                </item>
+            </struct>
+        </list>
+    </field>
+    <field id="selectTestCasesBy">staticQueryResult</field>
+    <field id="status">ready_for_exec</field>
+    <field id="template">formalRun</field>
+    <field id="title">Document Management</field>
+    <field id="type">manual</field>
+    <field id="useReportFromTemplate">true</field>
+</test-run>

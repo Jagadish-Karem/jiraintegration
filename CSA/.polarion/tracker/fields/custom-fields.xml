@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field default="1" id="version" name="Version" type="string"/>
+    <field default="Initial work item creation." id="changeReason" name="Change Reason" type="text"/>
+    <field id="site" multi="true" name="Site" type="enum:site"/>
+</fields>

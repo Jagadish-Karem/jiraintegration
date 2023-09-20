@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="mixing" name="Mixing" sortOrder="1"/>
+    <option id="receiving" name="Receiving" sortOrder="2"/>
+    <option id="sterilization" name="Sterilization" sortOrder="3"/>
+    <option id="molding" name="Molding" sortOrder="4"/>
+    <option id="packaging" name="Packaging" sortOrder="5"/>
+</enumeration>

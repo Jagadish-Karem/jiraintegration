@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option description="Defect was resolved by correcting the system configuration or source code." id="config" name="Configuration / Design Change" sortOrder="0"/>
+    <option description="Defect was resolved by creating or updating system or test data." id="data" name="Data Change" sortOrder="1"/>
+    <option description="Defect was resolved by updating system documentation including test cases and / or requirements." id="doc" name="Documentation Update" sortOrder="2"/>
+    <option description="Defect was not reproducible during investigation." id="nr" name="Not Reproducible" sortOrder="3"/>
+    <option description="Refer to Resolution for further details." id="other" name="Other (see Resolution)" sortOrder="4"/>
+    <option description="Defect was resolved by installation of a vendor patch or upgrade." id="vendor" name="Vendor Patch"/>
+    <option description="Defect will not be resolved and the system remains unchanged." id="wnf" name="Will Not Fix"/>
+    <option description="An alternate mechanism for implementing the impacted requirements will be used." id="workaround" name="Workaround Implemented"/>
+</enumeration>

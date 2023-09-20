@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow initial-action="rework" initial-status="in_draft" prototype="Module">
+    <transitions>
+        <transition action="send_for_approval" from="in_draft" to="in_approval"/>
+        <transition action="new_revision" from="approved" to="in_draft"/>
+        <transition action="rework" from="rejected" to="in_draft"/>
+        <transition action="new_revision" from="obsolete" to="in_draft"/>
+        <transition action="reject" from="in_approval" to="rejected"/>
+        <transition action="mark_as_obsolete" from="rejected" to="obsolete"/>
+        <transition action="mark_approved" from="in_approval" to="approved"/>
+        <transition action="rework" from="in_approval" to="in_draft"/>
+        <transition action="mark_as_obsolete" from="approved" to="obsolete"/>
+    </transitions>
+    <actions>
+        <action id="rework" name="Rework">
+            <functions>
+                <function name="ResetSignaturesVerdict"/>
+                <function name="ScriptFunction">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/funcIncrementVersion.js"/>
+                    <param name="versionFieldID" value="version"/>
+                    <param name="incrementValue" value="0.1"/>
+                </function>
+            </functions>
+        </action>
+        <action id="new_revision" name="New Revision">
+            <required>
+                <field name="version"/>
+            </required>
+            <cleared>
+                <field name="changeReason"/>
+            </cleared>
+            <functions>
+                <function name="ScriptFunction">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/funcIncrementVersion.js"/>
+                    <param name="versionFieldID" value="version"/>
+                    <param name="incrementValue" value="1"/>
+                </function>
+                <function name="MarkWorkflowSignaturesAsObsolete"/>
+            </functions>
+        </action>
+        <action id="reject" name="Reject"/>
+        <action id="send_for_approval" name="Send for Approval">
+            <required>
+                <field name="changeReason"/>
+            </required>
+            <conditions>
+                <condition name="ContainsNoMatchingWorkItems">
+                    <param name="query" value="(type:userRequirement OR type:functionalRequirement OR type:designRequirement) AND NOT (status:approved)"/>
+                </condition>
+            </conditions>
+            <functions>
+                <function name="AddDefaultSigners">
+                    <param name="signedBy.roles" value="project_bpo"/>
+                    <param name="target.status.id" value="approved"/>
+                    <param name="signer.role" value="Business Process Owner"/>
+                </function>
+                <function name="AddDefaultSigners">
+                    <param name="signedBy.roles" value="project_so"/>
+                    <param name="signer.role" value="System Owner"/>
+                    <param name="target.status.id" value="approved"/>
+                </function>
+            </functions>
+        </action>
+        <action id="mark_approved" name="Mark Approved">
+            <signatures>
+                <signature-policy name="all"/>
+            </signatures>
+            <functions>
+                <function name="ScriptFunction">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/createDocumentBaselineWF.js"/>
+                    <param name="baselineName" value="version"/>
+                    <param name="baselineNamePrefix" value="Version "/>
+                    <param name="baselineDescription" value="changeReason"/>
+                </function>
+            </functions>
+        </action>
+        <action id="mark_as_obsolete" name="Mark Obsolete">
+            <signatures>
+                <signature-policy name="all"/>
+            </signatures>
+            <roles>
+                <role name="project_qa"/>
+            </roles>
+        </action>
+    </actions>
+</workflow>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <parameters>
+    <parameter>
+      <name>browser</name>
+    </parameter>
+    <parameter>
+      <name>operating system</name>
+    </parameter>
+    <parameter>
+      <name>project_url</name>
+    </parameter>
+  </parameters>
+</library>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="assignee">aSeller</field>
+    <field id="author">admin</field>
+    <field id="changeReason" text-type="text/html" type="text/html">Initial work item creation.</field>
+    <field id="created">2023-07-21 09:39:02.726 -0700</field>
+    <field id="defectCategory" type="enum:DefectCategory">config</field>
+    <field id="defectInvestigation" text-type="text/html" type="text/html">This is my investigation.</field>
+    <field id="defectResolution" text-type="text/html" type="text/html">This is my resolution.</field>
+    <field id="defectResolutionType" type="enum:Resolution">config</field>
+    <field id="defectTestVerify" text-type="text/html" type="text/html">Testing evidence / references.</field>
+    <field id="description" text-type="text/html">Testing workflow</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">triggered_by</item>
+                <item id="workItem">WFD-5883</item>
+            </struct>
+        </list>
+    </field>
+    <field id="previousStatus">verifying</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">investigating</field>
+    <field id="title">GUI does not allow for full display of document title</field>
+    <field id="type">defect</field>
+    <field id="version" type="string">1</field>
+</work-item>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="created">2023-03-29 09:41:48.204 -0700</field>
+    <field id="crossReferenceMappingData">SNF/PLR-5560=SNF/SNFW-5741,SNF/PLR-5561=SNF/SNFW-5742,SNF/PLR-5562=SNF/SNFW-5743,SNF/PLR-5567=SNF/SNFW-5748,SNF/PLR-5600=SNF/SNFW-5761,SNF/PLR-5568=SNF/SNFW-5751,SNF/PLR-5601=SNF/SNFW-5760,SNF/PLR-5569=SNF/SNFW-5752,SNF/PLR-5602=SNF/SNFW-5759,SNF/PLR-5603=SNF/SNFW-5765,SNF/PLR-5563=SNF/SNFW-5744,SNF/PLR-5564=SNF/SNFW-5745,SNF/PLR-5565=SNF/SNFW-5746,SNF/PLR-5566=SNF/SNFW-5747,SNF/PLR-5592=SNF/SNFW-5790,SNF/PLR-5593=SNF/SNFW-5791,SNF/PLR-5594=SNF/SNFW-5792,SNF/PLR-5595=SNF/SNFW-5793,SNF/PLR-5590=SNF/SNFW-5782,SNF/PLR-5591=SNF/SNFW-5783,SNF/PLR-5557=SNF/SNFW-5740,SNF/PLR-5596=SNF/SNFW-5794,SNF/PLR-5597=SNF/SNFW-5750,SNF/PLR-5598=SNF/SNFW-5749,SNF/PLR-5599=SNF/SNFW-5784,SNF/PLR-5581=SNF/SNFW-5771,SNF/PLR-5582=SNF/SNFW-5772,SNF/PLR-5583=SNF/SNFW-5773,SNF/PLR-5584=SNF/SNFW-5776,SNF/PLR-5580=SNF/SNFW-5770,SNF/PLR-5545=SNF/SNFW-5739,SNF/PLR-5589=SNF/SNFW-5781,SNF/PLR-5585=SNF/SNFW-5777,SNF/PLR-5586=SNF/SNFW-5778,SNF/PLR-5587=SNF/SNFW-5779,SNF/PLR-5588=SNF/SNFW-5780,SNF/PLR-5608=SNF/SNFW-5789,SNF/PLR-5609=SNF/SNFW-5775,SNF/PLR-5604=SNF/SNFW-5764,SNF/PLR-5605=SNF/SNFW-5763,SNF/PLR-5606=SNF/SNFW-5762,SNF/PLR-5607=SNF/SNFW-5795,SNF/PLR-5570=SNF/SNFW-5753,SNF/PLR-5571=SNF/SNFW-5754,SNF/PLR-5572=SNF/SNFW-5755,SNF/PLR-5573=SNF/SNFW-5756,SNF/PLR-5578=SNF/SNFW-5768,SNF/PLR-5611=SNF/SNFW-5786,SNF/PLR-5579=SNF/SNFW-5769,SNF/PLR-5612=SNF/SNFW-5785,SNF/PLR-5613=SNF/SNFW-5788,SNF/PLR-5614=SNF/SNFW-5787,SNF/PLR-5574=SNF/SNFW-5757,SNF/PLR-5575=SNF/SNFW-5758,SNF/PLR-5576=SNF/SNFW-5766,SNF/PLR-5577=SNF/SNFW-5767,SNF/PLR-5610=SNF/SNFW-5774</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<p id="polarion_3">
+  <span style="font-weight: bold;font-size: 10pt;color: #FF0000;line-height: 1.5;">General Instructions:</span>
+</p><ul id="polarion_4">
+  <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">This template can be used as the System Requirements Specification (SRS) template. </span></li>
+  <li><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Blue text is sample text. Select the appropriate value or remove.</span></li>
+  <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Delete or replace all red text in final version. All text must be black in the final version.</span></li>
+  <li><span style="font-size: 10pt;line-height: 1.5;">Items in black text must be addressed, using “Not Applicable” with a brief rationale.</span></li>
+</ul><p id="polarion_1">
+  <span style="font-weight: bold;font-size: 12pt;line-height: 1.5;">DELETE THIS PAGE PRIOR TO SENDING THIS DOCUMENT FOR REVIEW OR SIGNATURE</span>
+</p><div id="polarion_wiki macro name=page_break;params=uid=2" contentEditable="false" data-is-landscape="false"></div><h1 id="polarion_wiki macro name=module-workitem;params=id=WFD-6049"></h1><div id="polarion_wiki macro name=page_break|uid=polarion_1" contentEditable="false" data-is-landscape="false"></div><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5739"></h2><p id="polarion_6" style="margin-left: 0px;"></p><p id="polarion_2">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">This document describes the business processes and needs, as well as the functional abilities to support </span>Compliance Group’s <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">deployment of the system defined in <span class="polarion-rte-link" data-type="crossReference" id="fake" data-item-id="WFD-5741" data-option-id="longoutline"></span>  of this document.</span>
+</p><p id="polarion_5">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">The requirements contained in this document are intended to define general business needs and functional configurations necessary.  This document is created in compliance with and under the guidance of procedure CSV-SOP-001, <span style="font-style: italic;">Computer Software Assurance</span>.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5740"></h2><p id="polarion_15" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Items under this section should be listed in alphabetical order.  The term should be bold with the definition not bold. All acronyms used in the body of the SOP must be identified in this section. If definitions or acronyms are not included, indicated “Not Applicable.” </span>
+</p><p id="polarion_16" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">ONLY define terms unique to the system. Do not repeat anything defined in any SOP.</span>
+</p><p id="polarion_12"></p><table id="polarion_wiki macro name=table;params=bold=1|uid=13" class="polarion-Document-table" style="width: 80%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 160.156px;height: 20.5px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Term</span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 420.031px;height: 20.5px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Definition</span></th>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;text-align: left;vertical-align: top;width: 160.156px;height: 19.5px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">ALM</span></td>
+      <td style="text-align: left;vertical-align: top;width: 420.031px;height: 19.5px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Application Lifecycle Management</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;text-align: left;vertical-align: top;width: 160.156px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">BPO</span></td>
+      <td style="text-align: left;vertical-align: top;width: 420.031px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Business Process Owner</span></td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5741"></h2><p id="polarion_8">This section displays the identifying characteristics of the system defined by this document.  These characteristics include the system name, intended use, and currently validated version.</p><p id="polarion_17" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Insert a reference to the <span style="font-style: italic;">Compliance Assessment</span><span style="font-style: normal;"> work item which defines the system.  Add text below the referenced work item to expand and clarify the intended use.</span><span style="font-style: italic;"></span></span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5742"></h3><p id="polarion_18" style="margin-left: 40px;">
+  <span style="color: #FF0000;">Provide a brief overview of the business processes to be managed by the computer system (e.g. warehousing, complaints, QC control, calibrations). Include a diagram if possible. This may come from or get reused in the V/AP (template XXXXXXX).</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5743"></h3><p id="polarion_19" style="margin-left: 40px;">
+  <span style="color: #FF0000;">Provide a brief description of the processes to be automated within the functional areas above. If possible, provide a diagram or a schematic to better clarify the business areas.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5744"></h2><p id="polarion_20" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Insert contained or create user requirements as necessary to define the system.  If user requirements are not planned, rather relying on functional only:</span>
+</p><ul id="polarion_21">
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Delete everything in section 5.0 below</span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Use “System” instead of “Functional” requirements</span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Include the following statement</span></li>
+</ul><p id="polarion_22" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">User requirements were not prepared for the &lt;Computer System Name&gt;. The system requirements were defined with sufficient detail to address both business needs and the system’s operational behaviors.</span>
+</p><p id="polarion_23" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">This section details requirements for <span style="color: #0000FF;">&lt;Computer System Name&gt;</span> grouped by key business processes.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5745"></h3><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5746"></h4><p id="polarion_24" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This section may be used for any system that utilizes a modular approach with a hub of functions at the platform level.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5747"></h4><p id="polarion_27" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add user roles specific to any modules or workflows. Insert a new requirement for each role.   Adjust to suit the system’s needs.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5748"></h4><p id="polarion_30" style="margin-left: 0px;">
+  <span style="color: #FF0000;">These examples are identical to the ones in the functional section. The recommended approach is to use the FS for these requirements, unless it is a SaaS solution, and the vendor is providing the FS. If both user and functional requirements are in scope of the project, use a high-level requirement for ERES.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5749"></h5><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5750"></h5><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5751"></h4><p id="polarion_35" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for general business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5752"></h4><p id="polarion_38" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5753"></h4><p id="polarion_41" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5754"></h4><p id="polarion_44" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5755"></h4><p id="polarion_47" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add high-level notification requirements, such as when records are in certain states.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5756"></h4><p id="polarion_50" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for report types needed by the business.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5757"></h3><p id="polarion_53" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This can be addressed in the User or Functional sections but is not required in both.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5758"></h4><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5759"></h5><p id="polarion_11" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5760"></h5><p id="polarion_13" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5761"></h5><p id="polarion_25" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5762"></h5><p id="polarion_26" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5763"></h5><p id="polarion_71" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5764"></h5><p id="polarion_14">
+  <span style="color: #FF0000;">Add requirements as needed . Remove section if there are no Performance Requirements.  Response times are not recommended unless absolutely needed. Suggested to make the UR that response times will be measured for key functions with zero load as a baseline and when significant changes are made.</span>
+</p><p id="polarion_75" style="margin-left: 80px;"></p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5765"></h5><p id="polarion_79" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5766"></h4><p id="polarion_82" style="margin-left: 0px;">
+  <span style="color: #0000FF;">The users of the system need to capture, update, and track information in support of the business process. The diagram below depicts the logical relationship between the records in the workflow.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5767"></h4><p id="polarion_84" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Describe any business-critical items for proper functioning. This is not necessarily tested, but is important to define business impact.</span>
+</p><p id="polarion_85" style="margin-left: 0px;">
+  <span style="color: #0000FF;">The system is dependent on data received from the XXXXX system. Should this interface fail, it would be non-operational.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5768"></h2><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5769"></h3><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5770"></h4><p id="polarion_86" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This section is intended to introduce the record types and the workflows followed through the system. Showing how records progress through the system fosters a better understanding. Revise or create process flows (examples below) to reflect the actual system workflow.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5771"></h4><p id="polarion_89" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This section may be used for any system that utilizes a modular approach with a hub of functions at the platform level.</span>
+</p><p id="polarion_31"></p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5772"></h4><p id="polarion_92" style="margin-left: 120px;">
+  <span style="color: #FF0000;">Use this section to define each role and a more granular level of what rights come with it. If it is matrixed, include the matrix or denote the next role inherits the pervious role’s right plus.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5773"></h4><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5774"></h5><p id="polarion_33" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5775"></h5><p id="polarion_28">
+  <span style="color: #FF6666;">Add requirements as needed.</span>
+</p><p id="polarion_149" style="margin-left: 80px;"></p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5776"></h4><p id="polarion_101" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This section may be used for requirements that apply system-wide.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5777"></h4><p id="polarion_104" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5778"></h4><p id="polarion_107" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5779"></h4><p id="polarion_110" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for general business functionality.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5780"></h4><p id="polarion_113" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add high-level notification requirements, such as when records are in certain states.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5781"></h4><p id="polarion_116" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as needed and build requirements for details of each report, such as displayed fields, export types, etc.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5782"></h3><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5783"></h4><p id="polarion_120" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as necessary. This section may be addressed in the user requirements section or the configuration / design specification. </span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5784"></h5><p id="polarion_29">
+  <span style="color: #FF0000;">Add requirements as necessary. This section may be addressed in the user requirements section or configuration / design specification. </span>
+</p><p id="polarion_158" style="margin-left: 80px;"></p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5785"></h5><p id="polarion_124" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as necessary. This section may be addressed in the user requirements section or configuration / design specification. </span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5786"></h5><p id="polarion_128" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as necessary. This section may be addressed in the user requirements section or configuration / design specification. </span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5787"></h5><p id="polarion_132" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as necessary. Most requirements below can be deleted if Active Directory is used. If defined in the user requirements, remove this section.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5788"></h5><p id="polarion_136" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as necessary. This section may be addressed in the user requirements section or configuration / design specification.</span>
+</p><h5 id="polarion_wiki macro name=module-workitem;params=id=WFD-5789"></h5><p id="polarion_140" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Add requirements as necessary. This section may be addressed in the user requirements section. </span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5790"></h4><p id="polarion_143" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Describe any technical critical items for proper functioning or key consideration.</span>
+</p><p id="polarion_144" style="margin-left: 0px;">
+  <span style="color: #0000FF;">The system requires technical integration with the XXXXX database and has a fail-over component.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5791"></h2><p id="polarion_145" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Not applicable.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5792"></h2><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5793"></h3><p id="polarion_146" style="margin-left: 0px;">
+  <span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #3333FF;">XXXXXXXX    Computer Software Assurance</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5794"></h3><p id="polarion_147" style="margin-left: 0px;">
+  <span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #3333FF;">Not applicable.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5795"></h2><div id="polarion_editor_html_block163" class="polarion-dle-wiki-block">
+  <div id="polarion_editor_html_block_content" contentEditable="false"></div><pre id="polarion_editor_html_block_source" class="polarion-dle-wiki-block-source" contentEditable="false">#documentPanel(true &quot;approved&quot;)</pre>
+</div><p id="polarion_164"></p><p id="polarion_148" style="margin-left: 40px;">
+  <br/>
+</p>]]></field>
+    <field id="renderingLayouts">
+        <list>
+            <struct>
+                <item id="label">User Requirement</item>
+                <item id="layouter">section</item>
+                <item id="properties">
+                    <list>
+                        <struct>
+                            <item id="key">fieldsAtStart</item>
+                            <item id="value">id,status</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEnd</item>
+                            <item id="value">linkedWorkItems</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEndAsTable</item>
+                            <item id="value">true</item>
+                        </struct>
+                        <struct>
+                            <item id="key">sidebarWorkItemFields</item>
+                            <item id="value">id,status,linkedWorkItems</item>
+                        </struct>
+                    </list>
+                </item>
+                <item id="type">userRequirement</item>
+            </struct>
+            <struct>
+                <item id="label">Functional Requirement</item>
+                <item id="layouter">section</item>
+                <item id="properties">
+                    <list>
+                        <struct>
+                            <item id="key">fieldsAtStart</item>
+                            <item id="value">id,status</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEnd</item>
+                            <item id="value">riskRating,testingType,linkedWorkItems as linked-workitem-in-document</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEndAsTable</item>
+                            <item id="value">true</item>
+                        </struct>
+                        <struct>
+                            <item id="key">sidebarWorkItemFields</item>
+                            <item id="value">id,status,riskRating,testingType,linkedWorkItems,patientRisk,implementationMethod</item>
+                        </struct>
+                    </list>
+                </item>
+                <item id="type">functionalRequirement</item>
+            </struct>
+            <struct>
+                <item id="label">Compliance Assessment</item>
+                <item id="layouter">section</item>
+                <item id="properties">
+                    <list>
+                        <struct>
+                            <item id="key">fieldsAtEndAsTable</item>
+                            <item id="value">true</item>
+                        </struct>
+                        <struct>
+                            <item id="key">sidebarWorkItemFields</item>
+                            <item id="value">severity,status,systemVersion</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtStart</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEnd</item>
+                            <item id="value">systemVersion</item>
+                        </struct>
+                    </list>
+                </item>
+                <item id="type">complianceAssessment</item>
+            </struct>
+        </list>
+    </field>
+    <field id="status">in_draft</field>
+    <field id="structureLinkRole">parent</field>
+    <field id="title">Compliance Group System Requirements Template</field>
+    <field id="type">requirementSpecification</field>
+    <field id="usesOutlineNumbering">true</field>
+    <field id="version" type="string">1.1</field>
+</module>

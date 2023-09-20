@@ -1,0 +1,26 @@
+###############################################################################
+##
+##  dependencies.vm - this velocity script is executed on changing relevant widget settings
+##	com.polarion.alm.shared.api.model.rp.parameter.DataSetParameter $dataSetParameter
+##
+
+
+#set($scope = $parameters.workitems.scope())
+$parameters.status2exclude.set().scope($scope)
+$parameters.linkRole.set().scope($scope)
+
+$parameters.roleColors.blueColor.set().scope($scope)
+$parameters.roleColors.redColor.set().scope($scope)
+$parameters.roleColors.greenColor.set().scope($scope)
+$parameters.roleColors.orangeColor.set().scope($scope)
+$parameters.roleColors.magentaColor.set().scope($scope)
+
+$parameters.roleColors.lightgreenColor.set().scope($scope)
+$parameters.roleColors.lightblueColor.set().scope($scope)
+$parameters.roleColors.dottedblueColor.set().scope($scope)
+$parameters.roleColors.dottedredColor.set().scope($scope)
+$parameters.roleColors.dottedgreenColor.set().scope($scope)
+$parameters.roleColors.dottedorangeColor.set().scope($scope)
+$parameters.roleColors.dottedmagentaColor.set().scope($scope)
+$parameters.roleColors.dottedlightgreenColor.set().scope($scope)
+$parameters.roleColors.dottedlightblueColor.set().scope($scope)

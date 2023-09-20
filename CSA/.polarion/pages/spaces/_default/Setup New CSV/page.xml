@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2018-01-15 10:35:12.549 +0000</field>
+    <field id="homePageContent" text-type="text/html">
+        <![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Setup New System</h1>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 100%;">
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="com.polarion.alm.activequestionnaire">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="scripts">
+        <sub id="questionnaireDefinition">
+          <sub id="script" style="white-space:pre;">{
+ pages: [
+  {
+   name: &quot;General Information&quot;,
+   elements: [
+    {
+     type: &quot;text&quot;,
+     name: &quot;question_title&quot;,
+     title: &quot;What is the name of the System to be validated?&quot;,
+     isRequired: true
+    },
+    {
+     type: &quot;text&quot;,
+     name: &quot;question_version&quot;,
+     title: &quot;What is the version of the system&#39;s software?&quot;,
+     isRequired: true,
+     inputType: &quot;number&quot;,
+     placeHolder: &quot;Please Enter Numerical Value&quot;
+    },
+	
+    {
+     type: &quot;comment&quot;,
+     name: &quot;question_intended_use&quot;,
+     title: &quot;What is the Intended Use of the system?&quot;,
+     description: &quot;&quot;,
+     isRequired: true,
+     placeHolder: &quot;&quot;
+    }
+   ]
+  },
+  {
+   name: &quot;Project Setup&quot;,
+   elements: [
+  {
+        type: &quot;dropdown&quot;,
+        name: &quot;question_automates_system&quot;,
+        title: &quot;What is the type of the system?&quot;,
+        description: &quot;&quot;,
+        choices: [
+            {
+                value: &quot;Enterprise standalone software system&quot;,
+                text: &quot;Enterprise standalone software system&quot;
+            },
+            {
+                value: &quot;Laboratory benchtop software&quot;,
+                text: &quot;Laboratory benchtop software&quot;
+            },
+            {
+                value: &quot;Equipment software&quot;,
+                text: &quot;Equipment software&quot;
+            },
+            {
+                value: &quot;Spreadsheet&quot;,
+                text: &quot;Spreadsheet&quot;
+            }
+        ]
+    },
+    {
+    type: &quot;dropdown&quot;,
+    name: &quot;question_hosted_system&quot;,
+    title: &quot;Where is the system hosted?&quot;,
+    description: &quot;&quot;,
+    isRequired: true,
+    showTitle: true,
+    choices: [
+        {
+            value: &quot;On-Premise&quot;,
+            text: &quot;On-Premise&quot;
+        },
+        {
+            value: &quot;3rd party data center&quot;,
+            text: &quot;3rd party data center&quot;
+        },
+        {
+            value: &quot;Cloud&quot;,
+            text: &quot;Cloud&quot;
+        }
+    ]
+},
+	{
+     type: &quot;radiogroup&quot;,
+     name: &quot;question_number_of_users&quot;,
+     title: &quot;What will be the estimated number of users?&quot;,
+     isRequired: true,
+     choices: [
+      {
+       value: &quot;1_10&quot;,
+       text: &quot;1-10&quot;
+      },
+      {
+       value: &quot;10_100&quot;,
+       text: &quot;10-100&quot;
+      },
+      {
+       value: &quot;100_more&quot;,
+       text: &quot;More than 100&quot;
+      }
+     ]
+    },
+    {
+    type: &quot;radiogroup&quot;,
+    name: &quot;internal_external&quot;,
+    title: &quot;Internal / External Use&quot;,
+    description:&quot;Select Internal Use for any solution that is only intended to support internal business activities. Select External Use for any external facing solution such as websites and mobile applications, that are intended for use by patients, consumers, Health Care Practitioners.&quot;,
+    isRequired: true,
+    choices: [
+     {
+      value: &quot;Internal Use&quot;,
+      text: &quot;Internal Use&quot;
+     },
+     {
+      value: &quot;External Use&quot;,
+      text: &quot;External Use&quot;
+     }
+    ]
+   },
+    {
+    type: &quot;dropdown&quot;,
+    name: &quot;question_System_GAMP_Categorization&quot;,
+    title: &quot;System GAMP Categorization?&quot;,
+    description: &quot;&quot;,
+    isRequired: true,
+    showTitle: true,
+    choices: [
+        {
+            value: &quot;oob&quot;,
+            text: &quot;OOB (Cat 3)&quot;
+        },
+        {
+            value: &quot;configured&quot;,
+            text: &quot;Configured (Cat 4)&quot;
+        },
+        {
+            value: &quot;custom&quot;,
+            text: &quot;Custom (Cat 5)&quot;
+        },
+    ]
+}
+   ]
+  }
+ ],
+ showCompletedPage: false
+}</sub>
+        </sub>
+        <sub id="actionJsScript">
+          <sub id="script" style="white-space:pre;">var moduleManager = trackerService.getModuleManager();
+var documentsManager = trackerService.getDocumentsManager();
+
+
+var projectId = page.getReference().projectId();
+var project = trackerService.getProjectsService().getProject(projectId);
+var toolChainId = actionContext.pageParameters().get(&quot;toolChainId&quot;).value();
+var toolTitle = surveyData.getAsJsonObject().get(&#39;question_title&#39;).getAsString().trim();
+var systemGAMPCategorization = surveyData.getAsJsonObject().get(&#39;question_System_GAMP_Categorization&#39;).getAsString().trim();
+var escdTitle = toolTitle.replaceAll(&quot;\\p{Punct}&quot;, &quot;_&quot;);
+
+var wiTool = trackerService.createWorkItem(project);
+var typeEnum = trackerService.getDataService().getEnumerationForKey(&quot;WorkItem&quot;, &quot;type&quot;, project.getContextId());
+
+var newToolChain = true;
+if (!toolChainId.equals(&quot;&quot;)) {
+	var wiToolChain = trackerService.getWorkItem(projectId, toolChainId);
+	newToolChain = false;
+} else {
+	var wiToolChain = trackerService.createWorkItem(project);
+	var enumOptTC = typeEnum.wrapOption(&quot;toolchain&quot;);
+	wiToolChain.setType(enumOptTC);
+	wiToolChain.setTitle(toolTitle + &quot;&quot;);
+    wiToolChain.setCustomField(&quot;sysName&quot;, toolTitle + &quot;&quot;);
+    wiToolChain.setCustomField(&quot;systemGAMPCategorization&quot;, systemGAMPCategorization + &quot;&quot;);
+	wiToolChain.save();
+}
+
+// Tool
+var enumOptT = typeEnum.wrapOption(&quot;gxp&quot;);
+var toolSystem= surveyData.getAsJsonObject().get(&#39;question_automates_system&#39;).getAsString().trim();
+var internalExternal= surveyData.getAsJsonObject().get(&#39;internal_external&#39;).getAsString().trim();
+var hostedIn= surveyData.getAsJsonObject().get(&#39;question_hosted_system&#39;).getAsString().trim();
+wiTool.setType(enumOptT);
+wiTool.setTitle(toolTitle);
+wiTool.setCustomField(&quot;sysName&quot;, toolTitle + &quot;&quot;);
+wiTool.setCustomField(&quot;sysType&quot;, toolSystem + &quot;&quot;);
+wiTool.setCustomField(&quot;internalExternalUse&quot;, internalExternal + &quot;&quot;);
+wiTool.setCustomField(&quot;hostedIn&quot;, hostedIn + &quot;&quot;);
+wiTool.setValue(&quot;version&quot;, surveyData.getAsJsonObject().get(&#39;question_version&#39;).getAsString());
+wiTool.setValue(&quot;gxpapp&quot;, &quot;0&quot;);
+wiTool.setEnumerationValue(&quot;gxp_q1&quot;, &quot;No&quot;);
+var intendedUseStatementText = new com.polarion.core.util.types.Text(&quot;text/html&quot;, surveyData.getAsJsonObject().get(&#39;question_intended_use&#39;).getAsString().replaceAll(&quot;\n&quot;, &quot;&lt;br/&gt;&quot;));
+wiTool.setValue(&quot;intendedUseStatement&quot;, intendedUseStatementText);
+
+wiTool.setValue(&quot;questionnaire&quot;, surveyData.toString());
+//wiTool.setEnumerationValue(&quot;userTypes&quot;, surveyData.getAsJsonObject().get(&#39;question_intended_users&#39;).getAsString());
+wiTool.setEnumerationValue(&quot;userQuantity&quot;, surveyData.getAsJsonObject().get(&#39;question_number_of_users&#39;).getAsString());
+
+
+var role = trackerService.getTrackerProject(projectId).getWorkItemLinkRoleEnum().wrapOption(&quot;tool_chain&quot;);
+wiTool.addLinkedItem(wiToolChain, role, null, false);
+wiTool.save();
+
+var newSpaceCreated = false;
+var reusedDocumentsCount = 0;
+// Document Reuse
+/*if (surveyData.getAsJsonObject().get(&#39;question_part_of_production&#39;).getAsBoolean()) {
+	reuseDocument(&quot;21 CFR Part 11 Template&quot;, &quot;Templates&quot;, escdTitle)
+	reusedDocumentsCount = reusedDocumentsCount + 1;
+	newSpaceCreated = true;
+}*/
+
+function reuseDocument(sourceDocumentName, sourceSpaceName, targetSpaceName) {
+	var sourceDocumentLocation = documentsManager.getDocumentLocation(projectId, sourceSpaceName + &quot;/&quot; + sourceDocumentName, null);
+	var projectRootLocation = sourceDocumentLocation.getParentLocation().getParentLocation();
+	var targetLocation = documentsManager.getDocumentLocation(projectId, targetSpaceName + &quot;/&quot; + sourceDocumentName.replace(&quot; Template&quot;, &quot;&quot;), null);
+	var targetRelativeLocation = sourceDocumentLocation.getRelativeLocation(projectRootLocation);
+	var targetRelativeParentLocation = targetLocation.getParentLocation().getRelativeLocation(projectRootLocation);
+	var blankTargetDocument = moduleManager.getModule(project, targetRelativeLocation);
+	var targetDocument = moduleManager.duplicate(blankTargetDocument, project, targetRelativeParentLocation, sourceDocumentName.replace(&quot; Template&quot;, &quot;&quot;), null, null, null, null, null);
+}
+
+// Return info
+var tool = transaction.workItems().getBy().ids(projectId, wiTool.getId());
+var toolChain = transaction.workItems().getBy().ids(projectId, wiToolChain.getId());
+var message = &quot;&quot;;
+if (newToolChain) {
+	message = &quot;&lt;b&gt;Two&lt;/b&gt; new Work Items created and configured: &lt;ul&gt;&lt;li&gt;&quot; + tool.render().withTitle().withLinks().htmlFor().forFrame() + &quot; - GxP - Work Item used for tracking of the system validation process&lt;/li&gt;&lt;li&gt;&quot; + toolChain.render().withTitle().withLinks().htmlFor().forFrame() + &quot; - System Risk -  work item use to track the System Risk Assessment&lt;/li&gt;&lt;/ul&gt;&quot;;
+} else {
+	message = &quot;&lt;b&gt;New Gxp&lt;/b&gt; Work Item created, linked to System Risk &quot; + toolChain.render().withTitle().withLinks().htmlFor().forFrame() + &quot; and configured: &lt;ul&gt;&lt;li&gt;&quot; + tool.render().withTitle().withLinks().htmlFor().forFrame() + &quot; - GxP - Work Item used for tracking of the system validation process&lt;/li&gt;&lt;/ul&gt;&quot;;
+}
+if (newSpaceCreated) {
+	message = message + &quot;&lt;br /&gt;Based on the responses from the questionnaire, there was &lt;b&gt;&quot; + reusedDocumentsCount + &quot;&lt;/b&gt; document(s) with Requirements placed into space &lt;b&gt;&quot; + escdTitle + &quot;&lt;/b&gt; to be processed.&lt;br /&gt;&quot;;
+	message = message + &quot;&lt;small&gt;The new space will be visible in the navigation only after reloading the page (press F5).&lt;/small&gt;&quot;;
+} else {
+	message = message + &quot;&lt;br /&gt;Based on the responses from the questionnaire, no new spaces were created.&lt;br /&gt;&quot;;
+	message = message + &quot;&lt;small&gt;New space is created upon any document reuse.&lt;/small&gt;&quot;;
+}
+message = &quot;&lt;p&gt;&lt;/p&gt;&quot; + actionContext.renderInfo(message);
+otherJS = &quot;document.getElementById(survey.getVariable(&#39;surveyDivId&#39;)).innerHTML = &#39;&quot; + message + &quot;&#39;;&quot;;
+          </sub>
+        </sub>
+      </sub>
+      <sub id="advanced">
+        <sub id="progressBar">
+          <sub id="values">
+            <sub>bottom</sub>
+          </sub>
+        </sub>
+        <sub id="positiveResult;">false</sub>
+        <sub id="additionalHtml">
+          <sub id="script" style="white-space:pre;"></sub>
+        </sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_1"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<span id="polarion-rp-parameters">
+  <sub id="toolChainId" data-label="New System ID" data-type="String"></sub>
+</span>]]>
+    </field>
+    <field id="title">Setup New CSV</field>
+</rich-page>

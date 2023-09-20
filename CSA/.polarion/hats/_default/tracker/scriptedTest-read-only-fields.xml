@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<read-only>
+    <status id="approved">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="in_approval">
+        <field id="@all"/>
+        <field id="-approvals"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="obsolete">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="rejected">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="_default">
+        <field id="version"/>
+    </status>
+
+</read-only>

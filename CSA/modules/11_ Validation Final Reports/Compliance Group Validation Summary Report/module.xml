@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <field id="author">admin</field>
+    <field id="created">2023-07-24 09:08:08.865 -0700</field>
+    <field id="crossReferenceMappingData">SNF/PLR-5519=SNF/SNFW-5834,WaterfallDev/WFD-5847=WaterfallDev/WFD-6034,WaterfallDev/WFD-5848=WaterfallDev/WFD-6035,WaterfallDev/WFD-5845=WaterfallDev/WFD-6032,WaterfallDev/WFD-5846=WaterfallDev/WFD-6033,WaterfallDev/WFD-5849=WaterfallDev/WFD-6036,SNF/PLR-5523=SNF/SNFW-5838,WaterfallDev/WFD-5840=WaterfallDev/WFD-6027,SNF/PLR-5526=SNF/SNFW-5839,WaterfallDev/WFD-5843=WaterfallDev/WFD-6030,SNF/PLR-5520=SNF/SNFW-5835,WaterfallDev/WFD-5844=WaterfallDev/WFD-6031,SNF/PLR-5521=SNF/SNFW-5836,WaterfallDev/WFD-5841=WaterfallDev/WFD-6028,SNF/PLR-5522=SNF/SNFW-5837,WaterfallDev/WFD-5842=WaterfallDev/WFD-6029,WaterfallDev/WFD-5836=WaterfallDev/WFD-6023,WaterfallDev/WFD-5837=WaterfallDev/WFD-6024,WaterfallDev/WFD-5834=WaterfallDev/WFD-6021,WaterfallDev/WFD-5835=WaterfallDev/WFD-6022,WaterfallDev/WFD-5838=WaterfallDev/WFD-6025,WaterfallDev/WFD-5839=WaterfallDev/WFD-6026,SNF/PLR-5538=SNF/SNFW-5852,SNF/PLR-5539=SNF/SNFW-5853,SNF/PLR-5540=SNF/SNFW-5854,SNF/PLR-5541=SNF/SNFW-5855,SNF/PLR-5542=SNF/SNFW-5856,SNF/PLR-5543=SNF/SNFW-5857,SNF/PLR-5544=SNF/SNFW-5858,SNF/PLR-5527=SNF/SNFW-5840,SNF/PLR-5528=SNF/SNFW-5841,SNF/PLR-5529=SNF/SNFW-5842,SNF/SNFW-5737=SNF/SNFW-5859,SNF/SNFW-5738=SNF/SNFW-5850,WaterfallDev/WFD-5858=WaterfallDev/WFD-6045,WaterfallDev/WFD-5859=WaterfallDev/WFD-6046,WaterfallDev/WFD-5856=WaterfallDev/WFD-6043,WaterfallDev/WFD-5857=WaterfallDev/WFD-6044,SNF/PLR-5534=SNF/SNFW-5847,WaterfallDev/WFD-5850=WaterfallDev/WFD-6037,SNF/PLR-5535=SNF/SNFW-5848,WaterfallDev/WFD-5851=WaterfallDev/WFD-6038,SNF/PLR-5536=SNF/SNFW-5849,SNF/PLR-5537=SNF/SNFW-5851,SNF/PLR-5530=SNF/SNFW-5843,WaterfallDev/WFD-5854=WaterfallDev/WFD-6041,SNF/PLR-5531=SNF/SNFW-5844,WaterfallDev/WFD-5855=WaterfallDev/WFD-6042,SNF/PLR-5532=SNF/SNFW-5845,WaterfallDev/WFD-5852=WaterfallDev/WFD-6039,SNF/PLR-5533=SNF/SNFW-5846,WaterfallDev/WFD-5853=WaterfallDev/WFD-6040</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<p id="polarion_4">
+  <span style="font-weight: bold;font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">General Instructions:</span>
+</p><ul id="polarion_5">
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">This template can be used as the Computer System Software Validation / Assurance Report (V/AR) template. </span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">Blue text is sample text. Select the appropriate value or remove.</span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Delete or replace all red text in final version. All text must be black in the final version.</span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Black text is required. These topics must be addressed or indicate “not applicable” with a brief rationale<span style="color: #FF0000;">.</span></span></li>
+</ul><p id="polarion_6">
+  <br/>
+</p><div id="polarion_wiki macro name=page_break|uid=polarion_1" contentEditable="false" data-is-landscape="false"></div><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6021"></h2><p id="polarion_7" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">If the QA environment is released with a report, include only Quality environment deliverables and sections of this document. Use the same report as revision 02 to add Production details. Alternately, QA can be released with a test case that verifies all QA committed deliverables are completed and all testing is ‘Passed’ or ‘Passed with Incident.’</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6022"></h3><p id="polarion_8" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">This Validation / Assurance Report summarizes the overall results for the software assurance qualification of the <span style="color: #0000FF;">&lt;Computer System Name&gt;</span> performed <span style="color: #0000FF;">&lt;by / for / with&gt;</span> <span style="color: #0000FF;">Compliance Group</span>. This project was initiated under <span style="color: #0000FF;">Change Control ####### and </span>Validation / Assurance Plan, <span style="color: #0000FF;">#######</span>, which was created to comply with procedure <span style="color: #0000FF;">XXXXXXX, </span><span style="font-style: italic;color: #0000FF;">Computer Software Assurance</span><span style="color: #0000FF;">.</span></span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6023"></h3><p id="polarion_9" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">This document applies to the <span style="color: #0000FF;">&lt;Computer System Name&gt;, Release X.Y, </span>and summarizes the results of all assurance testing phases in <span style="color: #0000FF;">&lt;the Quality (QA) / the Quality and Production (PROD) environments. </span>This report demonstrates that the system has been built to specifications, is functionally reliable<span style="color: #0000FF;">, performs as needed</span> and is suitable for <span style="color: #0000FF;">&lt;release to build a quality Production (PROD) environment / release to end users.&gt;</span></span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6024"></h3><p id="polarion_10" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">The <span style="color: #0000FF;">&lt;Computer System Name&gt; </span>was deployed to <span style="color: #FF0000;">(use a consistent high-level description of the associated business process(es) or intended use; summarize why.) </span><span style="color: #0000FF;">(e.g. deliver a process for controlled review and approval of quality documentation, including procedures, quality tracking records (Nonconformances and CAPAs) and device-controlled drawings and parts records.) </span>Requirements were approved to define the intended use <span style="color: #0000FF;">&lt;and system functions /, system functions and build parameters.&gt;</span> </span>
+</p><p id="polarion_11" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">These requirements were assessed for their potential to harm patient safety, degrade product quality and / or compromise data integrity per procedure XXXXXSOP, XXXXXXXXXXX, and based on these risks, tested with a corresponding rigor. All test cases were concluded as <span style="color: #0000FF;">&lt;’Passed’ / ‘Passed or ‘Passed with Incident.’&gt; </span>No test cases were concluded with ‘Failed’ status.</span>
+</p><p id="polarion_12" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">A total of <span style="color: #0000FF;">##</span> Deviations were initiated, investigated, resolved and closed. <span style="color: #0000FF;">Of the Deviations, ## occurred in the Quality environment, with the remaining ## in Production. Of the Deviations ##% were classified as Low Risk, ##% as Medium, ##% as High and only ##% as Critical.</span> <span style="color: #0000FF;">Due to the complexity of the system and the amount of testing completed, this number was deemed acceptable,</span> <span style="color: #0000FF;">with no trends noted in their categorization</span>. Taken together, this provides reasonable assurance that the system is functionally reliable and operationally stable.</span>
+</p><p id="polarion_13" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">The Acceptance Criteria, defined in the Validation / Assurance Plan, <span style="color: #0000FF;">#########</span>, established all conditions to be satisfied prior to <span style="color: #0000FF;">&lt;release to Production / release to end users and closure of the validation phase.&gt; </span>These included all testing activities successfully completed <span style="color: #0000FF;">&lt;, and all deviations resolved and closed / all deviations resolved and closed and all lifecycle documentation approved.&gt; </span></span>
+</p><p id="polarion_14" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">This Validation / Assurance Report for the <span style="color: #0000FF;">&lt;Quality environment / Quality and Production environments&gt; </span>demonstrates the acceptance criteria have been successfully met.  <span style="color: #0000FF;">&lt;The &lt;Computer System Name&gt; is now released for Production environment build and testing. The &lt;Computer System Name&gt; is suitable for it intended use and is now released to end users and operational support.&gt;</span></span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6025"></h2><p id="polarion_15" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Include any definitions, abbreviations or acronyms used by the system. It is not necessary to include any terms defined in the XXXX series procedures. These should be unique to the computer system, and not commonly recognized. If no definitions are required, write “Not applicable.”</span>
+</p><p id="polarion_1"></p><table id="polarion_wiki macro name=table;params=bold=1|uid=2" class="polarion-Document-table" style="width: 80%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;">
+  <tbody>
+    <tr>
+      <th style="background-color: #F0F0F0;text-align: left;vertical-align: top;width: 160.156px;height: 20.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Term</span></th>
+      <th style="background-color: #F0F0F0;text-align: left;vertical-align: top;width: 420.031px;height: 20.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Definition</span></th>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;width: 160.156px;height: 19.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">ALM</span></td>
+      <td style="width: 420.031px;height: 19.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Application Lifecycle Management</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;width: 160.156px;height: 19.9844px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">BPO</span></td>
+      <td style="width: 420.031px;height: 19.9844px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Business Process Owner</span></td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6026"></h2><p id="polarion_16" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">In this section provide the validation scope. Include major system components or modules, if data migration is involved and any planned exclusions. If Description not used, delete the column and size the table to 100%.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6027"></h3><div id="polarion_wiki macro name=page_break|uid=polarion_2" contentEditable="false" data-is-landscape="false"></div><table id="polarion_wiki macro name=table;params=width=100%|uid=3" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 148.219px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Deliverable</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 111.172px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Document No</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Version</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 375.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Description</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Supplier Audit Report</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The software supplier was audited by the Compliance Group Supplier Quality organization. Results were found to conform to requirements as documented in the Audit Report.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Compliance Assessment<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The Compliance Assessment determined the system was GxP applicable and is required to comply with global electronic records and electronic signatures regulations. This was the rationale to complete the software validation / assurance.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Overall Risk Assessment<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The Overall Risk Assessment (ORA) determines the potential for a system to impact Patient Safety, Product Quality and Data Integrity. This is then measured against the overall implementation complexity to determine a &lt;Low / Medium / High&gt; system risk rating.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Validation / Assurance Plan (V/AP)<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The V/AP defined the deliverables that would be created and testing that would be conducted to demonstrate software assurance per procedure.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">System Requirements Specification (SRS)<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The SRS defines the computer system’s intended use, the business processes it automates and the functional behavior to satisfy the system, in addition to any regulatory requirements.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">System Requirements Specification (SRS)</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">02</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #FF0000;">Each revision should be accounted for.</span><br/>
+          <span style="color: #0000FF;">The SRS was revised to account for a change to the document approvals process the system would be configured to adhere to.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Configuration Specification (CS) / Design Specification (DS)</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The CS / DS defines the configured parameters to meet Compliance Group’s requirements for approvals workflows.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Functional Risk Assessment<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">The Functional Risk Assessment evaluated system requirements for their potential to harm patient safety, degrade product quality and compromise data integrity. This analysis was used to determine the test assurance level and drive a matched rigor of testing.<br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Data Migration Plan</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Data was migrated from the legacy MasterControl system. All extraction, conversion, migration, testing and sampling activities were governed by this Plan.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Data Migration Report</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Results of the successful data migration are detailed in this report.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Traceability Matrix (TMX)<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The system TMX maps system requirements to assurance testing and demonstrates no gaps in coverage.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">System Description (SYD)</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">A System Description was created to provide an overview of the system, detail associated plans, reports and related procedures.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #FF0000;">QA only</span><br/>
+          Validation / Assurance Report (V/AR)<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">01</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 62.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The V/AR details the qualification and assurance activities to demonstrate the computer system QA environment was built to specifications and functions as intended.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #FF0000;">QA and PROD</span><br/>
+          <span style="color: #0000FF;">Validation / Assurance Report (V/AR)</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">This document</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 104.922px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The V/AR details the qualification and assurance activities to demonstrate the computer system QA environment was built to specifications and functions as intended, that Production has been qualified and the system is suitable for release to end-users.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">System Inventory<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#######</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">08</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 41.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">The Compliance Group computer system inventory was revised to add pertinent details for this computer system.</span><br/>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6028"></h3><p id="polarion_19" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Adapt to the project as needed.</span>
+</p><p id="polarion_20" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">The following procedures that support the use and support of the<span style="color: #0000FF;"> &lt;Computer System Name&gt; </span>system were <span style="color: #0000FF;">&lt;created / revised&gt;.</span></span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=4" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 421.516px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Title / Topic</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 161.234px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Document No.</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 161.25px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Version</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Access and Security</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Archival and Retrieval</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Business Continuity Plan</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Disaster Recovery Plan</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Change Management</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Document Control</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Help Desk / Incident Reporting</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Production Problems</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Retirement</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">System Administration</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Training</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 421.516px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Business Process Standard Operating Procedure(s)</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.234px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 161.25px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6029"></h2><p id="polarion_23" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">All test cases were created based on risk and executed in the intended environment. Executed test cases were subsequently reviewed to assert they met expectations or acceptance criteria and were subsequently post-approved by the <span style="color: #0000FF;">BPO, SO, Validation and Quality</span>.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6030"></h3><table id="polarion_wiki macro name=table;params=width=100%|uid=5" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Execution Status</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">IQ</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">OQ</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Passed</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Passed with Deviation</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Failed</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Not Executed</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6031"></h3><table id="polarion_wiki macro name=table;params=width=100%|uid=6" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Execution Status</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">IQ</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">UAT / PQ</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Passed</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Passed with Deviation</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Failed</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 314.094px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Not Executed</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 214.969px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">#</span> 
+          </div>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6032"></h3><p id="polarion_28" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">If none, delete table and write “none.”</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=7" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 203.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Test Case ID</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 155.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Added / Removed</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 384.375px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Risk / Rationale</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 203.922px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">TS-AGL-OQ-009</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 155.703px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">Removed</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 384.375px;height: 83.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Test case was initially planned to address the widget functionality. However, during test case development, it was determined better suited for inclusion in test case TS-AGL-OQ-002.</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 203.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 155.703px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 384.375px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6033"></h2><p id="polarion_31" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">A total of <span style="color: #0000FF;">##</span> Deviation Reports were initiated during validation / assurance of the <span style="color: #0000FF;">&lt;Computer System Name&gt;</span>. All deviations were investigated, resolved, dispositioned and closed.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6034"></h3><p id="polarion_33" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Organize the classifications from category with the most to category with the least.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=8" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Classification</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Number</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Status</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Description</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Infrastructure</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Test Case</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Requirement</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Documentation incorrectly defined the …</span><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">User</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Configuration</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Design / Code</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Data</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 252.922px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Other</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 111.391px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 123.75px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <br/>
+            
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 252.938px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;"><br/>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6035"></h3><p id="polarion_35" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">Incidents were broken-down by type and risk classification. The main type of risk was <span style="color: #0000FF;">user </span>related, representing <span style="color: #0000FF;">##</span>% of the total. The majority of risk classifications were <span style="color: #0000FF;">&lt;Low / Medium / High / Critical&gt;</span>, representing <span style="color: #0000FF;">##</span>% of the total. <span style="color: #0000FF;">No significant trends were noted in the incident analysis.</span></span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-6036"></h4><p id="polarion_37" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Organize the classifications from category with the most to category with the lease.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=9" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Classification</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Number</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Percent Total</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Infrastructure</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">0</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">0%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Test Case</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">2</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">20%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Requirement</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">1</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">10%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">User</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">4</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">40%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Configuration</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">2</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">20%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Design / Code</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">1</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">10%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Data</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">0</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">0%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"><span style="color: #0000FF;">Other</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">0</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">0%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: right;">
+            <span style="font-weight: bold;">Total</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">10</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">100%</span> 
+          </div>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-6037"></h4><p id="polarion_40" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Organize the classifications from category with the most to category with the least.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=10" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 582.984px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Classification</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 164.016px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Number</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 582.984px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Low<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 164.016px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 582.984px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Medium<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 164.016px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 582.984px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">High<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 164.016px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 582.984px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Critical<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 164.016px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##</span> 
+          </div>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-6038"></h4><table id="polarion_wiki macro name=table;params=width=100%|uid=11" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Environment</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;">Number</span> 
+          </div>
+          </span></th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="font-weight: bold;color: #0000FF;">Percent Total</span> 
+          </div>
+          </span></th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Quality (QA)<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##%</span> 
+          </div>
+          </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 476.609px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Production (PROD)<br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.688px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 133.703px;height: 20.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;"> 
+          <div style="text-align: center;">
+            <span style="color: #0000FF;">##%</span> 
+          </div>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6039"></h2><p id="polarion_44" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">The following items were defined by the <span style="color: #0000FF;">&lt;Computer System Name&gt; </span>Validation / Assurance Plan, <span style="color: #0000FF;">#######</span>, to demonstrate the system is suitable for use.</span>
+</p><p id="polarion_45" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Provide the status of each deliverable.</span>
+</p><p id="polarion_46" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">This Validation / Assurance may be closed with the following conditions are satisfied.</span>
+</p><ul id="polarion_47">
+  <li><span style="font-size: 10pt;font-family: Arial, Helvetica, sans-serif;line-height: 1.5;">All document deliverables to specify the system’s intended use and function have been created and approved.</span></li>
+  <li><span style="font-size: 10pt;font-family: Arial, Helvetica, sans-serif;color: #0000FF;line-height: 1.5;">Data has been successfully migrated to the system.</span></li>
+  <li><span style="font-size: 10pt;font-family: Arial, Helvetica, sans-serif;line-height: 1.5;">All testing has been completed with ‘Passed’ or ‘Passed with Deviation results.</span></li>
+  <li><span style="font-size: 10pt;font-family: Arial, Helvetica, sans-serif;color: #0000FF;line-height: 1.5;">&lt;No deviations were encountered. / All Deviation Reports have been investigated, resolved and closed.&gt;</span></li>
+</ul><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6040"></h2><p id="polarion_48" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">This section is only used when preparing the final version of the report (or initial if QA and PROD).</span>
+</p><p id="polarion_49" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">The <span style="color: #0000FF;">&lt;Computer System Name&gt; </span>validation / assurance was completed per the approved Validation / Assurance Plan, <span style="color: #0000FF;">#######, and as governed under Change Control ######. </span>Comprehensive testing, including unscripted and scripted, installation and functional, were successfully executed with <span style="color: #0000FF;">&lt;’Passed’ / ‘Passed’ or ‘Passed with Deviation’&gt;</span> results. <span style="color: #0000FF;">&lt;## / No&gt; </span>Deviation Reports were initiated, investigated, resolved and closed. <span style="color: #0000FF;">The low risk classification of these deviations and the reduced percentage, ##%, in Production suggest system reliability.</span></span>
+</p><p id="polarion_50" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">With this report all documentation is approved, all testing is successfully concluded, and all deviations are closed. Given these, the <span style="color: #0000FF;">&lt;Computer System Name&gt;</span> is deemed suitable for release.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6041"></h2><p id="polarion_51" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Modify this section if it is for QA or QA and PROD.</span>
+</p><p id="polarion_52" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;">The results of this validation / assurance indicate the <span style="color: #0000FF;">&lt;Computer System Name&gt; </span>meets the specified requirements defined in the Validation / Assurance Plan. This system, as demonstrated by completion and approval of the specified documents and successful execution of the risk-based testing, satisfies requirements, meets intended use and is suitable for <span style="color: #0000FF;">&lt;build of the Production environment /production release&gt;.</span></span>
+</p><p id="polarion_53" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;"><span style="color: #0000FF;">&lt;## / No&gt; </span>Deviations were encountered, investigated, resolved and closed. <span style="color: #0000FF;">These were analyzed with no trends noted. </span>This system has met all specified requirements, is released and placed under change management.</span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6042"></h2><p id="polarion_54" style="margin-left: 0px;">
+  <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">If none, use “Not applicable.”</span>
+</p><div id="polarion_wiki macro name=page_break|uid=polarion_3" contentEditable="false" data-is-landscape="false"></div><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6043"></h2><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6044"></h3><p id="polarion_55" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">XXXXXXX    Compliance Assessment</span>
+</p><p id="polarion_56" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">XXXXXXX    Computer Software Assurance</span>
+</p><p id="polarion_57" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">XXXXXXX    System Requirements Specification</span>
+</p><p id="polarion_58" style="margin-left: 0px;">
+  <span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">XXXXXXX</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-6045"></h3><p id="polarion_59" style="margin-left: 0px;">
+  <span style="font-size: 10pt;line-height: 1.5;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Not applicable. </span>   </span>
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-6046"></h2><div id="polarion_editor_html_block12" class="polarion-dle-wiki-block">
+  <div id="polarion_editor_html_block_content" contentEditable="false"></div><pre id="polarion_editor_html_block_source" class="polarion-dle-wiki-block-source" contentEditable="false">#documentPanel(true &quot;approved&quot;)</pre>
+</div><p id="polarion_60"></p><p id="polarion_61"></p>]]></field>
+    <field id="status">in_draft</field>
+    <field id="structureLinkRole">parent</field>
+    <field id="title">Compliance Group Validation Summary Report</field>
+    <field id="type">validationReport</field>
+    <field id="usesOutlineNumbering">true</field>
+    <field id="version" type="string">1.1</field>
+</module>

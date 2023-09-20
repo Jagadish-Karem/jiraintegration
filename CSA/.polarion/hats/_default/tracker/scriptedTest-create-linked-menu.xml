@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <!-- This is an example. -->
+    <item label="verifies User Requirement" role="verifies" type="userRequirement"/>
+    <item label="verifies Functional Requirement" role="verifies" type="functionalRequirement"/>
+    <item label="verifies Design Requirement" role="refines" type="designRequirement"/>
+</menu>

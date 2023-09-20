@@ -1,0 +1,143 @@
+###############################################################################
+##
+##  description.vm - this velocity script is executed to render the widget extended tooltip
+##
+## 12 Sep 2019   Sagar - GDN     Allow Export to PDF - Tree
+## 12 Sep 2019   Sagar - GDN     Flip Tree nodes (Children - Left and Parent - Right)
+## 07 Oct 2019   Goutham - GDN   Parameter options change for Direction and Flip
+## 31 Oct 2019   JFT             Fixing some typos and plugin versions
+
+<b> This widget has dependency on java plugins (if Export to Excel or PDF is used)</b>
+<ul>
+   <li>com.polarion.gdn.excelexport_2.0.5</li>
+   <li>com.polarion.gdn.pdfexport_1.1.2</li>
+</ul>
+<b>Parameters:</b>
+<ul>
+  <li>
+    <b>Work Items</b> - Filtered list of workitems to reduce the scope for user selection
+  </li>
+  <li>
+    <b>Report Format</b> - Define the output format of the widget
+    <ul>
+      <li>
+        <b>Tree</b> - Display in the Graphical Tree format
+      </li>
+      <li>
+        <b>Table</b> - Display in the Table format
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Tree Size</b> - Report image size for displaying the tree (only in Graphical Tree Format)
+    <ul>
+      <li>
+        <b>Tree Height</b> - Height of the area used for Tree
+      </li>
+      <li>
+        <b>Tree Width</b> - Width of the area used for Tree
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Zoom Location</b> - Zoom Location for zoom centered on location of Root node or Mouse cursor 
+    <ul>
+      <li>
+        <b>Root Node</b> - zooms tree with root node location as center
+      </li>
+      <li>
+        <b>Mouse Cursor</b> - zooms tree with mouse cursor location as center of the area used for Tree
+      </li>
+    </ul>
+  </li>
+  <li>
+    <b>Node Label</b> - Configuration for Node/cell rendering
+    <ul>
+      <li>
+        <b>Tool-tip</b> - Display node with work item type icon. Work Item ID and Title are displayed as tool tip when mouse moved over the node (only in Graphical Tree Format)
+      </li>
+      <li>
+        <b>Workitem ID</b> - Display node with work item type icon along with Work Item ID. For Graphical report, Work Item ID and Title are displayed as tool tip when mouse moved over the node
+      </li>
+      <li>
+        <b>Workitem Title</b> - Display node with work item type icon along with Work Item Title. For Graphical report, Work Item ID and Title are displayed as tool tip when mouse moved over the node
+      </li>
+      <li>
+        <b>Workitem ID - Title</b> -  Display node with work item type icon along with Work Item ID and Title. For Graphical report, Work Item ID and Title are displayed as tool tip when mouse moved over the node
+      </li>
+    </ul>
+    </li>
+    <li>
+      <b>Node Title Truncation (# Characters)</b> - Number of characters displayed for each node title
+    </li>
+    <li>
+        <b>Link Roles</b> - Links roles to consider to find and report linked items. If no link roles is selected linked items with all link roles will be reported. If one more link roles are selected, only work items linked with selected role will be reported
+    </li>
+    <li>
+      <b>Direction</b> - Link direction in which the analysis will be done
+      <ul>
+        <li>
+          <b>Parents (Linked) </b> - Report linked work items
+        </li>
+        <li>
+          <b>Children (BackLinked)</b> - Report backlinked work items
+        </li>
+        <li>
+          <b>Both (Parents & Children)</b> - Generate Report with linked and backlinked work items
+        </li>
+      </ul>
+    </li>
+    <li>
+      <b>Depth of Trace</b> - Integer defining the max depth level for the analysis.  A value up to 20 (20 is the Max level depth of the impact analysis)
+    </li>
+     <li>
+      <b>Tree Node Display</b> - Tree node display, order of tree display from Parents to Children or Children to Parents
+      <ul>
+        <li>
+          <b>Left - Parents, Right - Children</b> - Parents are on left side and Children towards right of the Graph
+        </li>
+        <li>
+          <b>Left - Children, Right - Parents</b> - Chidren are on left side and Parents towards right of the Graph
+        </li>       
+      </ul>
+    </li>
+    <li>
+      <b>User Configuration Parameter</b> - List of parameters to use as form parameters. This will make the listed parameters user configurable directly in the report
+    </li>
+    <li>
+      <b>Enable Auto Complete to search by ID or Title</b> - Enable auto complete on Work Item ID and Work Item Title fields
+    </li>
+    <li>
+      <b>Query to Exclude WorkItems (Lucene)</b> - Lucene query to exclude WorkItem from report (Applied to all Levels)
+    </li>
+    <li>
+      <b>Use a dashed red line for Suspect Links</b> - Suspect links will be drawn with a dashed red line
+    </li>
+    <li>
+      <b>Link Role Colors</b> - Colors that can be used for drawing the graphical links (only in Tree View)
+      <ul>
+        <li>
+          <b>Various Selectable Colors (Blue, Red, Green, etc.) for each role </b> - Select the link roles that will be displayed in the selected color
+        </li>
+        <li>
+          <b>NOTE</b> - Link Roles not selected for any of these three colors will be displayed using default black color
+        </li>
+      </ul>
+    </li>
+    <li>
+      <b>Column Titles</b> - Column title can be specified (only in Table view)
+    </li>
+    <li>
+      <b>Display Legend</b> - Displays legend for workitem icons
+    </li>
+    <li>
+      <b>Allow Export to Excel - Table View </b> - Enables export of report contents (Only in table format) to excel. Has dependency on external java plugin. Only applicable in 'Table' view
+    </li>
+    <li>
+      <b>Allow Export to PDF - Table View </b> - Enables export of report contents (only in table format) to pdf. Has dependency on external java plugin. Only applicable to 'Table' view
+    </li>
+    <li>
+       <b>Allow Export to PDF - Tree View </b> - Enables export of report contents (only in tree format) to pdf. This freature only supports to chrome browser.
+     </li>
+    
+  </ul>

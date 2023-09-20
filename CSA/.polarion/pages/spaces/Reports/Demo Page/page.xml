@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2023-08-03 08:57:28.248 -0700</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width&#58; 100%;">
+  <h1 id="polarion_hardcoded_0">Demo Page</h1>
+  <p id="polarion_hardcoded_1">This Page has no content yet</p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<div class="polarion-rp-column" style="width&#58; 70%;">
+  <p id="polarion_hardcoded_2"></p>
+</div>
+<div class="polarion-rp-column" style="width&#58; 30%;">
+  <p id="polarion_hardcoded_3"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>]]></field>
+    <field id="title">Demo Page</field>
+</rich-page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item-workflow-signature>
+    <field id="signatureState">obsolete</field>
+    <field id="signatures">
+        <list>
+            <struct>
+                <item id="signedBy">jonathanm@complianceg.com</item>
+                <item id="signedRevision">82374</item>
+                <item id="verdict">signed</item>
+                <item id="verdictTime">2023-03-30 14:17:07.450 +0000</item>
+            </struct>
+        </list>
+    </field>
+    <field id="targetStatusId">approved</field>
+    <field id="transitionDataRevision">82374</field>
+</work-item-workflow-signature>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<read-only>
+    <status id="default">
+        <field id="version"/>
+    </status>
+
+    <status id="closed">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="deferred">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="investigating">
+        <field id="description"/>
+    </status>
+
+    <status id="resolving">
+        <field id="description"/>
+        <field id="defectInvestigation"/>
+        <field id="defectCategory"/>
+        <field id="severity"/>
+    </status>
+
+    <status id="verifying">
+        <field id="description"/>
+        <field id="investigation"/>
+        <field id="resolution"/>
+        <field id="plannedTo"/>
+        <field id="defectResolutionType"/>
+        <field id="defectCategory"/>
+        <field id="severity"/>
+        <field id="plannedTo"/>
+    </status>
+
+    <status id="testing">
+        <field id="description"/>
+        <field id="investigation"/>
+        <field id="resolution"/>
+        <field id="plannedTo"/>
+        <field id="defectResolutionType"/>
+        <field id="defectCategory"/>
+        <field id="severity"/>
+        <field id="plannedTo"/>
+    </status>
+
+</read-only>

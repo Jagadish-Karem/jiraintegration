@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="approvals">
+        <list>
+            <struct>
+                <item id="secureApprovalCommentId">5</item>
+                <item id="status">approved</item>
+                <item id="user">aSeller</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">6</item>
+                <item id="status">approved</item>
+                <item id="user">sDeveloper</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">7</item>
+                <item id="status">approved</item>
+                <item id="user">admin</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">8</item>
+                <item id="status">approved</item>
+                <item id="user">cUser</item>
+            </struct>
+        </list>
+    </field>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="changeReason" text-type="text/html" type="text/html">Rerouting</field>
+    <field id="created">2023-03-30 07:14:30.082 -0700</field>
+    <field id="description" text-type="text/html">This test verifies the Risk Assessment work item.</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">verifies</item>
+                <item id="workItem">WFD-5882</item>
+            </struct>
+        </list>
+    </field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">approved</field>
+    <field id="teststeps" type="struct:TestSteps">
+        <struct>
+            <item id="keys">
+                <list>
+                    <item>testStep</item>
+                    <item>description</item>
+                    <item>expectedResult</item>
+                </list>
+            </item>
+            <item id="steps">
+                <list>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">1</item>
+                                <item text-type="text/html">New test step</item>
+                                <item text-type="text/html">New results</item>
+                            </list>
+                        </item>
+                    </struct>
+                </list>
+            </item>
+        </struct>
+    </field>
+    <field id="testtype" type="enum:TestType">functional</field>
+    <field id="title">Document Management view</field>
+    <field id="type">scriptedTest</field>
+    <field id="version" type="string">4.0</field>
+</work-item>

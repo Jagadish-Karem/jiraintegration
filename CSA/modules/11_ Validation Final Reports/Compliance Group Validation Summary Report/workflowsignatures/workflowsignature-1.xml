@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document-workflow-signature>
+    <field id="signatureState">notAvailable</field>
+    <field id="signatures">
+        <list>
+            <struct>
+                <item id="signedBy">cUser</item>
+                <item id="verdict">invited</item>
+            </struct>
+        </list>
+    </field>
+    <field id="targetStatusId">approved</field>
+</document-workflow-signature>

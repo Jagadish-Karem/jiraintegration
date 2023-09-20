@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fields can only be shown once in the form! --><formLayout xmlns="http://polarion.com/schema/WorkItems/FormLayout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://polarion.com/schema/WorkItems/FormLayout">
+
+    <!-- Horizontal layout element, adds components on horizontal row. Each component is in a new column. -->
+    <horizontal>
+        <!-- Vertical layout element adds components into one vertical column. Each component is in a new row. -->
+        <vertical>
+            <section>
+                <field id="project"/>
+                <field id="type"/>
+                <field id="author"/>
+                <field id="assignee"/>
+            </section>
+       </vertical>
+       <vertical>
+           <section>
+                <field id="status"/>
+                <field id="version"/>
+                <field id="systemName"/>
+                <field id="systemVersion"/>
+                <field id="systemGAMPCategory"/>
+            </section>
+        </vertical>
+        <vertical>
+            <section>
+                <field id="gxpApplicability"/>
+                <field id="eresApplicability"/>
+                <field id="patientSafetyImpact"/>
+                <field id="productQualityImpact"/>
+                <field id="dataIntegrityImpact"/>
+            </section>
+        </vertical>
+        <vertical>
+            <section>
+                <field id="systempGAMPCategory"/>
+                <field id="overallRiskRating"/>
+                <field id="nprDate"/>
+                <field id="businessOwner"/>
+                <field id="systemOwner"/>
+            </section>
+         </vertical>
+    </horizontal>
+
+    <field id="description"/>
+    <panel description="GxP Applicability Questionnaire">
+        <field id="gxp_q1"/>
+        <field id="gxp_q2"/>
+        <field id="gxp_q3"/>
+        <field id="gxp_q4"/>
+        <field id="gxp_q5"/>
+        <field id="gxp_q6"/>
+        <field id="gxp_q7"/>
+        <field id="gxp_q8"/>
+        <field id="gxp_q9"/>
+    </panel>
+    <panel description="Electronic Records / Electronic Signatures (21 CFR Part 11 / Annex 11)">
+        <field id="21cfr_q1"/>
+        <field id="21cfr_q2"/>
+        <field id="21cfr_q3"/>
+        <field id="21cfr_q4"/>
+        <field id="21cfr_q5"/>
+    </panel>
+    <panel description="Patient Safety Impact Assessment">
+        <field id="psi_q1"/>
+    </panel>
+    <panel description="Product Quality Impact Assessment">
+        <field id="pqi_q1"/>
+        <field id="pqi_q2"/>
+        <field id="pqi_q3"/>
+        <field id="pqi_q4"/>
+        <field id="pqi_q5"/>
+        <field id="pqi_q6"/>
+        <field id="pqi_q7"/>
+    </panel>
+    <panel description="Data Integrity Impact Assessment">
+        <field id="dii_q1"/>
+        <field id="dii_q2"/>
+        <field id="dii_q3"/>
+    </panel>
+
+    <field id="changeReason"/>
+    <extension id="velocity_form" label="Impact Analysis" script="forms/WaterfallDev_impactAnalysis.vm"/> 
+    <field id="approvals"/>
+    <field id="linkedWorkItems"/>
+    <field id="hyperlinks"/>
+    <field id="attachments"/>
+</formLayout>

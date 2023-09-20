@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">admin</field>
+    <field id="businessOwner" type="enum:@user[project_bpo]">aSeller</field>
+    <field id="changeReason" text-type="text/html" type="text">Initial work item creation.</field>
+    <field id="created">2023-08-04 13:44:55.103 -0700</field>
+    <field id="dataIntegrityImpact" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="eresApplicability" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="gxpApplicability" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="overallRiskRating" type="enum:risk">unanalyzed</field>
+    <field id="patientSafetyImpact" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="priority">50.0</field>
+    <field id="productQualityImpact" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="systemGAMPCategory" type="enum:GAMP">unanalyzed</field>
+    <field id="systemName" type="string">adsf</field>
+    <field id="systemOwner" type="enum:@user[project_so]">sDeveloper</field>
+    <field id="systemVersion" type="string">adsf</field>
+    <field id="title">adsfa</field>
+    <field id="type">complianceAssessment</field>
+    <field id="version" type="string">1</field>
+</work-item>

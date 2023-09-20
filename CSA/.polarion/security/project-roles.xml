@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roles>
+    <role>project_reviewer</role>
+    <role>project_bpo</role>
+    <role>project_so</role>
+    <role>project_qa</role>
+</roles>

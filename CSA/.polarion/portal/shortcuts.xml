@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/App_77-ekg.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Planning Phase" pagePath="wiki/Planning/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/App_96-book.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Requirements Phase" pagePath="wiki/Requirements/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/App_55-network.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Design and Bulid Phase" pagePath="wiki/Design and Bulid/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/Tools_265-download.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Implementation Phase" pagePath="wiki/Implementation/Home" scope="project/Cellectis"/>
+    <shortcut columns="status:90,id:200,title:390,type:90,groupId:150,author:120,created:120,finishedOn:120" icon="/polarion/icons/default/topicIconsSmall/App_91-beaker-2.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Test Runs" pagePath="testruns" scope="project/Cellectis" sorting="~created"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/App_92-test-tube.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Testing" pagePath="wiki/Testing/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/App_171-sun.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Defects" pagePath="wiki/Defects/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/Fancy_196-radiation.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Change Control" pagePath="wiki/Maintenance/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/Math_249-piechart.svg?buildId=20210416-1124-21_R1-3620ef3a" name="Reports" pagePath="wiki/Reports/Home" scope="project/Cellectis"/>
+    <shortcut icon="/polarion/icons/default/topicIconsSmall/Arrows_01-refresh.svg" name="Release Dashboard" pagePath="wiki/Reports/Release Dashboard" scope="project/Cellectis"/>
+</shortcuts>

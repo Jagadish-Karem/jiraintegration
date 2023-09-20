@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">Syed.Hussaini@bd.com</field>
+    <field id="created">2021-08-05 14:19:50.292 +0000</field>
+    <field id="homePageContent" text-type="text/html">
+        <![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">PDF Configuration</h1>
+  <p id="polarion_hardcoded_1">This Page has no content yet</p>
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;export&gt;
+        
+    &lt;pdf marginBottom=&quot;50&quot; marginLeft=&quot;60&quot; marginRight=&quot;60&quot; marginTop=&quot;50&quot;&gt;
+                
+        &lt;header height=&quot;35&quot;&gt;
+            &lt;![CDATA[
+            &lt;table width=&quot;100%&quot; style=&quot;color:rgb(128,128,128); font-size: 9px !important; margin-bottom: 20px;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;30%&quot;&gt;&lt;a href=&quot;https://polarion.plm.automation.siemens.com/&quot;&gt;&lt;img width=&quot;180&quot; height=&quot;29&quot; src=&quot;/polarion/ria/images/logos/siemens/siemens_export_logo.png&quot; alt=&quot;Siemens Industry Software&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+                    &lt;td width=&quot;70%&quot; align=&quot;right&quot;&gt;$[projectName]&lt;br&gt;$[documentTitle] (rev. $[revision])&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;]]&gt;
+                    
+        &lt;/header&gt;
+                
+        &lt;footer height=&quot;25&quot;&gt;
+            &lt;![CDATA[
+            &lt;table width=&quot;100%&quot; style=&quot;border-top:1px solid rgb(128,128,128); color:rgb(128,128,128); font-size: 9px !important;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;20%&quot;&gt;&lt;span style=&quot;color:rgb(0,0,0);&quot;&gt;$[page] |&lt;/span&gt; Page&lt;/td&gt;
+                    &lt;td width=&quot;60%&quot; align=&quot;center&quot;&gt;&lt;a style=&quot;color:rgb(128,128,128); font-size: 8px !important;&quot; href=&quot;https://polarion.plm.automation.siemens.com/&quot;&gt;$[productName] $[productVersion]&lt;/a&gt;&lt;/td&gt;
+                    &lt;td width=&quot;20%&quot; align=&quot;right&quot;&gt;$[generated]&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;]]&gt;
+                    
+        &lt;/footer&gt;
+            
+    &lt;/pdf&gt;
+        
+    &lt;pdf-compare marginBottom=&quot;10&quot; marginLeft=&quot;10&quot; marginRight=&quot;10&quot; marginTop=&quot;10&quot;&gt;
+                
+        &lt;header height=&quot;35&quot;&gt;
+            &lt;![CDATA[
+            &lt;table width=&quot;100%&quot; style=&quot;color:rgb(128,128,128); font-size: 9px !important; margin-bottom: 20px;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;30%&quot;&gt;&lt;a href=&quot;https://polarion.plm.automation.siemens.com/&quot;&gt;&lt;img width=&quot;180&quot; height=&quot;29&quot; src=&quot;/polarion/ria/images/logos/siemens/siemens_export_logo.png&quot; alt=&quot;Siemens Industry Software&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+                    &lt;td width=&quot;70%&quot; align=&quot;right&quot;&gt;$[projectName]&lt;br&gt;$[documentTitle] (compare rev. $[revision1] and $[revision2])&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;]]&gt;
+                    
+        &lt;/header&gt;
+                
+        &lt;footer height=&quot;25&quot;&gt;
+            &lt;![CDATA[
+            &lt;table width=&quot;100%&quot; style=&quot;border-top:1px solid rgb(128,128,128); color:rgb(128,128,128); font-size: 9px !important;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;20%&quot;&gt;&lt;span style=&quot;color:rgb(0,0,0);&quot;&gt;$[page] |&lt;/span&gt; Page&lt;/td&gt;
+                    &lt;td width=&quot;60%&quot; align=&quot;center&quot;&gt;&lt;a style=&quot;color:rgb(128,128,128); font-size: 8px !important;&quot; href=&quot;https://polarion.plm.automation.siemens.com/&quot;&gt;$[productName] $[productVersion]&lt;/a&gt;&lt;/td&gt;
+                    &lt;td width=&quot;20%&quot; align=&quot;right&quot;&gt;$[generated]&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;]]&gt;
+                    
+        &lt;/footer&gt;
+            
+    &lt;/pdf-compare&gt;
+        
+    &lt;pdf-compare-documents marginBottom=&quot;10&quot; marginLeft=&quot;10&quot; marginRight=&quot;10&quot; marginTop=&quot;10&quot;&gt;
+                
+        &lt;header height=&quot;35&quot;&gt;
+            &lt;![CDATA[
+            &lt;table width=&quot;100%&quot; style=&quot;color:rgb(128,128,128); font-size: 9px !important; margin-bottom: 20px;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;30%&quot;&gt;&lt;a href=&quot;https://polarion.plm.automation.siemens.com/&quot;&gt;&lt;img width=&quot;180&quot; height=&quot;29&quot; src=&quot;/polarion/ria/images/logos/siemens/siemens_export_logo.png&quot; alt=&quot;Siemens Industry Software&quot;&gt;&lt;/a&gt;&lt;/td&gt;
+                    &lt;td width=&quot;70%&quot; align=&quot;right&quot;&gt;$[projectName1]&lt;br&gt;$[documentTitle1] rev. $[revision1] compare $[projectName2] $[documentTitle2] rev. $[revision2]&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;]]&gt;
+                    
+        &lt;/header&gt;
+                
+        &lt;footer height=&quot;25&quot;&gt;
+            &lt;![CDATA[
+            &lt;table width=&quot;100%&quot; style=&quot;border-top:1px solid rgb(128,128,128); color:rgb(128,128,128); font-size: 9px !important;&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;20%&quot;&gt;&lt;span style=&quot;color:rgb(0,0,0);&quot;&gt;$[page] |&lt;/span&gt; Page&lt;/td&gt;
+                    &lt;td width=&quot;60%&quot; align=&quot;center&quot;&gt;&lt;a style=&quot;color:rgb(128,128,128); font-size: 8px !important;&quot; href=&quot;https://polarion.plm.automation.siemens.com/&quot;&gt;$[productName] $[productVersion]&lt;/a&gt;&lt;/td&gt;
+                    &lt;td width=&quot;20%&quot; align=&quot;right&quot;&gt;$[generated]&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;]]&gt;
+                    
+        &lt;/footer&gt;
+            
+    &lt;/pdf-compare-documents&gt;
+    
+&lt;/export&gt;
+        </sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 70%;">
+  <p id="polarion_hardcoded_2"></p>
+</div>
+<div class="polarion-rp-column" style="width: 30%;">
+  <p id="polarion_hardcoded_3"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>]]>
+    </field>
+    <field id="title">PDF Configuration</field>
+</rich-page>

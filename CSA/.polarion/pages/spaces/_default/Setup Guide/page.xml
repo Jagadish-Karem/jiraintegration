@@ -1,0 +1,4720 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2016-03-17 13:08:43.159 +0100</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Setup Guide</h1>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 70%;">
+  <div id="polarion_wiki macro name=toc"></div><p id="polarion_client71"></p>
+  <h2 id="polarion_client74">External Dependencies</h2>
+  <h3 id="polarion_client40">Extensions</h3>
+  <p id="polarion_client37">
+    <span style="font-weight: bold;">The following Extensions are already installed as a part of this Computer System Validation (CSV) template.</span>
+  </p>
+  <h4 id="polarion_client17">FMC Work Item Save</h4>
+  <p id="polarion_client15">
+    <span style="font-weight: bold;">This extension is used for calculating and setting the &quot;Tool - Tool Confidence Level&quot; custom field value. <br/>
+      It is preconfigured in the template.</span>
+  </p>
+  <p id="polarion_client27">
+    Additional information and documentation can be found on the <a href="http://extensions.polarion.com/extensions/134-fmc-work-item-save" target="_top" class="descriptionLink">Extension&#39;s Site</a> and in the Extension&#39;s readme file.
+  </p>
+  <p id="polarion_client51">
+    <span style="font-style: italic;">Module description, usage and customization guide:  </span>
+  </p>
+  <ul id="polarion_client57">
+    <li><span style="font-weight: bold;">WorkItemSave </span>- Provides a way to execute scripts before or after saving a Work Item.<span style="font-style: italic;"><br/>
+        </span></li>
+    <ul>
+      <li>Module ID: <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">workItemFactoryInterceptorFactory</span></li>
+      <li>Restrictions: None - Works with all Work Item types.</li>
+      <li>Usage: Loads <span style="font-family: Arial, Helvetica, sans-serif;">scripts </span>stored in<span style="font-style: italic;"> &lt;Polarion Installation&gt;/scripts/workitemsave/</span><span style="font-style: normal;"> based on their file names.</span></li>
+      <ul>
+        <li><span style="font-style: normal;font-family: &#39;Courier New&#39;, Courier, monospace;">projectId-workitemType-pre/post-save.js</span></li>
+        <li><span style="font-style: normal;font-family: &#39;Courier New&#39;, Courier, monospace;">workitemType-pre/post-save.js</span></li>
+        <li><span style="font-style: normal;font-family: &#39;Courier New&#39;, Courier, monospace;">projectId-pre/post-save.js</span></li>
+        <li><span style="font-style: normal;font-family: &#39;Courier New&#39;, Courier, monospace;">pre/post-save.js</span></li>
+      </ul>
+      <li>The CSV template currently uses:</li>
+      <ul>
+        <li>workitemsave\tool-pre-save.js - This script is used to determine the &quot;Tool Confidence Level&quot; of the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+               <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>workitem-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">false</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space: pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> Work Item type.</li>
+      </ul>
+    </ul>
+  </ul>
+  <p id="polarion_client67"></p>
+  <h4 id="polarion_client55">VelocityForm</h4>
+  <p id="polarion_client72">
+    <span style="font-weight: bold;font-style: normal;">This extension allows users to load a Velocity script in the Form Extension. </span>
+  </p>
+  <p id="polarion_client16">
+    <span style="font-weight: normal;font-style: normal;">It is currently preconfigured for <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>toolchain</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span>, <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>tool</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">false</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span>, <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metConfidenceFromUse</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span>, <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metEvaluationOfDevelopment</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span>, <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metValidationOfTool</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span> and <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metDevelopmentWithStandard</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span> Work Item types and is used for the TQK Traceability Table and Advanced Information Form Extension panels.</span>
+  </p>
+  <p id="polarion_client24">
+    <span style="font-weight: normal;font-style: italic;">Module description, usage and customization guide:  </span>
+  </p>
+  <ul id="polarion_client89">
+    <li><span style="font-weight: bold;font-style: normal;">VelocityForm </span><span style="font-style: normal;">- Renders a Script Extension block with a Velocity script from a file as its content</span><span style="font-style: italic;">.<br/>
+        </span></li>
+    <ul>
+      <li><span style="font-style: normal;">Module ID: <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">velocity_form</span></span></li>
+      <li><span style="font-style: normal;">Restrictions: None - Works with all Work Item types.</span></li>
+      <li><span style="font-style: normal;">Usage: Requires an additional <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">script</span> attribute containing the Velocity script file name stored in<span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;"> &lt;Polarion Installation&gt;/scripts/</span></span></li>
+      <ul>
+        <li><span style="font-style: normal;font-family: &#39;Courier New&#39;, Courier, monospace;">&lt;extension id=&quot;velocity_form&quot; label=&quot;Hello World&quot; script=&quot;hello-world.vm”/&gt;</span></li>
+      </ul>
+      <li><span style="font-style: normal;font-family: Arial, Helvetica, sans-serif;">CSV template currently uses<span style="font-style: italic;">:</span></span></li>
+      <ul>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_method_CfU_advancedInformation.vm</span></li>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_method_DwS_advancedInformation.vm</span></li>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_method_EoD_advancedInformation.vm</span></li>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_method_VoT_advancedInformation.vm</span></li>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_tool_advancedInformation.vm</span></li>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_tool_traceability.vm</span></li>
+        <li><span style="font-style: italic;font-family: Arial, Helvetica, sans-serif;">CSV_toolchain_advancedInformation.vm</span></li>
+      </ul>
+    </ul>
+  </ul>
+  <p id="polarion_client79"></p>
+  <h3 id="polarion_client45">Script Functions/Conditions</h3>
+  <p id="polarion_client42">
+    <span style="font-weight: bold;">This template utilizes some externally deployed ScriptFunctions, that assist with CSV processes.</span>
+  </p>
+  <p id="polarion_client8">All scripts are preconfigured in the template.</p>
+  <p id="polarion_client1">
+    <span style="font-weight: normal;font-style: italic;">To deploy custom scripts:</span>
+  </p>
+  <ul id="polarion_client34">
+    <li>Copy all files to the <span style="font-size: 10pt;line-height: 1.5;">&lt;Polarion Installation&gt;/scripts/</span>  folder.</li>
+    <li>Use Workflow (<img src="attachment:administrationGlobal.png" style="width: 16px;height: 16px;" data-lastmodified="2017-01-06T13:38:00.434+01:00"/><span style="font-style: italic;">Administration </span><img src="attachment:black_arrow.png" data-lastmodified="2017-01-06T13:39:36.333+01:00"/> <img src="attachment:workItems.png" data-lastmodified="2017-01-06T13:38:21.715+01:00"/><span style="font-style: italic;">Work Items</span> <img src="attachment:black_arrow.png" data-lastmodified="2017-01-06T13:39:36.333+01:00"/> <img src="attachment:workItems.png" data-lastmodified="2017-01-06T13:38:21.715+01:00"/><span style="font-style: italic;">Workflow</span>) to assign the scripts to Actions.</li>
+  </ul>
+  <p id="polarion_client25">The CSV template currently uses:</p>
+  <ul id="polarion_client53">
+    <li> <span style="font-weight: bold;">CSV_condition_qualificationReport_verified.js</span> - This condition is called when trying to change the status of<span style="font-size: 10pt;line-height: 1.5;"> </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>toolchain</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>tool</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">false</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metConfidenceFromUse</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metEvaluationOfDevelopment</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metValidationOfTool</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;"> or </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metDevelopmentWithStandard</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withBaselineIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withColor">false</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withLinks">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withRevisionIcon">true</sub>
+                         
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withText">true</sub>
+             
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+        </span>
+      </span> to <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>status</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>verified</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span>.</li>
+    <ul>
+      <li>It checks to see if the Qualification Report linked to the Work Item is in the &quot;Verified&quot; state.</li>
+    </ul>
+    <li><span style="font-weight: bold;">CSV_condition_testRun_verified.js</span> - This condition is called when trying to change the status of <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"> </sub>
+          <sub id="type"> </sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metValidationOfTool</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"> </sub>
+            <sub id="textAfter"> </sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span> to <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub>
+          <sub id="type">
+            <sub id="values">
+              <sub>metValidationOfTool</sub>
+            </sub>
+          </sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>status</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>verified</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span>.</li>
+    <ul>
+      <li>It checks to see if the Test Run linked to the Work Item is in the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"> </sub>
+            <sub id="type">
+              <sub id="values">
+                <sub>metValidationOfTool</sub>
+              </sub>
+            </sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>status</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>verified</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"> </sub>
+              <sub id="textAfter"> </sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"> </sub>
+              </sub>
+            </sub>
+          </span>
+        </span> state.</li>
+    </ul>
+    <li><span style="font-weight: bold;">CSV_createBaseline.js</span> - This script is called when changing the <span style="font-size: 10pt;line-height: 1.5;">status of </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>toolchain</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withBaselineIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withColor">false</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withLinks">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withRevisionIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withText">true</sub>
+             
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+           <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>tool</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withBaselineIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withColor">false</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withLinks">false</sub>
+            <sub id="withRevisionIcon">true</sub>
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <sub id="withText">true</sub>
+             
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metConfidenceFromUse</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metEvaluationOfDevelopment</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;">, </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metValidationOfTool</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space: pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;"> or </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>workitem-type</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>metDevelopmentWithStandard</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">false</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"></sub>
+            </sub>
+          </sub>
+        </span>
+      </span><span style="font-size: 10pt;line-height: 1.5;"> to <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"> </sub>
+            <sub id="type"> </sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>status</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>verified</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"> </sub>
+              <sub id="textAfter"> </sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"> </sub>
+              </sub>
+            </sub>
+          </span>
+        </span>.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It automatically creates a Baseline on the current revision.  <br/>
+          (Useful for reviewing the current state of the qualification after verifying the Work Item.) </span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">CSV_method_CfU/DwS/EoD_reuseDocumentScript.js</span> - This script is called when a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>workitem-type</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>metConfidenceFromUse</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withBaselineIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withColor">false</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withLinks">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withRevisionIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withText">true</sub>
+                 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space: pre;"> </sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+          </span>
+        </span>, <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>workitem-type</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>metEvaluationOfDevelopment</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withBaselineIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withColor">false</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withLinks">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withRevisionIcon">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withText">true</sub>
+                 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space: pre;"> </sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+          </span>
+        </span> or <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>workitem-type</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>metDevelopmentWithStandard</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withBaselineIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withColor">false</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withIcon">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withLinks">true</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withRevisionIcon">true</sub>
+                             
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withText">true</sub>
+                 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space: pre;"> </sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+          </span>
+        </span> Work Item is created.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It reuses an existing Report or template to create and link a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>documents/document-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>qualification_documentation</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> Report to the Work Item.</span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">CSV_method_VoT_reuseDocumentScript.js</span> - This script is called when a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>workitem-type</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>metValidationOfTool</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> Work Item is created.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It reuses an existing Report or template to create and link a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>documents/document-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>qualification_documentation</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space: pre;"> </sub>
+                </sub>
+              </sub>
+            </span>
+          </span> Report to the Work Item.</span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It takes an existing <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>documents/document-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>test_case_specification</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> or creates a new one from a template and links it to the Work Item. </span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It creates a <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>testing/testrun-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>manual</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> Test Run configured to execute all <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>workitem-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>testcase</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub>
+                <sub id="textAfter">s</sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> from the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>documents/document-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>test_case_specification</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> Document that are linked to the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>workitem-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>usecase</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub>
+                <sub id="textAfter">s</sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> from the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>documents/document-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>use_case_specification</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space: pre;"> </sub>
+                </sub>
+              </sub>
+            </span>
+          </span> Document that is linked to the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>workitem-type</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>metValidationOfTool</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub>
+                <sub id="textAfter">&#39;s</sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space: pre;"> </sub>
+                </sub>
+              </sub>
+            </span>
+          </span> parent <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+                <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>workitem-type</sub>
+                     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>tool</sub>
+                     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <sub id="withBaselineIcon">true</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <sub id="withColor">false</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <sub id="withIcon">true</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <sub id="withLinks">false</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <sub id="withRevisionIcon">true</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <sub id="withText">true</sub>
+                   
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                         
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space: pre;"> </sub>
+                     
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+            </span>
+          </span> Work Item.</span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">CSV_tool_reuseDocumentScript.js</span> - This script is called when a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>workitem-type</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>tool</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">false</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> Work Item is created.<br/>
+        </span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It reuses an existing Report or template to create and link a new </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+             <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>documents/document-type</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>qualification_documentation</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withIcon">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withLinks">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withRevisionIcon">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withText">true</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space: pre;"> </sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+          </span>
+        </span><span style="font-size: 10pt;line-height: 1.5;"> Report to the Work Item.</span> </li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">It takes an existing </span><span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>documents/document-type</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>use_case_specification</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span><span style="font-size: 10pt;line-height: 1.5;"> or creates a new one from a template and links it to the Work Item.</span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">CSV_toolchain_reuseDocumentScript.js</span> - This script is called when a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>workitem-type</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>toolchain</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">false</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> Work Item is created.<br/>
+        </span></li>
+    <ul>
+      <li>It uses a template to create a new <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+             <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>documents/document-type</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>qualification_documentation</sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withIcon">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withLinks">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withRevisionIcon">true</sub>
+               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <sub id="withText">true</sub>
+               
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                   
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space: pre;"> </sub>
+                 
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </sub>
+            </sub>
+          </span>
+        </span> Report and links it to the Work Item.</li>
+    </ul>
+  </ul>
+  <p id="polarion_client46"></p>
+  <h2 id="polarion_client47">CSV Enumerations</h2>
+  <p id="polarion_client41">
+    <span style="font-weight: bold;">This template uses several custom Enumerations for the Custom Fields of some Work Item types.</span>
+  </p>
+  <p id="polarion_client54">
+    <span style="font-weight: normal;font-style: normal;">All custom Enumerations are preconfigured in the template.</span>
+  </p>
+  <p id="polarion_client102">
+    <span style="font-weight: normal;font-style: italic;">Global custom Enumerations are as follows:</span>
+  </p>
+  <ul id="polarion_client104">
+    <li><span style="font-weight: bold;">RPL </span><span style="font-weight: normal;">- <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">asil-enum.xml</span> - Used to identify the Risk Priority Level.</span></li>
+    <ul>
+      <li><span style="font-weight: normal;">Name: asil</span></li>
+      <li><span style="font-weight: normal;">Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>asil</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>1</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>asil</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>2</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>asil</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>3</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub><sub id="type"></sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>asil</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>4</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span></span></li>
+    </ul>
+    <li><span style="font-weight: bold;">Environment</span> - environment<span style="font-family: &#39;Courier New&#39;, Courier, monospace;">-enum.xml</span> - Used to identify the platform that the software tool&#39;s qualification is executed on.</li>
+    <ul>
+      <li>Name: environment</li>
+      <li> Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>environment</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>linux</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>environment</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>macOS</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>environment</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>windows</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>environment</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>other</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> </li>
+    </ul>
+    <li><span style="font-weight: bold;">Tool Confidence Level</span> - toolconfidencelevel-enum.xml - Used to identify the confidence level of the software tool.</li>
+    <ul>
+      <li>Name: toolconfidencelevel</li>
+      <li> Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>toolconfidencelevel</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>tcl1</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>toolconfidencelevel</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>tcl2</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+          <span class="polarion-rp-widget-parameters" style="display: none;">
+            <sub id="scope"></sub><sub id="type"></sub>
+            <sub id="enum">
+              <sub id="values">
+                <sub>toolconfidencelevel</sub>
+              </sub>
+            </sub>
+            <sub id="enumOpt">
+              <sub id="values">
+                <sub>tcl3</sub>
+              </sub>
+            </sub>
+            <sub id="render">
+              <sub id="renderModelObject">false</sub>
+              <sub id="withBaselineIcon">true</sub>
+              <sub id="withColor">false</sub>
+              <sub id="withIcon">true</sub>
+              <sub id="withLinks">true</sub>
+              <sub id="withRevisionIcon">true</sub>
+              <sub id="withText">true</sub>
+            </sub>
+            <sub id="customization">
+              <sub id="textBefore"></sub><sub id="textAfter"></sub>
+              <sub id="customLinkTarget">
+                <sub id="values">
+                  <sub>_top</sub>
+                </sub>
+              </sub>
+              <sub id="customLink">
+                <sub id="script" style="white-space:pre;"></sub>
+              </sub>
+            </sub>
+          </span>
+        </span><br/>
+        </li>
+    </ul>
+  </ul>
+  <p id="polarion_client100">
+    <span style="font-style: italic;font-size: 10pt;line-height: 1.5;">Type specific Enumerations are:</span>
+  </p>
+  <ul id="polarion_client80">
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">Tool - Tool Error Detection</span> - tool-toolerrordetection-enum.xml - Displays the level of confidence that the target software tool will not malfunction and produce erroneous output and detect that a malfunction has occured if it does.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Name: toolerrordetection</span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>toolerrordetection</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>td1</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>toolerrordetection</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>td2</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>toolerrordetection</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>td3</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span></span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">Tool - Tool Impact</span> - tool-toolimpact-enum.xml - Used to determine the possibility that a malfunction of the software tool can introduce, or fail to detect, errors in the safety-related item it is being used to develop.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Name: toolimpact</span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>toolimpact</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>ti1</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>toolimpact</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>ti2</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span></span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">Tool - Tool Type</span> - tool-tooltype-enum.xml - Identifies the Tool&#39;s type.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Name: tooltype</span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>tooltype</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>standaloneTool</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>tool</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>tooltype</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>toolFunction</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span></span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">Use Case - Subtype</span> - usecase-subtype-enum.xml - Identifies the type of Use Case.</span></li>
+    <ul>
+      <li>Name: <span style="font-size: 10pt;line-height: 1.5;">subtype</span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>usecase</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>subtype</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>general</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>usecase</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>subtype</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>functional</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>usecase</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>subtype</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>technical</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span></span></li>
+    </ul>
+    <li><span style="font-size: 10pt;line-height: 1.5;"><span style="font-weight: bold;">Information - Compliance</span> - information-compliance-enum.xml - States if the Information is valid for use in the Qualification.</span></li>
+    <ul>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Name: compliance</span></li>
+      <li><span style="font-size: 10pt;line-height: 1.5;">Options: <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>information</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>compliance</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>comply</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>information</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>compliance</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>partialy</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span> | <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+            <span class="polarion-rp-widget-parameters" style="display: none;">
+              <sub id="scope"></sub>
+              <sub id="type">
+                <sub id="values">
+                  <sub>information</sub>
+                </sub>
+              </sub>
+              <sub id="enum">
+                <sub id="values">
+                  <sub>compliance</sub>
+                </sub>
+              </sub>
+              <sub id="enumOpt">
+                <sub id="values">
+                  <sub>notComply</sub>
+                </sub>
+              </sub>
+              <sub id="render">
+                <sub id="renderModelObject">false</sub>
+                <sub id="withBaselineIcon">true</sub>
+                <sub id="withColor">false</sub>
+                <sub id="withIcon">true</sub>
+                <sub id="withLinks">true</sub>
+                <sub id="withRevisionIcon">true</sub>
+                <sub id="withText">true</sub>
+              </sub>
+              <sub id="customization">
+                <sub id="textBefore"></sub><sub id="textAfter"></sub>
+                <sub id="customLinkTarget">
+                  <sub id="values">
+                    <sub>_top</sub>
+                  </sub>
+                </sub>
+                <sub id="customLink">
+                  <sub id="script" style="white-space:pre;"></sub>
+                </sub>
+              </sub>
+            </span>
+          </span></span></li>
+    </ul>
+  </ul>
+  <p id="polarion_client76">
+    <span style="font-weight: bold;">To set up a Custom Enumeration:</span>
+  </p>
+  <ul id="polarion_client83">
+    <li><span style="font-weight: normal;">Go to <img src="attachment:administrationGlobal.png" style="width: 16px;height: 16px;" data-lastmodified="2017-01-06T13:38:00.434+01:00"/>Administration: <span style="font-style: italic;">Work Items</span> -&gt; <span style="font-style: italic;">Enumerations</span>.</span></li>
+    <li><span style="font-weight: normal;">At the bottom of the page, click <span style="font-style: italic;">Create new configuration.</span></span></li>
+    <li><span style="font-weight: normal;">Select the <span style="font-style: italic;">Unspecific</span> Work Item Type and <span style="font-style: italic;">Custom</span> Enumeration.</span></li>
+    <li><span style="font-weight: normal;">Enter the name of the new Enumeration and click <span style="font-style: italic;">Next</span><span style="font-style: normal;">.</span></span></li>
+    <li><span style="font-weight: normal;">Fill in Enumeration Options and click <span style="font-style: italic;">Save</span>.</span></li>
+  </ul>
+  <p id="polarion_client108"></p>
+  <p id="polarion_client109">
+    <span style="font-weight: bold;">To edit an Enumeration:</span>
+  </p>
+  <ul id="polarion_client113">
+    <li>Go to <img src="attachment:administrationGlobal.png" style="width: 16px;height: 16px;" data-lastmodified="2017-01-06T13:38:00.434+01:00"/><span style="font-style: italic;">Administration </span><img src="attachment:black_arrow.png" data-lastmodified="2017-01-06T13:39:36.333+01:00"/> <img src="attachment:workItems.png" data-lastmodified="2017-01-06T13:38:21.715+01:00"/><span style="font-style: italic;">Work Items</span> <img src="attachment:black_arrow.png" data-lastmodified="2017-01-06T13:39:36.333+01:00"/> <img src="attachment:workItems.png" data-lastmodified="2017-01-06T13:38:21.715+01:00"/> <span style="font-style: italic;">Enumerations</span>.</li>
+    <li>Click <span style="font-style: italic;">Edit</span> on the selected Enumeration row.</li>
+    <li>Add/Delete/Edit Enumeration Options and click <span style="font-style: italic;">Save</span>.</li>
+  </ul>
+  <p id="polarion_client114"></p>
+  <h2 id="polarion_client77">Migration Steps</h2>
+  <p id="polarion_client49">
+    <span style="font-weight: bold;">Follow the steps below to ensure a smooth and successful migration of the CSV project to another environment.</span>
+  </p>
+  <ol id="polarion_client87">
+    <li>Install Polarion on the target machine.</li>
+    <li>Follow the installation guide located in the <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">INSTALL.txt</span> file in the CSV Template distribution archive. <br/>
+      </li>
+    <ul>
+      <li>If you modified any scripts located in <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">&lt;Source Polarion Installation Folder&gt;\scripts\</span>, use them instead of the default scripts from the CSV Template distribution.</li>
+      <li>If you altered or added any extensions located in <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">&lt;Source Polarion Installation Folder&gt;\polarion\extensions\</span>, use them instead of the default extensions from the CSV Template distribution.</li>
+      <li>If you altered or added any velocity widgets located in <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">&lt;Source Polarion SVN repository&gt;\.polarion\pages\widgets\</span>, use them instead of the default widgets from the CSV Template distribution.</li>
+    </ul>
+    <li>Export the Project folder containing the CSV project files from its SVN repository.</li>
+    <li>Delete all Baselines from <span style="font-size: 10pt;line-height: 1.5;"><span style="font-family: &#39;Courier New&#39;, Courier, monospace;">&lt;Source Polarion SVN repository&gt;\.polarion\tracker\baselines\</span> (Baselines cannot be exported, because they will not match the revisions in the target SVN repository.)</span></li>
+    <li>Import the folder into the new installation&#39;s SVN repository. </li>
+    <li>If you altered the Global configuration of the Polarion installation that housed your CSV project, (found within the export folder at: <span style="font-family: &#39;Courier New&#39;, Courier, monospace;">&lt;Source Polarion SVN repository&gt;\.polarion\</span>),  import it into the new SVN repository. Commit the changes and overwrite the files in the new repository. <br/>
+      </li>
+    <li>Restart the new target Polarion installation.</li>
+  </ol>
+  <p id="polarion_client61"></p><p id="polarion_client7"></p><p id="polarion_client23"></p>
+</div>
+<div class="polarion-rp-column" style="width: 30%;">
+  <p id="polarion_client31"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>]]></field>
+    <field id="title">Setup Guide</field>
+</rich-page>

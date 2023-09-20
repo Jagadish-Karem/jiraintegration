@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option description="Used to express relations between Work Items." id="parent" name="has parent" oppositeName="is parent of" parent="true" sortOrder="1"/>
+    <option default="true" description="A generic relation type, more concrete link should be used where possible" id="relates_to" name="relates to" oppositeName="is related to" sortOrder="2">
+        <rule from="userRequirement, functionalRequirement, designRequirement"/>
+        <rule from="changerequest"/>
+    </option>
+
+    <option id="verifies" name="verifies" oppositeName="is verified by" sortOrder="4">
+        <rule from="scriptedTest" to="userRequirement, functionalRequirement, designRequirement, changerequest"/>
+        <rule from="unscriptedTest" to="userRequirement, functionalRequirement, designRequirement, changerequest"/>
+    </option>
+
+    <option description="Shows a relationship between a defect and test case, or change request and defect." id="triggered_by" name="is triggered by" oppositeName="triggers" parent="true" sortOrder="6">
+        <rule from="defect" to="scriptedTest, unscriptedTest"/>
+        <rule from="changerequest" to="defect"/>
+    </option>
+
+    <option description="Used to mark duplicate Work Items." id="duplicates" name="duplicates" oppositeName="is duplicated by" sortOrder="9">
+        <rule sameType="true"/>
+    </option>
+
+    <option description="Shows a relationship between an assessment and a user requirement" id="assess" name="is assessed by" oppositeName="assesses" parent="true" sortOrder="10">
+        <rule from="userRequirement" to="complianceAssessment"/>
+    </option>
+
+    <option description="Shows a relationship between system-level requirements" id="relies" name="relies on" oppositeName="is relied on by" sortOrder="11">
+        <rule from="userRequirement, functionalRequirement, designRequirement" sameType="true"/>
+    </option>
+
+    <option description="Shows requirements flow down " id="refines" name="refines" oppositeName="is refined by" sortOrder="12">
+        <rule from="functionalRequirement, designRequirement" to="userRequirement"/>
+        <rule from="designRequirement" to="functionalRequirement"/>
+    </option>
+
+</enumeration>

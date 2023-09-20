@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option iconURL="/polarion/icons/default/enums/status_generic.gif" id="in_draft" name="Draft" sortOrder="1"/>
+    <option iconURL="/polarion/icons/default/enums/status_assigned.gif" id="pre_approval" name="Pending Pre-Approval" sortOrder="2"/>
+    <option iconURL="/polarion/icons/default/enums/status_inprogress.gif" id="ready_for_exec" name="Ready for Execution" sortOrder="3"/>
+    <option iconURL="/polarion/icons/default/enums/status_resolved.gif" id="post_approval" name="Pending Post-Approval" sortOrder="4"/>
+    <option iconURL="/polarion/icons/default/enums/status_accepted.gif" id="exec_approved" name="Execution Approved" sortOrder="5"/>
+    <option iconURL="/polarion/icons/default/enums/status_reopened.gif" id="rejected" name="Rejected" sortOrder="6"/>
+    <option iconURL="/polarion/icons/default/enums/status_verifed-rejected.gif" id="obsolete" name="Obsolete" sortOrder="7"/>
+</enumeration>

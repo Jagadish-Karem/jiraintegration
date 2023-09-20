@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="1" name="Category 3 (COTS)" sortOrder="1"/>
+    <option id="2" name="Category 4 (Configured)" sortOrder="2"/>
+    <option id="3" name="Category 5 (Custom)" sortOrder="3"/>
+    <option description="Implementation method has not been analyzed." iconURL="/polarion/icons/default/enums/variation_optional.gif" id="unanalyzed" name="Unanalyzed" sortOrder="4"/>
+</enumeration>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-run>
+    <field id="author">aSeller</field>
+    <field id="created">2023-08-03 04:52:22.467 -0700</field>
+    <field id="records">
+        <list>
+            <struct>
+                <item id="attachments">
+                    <list>
+                        <item>WFD-6064_2-screenshot-20230803-083331.png</item>
+                    </list>
+                </item>
+                <item id="comment" text-type="text/html"><![CDATA[These are my results.<br/>
+ <img src="attachment:WFD-6064_2-screenshot-20230803-083331.png" style="max-width: 650px;"/><br/>
+<span style="font-weight: bold;">Retest comment:</span><br/>
+Updated results.]]></item>
+                <item id="duration">36.0</item>
+                <item id="executed">2023-08-03 08:41:46.877 -0700</item>
+                <item id="executedBy">admin</item>
+                <item id="result">passed</item>
+                <item id="testCase">WFD-6064</item>
+                <item id="testCaseRevision">1136</item>
+            </struct>
+            <struct>
+                <item id="comment" text-type="text/html">Need a defect.</item>
+                <item id="defect">WFD-6067</item>
+                <item id="duration">172.0</item>
+                <item id="executed">2023-08-03 08:45:14.568 -0700</item>
+                <item id="executedBy">admin</item>
+                <item id="result">failed</item>
+                <item id="testCase">WFD-6063</item>
+                <item id="testCaseRevision">1135</item>
+                <item id="testStepResults">
+                    <list>
+                        <struct>
+                            <item id="comment" text-type="text/html">Didn&amp;#39;t see what I should have.</item>
+                            <item id="result">failed</item>
+                        </struct>
+                    </list>
+                </item>
+            </struct>
+        </list>
+    </field>
+    <field id="selectTestCasesBy">manualSelection</field>
+    <field id="status">dry_run</field>
+    <field id="template">dryRun</field>
+    <field id="title">Dry Run</field>
+    <field id="type">dry_run_manual</field>
+    <field id="useReportFromTemplate">true</field>
+</test-run>

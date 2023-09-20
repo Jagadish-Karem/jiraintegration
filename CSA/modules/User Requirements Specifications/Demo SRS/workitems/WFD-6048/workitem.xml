@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="approvals">
+        <list>
+            <struct>
+                <item id="secureApprovalCommentId">5</item>
+                <item id="status">approved</item>
+                <item id="user">aSeller</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">6</item>
+                <item id="status">approved</item>
+                <item id="user">sDeveloper</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">7</item>
+                <item id="status">approved</item>
+                <item id="user">admin</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">8</item>
+                <item id="status">approved</item>
+                <item id="user">cUser</item>
+            </struct>
+        </list>
+    </field>
+    <field id="author">admin</field>
+    <field id="changeReason" text-type="text/plain" type="text">Initial realase</field>
+    <field id="created">2023-08-02 09:15:37.994 -0700</field>
+    <field id="description" text-type="text/html">Polarion shall have the ability to create validation documents.&lt;span id="polarion-comment:1"&gt;&lt;/span&gt;</field>
+    <field id="implementationMethod" type="enum:GAMP">2</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">refines</item>
+                <item id="workItem">WFD-6047</item>
+            </struct>
+        </list>
+    </field>
+    <field id="patientRisk" type="enum:directIndirectNone">3</field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="riskRating" type="enum:risk">high</field>
+    <field id="severity">normal</field>
+    <field id="status">approved</field>
+    <field id="testingType" type="enum:csv_testtype">scripted</field>
+    <field id="type">functionalRequirement</field>
+    <field id="version" type="string">2.0</field>
+</work-item>

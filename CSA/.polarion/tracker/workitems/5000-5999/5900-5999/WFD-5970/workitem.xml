@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="calcRiskRating" type="string">3</field>
+    <field id="changeReason" text-type="text/html" type="text"><![CDATA[<ol style="color: #374151;">
+  <li>The document management system shall automatically assign a unique version number to each document upon creation or modification.<br/>
+  </li>
+  <li>When a user opens a document for editing, the system shall lock the document to prevent simultaneous edits, ensuring version control accuracy.<br/>
+  </li>
+  <li>The system shall display a clear and accessible document history log, documenting all changes made to the document, including the user responsible for the modification, timestamp, and a brief description of the change.<br/>
+  </li>
+  <li>Users with appropriate permissions shall be able to view and download previous versions of a document from the version history log.<br/>
+  </li>
+  <li>The system shall restrict unauthorized users from accessing or altering the version history log, ensuring data integrity and compliance.<br/>
+  </li>
+  <li>The audit trail feature shall capture and record all user interactions related to document management, such as document creation, edits, approvals, and deletions.<br/>
+  </li>
+  <li>The audit trail shall log user actions, including login attempts, successful and failed operations, and system-related events.<br/>
+  </li>
+  <li>The audit trail shall display the date and time of each recorded event in a clear and standardized format (e.g., YYYY-MM-DD HH:MM:SS).<br/>
+  </li>
+  <li>The system shall maintain an unmodifiable audit trail, ensuring that users cannot alter or delete recorded events.<br/>
+  </li>
+  <li>As a compliance officer, I should be able to generate audit reports based on the document history and audit trail data within a specified date range, allowing me to perform thorough compliance audits.<br/>
+  </li>
+  <li>The document management system shall have a robust backup mechanism to safeguard the version history and audit trail data against loss or corruption.<br/>
+  </li>
+  <li>The system shall be capable of storing version history and audit trail data for a minimum period of [organization-defined duration] to meet regulatory requirements.<br/>
+  </li>
+  <li>The system shall display an alert or notification when a document has been modified but not yet approved, allowing relevant stakeholders to take appropriate actions promptly.<br/>
+  </li>
+  <li>The document management system shall comply with relevant data protection regulations to ensure the security and confidentiality of the version history and audit trail data.<br/>
+  </li>
+</ol>]]></field>
+    <field id="created">2023-04-05 11:33:58.270 -0700</field>
+    <field id="description" text-type="text/html">As a regulatory compliance officer at our organization, I want to ensure that our document management system adheres to strict version control and audit trail standards. This will enable us to track changes made to critical documents, maintain compliance with regulatory requirements, and provide a transparent history of document modifications for audits and quality assurance.</field>
+    <field id="implementationMethod" type="enum:GAMP">3</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">refines</item>
+                <item id="workItem">WFD-5969</item>
+            </struct>
+        </list>
+    </field>
+    <field id="patientRisk" type="enum:directIndirectNone">2</field>
+    <field id="previousStatus">in_draft</field>
+    <field id="priority">50.0</field>
+    <field id="riskRating" type="enum:risk">high</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="testingType" type="enum:csv_testtype">scripted</field>
+    <field id="title">Document Version Control and Audit Trail</field>
+    <field id="type">functionalRequirement</field>
+    <field id="version" type="string">1.0</field>
+</work-item>

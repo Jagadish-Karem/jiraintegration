@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="assignee">aSeller</field>
+    <field id="author">aSeller</field>
+    <field id="created">2023-08-03 07:34:06.936 -0700</field>
+    <field id="description" text-type="text/html">This is my description.</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">verifies</item>
+                <item id="workItem">WFD-6061</item>
+            </struct>
+        </list>
+    </field>
+    <field id="pre" text-type="text/html" type="text/html">This is for pre-reqs</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="teststeps" type="struct:TestSteps">
+        <struct>
+            <item id="keys">
+                <list>
+                    <item>testStep</item>
+                    <item>description</item>
+                    <item>expectedResult</item>
+                </list>
+            </item>
+            <item id="steps">
+                <list>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">1</item>
+                                <item text-type="text/html">What are you going to do.</item>
+                                <item text-type="text/html">What are you going to see.</item>
+                            </list>
+                        </item>
+                    </struct>
+                </list>
+            </item>
+        </struct>
+    </field>
+    <field id="title">Test case title</field>
+    <field id="type">scriptedTest</field>
+    <field id="version" type="string">1</field>
+</work-item>

@@ -1,0 +1,236 @@
+###############################################################################
+##
+##  description.vm - this velocity script is executed to render the widget extended tooltip
+##
+
+<b>Parameters:</b>
+<ul>
+	<li>
+		<b>Work Items</b> - Define the workitems parameters.
+		<ul>
+			<li>
+				<b>Scope</b> - Select the target Project or Repository. The current project is selected by default.<br/>
+				(To select a Project or Repository outside the current scope, click on the drop-down box, click "<b>Select</b>" and click on a target in the dialog that appears.)
+			</li>
+			<li>
+				<b>Query Type</b> - Select a query type. (Lucene, Lucene + Velocity, SQL or SQL + Velocity.)
+          <ul><li>
+            Note that if the option "Show Referenced Items" is enabled, only Lucene queries can be used
+          </li></ul>
+			</li>
+			<li>
+				<b>Type</b> - Select the object type. NOTE: Only "Work Item" OR "Document" objects are valid for this widget.
+        <ul>
+          <li>
+            If Type "Workitems" is selected, a query for workitems that will be displayed in the first column can be entered
+          </li>
+          <li>
+            If Type "Documents" is selected, a user dialog will be added to the report to display a list of selectable documents. Workitems contained in this document will be added to the first Column
+          </li>
+        </ul>
+			</li>
+			<li>
+				<b>Query</b> This query will be applied to define which workitems will be shown in the first column
+			</li>
+		</ul>
+	</li>
+	<li>
+		<b>Show Suspect Items Only</b> - Only shows suspect workitems
+	</li>
+	<li>
+		<b>Show Linking/Children (Yes) or Backlinking/Parents (No) Items</b>
+    <ul>
+      <li>
+        <b>Yes</b> - Show linked workitems
+      </li>
+      <li>
+        <b>No</b> - Show backlinked workitems
+      </li>
+    </ul>
+	</li>
+  <li>
+		<b>Show Referenced Items</b> - Apply to First Column - (Polarion 17 and up only)
+    <ul>
+      <li>
+        <b>Yes</b> - Will show any referenced workitems from external project in the current project in the first column (Only works for Velocity type queries). Velocity query will apply on the referenced Item
+      </li>
+      <li>
+        <b>No</b> - Will not show any referenced workitems in the first column
+      </li>
+    </ul>
+	</li>
+  <li>
+		<b>Follow links across projects</b> - Apply to all columns (except first column)
+    <ul>
+      <li>
+        <b>Yes</b> - Show linked workitems if they are not located in the current project
+      </li>
+      <li>
+        <b>No</b> - Only show linked workitems from current projectn
+      </li>
+    </ul>
+	</li>
+  <li>
+		<b>First Column Details</b> - Parameters applying to workitems in first column
+    <ul>
+      <li>
+        <b>Column Title</b> - Define the name of the table column
+      </li>
+      <li>
+        <b>Display Workitem Fields</b>
+        <ul>
+          <li>
+            <b>Yes</b> - Will show a + button in each cell to display selected fields (see option "Workitem fields to display")
+          </li>
+          <li>
+            <b>No</b> - Not showing any fields
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Workitem fields to display</b> - List of selected fields that will be displayed for all workitems in the column
+      </li>
+      <li>
+        <b>Collapse Fields by default</b>
+        <ul>
+          <li>
+            <b>Yes</b> - Fields will be expanded by default
+          </li>
+          <li>
+            <b>No</b> - Fields will be collapsed by default
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Display Links to Resources (Polarion 17 and up only)</b>
+        <ul>
+          <li>
+            <b>Yes</b> - If the Workitem has any links to Resources, they will be displayed in the cell (with: Repository ID, Branch, File name and Location, Ressource name, Line number)
+          </li>
+          <li>
+            <b>No</b> - Linked Resources will not be displayed
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Display Last Test Execution Results</b>
+        <ul>
+          <li>
+            <b>Yes</b> - Last Test Execution Results (from each iteration) will be retrieved and displayed from the last time the test was executed (last Test Run)  - if any.
+          </li>
+          <li>
+            <b>No</b> - Last Test Execution Results will not be displayed
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Display Test Step Results</b>
+        <ul>
+          <li>
+            <b>Yes</b> - The detailed test step results will be displayed
+          </li>
+          <li>
+            <b>No</b> - No detailed Test Step Results displayed
+          </li>
+        </ul>
+      </li>
+    </ul>
+	</li>
+  <li>
+		<b>Additional Column</b> - Parameters applying to each additional column
+    <ul>
+      <li>
+        <b>Column Title</b> - Define the name of the table column
+      </li>
+      <li>
+    		<b>Link Role(s)</b> - OPTIONAL - Displaying workitems linked via the selected link roles to the previous column
+    	</li>
+      <li>
+    		<b>Show Items from different Project only if referenced in current Project</b> - (Polarion 17 and up only) - Setting can be used with the "Workitem Type" parameter for this column
+        <ul>
+          <li>
+            <b>Yes</b> - Will show linked referenced workitem only if they are referenced (used) in the current project (used when "Follow links accross projects" is enabled)
+          </li>
+          <li>
+            <b>No</b> - Will show any linked referenced workitem from any project (used when "Follow links accross projects" is enabled)
+          </li>
+        </ul>
+    	</li>
+      <li>
+    		<b>Workitem Type</b> - OPTIONAL - Displaying workitems, of the selected types, linked to the previous column
+    	</li>
+      <ul>
+        <li>
+          This can be used in collaboration with the "Link Role type(s) parameter for this column
+        </li>
+      </ul>
+      <li>
+        <b>Display Workitem Fields</b>
+        <ul>
+          <li>
+            <b>Yes</b> - Will show a + button in each cell to display selected fields (see option "Workitem fields to display")
+          </li>
+          <li>
+            <b>No</b> - Not showing any fields
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Workitem fields to display</b> - List of selected fields that will be displayed for all workitems in the column
+      </li>
+      <li>
+        <b>Collapse Fields by default</b>
+        <ul>
+          <li>
+            <b>Yes</b> - Fields will be expanded by default
+          </li>
+          <li>
+            <b>No</b> - Fields will be collapsed by default
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Display Links to Resources (Polarion 17 and up only)</b>
+        <ul>
+          <li>
+            <b>Yes</b> - If the Workitem has any links to Resources, they will be displayed in the cell (with: Repository ID, Branch, File name and Location, Ressource name, Line number)
+          </li>
+          <li>
+            <b>No</b> - Linked Resources will not be displayed
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Display Last Test Execution Results</b>
+        <ul>
+          <li>
+            <b>Yes</b> - Last Test Execution Results (from each iteration) will be retrieved and displayed from the last time the test was executed (last Test Run)  - if any.
+          </li>
+          <li>
+            <b>No</b> - Last Test Execution Results will not be displayed
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Display Test Step Results</b>
+        <ul>
+          <li>
+            <b>Yes</b> - The detailed test step results will be displayed
+          </li>
+          <li>
+            <b>No</b> - No detailed Test Step Results displayed
+          </li>
+        </ul>
+      </li>
+    </ul>
+	</li>
+  <li>
+		<b>Background Color Table</b> - Color of the table cells background (any HTML Color values: See https://www.w3schools.com/colors/colors_picker.asp) Eg: red, #FF0000
+	</li>
+  <li>
+		<b>Heading Color Table</b> - Color of the heading cells background (any HTML Color values: See https://www.w3schools.com/colors/colors_picker.asp) Eg: red, #FF0000
+	</li>
+  <li>
+    <b>Table Border</b> - Enables the display of table borders
+  </li>
+</ul>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="created">2023-04-05 11:52:05.080 -0700</field>
+    <field id="description" text-type="text/html">Verify that the defect workflow and calculations are correct per SOP-001.</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">verifies</item>
+                <item id="workItem">WFD-5969</item>
+            </struct>
+        </list>
+    </field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="title">Test System - unscripted</field>
+    <field id="type">unscriptedTest</field>
+    <field id="version" type="string">1.0</field>
+</work-item>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+        
+    <field id="author">jonathanm@complianceg.com</field>
+        
+    <field id="change_approach" type="enum:change_approach">normal</field>
+        
+    <field id="change_risk" type="enum:change_severity">medium</field>
+        
+    <field id="change_summary" text-type="text/html" type="text/html">Update to a functional requirement.</field>
+        
+    <field id="change_type" type="enum:yesNoGlobal">no</field>
+        
+    <field id="created">2023-03-30 15:01:27.866 +0000</field>
+        
+    <field id="priority">50.0</field>
+        
+    <field id="severity">normal</field>
+        
+    <field id="status">in_draft</field>
+        
+    <field id="title">Change to system</field>
+        
+    <field id="type">changerequest</field>
+        
+    <field id="version" type="integer">0</field>
+    
+</work-item>

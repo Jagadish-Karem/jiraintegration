@@ -1,0 +1,36 @@
+<excelImportConfiguration>
+  <sheetName>sheet</sheetName>
+  <startCell>A2</startCell>
+  <tableWithHeader>true</tableWithHeader>
+  <splitValues>true</splitValues>
+  <workItemRules>
+    <workItemRule>
+      <workItemTypeId>test_script_OQ</workItemTypeId>
+      <fieldRules>
+        <fieldRule>
+          <column>Title</column>
+          <field>title</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Description</column>
+          <field>description</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Step Name</column>
+          <field>teststeps.testStep</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Step Instruction</column>
+          <field>teststeps.description</field>
+        </fieldRule>
+        <fieldRule>
+          <column>Expected Result</column>
+          <field>teststeps.expectedResult</field>
+        </fieldRule>
+      </fieldRules>
+      <testStepsImport>
+        <importFromSeparateRows>false</importFromSeparateRows>
+      </testStepsImport>
+    </workItemRule>
+  </workItemRules>
+</excelImportConfiguration>

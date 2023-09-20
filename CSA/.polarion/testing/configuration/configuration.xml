@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsConfiguration>
+      
+    <testCaseTemplate/>
+      
+    <defectToTestCaseLinkRoleId>triggered_by</defectToTestCaseLinkRoleId>
+      
+    <defectWorkItemType>defect</defectWorkItemType>
+      
+    <fieldsToCopyFromTestCaseToDefect>
+            
+        <entry>
+                  
+            <string>categories</string>
+                  
+            <string>categories</string>
+                
+        </entry>
+            
+        <entry>
+                  
+            <string>linkedOslcResources</string>
+                  
+            <string>linkedOslcResources</string>
+                
+        </entry>
+          
+    </fieldsToCopyFromTestCaseToDefect>
+      
+    <fieldsToCopyFromTestRunToLinkedDefect/>
+      
+    <fieldsToCopyFromTestRunToNewDefect>
+            
+        <entry>
+                  
+            <string>groupId</string>
+                  
+            <string>occurredInVersion</string>
+                
+        </entry>
+          
+    </fieldsToCopyFromTestRunToNewDefect>
+      
+    <maxCreatedDefects>200</maxCreatedDefects>
+      
+    <maxCreatedDefectsPercent>90</maxCreatedDefectsPercent>
+      
+    <resultErrorEnumId>blocked</resultErrorEnumId>
+      
+    <resultFailedEnumId>failed</resultFailedEnumId>
+      
+    <resultPassedEnumId>passed</resultPassedEnumId>
+      
+    <summaryDefectSeverity>blocker</summaryDefectSeverity>
+      
+    <testCaseIdCustomField>testCaseID</testCaseIdCustomField>
+      
+    <defectAutoAssignementEnabled>true</defectAutoAssignementEnabled>
+      
+    <retestAllowed>true</retestAllowed>
+      
+    <testCasePlanningQuery>type:(scriptedTest unscriptedTest)</testCasePlanningQuery>
+      
+    <testRunsDeleteEnabled>true</testRunsDeleteEnabled>
+      
+    <testRunsDeleteQuery>type:automated AND finishedOn:[19700101 TO $today-30d$]</testRunsDeleteQuery>
+      
+    <testRunsGeneratedIdEnabled>true</testRunsGeneratedIdEnabled>
+    
+    <defectTemplate/>
+    <defectReuseType>never</defectReuseType>
+</testsConfiguration>

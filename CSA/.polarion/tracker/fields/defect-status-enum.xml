@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option iconURL="/polarion/icons/default/enums/req_status_accepted.gif" id="open" name="Open" sortOrder="1"/>
+    <option iconURL="/polarion/icons/default/enums/req_status_awaiting_review.gif" id="investigating" name="Investigating" sortOrder="2"/>
+    <option iconURL="/polarion/icons/default/enums/req_status_approved.gif" id="resolving" name="Resolving" sortOrder="3"/>
+    <option iconURL="/polarion/icons/default/enums/req_status_implemented.gif" id="testing" name="Testing" sortOrder="4"/>
+    <option iconURL="/polarion/icons/default/enums/req_status_reviewed.gif" id="verifying" name="Verifying" sortOrder="5"/>
+    <option iconURL="/polarion/icons/default/enums/req_status_verified.gif" id="closed" name="Closed" sortOrder="6"/>
+    <option iconURL="/polarion/icons/default/enums/req_status_rejected.gif" id="deferred" name="Deferred" sortOrder="7"/>
+</enumeration>

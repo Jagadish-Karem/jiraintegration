@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <!-- This is an example. -->
+    <item label="verified by Scripted Test Case" role="verifies" type="scriptedTest"/>
+    <item label="verified by Scripted Test Case" role="verifies" type="unscriptedTest"/>
+    <separator/>
+</menu>

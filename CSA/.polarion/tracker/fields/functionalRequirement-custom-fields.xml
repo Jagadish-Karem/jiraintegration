@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field default="unanalyzed" description="Ability of a function to impact patient safety, product quality, or data integrity." id="patientRisk" name="Quality Impact" type="enum:directIndirectNone"/>
+    <field default="unanalyzed" description="GAMP categorization related to how the function will be implemented in the system." id="implementationMethod" name="Implementation Method" type="enum:GAMP"/>
+    <field default="unanalyzed" description="The risk rating associated with the function." id="riskRating" name="Risk Rating" type="enum:risk"/>
+    <field default="unanalyzed" description="The testing type appropriate for this function." id="testingType" name="Testing Type" type="enum:csv_testtype"/>
+</fields>

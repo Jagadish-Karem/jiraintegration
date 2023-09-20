@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <item label="is refined by Design Specification" role="refines" type="designRequirement"/>
+    <separator/>
+    <item label="is verified by Scripted Test Case" role="verifies" type="scriptedTest"/>
+    <item label="is verified by Unscripted Test Case" role="verifies" type="unscriptedTest"/>
+</menu>

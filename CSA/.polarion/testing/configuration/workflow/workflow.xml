@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow initial-action="rework" initial-status="in_draft" prototype="TestRun">
+    <transitions>
+        <transition action="send_for_approval" from="in_draft" to="pre_approval"/>
+        <transition action="mark_obsolete" from="in_draft" to="obsolete"/>
+        <transition action="pre_approve" from="pre_approval" to="ready_for_exec"/>
+        <transition action="reject" from="pre_approval" to="rejected"/>
+        <transition action="new_revision" from="ready_for_exec" to="in_draft"/>
+        <transition action="send_for_approval" from="ready_for_exec" to="post_approval"/>
+        <transition action="post_approve" from="post_approval" to="exec_approved"/>
+        <transition action="reject" from="post_approval" to="rejected"/>
+        <transition action="rework" from="rejected" to="in_draft"/>
+        <transition action="new_revision" from="obsolete" to="in_draft"/>
+        <transition action="mark_obsolete" from="rejected" to="obsolete"/>
+    </transitions>
+    <actions>
+        <action id="rework" name="Rework"/>
+        <action id="new_revision" name="New Revision"/>
+        <action id="reject" name="Reject"/>
+        <action id="pre_approve" name="Pre-Approve"/>
+        <action id="send_for_approval" name="Send for Approval"/>
+        <action id="post_approve" name="Post-Approve"/>
+        <action id="mark_obsolete" name="Mark Obsolete"/>
+    </actions>
+</workflow>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option color="#dd0000" iconURL="/polarion/icons/default/enums/severity_critical.gif" id="high" name="High" sortOrder="1"/>
+    <option color="#330000" iconURL="/polarion/icons/default/enums/severity_normal.gif" id="medium" name="Medium" sortOrder="2"/>
+    <option color="#000000" iconURL="/polarion/icons/default/enums/severity_trivial.gif" id="low" name="Low" sortOrder="3"/>
+    <option iconURL="/polarion/icons/default/enums/variation_optional.gif" id="unanalyzed" name="Unanalyzed" sortOrder="4"/>
+</enumeration>

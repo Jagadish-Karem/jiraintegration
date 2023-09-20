@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="21cfr_q1" type="enum:boolean">yes</field>
+    <field id="21cfr_q2" type="enum:boolean">yes</field>
+    <field id="21cfr_q3" type="enum:boolean">yes</field>
+    <field id="21cfr_q4" type="enum:boolean">yes</field>
+    <field id="21cfr_q5" type="enum:boolean">yes</field>
+    <field id="approvals">
+        <list>
+            <struct>
+                <item id="status">waiting</item>
+                <item id="user">aSeller</item>
+            </struct>
+            <struct>
+                <item id="status">waiting</item>
+                <item id="user">sDeveloper</item>
+            </struct>
+            <struct>
+                <item id="status">waiting</item>
+                <item id="user">admin</item>
+            </struct>
+            <struct>
+                <item id="status">waiting</item>
+                <item id="user">cUser</item>
+            </struct>
+        </list>
+    </field>
+    <field id="author">aSeller</field>
+    <field id="businessOwner" type="enum:@user[project_bpo]">aSeller</field>
+    <field id="changeReason" text-type="text/html" type="text/html">Initial work item creation.</field>
+    <field id="created">2023-08-03 07:08:55.493 -0700</field>
+    <field id="dataIntegrityImpact" type="enum:yesNoUnanalyzed">yes</field>
+    <field id="description" text-type="text/html">This is my system description.</field>
+    <field id="dii_q1" type="enum:boolean">yes</field>
+    <field id="dii_q2" type="enum:boolean">yes</field>
+    <field id="dii_q3" type="enum:boolean">yes</field>
+    <field id="eresApplicability" type="enum:yesNoUnanalyzed">yes</field>
+    <field id="gxpApplicability" type="enum:yesNoUnanalyzed">yes</field>
+    <field id="gxp_q1" type="enum:boolean">yes</field>
+    <field id="gxp_q2" type="enum:boolean">no</field>
+    <field id="gxp_q3" type="enum:boolean">no</field>
+    <field id="gxp_q4" type="enum:boolean">no</field>
+    <field id="gxp_q5" type="enum:boolean">no</field>
+    <field id="gxp_q6" type="enum:boolean">no</field>
+    <field id="gxp_q7" type="enum:boolean">no</field>
+    <field id="gxp_q8" type="enum:boolean">no</field>
+    <field id="gxp_q9" type="enum:boolean">no</field>
+    <field id="overallRiskRating" type="enum:risk">high</field>
+    <field id="patientSafetyImpact" type="enum:yesNoUnanalyzed">yes</field>
+    <field id="pqi_q1" type="enum:boolean">yes</field>
+    <field id="pqi_q2" type="enum:boolean">no</field>
+    <field id="pqi_q3" type="enum:boolean">no</field>
+    <field id="pqi_q4" type="enum:boolean">no</field>
+    <field id="pqi_q5" type="enum:boolean">no</field>
+    <field id="pqi_q6" type="enum:boolean">no</field>
+    <field id="pqi_q7" type="enum:boolean">yes</field>
+    <field id="previousStatus">in_draft</field>
+    <field id="priority">50.0</field>
+    <field id="productQualityImpact" type="enum:yesNoUnanalyzed">yes</field>
+    <field id="psi_q1" type="enum:boolean">yes</field>
+    <field id="severity">normal</field>
+    <field id="status">in_approval</field>
+    <field id="systemGAMPCategory" type="enum:GAMP">2</field>
+    <field id="systemName" type="string">System X</field>
+    <field id="systemOwner" type="enum:@user[project_so]">sDeveloper</field>
+    <field id="systemVersion" type="string">10</field>
+    <field id="title">System X</field>
+    <field id="type">complianceAssessment</field>
+    <field id="version" type="string">1</field>
+</work-item>

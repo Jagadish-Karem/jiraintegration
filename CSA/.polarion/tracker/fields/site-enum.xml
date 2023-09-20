@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="global" name="Global"/>
+    <option id="1" name="Site 1"/>
+    <option id="2" name="Site 2"/>
+</enumeration>

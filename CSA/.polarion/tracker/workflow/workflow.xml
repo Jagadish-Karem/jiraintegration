@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow initial-status="in_draft" prototype="WorkItem">
+    <transitions>
+        <transition action="reject" from="in_approval" to="rejected"/>
+        <transition action="mark_as_obsolete" from="in_draft" to="obsolete"/>
+        <transition action="rework" from="in_approval" to="in_draft"/>
+        <transition action="new_revision" from="approved" to="in_draft"/>
+        <transition action="rework" from="rejected" to="in_draft"/>
+        <transition action="new_revision" from="obsolete" to="in_draft"/>
+        <transition action="send_for_approval" from="in_draft" to="in_approval"/>
+        <transition action="mark_as_obsolete" from="rejected" to="obsolete"/>
+        <transition action="mark_approved" from="in_approval" to="approved"/>
+    </transitions>
+    <actions>
+        <action id="rework" name="Rework">
+            <functions>
+                <function name="AddDefaultApprovals">
+                    <param name="approvals.roles" value="project_bpo,project_so,project_qa"/>
+                </function>
+            </functions>
+        </action>
+        <action id="new_revision" name="New Revision">
+            <cleared>
+                <field name="approvals"/>
+                <field name="changeReason"/>
+            </cleared>
+            <functions>
+                <function name="ScriptFunction">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/funcIncrementVersion.js"/>
+                    <param name="versionFieldID" value="version"/>
+                    <param name="incrementValue" value="1"/>
+                </function>
+            </functions>
+        </action>
+        <action id="reject" name="Reject"/>
+        <action id="send_for_approval" name="Send for Approval"/>
+        <action id="mark_approved" name="Mark Approved"/>
+        <action id="mark_as_obsolete" name="Mark Obsolete"/>
+    </actions>
+</workflow>

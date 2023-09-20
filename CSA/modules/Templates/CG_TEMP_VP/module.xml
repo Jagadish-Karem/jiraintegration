@@ -1,0 +1,1614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="changeReason" text-type="text/plain" type="text">Initial document creation.</field>
+    <field id="created">2023-03-29 09:42:15.603 -0700</field>
+    <field id="crossReferenceMappingData">SNF/PLR-5482=SNF/SNFW-5806,SNF/PLR-5483=SNF/SNFW-5807,SNF/PLR-5480=SNF/SNFW-5804,SNF/PLR-5481=SNF/SNFW-5805,SNF/PLR-5501=SNF/SNFW-5820,SNF/PLR-5502=SNF/SNFW-5821,SNF/PLR-5503=SNF/SNFW-5822,SNF/PLR-5504=SNF/SNFW-5823,SNF/PLR-5486=SNF/SNFW-5808,SNF/PLR-5487=SNF/SNFW-5809,SNF/PLR-5488=SNF/SNFW-5810,SNF/PLR-5489=SNF/SNFW-5811,SNF/PLR-5500=SNF/SNFW-5819,SNF/PLR-5509=SNF/SNFW-5828,SNF/PLR-5505=SNF/SNFW-5824,SNF/PLR-5506=SNF/SNFW-5825,SNF/PLR-5507=SNF/SNFW-5826,SNF/PLR-5508=SNF/SNFW-5827,SNF/PLR-5493=SNF/SNFW-5815,SNF/PLR-5472=SNF/SNFW-5796,SNF/PLR-5494=SNF/SNFW-5816,SNF/PLR-5473=SNF/SNFW-5797,SNF/PLR-5495=SNF/SNFW-5817,SNF/PLR-5474=SNF/SNFW-5798,SNF/PLR-5490=SNF/SNFW-5812,SNF/PLR-5491=SNF/SNFW-5813,SNF/PLR-5492=SNF/SNFW-5814,SNF/PLR-5479=SNF/SNFW-5803,SNF/PLR-5512=SNF/SNFW-5831,SNF/PLR-5513=SNF/SNFW-5832,SNF/PLR-5514=SNF/SNFW-5833,SNF/PLR-5475=SNF/SNFW-5799,SNF/PLR-5476=SNF/SNFW-5800,SNF/PLR-5477=SNF/SNFW-5801,SNF/PLR-5499=SNF/SNFW-5818,SNF/PLR-5510=SNF/SNFW-5829,SNF/PLR-5478=SNF/SNFW-5802,SNF/PLR-5511=SNF/SNFW-5830</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<p id="polarion_7">
+  <span style="font-weight: bold;font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">General Instructions:</span>
+</p><ul id="polarion_8">
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">This template can be used as the Validation / Assurance (V/AP) template. </span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #0000FF;line-height: 1.5;">Blue text is sample text. Select the appropriate value or remove.</span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;color: #FF0000;line-height: 1.5;">Delete or replace all red text in final version. All text must be black in the final version.</span></li>
+  <li><span style="font-size: 10pt;font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;line-height: 1.5;">Black text is required and must be addressed in the template<span style="font-weight: bold;font-style: italic;color: #FF0000;">.</span></span></li>
+</ul><div id="polarion_wiki macro name=page_break|uid=polarion_1" contentEditable="false" data-is-landscape="false"></div><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5796"></h2><p id="polarion_9" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Provide a brief and general statement defining the purpose of the Validation / Assurance Plan, such as a new system implementation, major upgrade, etc.</span>
+</p><p id="polarion_10" style="margin-left: 0px;">
+  This Validation / Assurance Plan (V/AP) describes the overall software assurance and testing activities for the <span style="color: #0000FF;">&lt;Computer System Name&gt;</span>, overall classified as a GAMP5 <span style="color: #0000FF;">&lt;Category 3 - COTS, Category 4 – Configured, Category 5 – Custom&gt;</span> application. Specifically, this V/AP defines the approach for documenting the evidence to demonstrate that this computer system has been installed accurately, operates reliably and is functioning per intended use and <span style="color: #0000FF;">&lt;System Requirements Specification&gt;</span>.
+</p><p id="polarion_11" style="margin-left: 0px;">
+  <span style="color: #0000FF;">Compliance Group</span> procedure <span style="color: #0000FF;">XXXXXXX, </span><span style="font-style: italic;color: #0000FF;">Computer Software Assurance</span>, is the guiding procedure for the creation and execution of the Validation / Assurance Plan.
+</p><p id="polarion_12" style="margin-left: 0px;">This V/AP will:</p><ul id="polarion_13">
+  <li><span style="color: #0000FF;">Define the software assurance strategy to be adopted</span></li>
+  <li>Describe the organization and responsibilities</li>
+  <li>Describe the assurance testing process</li>
+  <li><span style="color: #0000FF;">Describe the structure of the software assurance documentation</span></li>
+  <li>Define the required software assurance documentation deliverables</li>
+</ul><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5797"></h2><p id="polarion_14" style="margin-left: 0px;">
+  <span style="color: #FF0000;">In this section provide the assurance scope. Include major system components or modules if data migration is involved and any planned exclusions.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5798"></h3><p id="polarion_15" style="margin-left: 0px;">In-scope will ensure the system is adequately documented, installed as specified and operating as intended. Specifically, this will include:</p><ul id="polarion_16">
+  <li><span style="color: #0000FF;">Development of system requirements specifications per procedure XXXXXXX</span></li>
+  <li><span style="color: #0000FF;">Development of system build specifications per XXXXXX</span></li>
+  <li><span style="color: #0000FF;">Installation verification (IQ) of the Quality (QA) environment for the database and application</span></li>
+  <li><span style="color: #0000FF;">Functional verification (OQ) of the user application</span></li>
+  <li><span style="color: #0000FF;">Data migration from the legacy system</span></li>
+  <li><span style="color: #0000FF;">Installation verification (IQ) of the Production (PROD) environment</span></li>
+  <li><span style="color: #0000FF;">Performance testing (PQ) of the Production (PROD) environment</span></li>
+</ul><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5799"></h3><p id="polarion_17" style="margin-left: 0px;" data-keep-next="true">The following activities are considered out-of-scope for this software assurance effort.</p><ul id="polarion_18">
+  <li><span style="color: #0000FF;">Infrastructure qualification</span></li>
+  <li><span style="color: #0000FF;">Systems which provide data to this system</span></li>
+  <li><span style="color: #0000FF;">Network qualification</span></li>
+</ul><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5800"></h3><p id="polarion_19" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Provide a high-level overview of the system, including its intended use. Include general information about the basic system functionality, utilization, system name, location, major components, and software categorization. This is basic orienting information to better understand what business processes and records the system manages.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5801"></h4><p id="polarion_20" style="margin-left: 0px;">
+  <span style="color: #0000FF;">Intelex is an enterprise, configurable documentation lifecycle tool. It is intended to be used as the repository for controlled documents, part drawing, Nonconformances and CAPAs. Intelex features fully configurable review and approval workflows. It further allows content to be segregated into vaults with unique permissions to protect sensitive data.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5802"></h4><p id="polarion_21" style="margin-left: 0px;">
+  <span style="color: #FF0000;">A picture is worth 1000 words. Provide something like workflow drawings (simplified) or a records hierarchy with relationships. This is intended to help an auditor or user understand what this system does. If a System Description is created, reference it here rather than repeat the image.</span>
+</p><h4 id="polarion_wiki macro name=module-workitem;params=id=WFD-5803"></h4><p id="polarion_22" style="margin-left: 0px;">This provides a list of major aspects of the system: workflows, modules, database, application, etc.</p><ol id="polarion_23">
+  <li><span style="font-weight: bold;">Component Identification</span></li>
+</ol><table id="polarion_wiki macro name=table;params=width=100%|uid=10" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 253.5px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Module Name</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 217.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Description</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 272.812px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Comments</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 253.5px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Oracle R12</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 217.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Base system name</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 272.812px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Used for authentication and base functions</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 253.5px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">EBS</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 217.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 272.812px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5804"></h3><ol id="polarion_25" class="continue">
+  <li><span style="font-weight: bold;">Component Identification</span></li>
+</ol><table id="polarion_wiki macro name=table;params=width=1005|uid=11" class="polarion-Document-table" style="width: 1005;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 253.5px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Component Name</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 217.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Categorization</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 272.812px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Purpose</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 253.5px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Oracle Database</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 217.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Category 3</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 272.812px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Oracle databases utilized to store configuration settings, system settings and data.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 253.5px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Oracle software</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 217.688px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Category 4</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 272.812px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Configurable software used to create functional workflows</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 253.5px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Crystal Report</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 217.688px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Category 5</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 272.812px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Custom reports designed to meet business requirements</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 253.5px;height: 19.5px;border: 1px solid #CCCCCC;padding: 5px;"><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 217.688px;height: 19.5px;border: 1px solid #CCCCCC;padding: 5px;"><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 272.812px;height: 19.5px;border: 1px solid #CCCCCC;padding: 5px;"><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5805"></h3><p id="polarion_27" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Provide any needed background (corporate strategies, previous studies). Refer to the user requirements if needed. For system previously validated:</span>
+</p><p id="polarion_28" style="margin-left: 0px;">
+  The <span style="color: #0000FF;">&lt;Computer System Name&gt;</span> was assessed as a GxP system per procedure XXXX-SOP<span style="font-style: italic;">, XXXXX</span> <span style="color: #0000FF;">&lt;with / without&gt; </span>electronic records and <span style="color: #0000FF;">&lt;with / without&gt; </span>electronic signatures. The results of this assessment can be found in the <span style="font-style: italic;color: #0000FF;">Compliance Assessment</span>, <span style="color: #0000FF;">XXXXXX</span>.
+</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5806"></h2><p id="polarion_29" style="margin-left: 0px;">The responsibilities listed are the primary responsibilities for the identified roles. This is not intended to be an all-inclusive list, limiting any resource from supporting the validation initiative, as needed. Additional resources or designees may be assigned, as needed.</p><p id="polarion_30" style="margin-left: 0px;">
+  <span style="color: #FF0000;">The BPO, SO, Validation and Quality roles are required. Other roles are optional and may be added as needed.</span>
+</p><div id="polarion_wiki macro name=page_break|uid=polarion_2" contentEditable="false" data-is-landscape="false"></div><ol id="polarion_31" class="continue">
+  <li><span style="font-weight: bold;">Roles and Responsibilities</span></li>
+</ol><table id="polarion_wiki macro name=table;params=width=100%|uid=12" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 198.422px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Role</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 192.891px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Name</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 352.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Responsibilities</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 198.422px;height: 88.3906px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Business Process Owner (BPO)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 192.891px;height: 88.3906px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Name</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 352.688px;height: 88.3906px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <ul>
+          <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">This column may be deleted unless there are unique responsibilities outside or different from XXXX-SOP, XXXXX. If deleted, resize the table to 100%.</span></li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 198.422px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Quality Assurance (QA)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 192.891px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Name</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 352.688px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <ul>
+          <li><br/>
+            </li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 198.422px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Subject Matter Expert (SME)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 192.891px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Names</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 352.688px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <ul>
+          <li><br/>
+            </li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 198.422px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">System Owner (SO)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 192.891px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Name</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 352.688px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <ul>
+          <li><br/>
+            </li>
+        </ul>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 198.422px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Validation</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 192.891px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Name</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 352.688px;height: 46.7969px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <ul>
+          <li><br/>
+            </li>
+        </ul>
+        </td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5807"></h2><p id="polarion_33" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Include any definitions, abbreviations or acronyms used by the system. It is not necessary to include any terms defined in the IT procedures. These should be unique to the computer system, and not commonly recognized. If no definitions are required, write “Not applicable.”</span>
+</p><p id="polarion_53"></p><table id="polarion_wiki macro name=table;params=bold=1|uid=54" class="polarion-Document-table" style="width: 80%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;">
+  <tbody>
+    <tr>
+      <th style="background-color: #F0F0F0;text-align: left;vertical-align: top;width: 160.156px;height: 20.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Term</span></th>
+      <th style="background-color: #F0F0F0;text-align: left;vertical-align: top;width: 420.031px;height: 20.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Definition</span></th>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;width: 160.156px;height: 19.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">ALM</span></td>
+      <td style="width: 420.031px;height: 19.5px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Application Lifecycle Management</span></td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold;width: 160.156px;height: 19.9844px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">BPO</span></td>
+      <td style="width: 420.031px;height: 19.9844px;border: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-left: 1px solid #CCCCCC;padding: 5px;"><span style="font-family: &#39;Segoe UI&#39;, Selawik, &#39;Open Sans&#39;, sans-serif;">Business Process Owner</span></td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5808"></h2><p id="polarion_34" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Define the computer system’s landscape.</span>
+</p><p id="polarion_35" style="margin-left: 0px;">
+  <span style="color: #0000FF;">The computer system’s changes progress through a series of environments during the development and validation processes.  The following environments are used to deploy:  Development, Integration, Quality, Training and Production. Specific development, training and validation activities occur in each environment as defined in the table below. A “Sandbox” environment is leveraged to work out the feasibility of software solutions to business needs.</span>
+</p><div id="polarion_wiki macro name=page_break|uid=polarion_3" contentEditable="false" data-is-landscape="false"></div><table id="polarion_wiki macro name=table;params=width=100%|uid=55" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 129.797px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Environment</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 260.875px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Activities</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 353.328px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Comments</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 129.797px;height: 159.875px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Development</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 260.875px;height: 159.875px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Supports the creation and integration of new and revised functionality.</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 353.328px;height: 159.875px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">This is not a controlled environment. Once changes are made here and developer tested for proper functionality, changes are moved to Quality for formal testing activities. </span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">This system does not have a Quality environment. After developer testing is complete, DEV will be locked from further changes, managed as a Quality environment for testing purposes, and upon successful completion, demoted back to a Development environment.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 129.797px;height: 219.828px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Quality</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 260.875px;height: 219.828px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Support validation testing activities such as executing Installation Qualification (IQ), Operational Qualification (OQ)</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Equivalent to the Production environment in terms of configuration and functionality</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Representative data is sufficient to support the use of the environment for qualification testing</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">This environment is required to be qualified and is placed under change control after go-live.</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 353.328px;height: 219.828px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Configuration is &lt;moved / keyed / installed&gt; to the Quality environment after the design is accepted by stakeholders and the governing Change Control is approved for QA.</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Configuration changes may be made to the QA environment, provided an impact on requirements and testing has been evaluated. </span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Code shall be setup/migrated using appropriate test cases. QA is a controlled environment and objective evidence of configuration shall be captured by means of formal test cases, forms and/or defect resolution, following a risk-based approach.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 129.797px;height: 239.812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Production </span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 260.875px;height: 239.812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">The Production (PROD) environment is the end-user application, released for business use upon completion of all activities defined in this plan.</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">This environment is required to be qualified and is placed under change control after go-live.</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 353.328px;height: 239.812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Configuration changes are &lt;moved / keyed / installed&gt; to Production environment after all test cases executed in the Quality environment are passed and closed. </span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">No configuration changes are made to the Production environment, except for those configurations that are environment specific, unless an assessment of requirements and testing has been completed and stakeholders have approved the change.</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">PROD is a controlled environment and risk-based objective evidence of changes related to the Release shall be captured by means of formal test cases, forms and/or deviation resolutions.</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5809"></h2><p id="polarion_38" style="margin-left: 0px;">
+  The activities defined in this V/AP are intended to provide the objective evidence necessary to ensure that the <span style="color: #0000FF;">&lt;Computer System Name&gt;</span> is correctly installed in the <span style="color: #0000FF;">QA and </span>PROD environments and meets its intended use. Testing approaches are determined by procedure <span style="color: #0000FF;">XXXXX-SOP, </span><span style="font-style: italic;color: #0000FF;">Computer Software Assurance</span><span style="color: #0000FF;"> and XXXXX-SOP, </span><span style="font-style: italic;color: #0000FF;">Computer Software Assurance Risk Assessment / Test Assurance</span>. The sequence of qualification activities is defined below.
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5810"></h3><p id="polarion_39" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This text may be revised as appropriate. Merge the IQ and OQ sections together if an IOQ is planned. The same rule applies to Appendices.</span>
+</p><p id="polarion_40" style="margin-left: 0px;">
+  Installation Qualification (IQ) of the Quality (QA) environment shall be conducted to ensure the Quality environment is installed and configured per the design specifications for the system. <span style="color: #0000FF;">The Installation Qualification tests that shall be performed are defined in the Appendix A of this V/AP.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5811"></h3><p id="polarion_41" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This text may be revised as appropriate. Merge the IQ and OQ sections together if an IOQ is planned. The same rule applies to Appendices.</span>
+</p><p id="polarion_42" style="margin-left: 0px;">
+  Once the installation of the Quality (QA) environment has been successfully verified and test cases approved, the Operation Qualification (OQ) may commence. <span style="color: #0000FF;">The Operation Qualification tests that shall be performed are defined in the Appendix B of this V/AP.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5812"></h3><p id="polarion_43" style="margin-left: 0px;">
+  <span style="color: #FF0000;">To release QA approve an initial version of the Validation / Assurance Report (V/AR).. In lieu of an initial report for QA, a test case may be used to verify everything committed to be completed prior to advancing to PROD is complete. This text may be revised as appropriate</span>
+</p><p id="polarion_44" style="margin-left: 0px;">
+  <span style="color: #0000FF;">Upon completion of the IQ and OQ in the Quality (QA) environment and approvals of OQ test cases, a release test case will be executed to inventory the completed deliverables, with testing reports, against the requirements defined in the Validation / Assurance Plan (V/AP) for the QA environment, including the outcome of the Installation and Operation testing and approved documentation. As this test case summarizes all activities in the QA environment, it is considered equivalent to a written report.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5813"></h3><p id="polarion_45" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This text may be revised as appropriate.</span>
+</p><p id="polarion_46" style="margin-left: 0px;">
+  IQ of the Production environment shall be conducted to ensure the Production environment is installed and configured per the design specifications for the system and that the Production environment is equivalent to the qualified Quality environment. <span style="color: #0000FF;">The Production Installation Qualification tests that shall be performed are defined in the Appendix C of this VQP.</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5814"></h3><p id="polarion_47" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This text may be revised as appropriate.</span> <span style="color: #FF0000;">Consider stress or performance testing as a PQ, as needed.</span>
+</p><p id="polarion_48" style="margin-left: 0px;">
+  Upon successful completion of the IQs in the Production environment, PQ testing may commence. The Performance Qualification tests that will be executed are defined in the associated <span style="color: #0000FF;">Change Control or Validation / Assurance Plan (V/AP). </span>&lt;<span style="color: #0000FF;">Given that the OQ testing includes end-to-end business scenarios, traditional PQ user testing may not be performed. Testing in Production may be limited to the system response times to perform system performance baselines on common user activities. /The Performance Qualification tests that shall be performed are defined in the Appendix D of this V/AP.&gt;</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5815"></h3><p id="polarion_49" style="margin-left: 0px;" data-keep-next="true">
+  <span style="color: #FF0000;">This text may be revised as appropriate.</span>
+</p><p id="polarion_50" style="margin-left: 0px;" data-keep-next="true">Upon successful approval of all documentation and completion of all testing, a Validation / Assurance Report (V/AR) shall be issued to summarize the close of the V/AP. Approval of the report shall provide authorization to close the Validation / Assurance Plan (V/AP).</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5816"></h2><p id="polarion_51" style="margin-left: 0px;">
+  <span style="color: #FF0000;">The following table is instructional and includes considerations for cloud versus on premise systems.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=1" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">On-premise</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Comments</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: left;vertical-align: top;width: 750px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-weight: bold;font-style: italic;font-size: 10pt;color: #FF0000;line-height: 1.5;">Validation Documentation</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">User Requirements</span><br/>
+        
+        <ul>
+          <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Include ERES</span></li>
+        </ul>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Include data integrity, ERES requirements</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Supplier Audit</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">On-premise - reduce testing burden</span><br/>
+        <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud  - critical deliverable</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Service Level Agreement (SLA)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Include availability and quality metrics requirements</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">GCompliance Applicability</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Document required for both</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Validation Plan</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - define each company’s responsibilities</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Functional Requirements</span><br/>
+        
+        <ul>
+          <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Include ERES</span></li>
+        </ul>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 66.7812px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - supplier needs to provide and maintain</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Configuration / Design Specification</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - supplier needs to provide and maintain and must be aligned to client’s unique details (not a generic spec)</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Risk Assessment</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - supplier should work with client to determine critical and high risk functionality and maintain the risk assessment</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 108.375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Development</span><br/>
+        
+        <ul>
+          <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Code reviews</span></li>
+          <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Unit testing</span></li>
+          <li><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">UAT testing</span></li>
+        </ul>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 108.375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 108.375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 108.375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - supplier performed. Process reviewed in Supplier Audit. Deliverables for client not required.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Minimum Environments</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">DEV</span> 
+        </div>
+        
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">QA/TEST</span> 
+        </div>
+        
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">PROD</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">PROD</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - supplier may use a refresh of lower environments for client, but not required to maintain multiple environments. Client needs to verify their instance is segregated physically or logically from other clients.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Installation Qualification</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - performed by vendor</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Operation / Functional Qualification</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud - performed by Vendor</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">End-user/PQ Acceptance Testing</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Sometimes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – critical testing activity to ensure the provided solution meets client business needs and compliance requirements.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Testing Defects</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – for PROD environment only.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Traceability Matrix</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – maintained by vendor</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Validation Report</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – outlines what is managed and maintained by vendor per SLA</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: left;vertical-align: top;width: 750px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-weight: bold;font-style: italic;font-size: 10pt;color: #FF0000;line-height: 1.5;">Procedures</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Access &amp; Security</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Required for both, but confirm who creates accounts</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Archival/Retrieval</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">If applicable</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Backup / Restore</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – must provide backup plan and restore evidence</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Business Continuity/Disaster Recovery</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – provide plan approach</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Change Management/Control</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – high-level for system change history, ensure changes are approved by the client, change schedule and priorities are driven client, acceptance criteria defined by client</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Document Control</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Shared responsibility based on ownership of deliverables</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Operation Support Manual</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – vendor-defined process</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Periodic Review</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">On-premise - follows company cycle and process</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">NCR / CAPA</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – support investigations and corrections (if applicable)</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 256.578px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Problem Supporting</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 113.906px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">No</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 256.609px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #FF0000;line-height: 1.5;">Cloud – provide a means of reporting issues</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5817"></h3><p id="polarion_54" style="margin-left: 0px;">The following is a list of required responses for applicability of validation deliverables.</p><ul id="polarion_4">
+  <li><span style="font-weight: bold;">Yes </span>– Indicates the deliverable is required; requirement may be satisfied by creation of a new document or revision of an existing</li>
+  <li><span style="font-weight: bold;">No </span>– Indicates the deliverable is not required; the comments column must provide the rationale for not including</li>
+  <li><span style="font-weight: bold;">N/A</span> – Indicate a deliverable is not applicable or will be satisfied by an alternate mechanism; use comments to provide any details or rationale</li>
+</ul><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5818"></h3><p id="polarion_55" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Describe the activities performed.</span>
+</p><p id="polarion_56" style="margin-left: 0px;">
+  <span style="color: #0000FF;">A Supplier Audit was performed. The outcome and conclusion of the evaluation has been documented as successful and is used as an input to the validation strategy. Any relevant information from the supplier explaining the design, installation, use or maintenance will be factored into the validation. Any known software issues have been evaluated and are accounted for in the validation approach.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=2" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 148.219px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 111.172px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Reference</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Applicability</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 375.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Procedure / Rationale </span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Supplier Audit Report</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Supplier Name&gt; was found to satisfy the company Supplier Audit process.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXXXXXXX</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5819"></h3><table id="polarion_wiki macro name=table;params=width=100%|uid=3" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 148.219px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 111.172px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Reference</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Applicability</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 375.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Procedure / Rationale /Approval</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Compliance Assessment</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Computer System Name&gt;</span><span style="font-size: 10pt;line-height: 1.5;"> was determined to be a GxP system with Electronic Records and Electronic Signatures applicable.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;line-height: 1.5;"> </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 148.219px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Overall Risk Assessment (ORA)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 111.172px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Computer System Name&gt;</span><span style="font-size: 10pt;line-height: 1.5;"> was determined to be a &lt;Low / Medium / High&gt; risk system with based on patient safety, product quality and data integrity impact measured against overall.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;line-height: 1.5;"> </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5820"></h3><table id="polarion_wiki macro name=table;params=width=100%|uid=4" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 153.703px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Reference</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Applicability</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 375.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Procedure / Rationale /Approval</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 153.703px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">System Requirements Specification (SRS)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">The SRS defined both the business needs and expectations, along with the functional requirements defined in detail that will be used, configured or designed to satisfy those business needs and expectations for the &lt;Computer System Name&gt;.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 153.703px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Configuration / Design Specification (CS / DS)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 99.9219px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">The configuration specification document unique configuration parameters for the &lt;Computer System Name&gt;.</span><br/>
+        <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">The design specification document custom coded functions of the &lt;Computer System Name&gt;.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 153.703px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Code Reviews</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">N/A</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Custom code is reviewed for conformance to good coding practices and for the ability to meet the custom functions.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5821"></h3><table id="polarion_wiki macro name=table;params=width=100%|uid=5" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 153.703px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Reference</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Applicability</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 375.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Procedure / Rationale /Approval</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 153.703px;height: 139.891px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Risk Assessment</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 139.891px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 139.891px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 139.891px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">A Computer Software Assurance Risk Assessment is executed against the system’s functions. It examines a requirement’s potential to impact patient safety, product quality and data integrity. This is then compared to the function’s complexity (out-of-the-box, configured or custom) to determine the test assurance level.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;line-height: 1.5;"> </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX/ XXXXXXX</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5822"></h3><p id="polarion_65" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Define the test strategy and the extent of the qualification based on the Test Assurance level from the Risk Assessment. Include any Disaster Recovery or Business Continuity as needed.</span>
+</p><p id="polarion_66" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Minimally, qualification testing must be developed to ensure all requirements are covered. A review of requirements and the associated test case should be performed prior to entering the qualification phase to address any gaps before formal testing is initiated.</span>
+</p><p id="polarion_67" style="margin-left: 0px;">
+  The <span style="color: #0000FF;">IQ / IOQ / OQ OPQ / PQ </span>test cases, including acceptance criteria will demonstrate that the software and its environment is installed and operating in compliance with requirements and the requirements documents and specifications.
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=6" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 180.125px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 124.016px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Applicability</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 439.859px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Procedure / Rationale </span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Protocol 1</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">IQ testing in the Quality environment confirms the system is installed and configured per specifications.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Protocol 2</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes/No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">IQ testing in the Quality environment confirms the system is installed and configured per specifications.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Quality Operation Test Cases</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">OQ testing in the Quality environment confirms functional behaviors operate as expected to satisfy the business needs.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Quality Operation Test Cases</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">OQ testing in the Quality environment confirms functional behaviors operate as expected to satisfy the business needs.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Production Installation Test Cases</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">IQ testing in the Production environment confirms the system is installed and configured per specifications.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Production Performance Test Cases</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">PQ testing in the Production environment confirms the system is performing as expected.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 180.125px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="color: #3333FF;"><span style="font-size: 10pt;line-height: 1.5;">Deviation Reports</span><br/>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 124.016px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="color: #3333FF;"> 
+          <div style="text-align: center;">
+            <span style="font-size: 10pt;line-height: 1.5;">Yes</span> 
+          </div>
+          </span></td>
+      <td style="text-align: left;vertical-align: top;width: 439.859px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="color: #3333FF;"><span style="font-size: 10pt;line-height: 1.5;">Any issues that occur during validation and qualification activities must be investigated and resolved.</span><br/>
+          <span style="font-weight: bold;font-size: 10pt;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;line-height: 1.5;"> XXXXXXX / XXXXXXX</span><br/>
+          </span></td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5823"></h3><p id="polarion_70" style="margin-left: 0px;">
+  <span style="color: #FF0000;">A Validation / Assurance Report will be created to describe the results of the validation activities, including deviations from the Validation / Assurance Plan and a decision if the system can be used for production purposes. The system may not be put in production service before the Validation / Assurance Report or an alternate release mechanism is approved.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=7" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 153.703px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Deliverable</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Reference</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 105.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Applicability</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 375.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Procedure / Rationale </span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 153.703px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Traceability Matrix</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">The Traceability Matrix maps requirements to testing to demonstrate full coverage.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;line-height: 1.5;"> </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 153.703px;height: 179.859px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">Validation / Assurance Report (V/AR)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 179.859px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 105.688px;height: 179.859px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Yes</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 375.922px;height: 179.859px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;line-height: 1.5;">The Validation Report summarizes all the validation phases and deliverables. The initial version summarizes the </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">IQ/OQ / IOQ </span><span style="font-size: 10pt;line-height: 1.5;">testing conducted in the QA environment, verifies that all requirements have been met, and authorizes the move of </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Computer System Name&gt; </span><span style="font-size: 10pt;line-height: 1.5;">from QA to the PROD environment. The last version serves as the final Validation Report (VR). </span><br/>
+        <span style="font-size: 10pt;line-height: 1.5;">The V/AR also documents that any issues reported during execution, analysis and closure.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;line-height: 1.5;">Procedure / Template</span><span style="font-size: 10pt;line-height: 1.5;">: </span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5824"></h3><p id="polarion_73" style="margin-left: 0px;">
+  <span style="color: #FF0000;">This section may be adapted as needed by the project. N/A if there are no exceptions and include this statement.</span>
+</p><p id="polarion_74" style="margin-left: 0px;">
+  <span style="color: #0000FF;">Clarifications are used to detail any testing that cannot be conducted in a qualified environment. This may be due to data integrity and impact on other records or risks associated with changing configuration/design and migrating the change to simulate a negative scenario.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=8" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Scenario</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Requirement</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Comments</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Specifications (user, functional, configuration and design) may be in final draft form for testing execution</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 59.9531px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Low risk – Specifications will be minimally, final draft. Any changes prior to approval will be tested in the system.</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">PQ testing will not be performed in the PROD environment as doing so would create test data that cannot be removed or identified as test.</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Low risk – Allowed when creation of records in the live environment could affect trending and reporting.</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5825"></h3><p id="polarion_77" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Adapt to the project as needed.</span>
+</p><p id="polarion_78" style="margin-left: 0px;">
+  <span style="color: #0000FF;">The following procedures that support the use and maintenance of the &lt;Computer System Name&gt; computerized system will be created (revised) </span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=9" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Topic</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Reference</span> 
+        </div>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;line-height: 1.5;">Impact</span> 
+        </div>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Access and Security</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Archival and Retrieval</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Business Continuity Plan</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Disaster Recovery Plan</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Change Management</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Document Control</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Help Desk / Incident Reporting</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Production Problems</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Retirement</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">System Administration</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Training</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Business Process Standard Operating Procedure(s)</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <br/>
+          
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 248px;height: 39.9688px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Create / Revise / Exists / N/A&gt;</span> 
+        </div>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5826"></h3><p id="polarion_81" style="margin-left: 0px;">
+  <span style="color: #FF0000;">Text may be removed if there is no data migration involved.</span>
+</p><table id="polarion_wiki macro name=table;params=width=100%|uid=11" class="polarion-Document-table" style="width: 100%;margin-left: auto;margin-right: auto;border: 1px solid #CCCCCC;empty-cells: show;border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 147.719px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> Deliverable <br/>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 102.688px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> Reference <br/>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 103.672px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> Applicability <br/>
+        </th>
+      <th style="font-weight: bold;background-color: #F0F0F0;text-align: left;vertical-align: top;width: 354.922px;height: 19.9844px;border: 1px solid #CCCCCC;padding: 5px;"> Procedure / Rationale <br/>
+        </th>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 147.719px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Data Migration Plan</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 102.688px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 103.672px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 354.922px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">The Data Migration Plan details the data impacted, any cleansing or transforming activities, migration methods and sampling plans.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;vertical-align: top;width: 147.719px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">Data Migration Report</span><br/>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 102.688px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">XXXXXXX</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 103.672px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"> 
+        <div style="text-align: center;">
+          <span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">&lt;Yes / No&gt;</span> 
+        </div>
+        </td>
+      <td style="text-align: left;vertical-align: top;width: 354.922px;height: 79.9375px;border: 1px solid #CCCCCC;padding: 5px;"><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;">The Data Migration Report documents the results of the data migration, including testing and defects and includes release of data for production use.</span><br/>
+        <span style="font-weight: bold;font-size: 10pt;color: #0000FF;line-height: 1.5;">Procedure / Template:</span><span style="font-size: 10pt;color: #0000FF;line-height: 1.5;"> XXXXXXX / XXXXXXX</span><br/>
+        </td>
+    </tr>
+  </tbody>
+</table><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5827"></h3><p id="polarion_84" style="margin-left: 0px;">Changes to approved documents will be handled via a revision, amendment, or addendum to the original document.</p><p id="polarion_85" style="margin-left: 0px;">Once the system has passed the Production Installation Qualification testing, the system is placed under change management and changes made to the code, configuration, or other system related items or functionality are managed by the change control process.</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5828"></h2><p id="polarion_86" style="margin-left: 0px;">All documents produced or updated as a result of this validation shall have a unique identity, be version controlled, and reviewed and approved by persons with proper knowledge prior to release for use, following document management practices.</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5829"></h2><p id="polarion_87" style="margin-left: 0px;">This Validation / Assurance Plan may be closed once the following conditions are satisfied.</p><ul id="polarion_88">
+  <ul>
+    <li>All document deliverables to specify the system’s intended use and function have been created and approved.</li>
+    <li><span style="color: #0000FF;">Data has been successfully migrated to the system.</span></li>
+    <li>All testing has been completed with ‘Passed’ or ‘Passed with Deviation’ results.</li>
+    <li>All Deviation Reports have been investigated, resolved and closed.</li>
+  </ul>
+</ul><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5830"></h2><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5831"></h3><p id="polarion_89" style="margin-left: 0px;">
+  <span style="font-family: Arial, Helvetica, sans-serif;color: #0000FF;">XXXXXXXXX    System Requirements Specification</span>
+</p><h3 id="polarion_wiki macro name=module-workitem;params=id=WFD-5832"></h3><p id="polarion_90" style="margin-left: 0px;">Not applicable.</p><h2 id="polarion_wiki macro name=module-workitem;params=id=WFD-5833"></h2><p id="polarion_91" style="margin-left: 0px;"></p><div id="polarion_editor_html_block5" class="polarion-dle-wiki-block">
+  <div id="polarion_editor_html_block_content" contentEditable="false"></div><pre id="polarion_editor_html_block_source" class="polarion-dle-wiki-block-source" contentEditable="false">#documentPanel(true &quot;approved&quot;)</pre>
+</div><p id="polarion_58"></p><p id="polarion_102" style="margin-left: 0px;"></p>]]></field>
+    <field id="renderingLayouts">
+        <list>
+            <struct>
+                <item id="label">Unscripted Test Case</item>
+                <item id="layouter">section</item>
+                <item id="properties">
+                    <list>
+                        <struct>
+                            <item id="key">fieldsAtStart</item>
+                            <item id="value">id,status</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEnd</item>
+                            <item id="value">linkedWorkItems</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEndAsTable</item>
+                            <item id="value">true</item>
+                        </struct>
+                        <struct>
+                            <item id="key">sidebarWorkItemFields</item>
+                            <item id="value">id,status,linkedWorkItems</item>
+                        </struct>
+                    </list>
+                </item>
+                <item id="type">unscriptedTest</item>
+            </struct>
+            <struct>
+                <item id="label">Scripted Test Case</item>
+                <item id="layouter">section</item>
+                <item id="properties">
+                    <list>
+                        <struct>
+                            <item id="key">fieldsAtStart</item>
+                            <item id="value">id,status</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEnd</item>
+                            <item id="value">linkedWorkItems</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEndAsTable</item>
+                            <item id="value">false</item>
+                        </struct>
+                        <struct>
+                            <item id="key">sidebarWorkItemFields</item>
+                            <item id="value">id,status,linkedWorkItems</item>
+                        </struct>
+                    </list>
+                </item>
+                <item id="type">scriptedTest</item>
+            </struct>
+            <struct>
+                <item id="label">Compliance Assessment</item>
+                <item id="layouter">paragraph</item>
+                <item id="properties">
+                    <list>
+                        <struct>
+                            <item id="key">fieldsAtStart</item>
+                            <item id="value">id,status</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEndAsTable</item>
+                            <item id="value">true</item>
+                        </struct>
+                        <struct>
+                            <item id="key">sidebarWorkItemFields</item>
+                            <item id="value">id,status,systemGAMPCategory,gxpApplicability,eresApplicability,patientSafetyImpact,productQualityImpact,dataIntegrityImpact,overallRiskRating</item>
+                        </struct>
+                        <struct>
+                            <item id="key">fieldsAtEnd</item>
+                            <item id="value">systemGAMPCategory,gxpApplicability,eresApplicability,patientSafetyImpact,productQualityImpact,dataIntegrityImpact,overallRiskRating</item>
+                        </struct>
+                    </list>
+                </item>
+                <item id="type">complianceAssessment</item>
+            </struct>
+        </list>
+    </field>
+    <field id="status">approved</field>
+    <field id="structureLinkRole">parent</field>
+    <field id="title">Compliance Group Validation Assurance Plan Template</field>
+    <field id="type">validationPlan</field>
+    <field id="usesOutlineNumbering">true</field>
+    <field id="version" type="string">1</field>
+</module>

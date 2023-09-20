@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comment>
+    <field id="author">admin</field>
+    <field id="created">2023-08-02 10:11:08.295 -0700</field>
+    <field id="text" text-type="text/plain">Test should be able to test all workflow actions including rework, revise, obsolete, etc.  Currently this stops after sending a document for approval.</field>
+    <field id="title">This test is incomplete</field>
+</comment>

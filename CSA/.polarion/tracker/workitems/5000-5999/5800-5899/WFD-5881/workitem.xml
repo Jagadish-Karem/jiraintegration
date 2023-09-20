@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="ImplementationMethod" type="string">11</field>
+    <field id="PatientRisk" type="string">H</field>
+    <field id="RRR" type="string">3</field>
+    <field id="RT" type="string">Unscripted Testing - Error Guessing</field>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="created">2023-03-30 07:07:13.439 -0700</field>
+    <field id="previousStatus">approved</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="title">Polarion shall have the capability to perform risk assessments.</field>
+    <field id="type">userRequirement</field>
+    <field id="version" type="string">4.3</field>
+</work-item>

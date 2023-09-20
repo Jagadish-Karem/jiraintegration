@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field description="The intended use of the software consist of three main elements (Purpose and intent, Software use requirements or User Needs and Software requirements) which will be included in the validation as applicable." id="intendedUse" name="Intended Use" type="text/html"/>
+    <field id="gxp_q1" name="Is the system a System of Record (SoR) for manufacturing or quality management (maintain master records, establish/maintain product traceability records, support testing, etc.)?" type="enum:boolean"/>
+    <field id="gxp_q2" name="Is the system a System of Record (SoR) for quality operations purposes (support quality audits, maintain documents, report on training, performance or effectiveness of the quality system)?" type="enum:boolean"/>
+    <field id="gxp_q3" name="Is the system a System of Record (SoR) for product design purposes (support/control verification or validation activities, generate design history file, etc.)?" type="enum:boolean"/>
+    <field id="gxp_q4" name="Is the system a System of Record (SoR) for supplier quality (support/control evaluation of supplier or maintain supplier records)?" type="enum:boolean"/>
+    <field id="gxp_q5" name="Is the system a System of Record (SoR) as a Quality Management System (Document Control, Complaint Handling, Deviation Investigations, CAPA issuance, etc.)?" type="enum:boolean"/>
+    <field id="gxp_q6" name="Is the system a System of Record (SoR) for regulatory purposes (preparing submissions or publishing regulatory information)?" type="enum:boolean"/>
+    <field id="gxp_q7" name="Is the system a System of Record (SoR) to support clinical studies?" type="enum:boolean"/>
+    <field id="gxp_q8" name="Is the system a System of Record (SoR) to support/control statistical techniques for analysis of process capability and product characteristics?" type="enum:boolean"/>
+    <field id="gxp_q9" name="Does the system generate data or reports that are sent to regulatory agencies?" type="enum:boolean"/>
+    <field id="21cfr_q1" name="Does the system create, modify, maintain, archive, retrieve, or transmit electronic records specifically required by any GxP regulation?" type="enum:boolean"/>
+    <field id="21cfr_q2" name="If the previous answer is &quot;Yes&quot;, are these records used in their electronic form to support GxP decisions?" type="enum:boolean"/>
+    <field id="21cfr_q3" name="Does the system contain electronic record(s) that are submitted to the FDA or other regulatory agencies in electronic format?" type="enum:boolean"/>
+    <field id="21cfr_q4" name="Does the system support the application of electronic signatures to records that are required by GxP regulation to be signed?" type="enum:boolean"/>
+    <field id="21cfr_q5" name="Will this system replace any paper records?" type="enum:boolean"/>
+    <field id="psi_q1" name="Does the system collect or aggregate patient adata (outside of a medical device) intended for clinical analysis, diagnosis, or therapeutic decision-making purposes?" type="enum:boolean"/>
+    <field id="pqi_q1" name="Does the system have an impact on the physical properties of product or manufacturing processes, identified as essential to drug or device quality?" type="enum:boolean"/>
+    <field id="pqi_q2" name="Does the system collect, or aggregate patient data (outside of a product) intended for clinical analysis, diagnosis, or therapeutic decision-making purposes?" type="enum:boolean"/>
+    <field id="pqi_q3" name="Does the system have an impact on automatic adjustment of process parameters, based on the collection of of feedback, with no additional review?" type="enum:boolean"/>
+    <field id="pqi_q4" name="Does the system have an impact on independent measurement, inspection, analysis, and / or disposition of product or process?" type="enum:boolean"/>
+    <field id="pqi_q5" name="Does the system have an impact on acceptability determination, or performance of process corrections without additional human intervention, awareness, or review?" type="enum:boolean"/>
+    <field id="pqi_q6" name="Does the system have an impact on labeling, instructions for use, or direct alerts / communications to the user?" type="enum:boolean"/>
+    <field id="pqi_q7" name="Does the system have an impact on automated surveillance, trending or tracking of product quality?" type="enum:boolean"/>
+    <field id="dii_q1" name="Does the system have an impact on data related to product identity, strength, quality, purity, potency, stock location?" type="enum:boolean"/>
+    <field id="dii_q2" name="Does the system have an impact on data submitted to regulatory agencies?" type="enum:boolean"/>
+    <field id="dii_q3" name="Does the system hav an impact on data used to support electronic submissions?" type="enum:boolean"/>
+    <field default="unanalyzed" description="Does the system or application impact GxP processes." id="gxpApplicability" name="GxP Applicability" type="enum:yesNoUnanalyzed"/>
+    <field default="unanalyzed" description="Does the system or application utilize electronic records / electronic signatures." id="eresApplicability" name="ERES Applicability" type="enum:yesNoUnanalyzed"/>
+    <field id="systemName" name="System Name" required="true" type="string"/>
+    <field id="systemVersion" name="System Version" required="true" type="string"/>
+    <field default="unanalyzed" description="Does the system have the potential to impact patient safety." id="patientSafetyImpact" name="Paitent Safety Impact" type="enum:yesNoUnanalyzed"/>
+    <field default="unanalyzed" description="Does the system have the potential to impact product quality." id="productQualityImpact" name="Product Quality Impact" type="enum:yesNoUnanalyzed"/>
+    <field default="unanalyzed" description="Does the system have the potential to impact data integrity." id="dataIntegrityImpact" name="Data Integrity Impact" type="enum:yesNoUnanalyzed"/>
+    <field description="The system implementation complexity according to GAMP categorization." id="systemGAMPCategory" name="System GAMP Category" required="true" type="enum:GAMP"/>
+    <field default="unanalyzed" description="The calculated overall quality risk of the system." id="overallRiskRating" name="Overall Risk Rating" type="enum:risk"/>
+    <field description="Specifies when the next periodic review is due." id="nprDate" name="Next Periodic Review" type="date"/>
+    <field description="The individual identified as the Business Owner of the system." id="businessOwner" name="Business Owner" required="true" type="enum:@user[project_bpo]"/>
+    <field description="The individual identified as the System Owner of the system." id="systemOwner" name="System Owner" required="true" type="enum:@user[project_so]"/>
+</fields>

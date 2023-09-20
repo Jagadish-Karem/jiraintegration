@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="assignee">sDeveloper</field>
+    <field id="author">admin</field>
+    <field id="changeReason" text-type="text/html" type="text/html">&lt;span style="font-size: 10pt;line-height: 1.5;"&gt;Initial work item creation.&lt;/span&gt;</field>
+    <field id="created">2023-08-02 10:03:38.914 -0700</field>
+    <field id="description" text-type="text/html">This test verifies the standard workflow for validation documents.</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">verifies</item>
+                <item id="workItem">WFD-6050</item>
+            </struct>
+        </list>
+    </field>
+    <field id="pre" text-type="text/html" type="text/html"><![CDATA[<ul>
+  <li>Minimally two users are required to complete this test.</li>
+  <li>One user must have the <span style="font-style: italic;">projet_qa</span><span style="font-style: normal;"> role assigned.</span></li>
+  <li><span style="font-style: normal;">One user <span style="font-style: italic;"></span>must have the <span style="font-style: italic;">project_assignable</span> role assigned.</span></li>
+  <li><span style="font-style: normal;">The <span style="font-style: italic;">project_bpo</span> and <span style="font-style: italic;">project_so</span> roles must be assigned to a user who does not have the <span style="font-style: italic;">project_qa</span> role assigned.<span style="font-style: italic;"></span><span style="font-style: italic;"></span><span style="font-style: italic;"></span><span style="font-style: italic;"></span></span></li>
+</ul>]]></field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="teststeps" type="struct:TestSteps">
+        <struct>
+            <item id="keys">
+                <list>
+                    <item>testStep</item>
+                    <item>description</item>
+                    <item>expectedResult</item>
+                </list>
+            </item>
+            <item id="steps">
+                <list>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">1</item>
+                                <item text-type="text/html"><![CDATA[As a user with the <span style="font-style: italic;">project_assignable</span> <span style="font-style: normal;">role, create a new validation document.  Verify the following document characteristics:<br/>
+        </span> 
+        <ol>
+          <li><span style="font-style: normal;">The initial </span><span style="font-weight: bold;font-style: normal;">Status</span> <span style="font-weight: normal;font-style: normal;">value is <span style="font-style: italic;"><span style="font-weight: bold;">In Draft</span>.</span></span></li>
+          <li><span style="font-weight: normal;font-style: normal;">The initial <span style="font-weight: bold;">Version</span><span style="font-style: italic;"></span></span> <span style="font-style: normal;">is <span style="font-style: italic;"><span style="font-weight: bold;">1.0</span><span style="font-weight: normal;">.</span></span></span></li>
+          <li><span style="font-weight: normal;font-style: normal;">The initial <span style="font-weight: bold;">Change Reason</span> is <span style="font-weight: bold;font-style: italic;">Initial document creation.</span></span></li>
+        </ol>
+        Include a screenshot showing the document title, ID, location, and evidence of the characteristics above.<br/>
+      ]]></item>
+                                <item text-type="text/html">The document is created successfully and has the correct characteristics.</item>
+                            </list>
+                        </item>
+                    </struct>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">2</item>
+                                <item text-type="text/html">Create one or more work items of a type appropriate for the document and ensure the work item &lt;span style="font-weight: bold;"&gt;Status&lt;/span&gt; &lt;span style="font-weight: normal;font-style: normal;"&gt;is not &lt;span style="font-weight: bold;font-style: italic;"&gt;Approved&lt;/span&gt;.&lt;span style="font-style: italic;"&gt;&lt;/span&gt;&lt;/span&gt;</item>
+                                <item text-type="text/html">N/A</item>
+                            </list>
+                        </item>
+                    </struct>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">3</item>
+                                <item text-type="text/html">Open the document properties and attempt to change the &lt;span style="font-weight: bold;"&gt;Status&lt;/span&gt; &lt;span style="font-weight: normal;"&gt;to &lt;span style="font-weight: bold;font-style: italic;"&gt;Perform action Send for Approval&lt;/span&gt;&lt;span style="font-style: normal;"&gt;.  Verify that the action cannot be completed and the tooltip displays a message indicating it is blocked.&lt;/span&gt;&lt;span style="font-style: italic;"&gt;&lt;/span&gt;&lt;/span&gt;</item>
+                                <item text-type="text/html">&lt;span style="font-style: normal;"&gt;&lt;span style="font-weight: normal;"&gt;The action is blocked and the document &lt;span style="font-style: italic;"&gt;&lt;/span&gt;&lt;span style="font-weight: bold;"&gt;Status&lt;/span&gt; cannot be changed.&lt;span style="font-style: italic;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-weight: bold;"&gt;&lt;/span&gt;&lt;/span&gt;</item>
+                            </list>
+                        </item>
+                    </struct>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">4</item>
+                                <item text-type="text/html">Complete the necessary work item actions to set the work item &lt;span style="font-style: italic;"&gt;&lt;span style="font-weight: bold;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-weight: bold;font-style: normal;"&gt;Status&lt;/span&gt;&lt;span style="font-style: italic;"&gt;&lt;span style="font-weight: bold;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="font-style: normal;"&gt; value(s) to &lt;span style="font-style: italic;"&gt;&lt;span style="font-weight: bold;"&gt;Approved&lt;/span&gt;&lt;/span&gt;&lt;span style="font-weight: bold;"&gt;&lt;/span&gt;&lt;span style="font-weight: normal;"&gt;.&lt;/span&gt;&lt;span style="font-weight: bold;"&gt;&lt;/span&gt;&lt;span style="font-style: italic;"&gt;&lt;span style="font-weight: bold;"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;</item>
+                                <item text-type="text/html">N/A</item>
+                            </list>
+                        </item>
+                    </struct>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html"/>
+                                <item text-type="text/html"><![CDATA[Open the document properties and change the <span style="font-weight: bold;">Status</span><span style="font-weight: normal;"> to <span style="font-style: italic;"><span style="font-weight: bold;">Perform action Send for Approval</span></span><span style="font-weight: bold;font-style: normal;"></span><span style="font-style: normal;">.  Save the document and verify the following items:<br/>
+          </span></span>
+        <ol>
+          <li><span style="font-weight: normal;font-style: normal;"></span><span style="font-weight: normal;"><span style="font-style: normal;"></span><span style="font-style: italic;"></span>The action is available.</span><span style="font-weight: bold;"></span></li>
+          <li><span style="font-weight: normal;">The document can be saved.</span></li>
+          <li><span style="font-weight: normal;">The document <span style="font-style: italic;"><span style="font-weight: bold;"></span></span><span style="font-weight: bold;font-style: normal;">Status<span style="font-style: italic;"></span></span><span style="font-style: normal;"><span style="font-weight: normal;font-style: italic;"><span style="font-weight: bold;"></span></span> is changed to <span style="font-weight: bold;"><span style="font-style: italic;">In Approval</span>.</span></span></span><span style="font-weight: normal;font-style: italic;"></span></li>
+        </ol>
+        Include a screenshot showing the document properties indicating the <span style="font-weight: bold;">Status</span><span style="font-weight: normal;"> was changed.</span><span style="font-weight: bold;"></span><br/>
+      ]]></item>
+                                <item text-type="text/html">The action is available and can be completed successfully.  The document saves without error.</item>
+                            </list>
+                        </item>
+                    </struct>
+                    <struct>
+                        <item id="values">
+                            <list>
+                                <item text-type="text/html">5</item>
+                                <item text-type="text/html"><![CDATA[Open the Signatures panel.  Verify signers have been added to the document.<br/>
+        <br/>
+        Include a screenshot showing the Signatures panel and added signers.]]></item>
+                                <item text-type="text/html">Signers were automatically added to the document.</item>
+                            </list>
+                        </item>
+                    </struct>
+                </list>
+            </item>
+        </struct>
+    </field>
+    <field id="testtype" type="enum:TestType">functional</field>
+    <field id="title">Default Document Workflow (E2E)</field>
+    <field id="type">scriptedTest</field>
+    <field id="version" type="string">1</field>
+</work-item>

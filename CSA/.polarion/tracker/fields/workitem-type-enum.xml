@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option description="Used to document GAMP Category 3 requirements" iconURL="/polarion/icons/default/enums/type_businesscase.gif" id="userRequirement" name="User Requirement" sortOrder="0"/>
+    <option description="Used to document GAMP Category 4 requirements" iconURL="/polarion/icons/default/enums/type_feature2.gif" id="functionalRequirement" name="Functional Requirement" sortOrder="1"/>
+    <option description="Used to document GAMP Category 5 requirements" iconURL="/polarion/icons/default/enums/type_green_spec.png" id="designRequirement" name="Design Requirement" sortOrder="2"/>
+    <option description="A test case with individual step instructions and expected results." iconURL="/polarion/icons/default/enums/document_electrical_testcase.png" id="scriptedTest" name="Scripted Test Case" sortOrder="3"/>
+    <option description="A test case which contains a description or objective but no individual steps." iconURL="/polarion/icons/default/enums/type_test.gif" id="unscriptedTest" name="Unscripted Test Case" sortOrder="4"/>
+    <option description="An issue which requires investigation and resolution." iconURL="/polarion/icons/default/enums/type_bug.gif" id="defect" name="Defect" sortOrder="5"/>
+    <option iconURL="/polarion/icons/default/enums/type_task.gif" id="task" name="Task" sortOrder="6"/>
+    <option iconURL="/polarion/icons/default/enums/type_safety.png" id="project" name="Project" sortOrder="8"/>
+    <option description="Used to assess the impact of a change on a system and other work items." iconURL="/polarion/icons/default/enums/type_changerequest.gif" id="changerequest" name="Change Request" sortOrder="9"/>
+    <option description="Used to assess various quality characteristics of a system." iconURL="/polarion/icons/default/enums/type_blue_spec.png" id="complianceAssessment" name="Compliance Assessment " sortOrder="12"/>
+</enumeration>

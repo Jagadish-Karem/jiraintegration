@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">trinadhb</field>
+    <field id="created">2019-06-10 17:18:14.498 +0000</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <div id="polarion_client2" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">&lt;h1&gt;$page.label&lt;/h1&gt;</sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 75%;">
+  <p id="polarion_client16">
+    <span style="font-weight: normal;">Welcome to the Home page of the <span class="polarion-rp-inline-widget" data-widget="com.polarion.scriptInline">
+        <span class="polarion-rp-widget-parameters">
+          <sub id="script">
+            <sub style="white-space:pre;" id="script">&lt;i class:&quot;italic&quot;&gt;$page.fields().spaceId().spaceLabel()&lt;/i&gt;</sub>
+          </sub>
+        </span>
+      </span> space.</span>
+  </p>
+  <p id="polarion_client18"></p>
+  <div id="polarion_client11" class="polarion-rp-widget-part" data-widget="com.polarion.table">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="subtype">defect</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;"></sub>
+        <sub id="children">
+          <sub id="columns">
+            <sub>
+              <sub id="id">id</sub>
+            </sub>
+            <sub>
+              <sub id="id">title</sub>
+            </sub>
+            <sub>
+              <sub id="id">type</sub>
+            </sub>
+            <sub>
+              <sub id="id">status</sub>
+            </sub>
+            <sub>
+              <sub id="id">severity</sub>
+            </sub>
+          </sub>
+          <sub id="sortBy"></sub>
+        </sub>
+      </sub>
+      <sub id="propertiesSidebarFields"></sub>
+      <sub id="advanced">
+        <sub id="top">50</sub>
+      </sub>
+    </span>
+  </div>
+  <h2 id="polarion_client14">Recently Updated</h2>
+  <p id="polarion_client7">
+    <span style="color: #999999;">Here is a listing of up to 20 of the most recently modified Documents and Pages in this space. Click any Title to open the content.<br/>
+      </span>
+  </p>
+  <div id="polarion_client9" class="polarion-rp-widget-part" data-widget="com.polarion.spaceIndexWidget">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="scope"></sub><sub id="space" data-inherit="space"></sub>
+      <sub id="advanced">
+        <sub id="top">20</sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client4"></p>
+  <p id="polarion_client10">
+    <span style="font-style: italic;color: #999999;"><br/>
+      </span>
+  </p>
+</div>
+<div class="polarion-rp-column" style="width: 25%;">
+  <p id="polarion_client22" style="text-align: center;"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<pre id="polarion-rp-page-script">#set($space = $page.reference.spaceReference.spacePath)
+
+$!scriptedPageParameters.put(&quot;space&quot;, $factory.string(&quot;Space&quot;).value($space).build())</pre>]]></field>
+    <field id="title">Defects</field>
+</rich-page>

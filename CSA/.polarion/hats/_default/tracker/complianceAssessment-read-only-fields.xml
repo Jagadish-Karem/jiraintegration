@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<read-only>
+    <status id="_default">
+        <field id="version"/>
+        <field id="patientSafetyImpact"/>
+        <field id="productQualityImpact"/>
+        <field id="dataIntegrityImpact"/>
+        <field id="overallRiskRating"/>
+        <field id="gxpApplicability"/>
+        <field id="eresApplicability"/>
+    </status>
+
+    <status id="approved">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="in_approval">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="rejected">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="obsolete">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+</read-only>

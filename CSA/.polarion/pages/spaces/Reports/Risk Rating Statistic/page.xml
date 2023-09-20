@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">meeran</field>
+    <field id="created">2019-11-02 06:41:41.527 -0700</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Risk Rating Statistics</h1>
+  <p id="polarion_hardcoded_1"></p>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 52.670204%;">
+  <p id="polarion_hardcoded_2"></p>
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="com.polarion.multiSetPieChart">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="title"></sub>
+      <sub id="sectors">
+        <sub id="elements">
+          <sub>
+            <sub id="prototype">WorkItem</sub>
+            <sub id="subtype">functionalRequirement</sub>
+            <sub id="queryType">lucene</sub>
+            <sub id="luceneQuery" style="white-space:pre;">riskRating:low</sub>
+            <sub id="children">
+              <sub id="sectorName">Risk Rating: Low</sub>
+              <sub id="sectorColor">green</sub>
+            </sub>
+          </sub>
+          <sub>
+            <sub id="prototype">WorkItem</sub>
+            <sub id="subtype">functionalRequirement</sub>
+            <sub id="queryType">lucene</sub>
+            <sub id="luceneQuery" style="white-space:pre;">riskRating:medium</sub>
+            <sub id="children">
+              <sub id="sectorName">Risk Rating: Medium</sub>
+              <sub id="sectorColor">yellow</sub>
+            </sub>
+          </sub>
+          <sub>
+            <sub id="prototype">WorkItem</sub>
+            <sub id="subtype">functionalRequirement</sub>
+            <sub id="queryType">lucene</sub>
+            <sub id="luceneQuery" style="white-space:pre;">riskRating:high</sub>
+            <sub id="children">
+              <sub id="sectorName">Risk Rating: High</sub>
+              <sub id="sectorColor">red</sub>
+            </sub>
+          </sub>
+          <sub>
+            <sub id="prototype">WorkItem</sub>
+            <sub id="subtype">functionalRequirement</sub>
+            <sub id="queryType">lucene</sub>
+            <sub id="luceneQuery" style="white-space:pre;">riskRating:unanalyzed</sub>
+            <sub id="children">
+              <sub id="sectorName">Risk Rating: Unanalyzed</sub>
+              <sub id="sectorColor">gray</sub>
+            </sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="showDataLabels">true</sub>
+      <sub id="showZeroValues">true</sub>
+      <sub id="advanced">
+        <sub id="height">600</sub>
+        <sub id="width">600</sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_1">
+    *Info: Pie Chart shows total number of functional requirements per Risk Rating*<br/>
+  </p>
+</div>
+<div class="polarion-rp-column" style="width: 47.329796%;">
+  <p id="polarion_hardcoded_3"></p>
+  <div id="polarion_client2" class="polarion-rp-widget-part" data-widget="com.polarion.table">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="subtype">functionalRequirement</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;"></sub>
+        <sub id="children">
+          <sub id="columns">
+            <sub>
+              <sub id="id">id</sub>
+            </sub>
+            <sub>
+              <sub id="id">riskRating</sub>
+            </sub>
+            <sub>
+              <sub id="id">testingType</sub>
+            </sub>
+          </sub>
+          <sub id="sortBy"></sub>
+        </sub>
+      </sub>
+      <sub id="propertiesSidebarFields"></sub>
+      <sub id="advanced">
+        <sub id="top">50</sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator"></div>]]></field>
+    <field id="title">Risk Rating Statistic</field>
+</rich-page>

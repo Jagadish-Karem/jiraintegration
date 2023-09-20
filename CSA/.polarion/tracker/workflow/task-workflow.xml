@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow initial-action="init" initial-status="open" prototype="WorkItem">
+    <transitions>
+        <transition action="stop_progress" from="inprogress" to="open"/>
+        <transition action="start_progress" from="open" to="inprogress"/>
+        <transition action="reopen" from="done" to="reopened"/>
+        <transition action="reopen" from="verified-done" to="reopened"/>
+        <transition action="reopen" from="verified-rejected" to="reopened"/>
+        <transition action="mark_done" from="open" to="done"/>
+        <transition action="mark_done" from="inprogress" to="done"/>
+        <transition action="mark_done" from="reopened" to="done"/>
+        <transition action="mark_verified_done" from="open" to="verified-done"/>
+        <transition action="mark_verified_done" from="inprogress" to="verified-done"/>
+        <transition action="mark_verified_done" from="reopened" to="verified-done"/>
+        <transition action="verify_done" from="done" to="verified-done"/>
+        <transition action="mark_verified_rejected" from="open" to="verified-rejected"/>
+        <transition action="mark_verified_rejected" from="inprogress" to="verified-rejected"/>
+        <transition action="mark_verified_rejected" from="reopened" to="verified-rejected"/>
+        <transition action="verify_rejected" from="rejected" to="verified-rejected"/>
+    </transitions>
+    <actions>
+        <action id="init" name="Initialization">
+            <cleared>
+                <field name="resolution"/>
+            </cleared>
+        </action>
+        <action id="start_progress" name="Start Progress">
+            <required>
+                <field name="assignee"/>
+            </required>
+        </action>
+        <action id="stop_progress" name="Stop Progress"/>
+        <action id="mark_done" name="Mark Done">
+            <required>
+                <field name="assignee"/>
+                <field name="resolution"/>
+            </required>
+        </action>
+        <action id="mark_verified_done" name="Mark Verified Done">
+            <required>
+                <field name="assignee"/>
+                <field name="resolution"/>
+            </required>
+        </action>
+        <action id="reopen" name="Reopen">
+            <cleared>
+                <field name="resolution"/>
+            </cleared>
+        </action>
+        <action id="reject" name="Reject">
+            <required>
+                <field name="resolution"/>
+            </required>
+        </action>
+        <action id="mark_verified_rejected" name="Mark Verified Rejected">
+            <required>
+                <field name="resolution"/>
+            </required>
+        </action>
+        <action id="verify_done" name="Verify Done">
+            <required>
+                <field name="assignee"/>
+                <field name="resolution"/>
+            </required>
+        </action>
+        <action id="verify_rejected" name="Verify Rejected">
+            <required>
+                <field name="resolution"/>
+            </required>
+        </action>
+    </actions>
+</workflow>

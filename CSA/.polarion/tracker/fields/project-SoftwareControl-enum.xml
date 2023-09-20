@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="configured" name="Configured"/>
+    <option id="configurationOnly" name="Configuration Only"/>
+    <option id="bespokeSoftware" name="Bespoke Software"/>
+</enumeration>

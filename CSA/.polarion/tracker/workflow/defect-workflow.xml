@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow initial-status="open" prototype="WorkItem">
+    <transitions>
+        <transition action="investigate" from="open" to="investigating"/>
+        <transition action="resolve" from="open" to="resolving"/>
+        <transition action="test" from="open" to="testing"/>
+        <transition action="verify" from="open" to="verifying"/>
+        <transition action="close" from="open" to="closed"/>
+        <transition action="defer" from="open" to="deferred"/>
+        <transition action="resolve" from="investigating" to="resolving"/>
+        <transition action="test" from="investigating" to="testing"/>
+        <transition action="verify" from="investigating" to="verifying"/>
+        <transition action="close" from="investigating" to="closed"/>
+        <transition action="defer" from="investigating" to="deferred"/>
+        <transition action="investigate" from="resolving" to="investigating"/>
+        <transition action="test" from="resolving" to="testing"/>
+        <transition action="verify" from="resolving" to="verifying"/>
+        <transition action="close" from="resolving" to="closed"/>
+        <transition action="close" from="testing" to="closed"/>
+        <transition action="close" from="verifying" to="closed"/>
+        <transition action="defer" from="resolving" to="deferred"/>
+        <transition action="defer" from="testing" to="deferred"/>
+        <transition action="verify" from="testing" to="verifying"/>
+        <transition action="reopen" from="closed" to="open"/>
+        <transition action="reopen" from="deferred" to="open"/>
+        <transition action="test" from="verifying" to="testing"/>
+        <transition action="resolve" from="verifying" to="resolving"/>
+        <transition action="investigate" from="verifying" to="investigating"/>
+        <transition action="defer" from="verifying" to="deferred"/>
+    </transitions>
+    <actions>
+        <action id="investigate" name="Investigate">
+            <required>
+                <field name="description"/>
+                <field name="defectCategory"/>
+            </required>
+            <cleared>
+                <field name="approvals"/>
+            </cleared>
+            <functions>
+                <function name="ResetApprovalsState"/>
+            </functions>
+        </action>
+        <action id="resolve" name="Resolve">
+            <required>
+                <field name="description"/>
+                <field name="defectCategory"/>
+                <field name="defectInvestigation"/>
+            </required>
+            <cleared>
+                <field name="approvals"/>
+            </cleared>
+            <functions>
+                <function name="ResetApprovalsState"/>
+            </functions>
+        </action>
+        <action id="test" name="Test">
+            <required>
+                <field name="defectResolution"/>
+                <field name="defectResolutionType"/>
+            </required>
+            <cleared>
+                <field name="approvals"/>
+            </cleared>
+            <functions>
+                <function name="ResetApprovalsState"/>
+            </functions>
+        </action>
+        <action id="close" name="Close">
+            <signatures>
+                <auto-signature/>
+            </signatures>
+            <required>
+                <field name="description"/>
+                <field name="defectCategory"/>
+            </required>
+            <conditions>
+                <condition name="ApprovalState">
+                    <param name="commonApprovalState" value="approved"/>
+                </condition>
+                <condition name="AtLeastOneApprovedAndNooneDisapproved"/>
+            </conditions>
+        </action>
+        <action id="defer" name="Defer">
+            <required>
+                <field name="description"/>
+                <field name="sev"/>
+                <field name="investigation"/>
+            </required>
+        </action>
+        <action id="reopen" name="Reopen">
+            <cleared>
+                <field name="approvals"/>
+            </cleared>
+            <functions>
+                <function name="MarkWorkflowSignaturesAsObsolete"/>
+                <function name="ResetApprovalsState"/>
+            </functions>
+        </action>
+        <action id="verify" name="Verify">
+            <required>
+                <field name="defectTestVerify"/>
+            </required>
+            <functions>
+                <function name="AddDefaultApprovals">
+                    <param name="approvals.roles" value="project_bpo,project_so,project_qa"/>
+                </function>
+            </functions>
+        </action>
+    </actions>
+</workflow>

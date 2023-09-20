@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field id="description" name="Description" type="text/html"/>
+    <field id="prerequisites" name="Prerequisites" type="text/html"/>
+</fields>

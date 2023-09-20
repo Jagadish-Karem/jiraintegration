@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<read-only>
+    <status id="_default">
+        <field id="version"/>
+        <field id="riskRating"/>
+        <field id="testingType"/>
+    </status>
+
+    <status id="approved">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="in_approval">
+        <field id="@all"/>
+        <field id="-status"/>
+        <field id="-approvals"/>
+    </status>
+
+    <status id="rejected">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+    <status id="obsolete">
+        <field id="@all"/>
+        <field id="-status"/>
+    </status>
+
+</read-only>

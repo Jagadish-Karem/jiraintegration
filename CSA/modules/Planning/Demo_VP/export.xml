@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export>
+    <pdf marginBottom="50" marginLeft="60" marginRight="60" marginTop="50">
+        <header height="35"><![CDATA[
+            <table width="100%" style="color:rgb(128,128,128); font-size: 9px !important; margin-bottom: 20px;">
+                <tr>
+                    <td width="30%"><a href="https://www.complianceg.com/"><img width="104" height="74" src="/polarion/ria/images/logos/cg/cg_logo.jpg" alt="Compliance Group"></a></td>
+                    <td width="70%" align="right">$[projectName]<br>$[documentTitle] (rev. $[revision])</td>
+                </tr>
+            </table>]]>
+        </header>
+        <footer height="25"><![CDATA[
+            <table width="100%" style="border-top:1px solid rgb(128,128,128); color:rgb(128,128,128); font-size: 9px !important;">
+                <tr>
+                    <td width="20%"><span style="color:rgb(0,0,0);">$[page] of $[total] |</span></td>
+                    <td width="60%" align="center"><a style="color:rgb(128,128,128); font-size: 8px !important;" href="https://www.complianceg.com/">$[productName] $[productVersion]</a></td>
+                    <td width="20%" align="right">$[generated]</td>
+                </tr>
+            </table>]]>
+        </footer>
+    </pdf>
+    <pdf-compare marginBottom="10" marginLeft="10" marginRight="10" marginTop="10">
+        <header height="35"><![CDATA[
+            <table width="100%" style="color:rgb(128,128,128); font-size: 9px !important; margin-bottom: 20px;">
+                <tr>
+                    <td width="30%"><a href="https://www.complianceg.com/"><img width="104" height="74" src="/polarion/ria/images/logos/cg/cg_logo.jpg" alt="Compliance Group"></a></td>
+                    <td width="70%" align="right">$[projectName]<br>$[documentTitle] (compare rev. $[revision1] and $[revision2])</td>
+                </tr>
+            </table>]]>
+        </header>
+        <footer height="25"><![CDATA[
+            <table width="100%" style="border-top:1px solid rgb(128,128,128); color:rgb(128,128,128); font-size: 9px !important;">
+                <tr>
+                    <td width="20%"><span style="color:rgb(0,0,0);">$[page] of $[total] |</span></td>
+                    <td width="60%" align="center"><a style="color:rgb(128,128,128); font-size: 8px !important;" href="https://www.complianceg.com/">$[productName] $[productVersion]</a></td>
+                    <td width="20%" align="right">$[generated]</td>
+                </tr>
+            </table>]]>
+        </footer>
+    </pdf-compare>
+    <pdf-compare-documents marginBottom="10" marginLeft="10" marginRight="10" marginTop="10">
+        <header height="35"><![CDATA[
+            <table width="100%" style="color:rgb(128,128,128); font-size: 9px !important; margin-bottom: 20px;">
+                <tr>
+                    <td width="30%"><a href="https://www.complianceg.com/"><img width="104" height="74" src="/polarion/ria/images/logos/cg/cg_logo.jpg" alt="Compliance Group"></a></td>
+                    <td width="70%" align="right">$[projectName1]<br>$[documentTitle1] rev. $[revision1] compare $[projectName2] $[documentTitle2] rev. $[revision2]</td>
+                </tr>
+            </table>]]>
+        </header>
+        <footer height="25"><![CDATA[
+            <table width="100%" style="border-top:1px solid rgb(128,128,128); color:rgb(128,128,128); font-size: 9px !important;">
+                <tr>
+                    <td width="20%"><span style="color:rgb(0,0,0);">$[page] of $[total] |</span></td>
+                    <td width="60%" align="center"><a style="color:rgb(128,128,128); font-size: 8px !important;" href="https://www.complianceg.com/">$[productName] $[productVersion]</a></td>
+                    <td width="20%" align="right">$[generated]</td>
+                </tr>
+            </table>]]>
+        </footer>
+    </pdf-compare-documents>
+</export>

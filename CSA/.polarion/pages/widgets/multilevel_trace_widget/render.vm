@@ -1,0 +1,906 @@
+## ----------------------------------------------------------------------------------------------------
+## Date            Author            Change Description
+## ---------------------------------------------------------------------------------------------------
+## 17-April-2017   Ranjit       Initial Relase
+## 02-May-2017     Ranjit       Enhanced to show cross project links, table border, hide work item fields..
+## 03-Jul-2017     Ranjit       Support to display Reference Items in column 1, OSLC Links and support
+##                              report execution in baseline when selecting documents
+## 11-Jul-2017     Ranjit       Enhanced to support a new parameter to display only the linked items that are
+##                              referenced in current project
+## 07-Aug-2017     Ranjit       Fix issue wwhere OSLC parents are displayed as children
+## 11-Dec-2017     Ranjit       Sort starting point workitems by ID
+## 11-Jun-2019     JFThibeault  Adding new parameter for links to ressources
+##                              Now displaying Custom Fields Label
+## 18-Jun-2019     JFThibeault  Adding new parameter for displaying last test execution results
+##                              Adding localization keys
+## --------------------------------------------------------------------------------------------------------
+
+#macro (BuildDocumentList $documentList )
+   #foreach ($doc in $documentList )
+       ## Get Module Name and Space
+       #set($module = $doc.getOldApi())
+       #if(!$module.isUnresolvable())
+          #set($folder = $module.getFolder())
+          <option value="$folder.name/$module.getModuleName()">$folder.getTitleOrName() / $module.getModuleName()</option>
+       #end
+   #end
+#end
+
+#macro ( SortWorkItemsById $inArray $outArray )
+   #set($outArray = [] )
+   #set($tempArray = [] )
+   #set($sortedTempArray = [] )
+
+   #foreach($wi in $inArray )
+     #set($wiIdMap = $objectFactory.newMap())
+     #set($wiId = $wi.id )
+
+     #set($idNumber = 0 )
+     #set($prefix = "" )
+     #set($firstToken = true )
+
+     #foreach($idTok in $wiId.split("-") )
+        #if($firstToken )
+           #set($firstToken = false )
+           #set($void = $wiIdMap.put("prefix", $idTok ))
+        #else
+           #set($intId = 0 )
+           #set($intId = $intId.parseInt($idTok))
+           #set($void = $wiIdMap.put("id", $intId ))
+        #end
+     #end
+
+     #set($void = $wiIdMap.put("wi", $wi ))
+
+     #set($void = $tempArray.add($wiIdMap))
+
+   #end
+
+   ## Sort by Prefix and ID
+   #set($sortedTempArray = $sorter.sort($tempArray, ["prefix", "id"]))
+
+   #foreach($obj in $sortedTempArray )
+      #set($void = $outArray.add($obj.get("wi")))
+   #end
+#end
+
+#set($selPrototypeName = $parameters.workItems.prototype().name())
+#if(!$selPrototypeName.equals("WorkItem") && !$selPrototypeName.equals("Document"))
+<div class="polarion-rp-widget-warningMessage">This Multi Level Traceability widget supports only items of type "Work Item" or "Document"</div>
+#else
+    #if($selPrototypeName.equals("Document"))
+       #set($spDocuments = $parameters.workItems.getFor().sort("title").revision($null).items())
+
+       <script>
+
+        function generateReport() {
+         try{
+            var getUrl = window.location;
+            var baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
+            var url;
+            var spacePath = '$page.reference.spaceReference.spacePath'
+            var baselineRev = '$trackerService.dataService.getCurrentBaselineRevision';
+
+            if (!isNaN(baselineRev)){
+               if (spacePath == '_default')
+                  url = baseUrl + 'polarion/#/baseline/'+baselineRev+'/project/$page.reference.projectId/wiki/$page.reference.name';
+               else
+                  url = baseUrl + 'polarion/#/baseline/'+baselineRev+'/project/$page.reference.projectId/wiki/$page.reference.spaceReference.spacePath/$page.reference.name';
+            }
+            else {
+            if (spacePath == '_default')
+                url = baseUrl + 'polarion/#/project/$page.reference.projectId/wiki/$page.reference.name';
+            else
+                url = baseUrl + 'polarion/#/project/$page.reference.projectId/wiki/$page.reference.spaceReference.spacePath/$page.reference.name';
+            }
+
+            var selectedIndex =  document.getElementById("docdropdown").selectedIndex;
+            var docName = document.getElementById("docdropdown").options[selectedIndex].value;
+
+            if(docName.trim().length == 0  ) {
+                alert ('Select a document to display traceability report for all its workitems' );
+            } else {
+               var parameters = '?' + 'docName' + '=' + docName;
+
+               // Post
+               $(location).attr('href', url+parameters)
+            }
+          } catch (e){
+             console.log(e);
+             alert(e);
+          }
+          return;
+
+        }
+
+        function updateFormFields(){
+           var inputParams = getParameterValue();
+
+           if ( inputParams != null ) {
+              var docName = inputParams["docName"];
+              var docNameField = document.getElementById('docdropdown');
+              for(var inx = 0; inx < docNameField.length; inx ++) {
+                 if( docNameField.options[inx].value == docName ) {
+                    docNameField.options[inx].selected = true;
+                 } else {
+                    docNameField.options[inx].selected = false;
+                 }
+              }
+           }
+        }
+
+        function getParameterValue() {
+           var vars = {};
+           var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+              vars[key] = value;
+           });
+           return vars;
+        }
+
+    $(document).ready(function () {
+        updateFormFields();
+     });
+
+    </script>
+
+   ## Display Documents and let user select one to get work items
+   <FORM id="docselectionForm">
+        <style>
+        .select-table-content {
+          width: 40%;
+          border-collapse: collapse;
+          border: 2px solid #ddd;
+        }
+
+        .select-table-header-row > td {
+          padding: 5px 9px 5px 2px;
+          background-color: #F1F1F1;
+          border-bottom: 1px solid #ddd;
+          border-right: 1px solid #ddd;
+        }
+        .select-table-content-row > td {
+          padding: 4px 4px 4px 4px;
+          border-bottom: 2px solid #ddd;
+          border-right: 2px solid #ddd;
+        }
+        .select-table-content-row-nobottom > td {
+          padding: 4px 4px 4px 4px;
+          border-right: 2px solid #ddd;
+        }
+        .reportbutton:hover {background-color: #ddd}
+        .popup_button
+        {
+            font-size:10px;
+            cursor:pointer;
+        }
+        </style>
+
+        <left>
+           Select a Document from the list below and click on 'Display Trace Table' button to view the traceability table for all work items in the document <br><br>
+        <table>
+          <tr><td align="right"><label>$localization.getString('definition.document'):</label></td><td>
+          <select id="docdropdown">
+             <option value=" ">$localization.getString('definition.notSelected')</option>
+             #BuildDocumentList($spDocuments)
+          </select></td></tr>
+        </table>
+        </left>
+    </FORM>
+
+    <br>
+    <left><button onclick="generateReport()" class="reportbutton" VALIGN=MIDDLE>Display Trace Table</button></left>
+    <br><br>
+
+#end
+
+
+#macro (GetFilterQuery $startingQuery  $isSql $filterQuery )
+    #set($index = 0)
+    #if(!$startingQuery.contains("select"))
+        #set($isSql  = false )
+        #set($AND_PROJECT_CLAUSE="AND project.id:${projectId}")
+        #set($PROJECT_CLAUSE="project.id:${projectId}")
+
+        #if($startingQuery.contains($AND_PROJECT_CLAUSE))
+           #set($index = $startingQuery.indexOf($AND_PROJECT_CLAUSE))
+        #elseif($startingQuery.contains($PROJECT_CLAUSE))
+           #set($index = $startingQuery.indexOf($PROJECT_CLAUSE))
+        #end
+
+        #set($filterQuery =  "" )
+        #if($index > 0 )
+           #set($filterQuery = $startingQuery.substring(0,$index))
+        #end
+
+    #elseif($startingQuery.length() > 0 )
+        #set($isSql  = true )
+        #set($AND_PROJECT_CLAUSE="and PROJECT.C_ID = '${projectId}'")
+        #set($PROJECT_CLAUSE="PROJECT.C_ID = '${projectId}'")
+
+        #if($startingQuery.contains($AND_PROJECT_CLAUSE))
+           #set($index = $startingQuery.indexOf($AND_PROJECT_CLAUSE))
+        #elseif($startingQuery.contains($PROJECT_CLAUSE))
+           #set($index = $startingQuery.indexOf($PROJECT_CLAUSE))
+        #end
+
+        #set($filterQuery =  "" )
+        #if($index > 0 )
+           #set($filterQuery = $startingQuery.substring(0,$index))
+        #end
+    #end
+
+#end
+
+
+#set($maxItems = 2500)
+#set($wItems = [])
+#set($gColWorkItemMap = $objectFactory.newMap())
+#set($gColReferencedItemFlagMap = $objectFactory.newMap())
+#set($gColLinkRoleMap = $objectFactory.newMap())
+#set($gColWIFieldsMap = $objectFactory.newMap())
+#set($gColLinkedResourceMap = $objectFactory.newMap())
+#set($gColLastExecutionResultsMap = $objectFactory.newMap())
+#set($gColTestStepResultsMap = $objectFactory.newMap())
+#set($gColFieldCollapseMap = $objectFactory.newMap())
+#set($gColFieldDisplayMap = $objectFactory.newMap())
+
+#set($projectId = $page.reference.projectId )
+#set($project = $trackerService.getProjectsService().getProject($projectId))
+
+
+
+#set($gColTitles = [])
+#set($showReferencedItems = false )
+
+########### PREPARE PARAMETERS ###########
+#set($validOptions = true )
+#if($selPrototypeName.equals("WorkItem"))
+    #set($items = $parameters.workItems.getFor().revision($null).items())
+    #foreach($itm in  $items)
+       #set($witem = $itm.getOldApi())
+       #if(!$witem.isUnresolvable())
+          #set($void = $wItems.add( $witem ))
+       #end
+    #end
+
+    ## add reference workitems if selected
+    #if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+        #set($showReferencedItems = $parameters.showReferencedItems.value)
+    #end
+
+    #if($showReferencedItems )
+        #set($filterQuery = "" )
+        #set($isSql = false )
+
+        #set($startingQuery = $parameters.workItems.getFor().revision($null).queryToShow())
+        #GetFilterQuery ($startingQuery $isSql $filterQuery )
+
+        #if(!$isSql )
+           #if($filterQuery.length() > 0 )
+              #set($sqlQuery = "select wi.c_uri from polarion.workitem wi inner join polarion.project prj2 on prj2.c_uri=wi.fk_uri_project inner join rel_module_workitem wirel on wirel.fk_workitem=wi.c_uri inner join polarion.module mod on mod.c_uri=wirel.fk_uri_module inner join polarion.project prj1 on prj1.c_uri=mod.fk_uri_project inner join LUCENE_QUERY('WorkItem', '${filterQuery}', 'id' ) filter_wi on wi.c_pk=filter_wi.c_pk where prj1.c_id='$projectId' and prj2.c_id != '$projectId'")
+           #else
+              #set($sqlQuery = "select wi.c_uri from polarion.workitem wi inner join polarion.project prj2 on prj2.c_uri=wi.fk_uri_project inner join rel_module_workitem wirel on wirel.fk_workitem=wi.c_uri inner join polarion.module mod on mod.c_uri=wirel.fk_uri_module inner join polarion.project prj1 on prj1.c_uri=mod.fk_uri_project where prj1.c_id='$projectId' and prj2.c_id != '$projectId'")
+           #end
+           #set($queryResults = $trackerService.getDataService().sqlSearch($sqlQuery))
+           #if($queryResults.size() > 0 )
+              #foreach($refItem in $queryResults )
+                 #if(!$refItem.isUnresolvable())
+                    #set($void = $wItems.add($refItem ))
+                 #end
+              #end
+           #end
+       #else
+           #error("Query type SQL or SQL + Velocity is not supported with 'Show Referenced Items' option. Please select a Lucene query OR set the 'Show Referenced Items' option to 'No'" )
+           #set($validOptions = false )
+       #end
+    #end
+
+#elseif( $selPrototypeName.equals("Document") && $urlParameters.size() > 0 && !$urlParameters.docName.equals(""))
+    ## update user selection
+    #set($inputDocPath = $urlParameters.docName )
+    #set($docsLocation = $project.location.getLocation($inputDocPath))
+    #set($modLocation = $project.getLocation().append($inputDocPath))
+
+    #if($trackerService.getModuleManager().existModule($project, $docsLocation ))
+        #set($modManager = $trackerService.getModuleManager())
+        #set($relModLoc = $modLocation.getRelativeLocation($project.getLocation()))
+        #set($selectedDocument = $modManager.getModule($project, $relModLoc))
+
+        #set( $itemsInDoc = [] )
+        #set($itemsInDoc = $selectedDocument.getAllWorkItems())
+
+        #foreach($item in  $itemsInDoc )
+           #if(!$item.isUnresolvable())
+              #set($void = $wItems.add($item ))
+           #end
+        #end
+    #else
+        #info("No valid document exists in the path '$inputDocPath'. Please check your selection")
+    #end
+#end
+
+## sort starting point workitems
+#set($wItemsSort = [] )
+#SortWorkItemsById( $wItems $wItemsSort )
+#set($wItems = $wItemsSort )
+
+
+#if($validOptions )
+
+#set($showLinkingItems = $parameters.showLinkingItems.value)
+#set($showSuspectOnly = $parameters.wgetSuspect.value)
+#set($showCrossProjLinks = $parameters.showCrossProjLinks.value)
+## #set($showExternalLinks = $parameters.showExternalLinks.value)
+#set($showExternalLinks = false)
+
+
+#set($firstColumnTitle = $parameters.firstColumn.title.value)
+#set($firstColumnFields = $parameters.firstColumn.fields.fields())
+#set($firstColumnCollapseDisplay = $parameters.firstColumn.collapseFieldsDisplay.value())
+#set($firstColumnShowFields = $parameters.firstColumn.displayFields.value())
+#set($firstColumnShowLinkedResource = $parameters.firstColumn.firstDisplayLinksToResource.value())
+#set($firstColumnDisplayLastTestExecutionResult = $parameters.firstColumn.firstDisplayLastTestExecutionResult.value())
+#set($firstDisplayTSResults = $parameters.firstColumn.firstDisplayTestStepResults.value())
+#set($void = $gColWIFieldsMap.put(0, $firstColumnFields))
+#set($void = $gColFieldCollapseMap.put(0, $firstColumnCollapseDisplay))
+#set($void = $gColFieldDisplayMap.put(0, $firstColumnShowFields ))
+#set($void = $gColLinkedResourceMap.put(0, $firstColumnShowLinkedResource))
+#set($void = $gColLastExecutionResultsMap.put(0, $firstColumnDisplayLastTestExecutionResult))
+#set($void = $gColTestStepResultsMap.put(0, $firstDisplayTSResults))
+
+
+#if( $firstColumnTitle.equals(""))
+   #set($void = $gColTitles.add("$localization.getString('richpages.widget.kanbanBoard.parameters.column') 1"))
+#else
+   #set($void = $gColTitles.add($firstColumnTitle))
+#end
+
+
+
+#set($prjAndItemId = "")
+#set($cQuery = "")
+
+#set($colIndex = 1)
+#foreach($columnParam in $parameters.columns.get())
+   #set($columnTitle = $columnParam.title.value)
+
+   #set($columnLinkRoles = $columnParam.linkroles.values)
+   #set($columnWorkItems = $columnParam.witypes.values)
+   #set($displayFields = $columnParam.displayFields.value)
+   #set($columnWIFields = $columnParam.fields.fields())
+   #set($collapseFieldsDisplay = $columnParam.collapseFieldsDisplay.value)
+   #set($showLinkedResource = $columnParam.displayLinksToResource.value)
+   #set($displayLastTestExecResult = $columnParam.displayLastTestExecutionResult.value)
+   #set($displayTSResults = $columnParam.displayTestStepResults.value)
+   #set($columnShowRefItemsFlag = false )
+   #if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+       #set($columnShowRefItemsFlag = $columnParam.showProjRef.value)
+   #end
+
+   #set($void = $gColWorkItemMap.put($colIndex, $columnWorkItems ))
+   #set($void = $gColReferencedItemFlagMap.put($colIndex, $columnShowRefItemsFlag))
+   #set($void = $gColLinkRoleMap.put($colIndex, $columnLinkRoles))
+   #set($void = $gColFieldDisplayMap.put($colIndex, $displayFields))
+   #set($void = $gColWIFieldsMap.put($colIndex, $columnWIFields))
+   #set($void = $gColFieldCollapseMap.put($colIndex, $collapseFieldsDisplay))
+   #set($void = $gColLinkedResourceMap.put($colIndex, $showLinkedResource))
+   #set($void = $gColLastExecutionResultsMap.put($colIndex, $displayLastTestExecResult))
+   #set($void = $gColTestStepResultsMap.put($colIndex, $displayTSResults))
+   #set($colIndex = $colIndex + 1)
+   #if($columnTitle.equals(""))
+     #set($void = $gColTitles.add("$localization.getString('richpages.widget.kanbanBoard.parameters.column') $colIndex"))
+   #else
+     #set($void = $gColTitles.add($columnTitle))
+   #end
+
+#end
+
+#set($backgroundColor = $parameters.backgroundColor.value)
+#set($headingColor = $parameters.headingColor.value)
+#set($needTblBorder = $parameters.addTableBorder.value)
+#set($wiFields = $parameters.wgetFields.fields())
+#set($imageSuspect="<img src=/polarion/ria/images/suspect.gif></img>")
+
+#end
+
+#macro(buildQuery $colInx $prjItemId $currProjQuery  $allProjQuery )
+   #set($colWorkItems = [])
+   #set($colLinkRoles = [])
+   #set($colWorkItems = $gColWorkItemMap.get($colInx))
+   #set($colLinkRoles = $gColLinkRoleMap.get($colInx))
+
+   #set($currProjQuery = "(((")
+   #set($lInx = 0)
+   #if($colWorkItems.size() > 0)
+      #set($currProjQuery = "${currProjQuery} (")
+   #end
+
+   #if($colWorkItems.size() > 0)
+      #foreach($wItem in $colWorkItems )
+        #if($lInx == 0)
+           #set($currProjQuery = "${currProjQuery} type:${wItem.id}")
+        #else
+           #set($currProjQuery = "${currProjQuery} OR type:${wItem.id}")
+        #end
+        #set($lInx = $lInx  + 1)
+      #end
+   #end
+   #if($colWorkItems.size() > 0)
+      #set($currProjQuery = "${currProjQuery} ) AND ")
+   #end
+
+
+   #set($lInx = 0)
+   #if($showLinkingItems)
+      #set($linkRel = "linkedWorkItems")
+   #else
+      #set($linkRel = "backlinkedWorkItems")
+   #end
+
+   #if($colLinkRoles.size() > 0)
+      #set($currProjQuery = "${currProjQuery} (")
+   #end
+
+   #if($colLinkRoles.size() > 0)
+      #foreach($lRole in $colLinkRoles )
+         #if($lInx == 0)
+           #set($currProjQuery = "${currProjQuery} (${linkRel}:${lRole.id}=${prjItemId} )")
+         #else
+           #set($currProjQuery = "${currProjQuery} OR (${linkRel}:${lRole.id}=${prjItemId})")
+         #end
+         #set($lInx = $lInx  + 1)
+      #end
+   #end
+
+   #if($colLinkRoles.size() > 0)
+      #set($currProjQuery = "${currProjQuery} )")
+   #end
+
+   #if($colLinkRoles.size() == 0)
+      #set($currProjQuery = "${currProjQuery} (${linkRel}:${prjItemId})")
+   #end
+   #if($showSuspectOnly  == true )
+       #set($currProjQuery = "${currProjQuery} ) AND suspect:true ) OR id:nevermatchanything)")
+   #else
+       #set($currProjQuery = "${currProjQuery} )) OR id:nevermatchanything)")
+   #end
+
+   ## restrict to current project if not asked for repository
+   #if($showCrossProjLinks )
+      #set($allProjQuery = "((ALL:ALL_VALUE) AND ${currProjQuery} )")
+   #else
+      #set($allProjQuery = "((project.id:$projectId) AND ${currProjQuery} )")
+   #end
+
+#end
+
+
+#macro(createTree $parent $externalItem )
+
+  #if($_currentIndex < $gColTitles.size() && !$externalItem )
+    #set($allItems = [])
+    #set($eItems = [] )
+    #set($_items = [] )
+    #set($showOnlyReferencedItems = false )
+    #set($currProjQuery = "")
+    #set($allProjQuery = "")
+    #set($_sort = "id")
+    #set($showOnlyReferencedItems = $gColReferencedItemFlagMap.get($_currentIndex) )
+    #if($parent)
+      #set($prjAndItemId = "$parent.projectId/$parent.id" )
+      #buildQuery($_currentIndex $prjAndItemId $currProjQuery $allProjQuery)
+      #if(!$allProjQuery.equals(""))
+         #if(!$showOnlyReferencedItems )
+            #set($_items = $trackerService.queryWorkItems($allProjQuery, $_sort))
+         #else
+            ## first get the linked items from current project
+            #set($projQuery = "((project.id:$projectId) AND ${currProjQuery} )")
+            #set($inProjItems = $trackerService.queryWorkItems($projQuery, $_sort))
+
+            #if($showCrossProjLinks )
+               #set($referencedItems = [] )
+               ## Get cross project but referenced links
+               #set($otherProjQuery = "((NOT project.id:$projectId) AND ${currProjQuery} )")
+               #set($otherProjItems = $trackerService.queryWorkItems($otherProjQuery, $_sort))
+
+               ## Get all referenced items in the project
+               #set($combinedQuery = "select wi.c_uri from polarion.workitem wi inner join rel_module_workitem wirel on wirel.fk_workitem=wi.c_uri inner join polarion.module mod on mod.c_uri=wirel.fk_uri_module inner join polarion.project prj1 on prj1.c_uri=mod.fk_uri_project where prj1.c_id='$projectId'")
+               #set($refProjItems = $trackerService.getDataService().sqlSearch($combinedQuery))
+
+               ## find intersection of linked items from other projects and referenced items in current project
+               #foreach($refItem in $refProjItems )
+                  #if($otherProjItems.contains($refItem))
+                     #set($void = $referencedItems.add($refItem))
+                  #end
+               #end
+
+            #end
+
+            #if($inProjItems.size() > 0 )
+                #foreach($item in $inProjItems )
+                   #if(!$_items.contains($item))
+                      #set($void = $_items.add($item) )
+                   #end
+                #end
+            #end
+
+            #if($referencedItems.size() > 0 )
+                #foreach($oitem in $referencedItems )
+                   #if(!$_items.contains($oitem))
+                      #set($void = $_items.add($oitem))
+                   #end
+                #end
+            #end
+         #end
+      #end
+      ##Check external links
+      #if($showExternalLinks == true && !$showLinkingItems )
+         #if((!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+            #set($eItems = $parent.getLinkedOslcResourcesStructs())
+            #set($colLinkRoles = $gColLinkRoleMap.get($colInx))
+            #foreach($eitem in $eItems)
+              ##Consider items linked using selected role
+              #set($roleId = $eitem.linkRole.id)
+              #if($colLinkRoles.size() > 0)
+                 #if($colLinkRoles.contains($roleId))
+                     #set($void = $allItems.add($eitem ))
+                 #end
+              #else
+                 #set($void = $allItems.add($eitem))
+              #end
+            #end
+         #end
+      #end
+    #else
+      #set($_items = $wItems)
+    #end
+
+    #if($_items.size() > $maxItems)
+       #set($hitLimit = true)
+       #set($_items = $_items.subList(0,$maxItems))
+    #end
+
+    #foreach($it in $_items )
+       #if(!$it.isUnresolvable())
+          #set($void = $allItems.add($it))
+       #end
+    #end
+
+
+    #foreach($item in $allItems)
+      #set($_subTree = [])
+      #set($void = $_currentTree.add($item))
+      #set($void = $_currentTree.add(0))
+      #set($void = $_currentTree.add($_subTree))
+      #pushTree()
+      #set($_currentTree = $_subTree)
+      #set($_currentIndex = $_currentIndex + 1)
+      #if($item.id)
+         #createTree($item false )
+      #else
+         #createTree($item true )
+      #end
+      #popTree()
+      #set($_currentIndex = $_currentIndex - 1)
+    #end
+
+  #end
+
+  #calculateCount()
+#end
+
+#macro(calculateCount)
+  #set($_currentStackIndex = $_treeStack.size() - 1)
+  #set($_parentStackIndex = $_currentStackIndex - 1)
+  #if($_parentStackIndex >= 0)
+    #set($_current = $_treeStack.get($_currentStackIndex))
+    #set($_parent = $_treeStack.get($_parentStackIndex))
+    #set($_currentCountIndex = $_current.size() - 2)
+    #set($_currentCount = $_current.get($_currentCountIndex))
+    #if($_currentCount == 0)
+      #set($_currentCount = 1)
+      #updateCount($_current 1)
+    #end
+    #updateCount($_parent $_currentCount)
+  #end
+#end
+
+
+#macro(updateCount $tree $inc)
+  #set($_countIndex = $tree.size() - 2)
+  #set($_newCount = $tree.get($_countIndex) + $inc)
+  #set($void = $tree.set($_countIndex, $_newCount))
+#end
+
+#macro(pushTree)
+  #set($void = $_treeStack.add($_currentTree))
+#end
+
+#macro(popTree)
+  #set($_removeIndex = $_treeStack.size() - 1)
+  #set($_currentTree = $_treeStack.remove($_removeIndex))
+#end
+
+#macro(printHeader)
+   #if(!$headingColor)
+      #set($headingColor="#F0F0F0")
+   #end
+   <tr class="polarion-rpw-table-header-row">
+   #foreach($colName in $gColTitles )
+       <th style="background-color:$headingColor">$colName</th>
+   #end
+   </tr>
+#end
+
+#macro(printTree $tree $maxDepth)
+  #set($_item = false)
+  #set($_count = false)
+  #set($_subtree = false)
+  #foreach($node in $tree)
+    #if($node.id || $node.label )
+         #set($_item = $node)
+    #elseif($node.size())
+      #set($_subtree = $node)
+    #else
+      #set($_count = $node)
+    #end
+    #if($_item && $_subtree && $_count)
+         #if($_needsRow)
+            #set($_needsRow = false)
+            #if($needTblBorder)
+               <tr class="polarion-rpw-table-header-row">
+            #else
+               <tr class="polarion-rpw-table-content-row">
+            #end
+         #end
+
+      <td style="background-color:$backgroundColor" valign="top" #if($_count > 0)rowspan="$_count"#end>#renderItem($_item $_currentLevel)</td>
+      #set($_currentLevel = $_currentLevel + 1)
+      #printTree($node $maxDepth)
+      #set($_currentLevel = $_currentLevel - 1)
+      #set($_missingTd = $maxDepth - $_currentLevel)
+      #if(!$_needsRow)
+        #if($_missingTd > 0)
+          <td style="background-color:$backgroundColor" colspan="$_missingTd"></td>
+        #end
+        </tr>
+      #end
+      #set($_needsRow = true)
+    #end
+
+  #end
+#end
+
+## ------------------------------------------------------------------
+## Macro Name:
+## Description: These macros are used to load JS and CSS resources locally
+## Inputs     : JS/CSS file name
+## Output     : None
+## Return     : None
+##
+## -----------------------------------------------------------------
+## -----------------------------------------------------------------
+## Macro Name:loadWidgetJsResource, loadWidgetCssResource
+## Description: These macros are used to load JS and CSS resources locally
+## Inputs     : JS/CSS file name
+## Output     : None
+## Return     : None
+##
+## -----------------------------------------------------------------
+#macro(loadWidgetJsResource $js)
+#loadJsResource($widgetContext.resourceUrl("$js"))
+#end
+#macro(loadJsResource $url)
+    <script type="text/javascript">
+        var xhrObj = new XMLHttpRequest();
+        xhrObj.open('GET', '$url', false);
+        xhrObj.send(null);
+        eval(xhrObj.responseText);
+    </script>
+#end
+#macro(loadWidgetCssResource $css)
+#loadCssResource($widgetContext.resourceUrl("$css"))
+#end
+#macro(loadCssResource $url)
+    #set($cssId = $widgetContext.generateUniqueElementId())
+    <style id="$cssId">
+    </style>
+    <script type="text/javascript">
+        var xhrObj = new XMLHttpRequest();
+        xhrObj.open('GET', '$url;', false);
+        xhrObj.send(null);
+        document.getElementById("$cssId").innerHTML=xhrObj.responseText;
+    </script>
+#end
+
+
+#macro (displayWiAttributes $wi $jnx)
+   #set($returnFields = "")
+   #if($jnx >= 0)
+       #set($wiFields = $gColWIFieldsMap.get($jnx))
+       #foreach($field in $wiFields)
+          #set($returnFields="$returnFields  <b>$transaction.objects().getForOldApiObject($wi).fields().get($field.id()).label():</b>  $transaction.objects().getForOldApiObject($wi).fields().get($field.id()).render.withIcon() <br>")
+       #end
+   #end
+#end
+
+#macro (checkSuspect $wi)
+   #if($wi.hasSuspectLinks())
+       #set($isSuspect="$imageSuspect")
+   #else
+       #set($isSuspect="")
+   #end
+#end
+
+#macro(renderItem $rItem $inx)
+    #if($rItem.id)
+        #if(!$rItem.isUnresolvable())
+        #checkSuspect($rItem)
+        $transaction.workItems().getBy().ids($rItem.projectId, $rItem.id).render().withTitle().withLinks()
+        #set($colIndex = $inx - 1 )
+        #set($displayWIFields = true )
+        #set($displayWIFields = $gColFieldDisplayMap.get($colIndex))
+
+        #if($displayWIFields == true )
+           #displayWiAttributes($rItem $colIndex)
+
+           #set($collapse = $gColFieldCollapseMap.get($colIndex))
+           #if($collapse)
+              <button class="witem">+</button>
+              <div class="wi-fields" style="display: none">
+           #else
+              <button class="witem">&#8210;</button>
+              <div class="wi-fields" style="display: block">
+           #end
+           $returnFields $isSuspect
+           </div>
+            #end
+        #else
+            <i> No Access </i>
+        #end
+
+        ## If Links to resources are enabled
+        #set($linksToResource = $gColLinkedResourceMap.get($colIndex))
+        #if($linksToResource)
+          #foreach($linkedResource in $transaction.linkedResources().getBy().workItemId($rItem.projectId, $rItem.id))
+            <p><span class="polarion-rt-linkblock-repository">$linkedResource.fields().repositoryId().get()</span> <span class="polarion-rt-linkblock-branch">$linkedResource.fields().branch().get()</span> $linkedResource.fields().location().render()/$linkedResource.fields().fileName().render() - $linkedResource.render.withLinks() <span class="polarion-rt-linkblock-line">($linkedResource.fields().elementPosition().render.withMessage())</span> </p>
+          #end
+        #end
+        ## If Test Run Results are enabled
+        #set($lastResultExecution = $gColLastExecutionResultsMap.get($colIndex))
+        #if($lastResultExecution)
+          #getLastTestRecord($transaction.workItems().getBy().ids($rItem.projectId, $rItem.id) $gColTestStepResultsMap.get($colIndex))
+        #end
+    #elseif($rItem.label )
+       <img src=/polarion/ria/images/world_link.png /> <a href="$rItem.URI">$rItem.label</a>
+    #end
+#end
+
+#macro(getLastTestRecord $linkedItem $showTestStepResults)
+	#set( $numTestRecords = 1 )
+	#set( $testRecords = $testManagementService.getLastTestRecords($linkedItem.getOldApi(), $numTestRecords) )
+
+	#if( $testRecords.size() > 0 )
+
+  <p>
+		#set( $latestTestResult = $testRecords.get(0) )
+		#set($testRun = $transaction.testRuns().getBy().oldApiObject($latestTestResult.getTestRun()))
+		<p>$localization.getString('field.TestRun._proto.label') $testRun.render.withLinks </p>
+
+		## Loop the test iterations
+		## ------------------------
+		#set($iterations = $testRun.fields.records().byTestCase($linkedItem.fields.id.get))
+		#set($iterationCount = 0)
+		#foreach($iteration in $iterations)
+			#if ($iterations.size() > 1)
+				#set($iterationCount = $iterationCount + 1)
+				<i>$localization.getString('field.TestRecord.iteration.label') $iterationCount</i>
+			#end
+
+			## If the user has chosen to display the test step results, we just render the $iteration (TestRecord)
+			## Else, we get the Test Case Verdict and display it
+			## ---------------------------------------------------------------------------------------------------
+			#if ($showTestStepResults)
+				$iteration.render.withLinks
+			#else
+				<table style="margin-bottom: 15px; ;border-collapse: collapse; width:100%; ;margin-top: 13px;" class="polarion-no-style-cleanup">
+					<tbody>
+						<tr>
+							<th style="width: 80%; text-align: left; background-color: #ffffff;">$localization.getString('core.testing.testCaseVerdict')</th>
+						</tr>
+						<tr>
+							<td style="vertical-align: top;"><span>
+							<b>$iteration.fields().result.render.withColor</b>
+							</span>
+							<span>$iteration.fields().comment.render</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			#end
+		#end
+  </p>
+	#end
+#end
+
+#macro(TraceabilityTable )
+  #set($_currentIndex = 0)
+  #set($_currentTree = [])
+  #set($_treeStack = [])
+  #set($hitLimit = false)
+
+  #createTree(false false )
+
+  #set($_currentLevel = 1)
+  #set($_needsRow = true)
+  #if($hitLimit)
+    #warning("Limit exceeded - showing first $maxItems items.")
+  #end
+
+  #if($needTblBorder)
+     <table class="polarion-rpw-table-content" border="1">
+  #else
+     <table class="polarion-rpw-table-content" border="0">
+  #end
+     #printHeader()
+     #printTree($_currentTree $gColTitles.size())
+  </table>
+#end
+
+
+
+#if($wItems.size() > 0 )
+   #TraceabilityTable()
+#end
+
+#end
+
+
+<style>
+.witem {
+    background-color:#378de5;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    line-height:14px;
+    padding:0px 2px;
+    text-decoration:none;
+}
+.witem:hover {
+    background-color:#37aabb;
+}
+</style>
+
+
+  <body>
+  #loadWidgetJsResource("resources/jquery-1.10.2.min.js")
+
+  <script>
+
+
+ $(function() {
+
+    var acc = document.getElementsByClassName("witem");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+      acc[i].onclick = function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if(panel.style.display == "block") {
+            panel.style.display = "none";
+            this.innerHTML = "+";
+        }
+        else {
+            panel.style.display = "block";
+            this.innerHTML = "&#8210;";
+        }
+      }
+    }
+ });

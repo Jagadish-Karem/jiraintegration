@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="system_change" name="System Change" sortOrder="1"/>
+    <option id="infrastructure_change" name="Infrastructure Change" sortOrder="2"/>
+    <option id="bug_fix" name="Bug Fix" sortOrder="3"/>
+    <option id="data_change" name="Data Change" sortOrder="4"/>
+</enumeration>

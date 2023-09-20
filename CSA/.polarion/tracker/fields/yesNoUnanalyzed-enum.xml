@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option iconURL="/polarion/icons/default/enums/build_OK.png" id="yes" name="Yes"/>
+    <option iconURL="/polarion/icons/default/enums/build_FAILED.png" id="no" name="No"/>
+    <option iconURL="/polarion/icons/default/enums/variation_optional.gif" id="unanalyzed" name="Unanalyzed"/>
+</enumeration>

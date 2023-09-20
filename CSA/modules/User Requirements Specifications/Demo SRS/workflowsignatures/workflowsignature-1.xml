@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document-workflow-signature>
+    <field id="signatureState">obsolete</field>
+    <field id="signatures">
+        <list>
+            <struct>
+                <item id="signedBy">admin</item>
+                <item id="signedRevision">354</item>
+                <item id="verdict">signed</item>
+                <item id="verdictTime">2023-07-11 08:05:34.530 -0700</item>
+            </struct>
+        </list>
+    </field>
+    <field id="targetStatusId">approved</field>
+    <field id="transitionDataRevision">358</field>
+</document-workflow-signature>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baseline-collection>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="created">2023-04-05 22:13:09.967 +0000</field>
+    <field id="elements">
+        <list>
+            <struct>
+                <item id="object">{Module}{moduleFolder}User Requirements Specifications#Demo SRS</item>
+                <item id="revision">82461</item>
+            </struct>
+            <struct>
+                <item id="object">{Module}{moduleFolder}URS#Test doc</item>
+                <item id="revision">87909</item>
+            </struct>
+        </list>
+    </field>
+    <field id="name">Test Collection</field>
+</baseline-collection>

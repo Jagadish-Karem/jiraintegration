@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <field id="active">true</field>
+    <field id="color">transparent</field>
+    <field id="description" text-type="text/plain">This project contains the requirements, tests, and validation deliverables for Polarion as well as the individual Compliance Group templates.</field>
+    <field id="icon">/polarion/ria/images/topicIcons/project.svg</field>
+    <field id="lead">admin</field>
+    <field id="name">WaterFall</field>
+    <field id="start">2023-06-28</field>
+    <field id="trackerPrefix">WFD</field>
+</project>

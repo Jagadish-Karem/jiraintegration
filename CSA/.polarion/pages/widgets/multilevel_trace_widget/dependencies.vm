@@ -1,0 +1,11 @@
+###############################################################################
+##
+##  dependencies.vm - this velocity script is executed on changing relevant widget settings
+##	com.polarion.alm.shared.api.model.rp.parameter.DataSetParameter $dataSetParameter
+##
+
+#set($scope = $parameters.workItems.scope())
+$parameters.projects.set().scope($scope)
+$parameters.columns.linkroles.set().scope($scope)
+$parameters.columns.witypes.set().scope($scope)
+$parameters.displayFields.set().scope($scope)

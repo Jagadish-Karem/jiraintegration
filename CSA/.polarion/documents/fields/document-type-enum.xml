@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option description="Document to contain user, function, and design requirements." iconURL="/polarion/icons/default/enums/document_electrical_requirement2.png" id="requirementSpecification" name="Requirement Specification" sortOrder="1"/>
+    <option default="true" iconURL="/polarion/icons/default/enums/document_generic.png" id="generic" name="Generic" sortOrder="2"/>
+    <option description="Document to contain compliance assessments and test cases." iconURL="/polarion/icons/default/enums/document_mechanical_testcase.png" id="validationPlan" name="Validation Plan" sortOrder="9"/>
+    <option description="Document to define data migration activities." iconURL="/polarion/icons/default/enums/document_package.png" id="dataMigrationPlan" name="Data Migration Plan" sortOrder="10"/>
+    <option description="Optional document to define qualification testing." iconURL="/polarion/icons/default/enums/document_software_requirement2.png" id="qualificationProtocol" name="Qualification Protocol" sortOrder="14"/>
+    <option description="Optional document to summarize qualification testing." iconURL="/polarion/icons/default/enums/document_electrical_testcase.png" id="qualificationReport" name="Qualification Report" sortOrder="16"/>
+    <option description="Document to summarize validation activities." iconURL="/polarion/icons/default/enums/document_software_testcase.png" id="validationReport" name="Validation Summary Report" sortOrder="19"/>
+</enumeration>

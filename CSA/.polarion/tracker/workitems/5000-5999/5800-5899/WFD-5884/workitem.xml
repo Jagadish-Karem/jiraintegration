@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+        
+    <field id="author">jonathanm@complianceg.com</field>
+        
+    <field id="created">2023-03-30 14:15:46.571 +0000</field>
+        
+    <field id="description" text-type="text/html">Ensure the Risk Assessment work item calculates the risk ratings appropriately per SOP-123.</field>
+        
+    <field id="priority">50.0</field>
+        
+    <field id="severity">normal</field>
+        
+    <field id="status">in_draft</field>
+        
+    <field id="title">Risk Assessment - Unscripted</field>
+        
+    <field id="type">unscriptedTest</field>
+        
+    <field id="version" type="string">1.0</field>
+    
+</work-item>

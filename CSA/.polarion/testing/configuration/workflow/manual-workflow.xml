@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow initial-status="in_draft" prototype="TestRun">
+    <transitions>
+        <transition action="send_for_approval" from="in_draft" to="pre_approval"/>
+        <transition action="mark_obsolete" from="in_draft" to="obsolete"/>
+        <transition action="pre_approve" from="pre_approval" to="ready_for_exec"/>
+        <transition action="reject" from="pre_approval" to="rejected"/>
+        <transition action="new_revision" from="ready_for_exec" to="in_draft"/>
+        <transition action="send_for_review" from="ready_for_exec" to="post_approval"/>
+        <transition action="post_approve" from="post_approval" to="exec_approved"/>
+        <transition action="reject" from="post_approval" to="rejected"/>
+        <transition action="rework" from="rejected" to="in_draft"/>
+        <transition action="new_revision" from="obsolete" to="in_draft"/>
+        <transition action="mark_obsolete" from="rejected" to="obsolete"/>
+    </transitions>
+    <actions>
+        <action id="rework" name="Rework">
+            <functions>
+                <function name="MarkWorkflowSignaturesAsObsolete"/>
+            </functions>
+        </action>
+        <action id="new_revision" name="New Revision">
+            <functions>
+                <function name="MarkWorkflowSignaturesAsObsolete"/>
+            </functions>
+        </action>
+        <action id="reject" name="Reject"/>
+        <action id="pre_approve" name="Pre-Approve">
+            <signatures>
+                <auto-signature/>
+            </signatures>
+            <conditions>
+                <condition name="ScriptCondition">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/testrun/condTestRun.js"/>
+                </condition>
+            </conditions>
+        </action>
+        <action id="send_for_approval" name="Send for Approval">
+            <conditions>
+                <condition name="ScriptCondition">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/testrun/condTestRun.js"/>
+                </condition>
+            </conditions>
+        </action>
+        <action id="post_approve" name="Post-Approve">
+            <signatures>
+                <auto-signature/>
+            </signatures>
+            <conditions>
+                <condition name="ScriptCondition">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/testrun/condTestRun.js"/>
+                </condition>
+            </conditions>
+        </action>
+        <action id="mark_obsolete" name="Mark Obsolete">
+            <signatures>
+                <auto-signature/>
+            </signatures>
+        </action>
+        <action id="send_for_review" name="Send for Review">
+            <conditions>
+                <condition name="ScriptCondition">
+                    <param name="engine" value="js"/>
+                    <param name="script" value="workflow/testrun/condTestRun.js"/>
+                </condition>
+            </conditions>
+        </action>
+    </actions>
+</workflow>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option iconURL="/polarion/icons/default/enums/req_status_accepted.gif" id="dry_run" name="Dry Run" sortOrder="1"/>
+</enumeration>

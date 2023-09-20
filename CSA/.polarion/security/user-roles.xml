@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user-roles>
+    <user name="Kaushik">
+        <role name="project_admin"/>
+    </user>
+    <user name="jonathanm@complianceg.com">
+        <role name="project_admin"/>
+    </user>
+    <user name="sn_bpo_1">
+        <role name="project_bpo"/>
+    </user>
+    <user name="sn_bpo_2"/>
+    <user name="sn_so_1">
+        <role name="project_so"/>
+    </user>
+    <user name="sn_so_2"/>
+    <user name="sn_qa_1">
+        <role name="project_qa"/>
+        <role name="project_assignable"/>
+        <role name="project_admin"/>
+    </user>
+    <user name="sn_qa_2"/>
+    <user name="sn_view_only">
+        <role name="project_user"/>
+    </user>
+    <user name="sn_editor">
+        <role name="project_assignable"/>
+    </user>
+    <user name="andy.holton@complianceg.com">
+        <role name="project_assignable"/>
+    </user>
+    <user name="admin">
+        <role name="project_admin"/>
+        <role name="project_qa"/>
+        <role name="project_approver"/>
+    </user>
+    <user name="aSeller">
+        <role name="project_approver"/>
+        <role name="project_bpo"/>
+        <role name="project_assignable"/>
+    </user>
+    <user name="sDeveloper">
+        <role name="project_approver"/>
+        <role name="project_so"/>
+        <role name="project_assignable"/>
+    </user>
+    <user name="cUser">
+        <role name="project_qa"/>
+        <role name="project_approver"/>
+        <role name="project_assignable"/>
+    </user>
+</user-roles>

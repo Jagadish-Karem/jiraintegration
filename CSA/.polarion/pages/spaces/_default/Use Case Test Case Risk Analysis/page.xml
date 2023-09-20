@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2018-03-01 18:24:59.204 +0100</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Use Case Test Case Risk Analysis</h1>
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="com.polarion.pageParametersForm">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="title"></sub>
+      <sub id="content">
+        <sub>document</sub>
+      </sub>
+      <sub id="width">500</sub>
+    </span>
+  </div>
+  <p id="polarion_1">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.scriptInline">
+      <span class="polarion-rp-widget-parameters" style="display: none;">
+        <sub id="script">
+          <sub id="script" style="white-space:pre;">&lt;style&gt;
+.polarion-rpe-ParameterEditor-outerPanel {
+	border-radius: 5px 5px 5px 5px;
+}
+.polarion-rp-parameters-form-editor-panel {
+	border: none;
+}
+&lt;/style&gt;
+          </sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 100%;">
+  <div id="polarion_client6" class="polarion-rp-widget-part" data-widget="tqktraceabilitytable">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="subtype">usecase</sub>
+        <sub id="queryType">luceneVelocity</sub>
+        <sub id="luceneQuery" style="white-space:pre;">#if($pageParameters.document.singleValue())
+	document.id:&quot;$pageParameters.document.singleValue().id().replaceAll(&quot; / &quot;, &quot;/&quot;)&quot;
+#end</sub>
+        <sub id="children">
+          <sub id="sortBy"></sub>
+          <sub id="mainRenderFields">
+            <sub>
+              <sub id="id">rpl</sub>
+            </sub>
+            <sub>
+              <sub id="id">qsr</sub>
+            </sub>
+            <sub>
+              <sub id="id">alevel</sub>
+            </sub>
+          </sub>
+          <sub id="mainSidebarConfig">
+            <sub>
+              <sub id="id">assignee</sub>
+            </sub>
+            <sub>
+              <sub id="id">severity</sub>
+            </sub>
+            <sub>
+              <sub id="id">priority</sub>
+            </sub>
+            <sub>
+              <sub id="id">status</sub>
+            </sub>
+            <sub>
+              <sub id="id">resolution</sub>
+            </sub>
+            <sub>
+              <sub id="id">asil</sub>
+            </sub>
+            <sub>
+              <sub id="id">qsr</sub>
+            </sub>
+            <sub>
+              <sub id="id">alevel</sub>
+            </sub>
+            <sub>
+              <sub id="id">linkedWorkItems</sub>
+            </sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="settings">
+        <sub id="linkedItemTypes">
+          <sub id="values">
+            <sub>testcase</sub>
+          </sub>
+        </sub>
+        <sub id="linkedRoles">
+          <sub id="values">
+            <sub>verifies</sub>
+          </sub>
+        </sub>
+        <sub id="filterByCoverage"></sub>
+        <sub id="linkedRenderFields">
+          <sub>
+            <sub id="id">testType</sub>
+          </sub>
+        </sub>
+        <sub id="linkedSidebarConfig">
+          <sub>
+            <sub id="id">assignee</sub>
+          </sub>
+          <sub>
+            <sub id="id">severity</sub>
+          </sub>
+          <sub>
+            <sub id="id">priority</sub>
+          </sub>
+          <sub>
+            <sub id="id">status</sub>
+          </sub>
+          <sub>
+            <sub id="id">resolution</sub>
+          </sub>
+          <sub>
+            <sub id="id">testType</sub>
+          </sub>
+          <sub>
+            <sub id="id">linkedWorkItems</sub>
+          </sub>
+        </sub>
+        <sub id="defectItemTypes">
+          <sub id="values">
+            <sub>exception</sub>
+          </sub>
+        </sub>
+        <sub id="defectRoles">
+          <sub id="values">
+            <sub>triggered_by</sub>
+          </sub>
+        </sub>
+        <sub id="linkedToLinkedRenderFields">
+          <sub>
+            <sub id="id">description</sub>
+          </sub>
+        </sub>
+        <sub id="linkedToLinkedSidebarConfig">
+          <sub>
+            <sub id="id">severity</sub>
+          </sub>
+          <sub>
+            <sub id="id">status</sub>
+          </sub>
+          <sub>
+            <sub id="id">linkedWorkItems</sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="advanced">
+        <sub id="showLabels">true</sub>
+        <sub id="useCompactMode">true</sub>
+        <sub id="collapseLimit">3</sub>
+        <sub id="sourceItemColumnTitle">Use Case</sub>
+        <sub id="linkedItemColumnTitle">Test Case</sub>
+        <sub id="defectItemColumnTitle">Detail</sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<span id="polarion-rp-parameters">
+  <sub id="document" data-label="Document" data-type="Enumeration">
+    <sub id="enumId">@document[type:use_case_specification]</sub>
+    <sub id="allowNoValue">true</sub>
+    <sub id="allowMultipleValues">false</sub>
+    <sub id="loadForAllTypes">true</sub>
+  </sub>
+</span>]]></field>
+    <field id="title">Use Case Test Case Risk Analysis</field>
+</rich-page>

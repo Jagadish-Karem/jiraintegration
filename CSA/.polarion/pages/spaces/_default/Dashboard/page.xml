@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2016-10-26 09:45:16.646 +0000</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Dashboard</h1>
+  <p id="polarion_hardcoded_1"></p>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 70%;">
+  <div id="polarion_client32" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">###############################################################################
+##
+##	Velocity Context - following objects are in the velocity context
+##
+## com.polarion.alm.shared.api.model.rp.RichPage $page
+## com.polarion.alm.shared.api.transaction.ReadOnlyTransaction $transaction
+## com.polarion.alm.shared.api.model.wi.WorkItem $toolChain
+## com.polarion.alm.shared.api.model.wi.WorkItem $tool
+## com.polarion.alm.shared.api.model.wi.WorkItem $method
+## com.polarion.alm.shared.api.model.document.Document $qualificationReport
+## com.polarion.alm.shared.api.model.rp.widget.RichPageWidgetRenderingContext $widgetContext
+##
+
+###############################################################################
+##
+##	Macros
+##
+#macro(renderQualifications $query $sort $projectId)
+	#set($toolChains = $transaction.workItems().search().query(&quot;$query&quot;).sort(&quot;$sort&quot;))
+	#if($toolChains.size() &gt; 0)
+	
+		## Sidebar Preparation START
+		#set($builderWithSidebar = $transaction.context().createHtmlFragmentBuilderFor().rpeView())
+		#set($displayedFieldsMap = $objectFactory.newMap())
+		## Sidebar: Configure displayed fields for each group (i.e. Work Item type) - #set($displayedFieldsGroupID = [&quot;field1&quot;, &quot;field2&quot;, ...]
+		## Sidebar: Add each group to the Displayed Fields Map - #set($void = $displayedFieldsMap.put(&quot;groupid&quot;, $displayedFieldsGroupID))
+		#set($displayedFieldsToolChain = [&quot;title&quot;, &quot;targetAsil&quot;, &quot;status&quot;, &quot;resolution&quot;, &quot;severity&quot;, &quot;priority&quot;, &quot;assignee&quot;, &quot;initialEstimate&quot;, &quot;timeSpent&quot;, &quot;remainingEstimate&quot;, &quot;timeSpentOnTools&quot;, &quot;dueDate&quot;, &quot;qualificationReport&quot;])
+		#set($void = $displayedFieldsMap.put(&quot;toolChain&quot;, $displayedFieldsToolChain))
+		#set($displayedFieldsWorkTool = [&quot;title&quot;, &quot;toolType&quot;, &quot;asil&quot;, &quot;toolImpact&quot;, &quot;toolErrorDetection&quot;, &quot;toolConfidenceLevel&quot;, &quot;status&quot;, &quot;resolution&quot;, &quot;severity&quot;, &quot;assignee&quot;, &quot;version&quot;, &quot;environment&quot;, &quot;environmentDetails&quot;, &quot;validationFrequency&quot;, &quot;initialEstimate&quot;, &quot;timeSpent&quot;, &quot;remainingEstimate&quot;, &quot;timeSpentOnMethods&quot;, &quot;dueDate&quot;, &quot;useCaseSpecification&quot;, &quot;qualificationReport&quot;])
+		#set($void = $displayedFieldsMap.put(&quot;tool&quot;, $displayedFieldsWorkTool))
+		#set($displayedFieldsMethod = [&quot;title&quot;, &quot;type&quot;, &quot;status&quot;, &quot;resolution&quot;, &quot;severity&quot;, &quot;assignee&quot;, &quot;initialEstimate&quot;, &quot;timeSpent&quot;, &quot;remainingEstimate&quot;, &quot;dueDate&quot;, &quot;qualificationReport&quot;, &quot;testCaseSpecification&quot;, &quot;testRun&quot;, &quot;useNotRecommendedMethod&quot;])
+		#set($void = $displayedFieldsMap.put(&quot;method&quot;, $displayedFieldsMethod))
+		#set($displayedFieldsSupplier = [&quot;title&quot;, &quot;brand&quot;, &quot;status&quot;, &quot;resolution&quot;, &quot;assignee&quot;, &quot;supMaturity&quot;, &quot;city&quot;, &quot;street&quot;, &quot;zip&quot;, &quot;country&quot;, &quot;phone&quot;, &quot;qualificationReport&quot;])
+		#set($void = $displayedFieldsMap.put(&quot;supplier&quot;, $displayedFieldsSupplier))
+		## Sidebar: Choose unique ID - #set($myContainerId = &quot;myUniqueId&quot;)
+		#set($myContainerId = $widgetContext.generateUniqueElementId())
+		#set($sidebarConfiguration = $renderingContext.propertiesSidebarConfiguration().containerId(&quot;$myContainerId&quot;).fieldsConfiguration($displayedFieldsMap).addTo($builderWithSidebar))
+		#set($pathAttr = $sidebarConfiguration.attributes().referencePath())
+		#set($clickClass = $sidebarConfiguration.attributes().clickableCssClass())
+		#set($wiFieldsKey = $sidebarConfiguration.attributes().fieldsConfigurationKey())
+		## Sidebar Configuration END
+
+		&lt;div id=&quot;polarion-rp-widget-content&quot;&gt;
+		## Sidebar: Assign a unique ID to the table that contains lines that should be clickable - &lt;table id=&quot;$myContainerId&quot;&gt;
+		&lt;table class=&quot;polarion-rpw-table-main&quot; id=&quot;$myContainerId&quot;&gt;
+			&lt;tbody&gt;
+				&lt;tr&gt;
+					&lt;td&gt;
+						&lt;table class=&quot;polarion-rpw-table-content&quot;&gt;
+							&lt;tbody&gt;
+								&lt;tr class=&quot;polarion-rpw-table-header-row&quot;&gt;
+									&lt;th&gt;Tool Chain | Tool | Method/Supplier&lt;/th&gt;
+									&lt;th style=&quot;width: 110px;&quot;&gt;Status&lt;/th&gt;
+									&lt;th style=&quot;width: 205px;&quot;&gt;Associated Object(s)&lt;/th&gt;
+									&lt;th style=&quot;width: 30px;&quot; title=&quot;Tool Chain - Target RPL | Tool - RPL&quot;&gt;RPL&lt;/th&gt;
+									&lt;th style=&quot;width: 150px;&quot;&gt;Assignee(s)&lt;/th&gt;
+									&lt;th style=&quot;width: 30px;&quot; title=&quot;Tool Type&quot;&gt;Type&lt;/th&gt;
+									&lt;th style=&quot;width: 55px;&quot; title=&quot;Tool Confidence Level&quot;&gt;TCL&lt;/th&gt;
+								&lt;/tr&gt;
+								#foreach($toolChain in $toolChains)
+									## Sidebar: Add click class to each row - &lt;tr class=&quot;$clickClass&quot;&gt;
+									## Sidebar: Add path to the Work Item for each row - &lt;tr $pathAttr=&quot;$workItem.getReference().toPath()&quot;&gt;
+									## Sidebar: Add wi fields key to each row to load proper group&#39;s configuration of displayed fields - &lt;tr $wiFieldsKey=&quot;groupid&quot;&gt;
+									&lt;tr class=&quot;polarion-rpw-table-content-row $clickClass&quot; $pathAttr=&quot;$toolChain.getReference().toPath()&quot; $wiFieldsKey=&quot;toolChain&quot;&gt;
+										&lt;td&gt;&lt;b&gt;$toolChain.render().withLinks().withTruncatedTitle(25)&lt;/b&gt;&lt;/td&gt;
+										&lt;td&gt;&lt;b&gt;$toolChain.fields().status().render()&lt;/b&gt;&lt;/td&gt;
+										&lt;td&gt;
+											#if(!$toolChain.fields().get(&quot;qualificationReport&quot;).is().empty())
+												#set($qualificationReport = $toolChain.fields().get(&quot;qualificationReport&quot;).get().getModelObject())
+												#set($qualificationReportLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$qualificationReport.getReference().spaceReference().spacePath()&quot;, &quot;$qualificationReport.getReference().name()&quot;).toEncodedRelativeUrl())
+												&lt;b&gt;$qualificationReport.fields().status().render().withText(false)
+												&lt;a href=&quot;$qualificationReportLink&quot; target=&quot;_top&quot;&gt;
+													$qualificationReport.fields().type().render().withText(false)Qualification Report
+												&lt;/a&gt;&lt;/b&gt;
+											#end
+										&lt;/td&gt;
+										&lt;td&gt;&lt;b&gt;$!toolChain.fields().get(&quot;targetAsil&quot;).render().withText(false)&lt;/b&gt;&lt;/td&gt;
+										&lt;td&gt;&lt;b&gt;$!toolChain.fields().assignee().render()&lt;/b&gt;&lt;/td&gt;
+										&lt;td&gt;&lt;/td&gt;
+										&lt;td&gt;&lt;/td&gt;
+									&lt;/tr&gt;
+									#set($linkedWIsToToolChain = $toolChain.fields().linkedWorkItems().back())
+									#foreach($linkedToToolChain in $linkedWIsToToolChain)
+										#if($linkedToToolChain.fields().workItem().get().fields().type().get().id().equals(&quot;tool&quot;) &amp;&amp; $linkedToToolChain.fields().role().optionId().equals(&quot;tool_chain&quot;))
+											#set($tool = $linkedToToolChain.fields().workItem().get())
+											## Sidebar: Add click class to each row - &lt;tr class=&quot;$clickClass&quot;&gt;
+											## Sidebar: Add path to the Work Item for each row - &lt;tr $pathAttr=&quot;$workItem.getReference().toPath()&quot;&gt;
+											## Sidebar: Add wi fields key to each row to load proper group&#39;s configuration of displayed fields - &lt;tr $wiFieldsKey=&quot;groupid&quot;&gt;
+											&lt;tr class=&quot;polarion-rpw-table-content-row $clickClass&quot; $pathAttr=&quot;$tool.getReference().toPath()&quot; $wiFieldsKey=&quot;tool&quot;&gt;
+												&lt;td style=&quot;padding-left: 18px;&quot;&gt;&lt;img src=&quot;/polarion/ria/images/arrow_up.gif&quot;/&gt; $tool.render().withLinks().withTruncatedTitle(20)&lt;/td&gt;
+												&lt;td&gt;$tool.fields().status().render()&lt;/td&gt;
+												&lt;td&gt;
+													&lt;div&gt;
+														#if(!$tool.fields().get(&quot;qualificationReport&quot;).is().empty())
+															#set($qualificationReport = $tool.fields().get(&quot;qualificationReport&quot;).get().getModelObject())
+															#set($qualificationReportLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$qualificationReport.getReference().spaceReference().spacePath()&quot;, &quot;$qualificationReport.getReference().name()&quot;).toEncodedRelativeUrl())
+															$qualificationReport.fields().status().render().withText(false)
+															&lt;a href=&quot;$qualificationReportLink&quot; target=&quot;_top&quot;&gt;
+																$qualificationReport.fields().type().render().withText(false)Qualification Report&lt;br/&gt;
+															&lt;/a&gt;
+														#end
+														#if(!$tool.fields().get(&quot;useCaseSpecification&quot;).is().empty())
+															#set($qualificationReport = $tool.fields().get(&quot;useCaseSpecification&quot;).get().getModelObject())
+															#set($qualificationReportLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$qualificationReport.getReference().spaceReference().spacePath()&quot;, &quot;$qualificationReport.getReference().name()&quot;).toEncodedRelativeUrl())
+															$qualificationReport.fields().status().render().withText(false)
+															&lt;span style=&quot;white-space: nowrap;&quot;&gt;
+																&lt;a href=&quot;$qualificationReportLink&quot; target=&quot;_top&quot;&gt;
+																	$qualificationReport.fields().type().render().withText(false)Use Case Specification
+																&lt;/a&gt;
+																#set($qualificationReportPath = &quot;$qualificationReport.getReference().spaceReference().spacePath() / $qualificationReport.getReference().name()&quot;)	
+																#set($useCaseRiskLink = &quot;$transaction.context().createPortalLink().project($projectId).richPage(&#39;&#39;, &#39;Use Case Test Case Risk Analysis&#39;).toEncodedRelativeUrl()?document=$qualificationReportPath&quot;)
+																&lt;a href=&quot;$useCaseRiskLink&quot; target=&quot;_top&quot;&gt;
+																	&lt;img style=&quot;vertical-align: text-bottom;&quot; src=&quot;/polarion/ria/images/topicIconsSmall/richpage.png&quot; title=&quot;Use Case Test Case Risk Analysis&quot;/&gt;
+																&lt;/a&gt;
+															&lt;/span&gt;
+														#end
+													&lt;/div&gt;
+												&lt;/td&gt;
+												&lt;td&gt;$!tool.fields().get(&quot;asil&quot;).render().withText(false)&lt;/td&gt;
+												&lt;td&gt;$!tool.fields().assignee().render()&lt;/td&gt;
+												&lt;td&gt;$tool.fields().get(&quot;toolType&quot;).render().withText(false)&lt;/td&gt;
+												&lt;td&gt;$!tool.fields().get(&quot;toolConfidenceLevel&quot;).render()&lt;/td&gt;
+											&lt;/tr&gt;
+											#set($linkedWIsToTool = $tool.fields().linkedWorkItems().back())
+											#foreach($linkedToTool in $linkedWIsToTool)
+												#if($linkedToTool.fields().workItem().get().fields().type().get().id().contains(&quot;met&quot;) &amp;&amp; $linkedToTool.fields().role().optionId().equals(&quot;qualifies&quot;))
+													#set($method = $linkedToTool.fields().workItem().get())
+													## Sidebar: Add click class to each row - &lt;tr class=&quot;$clickClass&quot;&gt;
+													## Sidebar: Add path to the Work Item for each row - &lt;tr $pathAttr=&quot;$workItem.getReference().toPath()&quot;&gt;
+													## Sidebar: Add wi fields key to each row to load proper group&#39;s configuration of displayed fields - &lt;tr $wiFieldsKey=&quot;groupid&quot;&gt;
+													&lt;tr class=&quot;polarion-rpw-table-content-row $clickClass&quot; $pathAttr=&quot;$method.getReference().toPath()&quot; $wiFieldsKey=&quot;method&quot;&gt;
+														&lt;td style=&quot;padding-left: 36px;&quot;&gt;&lt;img src=&quot;/polarion/ria/images/arrow_up.gif&quot;/&gt; $method.render().withLinks().withTruncatedTitle(20)&lt;/td&gt;
+														&lt;td&gt;$method.fields().status().render()&lt;/td&gt;
+														&lt;td&gt;
+															&lt;div&gt;
+																#if(!$method.fields().get(&quot;qualificationReport&quot;).is().empty())
+																	#set($qualificationReport = $method.fields().get(&quot;qualificationReport&quot;).get().getModelObject())
+																	#set($qualificationReportLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$qualificationReport.getReference().spaceReference().spacePath()&quot;, &quot;$qualificationReport.getReference().name()&quot;).toEncodedRelativeUrl())
+																	$qualificationReport.fields().status().render().withText(false)
+																	&lt;a href=&quot;$qualificationReportLink&quot; target=&quot;_top&quot;&gt;
+																		$qualificationReport.fields().type().render().withText(false)Qualification Report&lt;br/&gt;
+																	&lt;/a&gt;
+																#end
+																#if(!$method.fields().get(&quot;testCaseSpecification&quot;).is().empty() &amp;&amp; !$method.fields().get(&quot;testRun&quot;).is().empty())
+																	#set($qualificationReport = $method.fields().get(&quot;testCaseSpecification&quot;).get().getModelObject())
+																	#set($qualificationReportLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$qualificationReport.getReference().spaceReference().spacePath()&quot;, &quot;$qualificationReport.getReference().name()&quot;).toEncodedRelativeUrl())
+																	$qualificationReport.fields().status().render().withText(false)
+																	&lt;a href=&quot;$qualificationReportLink&quot; target=&quot;_top&quot;&gt;
+																		$qualificationReport.fields().type().render().withText(false)Test Case Specification
+																	&lt;/a&gt;
+																	&lt;br/&gt;
+																	#set($testRun = $method.fields().get(&quot;testRun&quot;).get().getModelObject())
+																	#set($testRunLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).testRun(&quot;$testRun.getReference().id()&quot;).toEncodedRelativeUrl())
+																	&lt;a href=&quot;$testRunLink&quot; target=&quot;_top&quot;&gt;
+																		$testRun.fields().status().render().withText(false)Test Run
+																	&lt;/a&gt;
+																#end
+															&lt;/div&gt;
+														&lt;/td&gt;
+														&lt;td&gt;&lt;/td&gt;
+														&lt;td&gt;$!method.fields().assignee().render()&lt;/td&gt;
+														&lt;td&gt;&lt;/td&gt;
+														&lt;td&gt;&lt;/td&gt;
+													&lt;/tr&gt;
+												#end
+											#end
+											#foreach($linkedToTool in $linkedWIsToTool)
+												#if($linkedToTool.fields().workItem().get().fields().type().get().id().equals(&quot;supplier&quot;) &amp;&amp; $linkedToTool.fields().role().optionId().equals(&quot;supplies&quot;))
+													#set($supplier = $linkedToTool.fields().workItem().get())
+													## Sidebar: Add click class to each row - &lt;tr class=&quot;$clickClass&quot;&gt;
+													## Sidebar: Add path to the Work Item for each row - &lt;tr $pathAttr=&quot;$workItem.getReference().toPath()&quot;&gt;
+													## Sidebar: Add wi fields key to each row to load proper group&#39;s configuration of displayed fields - &lt;tr $wiFieldsKey=&quot;groupid&quot;&gt;
+													&lt;tr class=&quot;polarion-rpw-table-content-row $clickClass&quot; $pathAttr=&quot;$supplier.getReference().toPath()&quot; $wiFieldsKey=&quot;supplier&quot;&gt;
+														&lt;td style=&quot;padding-left: 36px;&quot;&gt;&lt;img src=&quot;/polarion/ria/images/arrow_up.gif&quot;/&gt; $supplier.render().withLinks().withTruncatedTitle(20)&lt;/td&gt;
+														&lt;td&gt;$supplier.fields().status().render()&lt;/td&gt;
+														&lt;td&gt;
+															&lt;div&gt;
+																#if(!$supplier.fields().get(&quot;qualificationReport&quot;).is().empty())
+																	#set($qualificationReport = $supplier.fields().get(&quot;qualificationReport&quot;).get().getModelObject())
+																	#set($qualificationReportLink = $transaction.context().createPortalLink().project(&quot;$projectId&quot;).document(&quot;$qualificationReport.getReference().spaceReference().spacePath()&quot;, &quot;$qualificationReport.getReference().name()&quot;).toEncodedRelativeUrl())
+																	$qualificationReport.fields().status().render().withText(false)
+																	&lt;a href=&quot;$qualificationReportLink&quot; target=&quot;_top&quot;&gt;
+																		$qualificationReport.fields().type().render().withText(false)Qualification Report&lt;br/&gt;
+																	&lt;/a&gt;
+																#end
+															&lt;/div&gt;
+														&lt;/td&gt;
+														&lt;td&gt;&lt;/td&gt;
+														&lt;td&gt;$!supplier.fields().assignee().render()&lt;/td&gt;
+														&lt;td&gt;&lt;/td&gt;
+														&lt;td&gt;&lt;/td&gt;
+													&lt;/tr&gt;
+												#end
+											#end
+										#end
+									#end
+								#end
+							&lt;/tbody&gt;
+						&lt;/table&gt;
+					&lt;/td&gt;
+				&lt;/tr&gt;
+			&lt;/tbody&gt;
+		&lt;/table&gt;
+		## Sidebar: Render helper HTML fragment
+		$builderWithSidebar
+	#end
+#end
+
+#set($projectId = $page.getReference().projectId())
+
+&lt;h2&gt;Active Qualifications&lt;/h2&gt;
+#set($queryActive = &quot;project.id:$projectId AND type:toolchain AND status:(inprogress reopened resolved rejected)&quot;)
+#set($sortActive = &quot;dueDate&quot;)
+#renderQualifications($queryActive $sortActive $projectId)
+&lt;br/&gt;&lt;br/&gt;
+&lt;h2&gt;Open Qualifications&lt;/h2&gt;
+#set($queryOpen = &quot;project.id:$projectId AND type:toolchain AND status:(open)&quot;)
+#set($sortOpen = &quot;dueDate&quot;)
+#renderQualifications($queryOpen $sortOpen $projectId)
+&lt;br/&gt;&lt;br/&gt;
+&lt;h2&gt;Finished Qualifications&lt;/h2&gt;
+#set($queryFinished = &quot;project.id:$projectId AND type:toolchain AND status:(verified verified-rejected)&quot;)
+#set($sortFinished = &quot;status dueDate&quot;)
+#renderQualifications($queryFinished $sortFinished $projectId)
+
+
+        </sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client23"></p><p id="polarion_client4"></p><p id="polarion_client5"></p><p id="polarion_client25"></p>
+</div>
+<div class="polarion-rp-column" style="width: 30%;">
+  <h2 id="polarion_client18">Quick Actions</h2>
+  <p id="polarion_client20" style="text-align: center;">
+    <span class="polarion-rp-inline-widget" data-widget="com.polarion.genericButton">
+      <span class="polarion-rp-widget-parameters" style="display: none;">
+        <sub id="label">New System Validation Chain</sub>
+        <sub id="sublabel">
+          <sub id="script" style="white-space:pre;">Start a new Qualification process</sub>
+        </sub>
+        <sub id="action">
+          <sub id="script" style="white-space:pre;"></sub>
+        </sub>
+        <sub id="url">/polarion/#/project/ToolQualificationKit/workitem?form_mode=create&amp;form_field_type=toolchain</sub>
+        <sub id="advanced">
+          <sub id="labelColor"></sub>
+          <sub id="disabled">
+            <sub id="script" style="white-space:pre;"></sub>
+          </sub>
+        </sub>
+      </span>
+    </span>
+  </p>
+  <ul id="polarion_client22">
+    <li>Find out how to properly use this project in the <span class="polarion-rp-inline-widget" data-widget="enumerationrenderer">
+        <span class="polarion-rp-widget-parameters" style="display: none;">
+          <sub id="scope"></sub><sub id="type"></sub>
+          <sub id="enum">
+            <sub id="values">
+              <sub>@richPage</sub>
+            </sub>
+          </sub>
+          <sub id="enumOpt">
+            <sub id="values">
+              <sub>_default / Guide</sub>
+            </sub>
+          </sub>
+          <sub id="render">
+            <sub id="renderModelObject">true</sub>
+            <sub id="withBaselineIcon">true</sub>
+            <sub id="withColor">false</sub>
+            <sub id="withIcon">true</sub>
+            <sub id="withLinks">true</sub>
+            <sub id="withRevisionIcon">true</sub>
+            <sub id="withText">true</sub>
+          </sub>
+          <sub id="customization">
+            <sub id="textBefore"></sub><sub id="textAfter"></sub>
+            <sub id="customLinkTarget">
+              <sub id="values">
+                <sub>_top</sub>
+              </sub>
+            </sub>
+            <sub id="customLink">
+              <sub id="script" style="white-space:pre;"> </sub>
+            </sub>
+          </sub>
+        </span>
+      </span>.</li>
+  </ul>
+  <p id="polarion_client21"></p>
+  <h2 id="polarion_client26">Statistics</h2>
+  <div id="polarion_client44" class="polarion-rp-widget-part" data-widget="com.polarion.separateByPieChart">
+    <span class="polarion-rp-widget-parameters" style="display: none;">
+      <sub id="title">System Validation Chains by Status</sub>
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="subtype">toolchain</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;"></sub>
+        <sub id="children">
+          <sub id="separateBy">
+            <sub id="field">status</sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="showDataLabels">true</sub>
+      <sub id="showZeroValues">false</sub>
+      <sub id="advanced">
+        <sub id="height"></sub><sub id="width"></sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client1"></p>
+  <div id="polarion_client41" class="polarion-rp-widget-part" data-widget="com.polarion.separateByPieChart">
+    <span class="polarion-rp-widget-parameters" style="display: none;">
+      <sub id="title">System Validations by Status</sub>
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="subtype">tool</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;"></sub>
+        <sub id="children">
+          <sub id="separateBy">
+            <sub id="field">status</sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="showDataLabels">true</sub>
+      <sub id="showZeroValues">false</sub>
+      <sub id="advanced">
+        <sub id="height"></sub><sub id="width"></sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client3"></p>
+  <div id="polarion_client2" class="polarion-rp-widget-part" data-widget="com.polarion.separateByPieChart">
+    <span class="polarion-rp-widget-parameters" style="display: none;">
+      <sub id="title">Methods by Status</sub>
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;">type:(metConfidenceFromUse metEvaluationOfDevelopment metValidationOfTool metDevelopmentWithStandard)</sub>
+        <sub id="children">
+          <sub id="separateBy">
+            <sub id="field">status</sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="showDataLabels">true</sub>
+      <sub id="showZeroValues">false</sub>
+      <sub id="advanced">
+        <sub id="height"></sub><sub id="width"></sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client12"></p>
+  <div id="polarion_client11" class="polarion-rp-widget-part" data-widget="com.polarion.separateByPieChart">
+    <span class="polarion-rp-widget-parameters" style="display: none;">
+      <sub id="title">Suppliers by Status</sub>
+      <sub id="dataSet">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="subtype">supplier</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;">type:supplier</sub>
+        <sub id="children">
+          <sub id="separateBy">
+            <sub id="field">status</sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="showDataLabels">true</sub>
+      <sub id="showZeroValues">false</sub>
+      <sub id="advanced">
+        <sub id="height"></sub><sub id="width"></sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_client19"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<pre id="polarion-rp-page-script">###############################################################################
+##
+##	Velocity Context - following objects are in the velocity context
+##
+## com.polarion.alm.shared.api.model.rp.RichPage $page
+##
+
+#set($url = &quot;/polarion/#/project/$page.getReference().projectId()/workitem?form_mode=create&amp;form_field_type=toolchain&quot;)
+$!scriptedPageParameters.put(&quot;url&quot;, $factory.string(&quot;Work Items URL&quot;).value(&quot;$url&quot;).build())
+</pre>]]></field>
+    <field id="title">Dashboard</field>
+</rich-page>

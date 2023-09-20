@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comment>
+    <field id="author">admin</field>
+    <field id="created">2023-08-03 08:20:50.516 -0700</field>
+    <field id="tags">
+        <list>
+            <item>secure</item>
+        </list>
+    </field>
+    <field id="text" text-type="text/html">Approval verdict: &lt;img class="polarion-no-style-cleanup" src="/polarion/ria/images/actions/tick.png" style="vertical-align:text-bottom;" /&gt; Approved (on behalf of Steve Developer)</field>
+    <field id="title">Item was e-signed</field>
+</comment>

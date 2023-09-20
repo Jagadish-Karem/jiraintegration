@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="created">2023-02-14 13:04:06.084 -0800</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0"> Analysis Tree</h1>
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="Impact_Analysis">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="workItems">
+        <sub id="prototype">WorkItem</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space:pre;">NOT heading</sub>
+      </sub>
+      <sub id="outputFormat">
+        <sub id="values">
+          <sub>tree</sub>
+        </sub>
+      </sub>
+      <sub id="treeSize">
+        <sub id="width">1300</sub>
+        <sub id="height">1300</sub>
+      </sub>
+      <sub id="zoomcenter">
+        <sub id="values">
+          <sub>mouseCursor</sub>
+        </sub>
+      </sub>
+      <sub id="displayOptionParam">
+        <sub id="values">
+          <sub>WorkItemIDTitle</sub>
+        </sub>
+      </sub>
+      <sub id="nodeTitleTruncation">25</sub>
+      <sub id="linkRole">
+        <sub id="values">
+          <sub>duplicates</sub>
+          <sub>parent</sub>
+          <sub>assess</sub>
+          <sub>triggered_by</sub>
+          <sub>refines</sub>
+          <sub>relates_to</sub>
+          <sub>relies</sub>
+          <sub>verifies</sub>
+        </sub>
+      </sub>
+      <sub id="direction">
+        <sub id="values">
+          <sub>both</sub>
+        </sub>
+      </sub>
+      <sub id="level">
+        <sub id="values">
+          <sub>4</sub>
+        </sub>
+      </sub>
+      <sub id="configrules">
+        <sub id="values">
+          <sub>Id</sub>
+          <sub>title</sub>
+          <sub>direction</sub>
+          <sub>output</sub>
+          <sub>flipGraph</sub>
+          <sub>depth</sub>
+          <sub>zoomcenter</sub>
+        </sub>
+      </sub>
+      <sub id="enableautocomplete">true</sub>
+      <sub id="qry2exclude"></sub>
+      <sub id="useSuspectLinks">true</sub>
+      <sub id="roleColors">
+        <sub id="blueColor">
+          <sub id="values">
+            <sub>verifies</sub>
+          </sub>
+        </sub>
+        <sub id="redColor">
+          <sub id="values">
+            <sub>triggered_by</sub>
+          </sub>
+        </sub>
+        <sub id="greenColor">
+          <sub id="values">
+            <sub>relies</sub>
+          </sub>
+        </sub>
+        <sub id="orangeColor"></sub><sub id="magentaColor"></sub><sub id="lightgreenColor"></sub><sub id="lightblueColor"></sub><sub id="dottedblueColor"></sub><sub id="dottedredColor"></sub><sub id="dottedgreenColor"></sub><sub id="dottedorangeColor"></sub><sub id="dottedmagentaColor"></sub><sub id="dottedlightgreenColor"></sub><sub id="dottedlightblueColor"></sub>
+      </sub>
+      <sub id="columns">
+        <sub id="elements">
+          <sub></sub>
+        </sub>
+      </sub>
+      <sub id="displayLegend">true</sub>
+      <sub id="export2Excel">true</sub>
+      <sub id="export2Pdf">true</sub>
+      <sub id="export2PdfTree">true</sub>
+      <sub id="flipGraph">
+        <sub id="values">
+          <sub>parent-children</sub>
+        </sub>
+      </sub>
+    </span>
+  </div>
+  <p id="polarion_hardcoded_1"></p>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>]]></field>
+    <field id="title">Impact Analysis</field>
+</rich-page>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fields can only be shown once in the form! --><formLayout xmlns="http://polarion.com/schema/WorkItems/FormLayout" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://polarion.com/schema/WorkItems/FormLayout">
+
+    <!-- Horizontal layout element, adds components on horizontal row. Each component is in a new column. -->
+    <horizontal>
+        <!-- Vertical layout element adds components into one vertical column. Each component is in a new row. -->
+        <vertical>
+            <section>
+                <field id="project"/>
+                <field id="type"/>
+                <field id="author"/>
+                <field id="assignee"/>
+            </section>
+        </vertical>
+        <vertical>
+            <section>
+                <field id="status"/>
+                <field id="version"/>
+                <field id="plannedIn"/>
+                <field id="site"/>
+            </section>
+        </vertical>
+        <vertical>
+            <section>
+               <field id="patientRisk"/>
+               <field id="implementationMethod"/>
+               <field id="riskRating"/>
+               <field id="testingType"/>
+            </section>
+        </vertical>
+    </horizontal>
+
+    <field id="description"/>
+    <field id="changeReason"/>
+    <extension id="velocity_form" label="Impact Analysis" script="forms/WaterfallDev_impactAnalysis.vm"/>  
+    <!-- Complex fields should not be used in section or panel elements - there is no space for them. -->
+    <field id="comments"/>
+    <field id="approvals"/>
+    <field id="linkedWorkItems"/>
+    <field id="hyperlinks"/>
+    <field id="attachments"/>
+</formLayout>

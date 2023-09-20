@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="assignee">aSeller</field>
+    <field id="author">aSeller</field>
+    <field id="created">2023-08-03 07:41:38.056 -0700</field>
+    <field id="description" text-type="text/html">This is an unscripted description.</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">verifies</item>
+                <item id="workItem">WFD-6061</item>
+            </struct>
+        </list>
+    </field>
+    <field id="pre" text-type="text/html" type="text/html">Need to know things.</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="title">Unscripted test case</field>
+    <field id="type">unscriptedTest</field>
+    <field id="version" type="string">1</field>
+</work-item>

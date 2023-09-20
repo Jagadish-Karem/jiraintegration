@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option id="iq" name="IQ" sortOrder="0"/>
+    <option id="functional" name="Functional" sortOrder="1"/>
+    <option id="uat" name="UAT" sortOrder="2"/>
+    <option id="e2e" name="E2E" sortOrder="3"/>
+    <option id="sit" name="SIT" sortOrder="4"/>
+    <option id="datamigration" name="Data Migration" sortOrder="5"/>
+    <option id="unittesting" name="Unit Testing" sortOrder="6"/>
+    <option id="boundarytesting" name="Boundary Testing" sortOrder="7"/>
+</enumeration>

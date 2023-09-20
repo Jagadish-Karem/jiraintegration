@@ -1,0 +1,2458 @@
+## @Version=5@
+##
+## File Name: render.vm
+## Widget Name: Traceability Analysis
+## Description: This file contains the rendering for Traceability Browser widget
+##
+## Date               Author          Description of Change
+## ---------------------------------------------------------------------------------------------
+## 24-Jan-2017       GDN              Initial Release
+## 08-Mar-2017       GDN              More features to support tree zoom in/out, node title configuration ...
+## 23-Oct-2017       GDN              Fix issue reported with Polarion 17.2
+## 03-Aug-2018       GDN              More features to generate report for both linked and backlinked items.
+##                                    Export table contents to PDF. Render workitem only by title
+## 07-Aug-2018       GDN              Use report name as file name for excel and pdf
+## 13-Aug-2018       GDN              Add bi-directional graph report
+## 12-Sep-2018       GDN              Fix issue with graph jumping to new location on collapse
+## 03-Oct-2018       GDN              Add auto complete for search on Item Id and Title
+##                                    Support to exclude WorkItems with selected status from report
+## 03-Oct-2018       GDN              Fix issue with WorkItem link when rendered to display only title
+## 04-Oct-2018       GDN              Fix style issues
+## 05-Oct-2018       GDN              Fix issue with node collapse, nodes not collapsing to clicked node
+## 05-Oct-2018       JFT              Adding dotted circle around Root nodeExit
+##                                    Adding "..." for truncated title_
+##                                    Changing size of nodes (from 24 to 20)
+## 05-Oct-2018       GDN              Fix issue with exclude query
+##                                    Fix issue wtih trace level in bi-direction mode
+## 23-Oct-2018       GDN              Level of trace should be consistent in both tree and table format
+##                                    unlock exported excel.
+##                                    Add icon legend to pdf export
+## 26-Nov-2018       JFT              Fixing an issue where node icon image was not displayed in Firefox
+## 22-Jan-2019       MH               CSS adjustments
+## 17-Apr-2019       RS               IR#9437275 (ASML) - Tree not displayed when first level parent count is less than input trace level
+##                                    Change EOL to Unix to support pre Polarion 19
+## 12-Sep-2019       Sagar - GDN      Opening work item to new tab: Id + Title of the node is clickable to open the workitem (in a new window in its form view).
+##                          	        Tooltip: New tooltip is added to show the full id + title of the work item.
+##                                    Node collapse on click of icon: Now, Node is collapsing on click of Work Item icon and not on id + title
+##                                    Icon legends added to tree view on the Top left corner.
+##                                    Flipping suspect parent and its children. Children - Left and Parent - Right. Need AbbVie's confirmation on this point
+##                                    Bi Directional Tree - PDF export option available only with chrome browser's pdf save while print.
+##                                    Parameters added via parameters.vm file:
+##                                    1) Allow Export to PDF - Tree
+##                                    2) Flip Tree nodes (Children - Left and Parent - Right)
+##
+## 22-Oct-2019       Goutham - GDN    Parameter options change for parameters Direction and Tree Node Display.
+##                          	        New UI option for Tree Node Display (flip Parent-Children).
+##                                    Moved Print button on Tree display towards right and introduced Zoom to Fit button
+##                                    to print complete Tree by fitting Tree in window.
+##                                    Icon Legend moved towards top right on both Tree and Table view.
+##                                    Now all URL Links in Table view open in a new window
+## 25-Oct-2019      JFT               Fixing how node icon is retrieved (to solve an issue with header icon not displayed)
+## 25-Oct-2019      Goutham - GDN     Escaped Workitem Title for auto complete option which was throwing error in browser console
+## 28-Oct-2019      JFT               Displaying Report Title when Printing in Tree View
+## 30-Oct-2019      JFT               Using the configured report name when exporting to PDF (tree view)
+##                                    Fixing an issue where the legend was not exported in table view
+##                                    Removing buttons and user parameters dialog when exporting to PDF and printing
+## ====================================================================================================
+
+## Text Constant
+## -----------------------------------
+#set($suspectParentsText = "Suspect Parents")
+#set($suspectChildrenText = "Suspect Children")
+
+
+
+## Global variables
+## ----------------------------------
+#set($totalMaxItems = 2500)
+#set($q='"')
+#set($_sort = "id")
+#set($traceDepth = 0)
+#set($icon="iconURL")
+#set($idTitlePixel = "7")
+#set($titlePixel = "6")
+#set($idPixel =     "5")
+#set($toolTipPixel = 2)
+#set($questionMark="workitem?id=")
+#set($direction = "linked")
+#set($flip = "parent-children" )
+#set($totalItemCount = 0)
+#set($firstWarning = true)
+#set($allowExport2Excel = false )
+#set($allowExport2PDF = false )
+#set($allowExport2PdfTree = false )
+##set($allowFlipChildrenToLeft = false )
+#set($displayLegend = false )
+#set($enableautocomplete = false )
+#set($displayedWITypeMap = $objectFactory.newMap())
+#set($completeJSONCount = [])
+#set($wiTitles = [] )
+#set($wiIds = [] )
+#set($wis2xclude = [] )
+#set($legendWITypeMap = $objectFactory.newMap())
+#set($JSONLegend = "")
+
+#set($allowExport2Excel = $parameters.export2Excel.value )
+#set($allowExport2PDF = $parameters.export2Pdf.value )
+#set($allowExport2PdfTree = $parameters.export2PdfTree.value )
+##set($allowFlipChildrenToLeft = $parameters.flipChildrenToLeft.value )
+#set($displayLegend = $parameters.displayLegend.value )
+#set($enableautocomplete = $parameters.enableautocomplete.value )
+#set($nodeTitleTruncationParam = $parameters.nodeTitleTruncation.value())
+#set($useSuspectLinksParam = $parameters.useSuspectLinks.value )
+
+## Get starting point workitem list from widget configuration
+#set($wItems = $parameters.workItems.getFor().revision($null).items())
+
+#set($wis2excludeQry =  "" )
+#set($wis2excludeQry = $parameters.qry2exclude.value())
+
+#if( !$wis2excludeQry.equals(""))
+    #set($wis2xclude = $trackerService.queryWorkItems( $wis2excludeQry, "id" ))
+#end
+
+#if($enableautocomplete)
+    #foreach($item in $wItems )
+        #set( $wiId = $item.fields().id().get())
+        #set( $wiTitle = $item.fields().title().get())
+        #set( $wiTitle = $wiTitle.replaceAll("\"", "").replaceAll("\\", "\\\\"))
+        #set( $wiTitle = $esc.javascript($wiTitle))
+        #set($void = $wiTitles.add( "${q}${wiTitle}${q}" ))
+        #set($void = $wiIds.add( "${q}${wiId}${q}" ))
+    #end
+#end
+
+#macro(loadWidgetJsResource $js)
+    #loadJsResource($widgetContext.resourceUrl("$js"))
+#end
+
+#macro(loadJsResource $url)
+    <script type="text/javascript">
+        var xhrObj = new XMLHttpRequest();
+        xhrObj.open('GET', '$url', false);
+        xhrObj.send(null);
+        eval(xhrObj.responseText);
+    </script>
+#end
+
+#macro(loadWidgetCssResource $css)
+    #loadCssResource($widgetContext.resourceUrl("$css"))
+#end
+#macro(loadCssResource $url)
+    #set($cssId = $widgetContext.generateUniqueElementId())
+    <style id="$cssId">
+    </style>
+    <script type="text/javascript">
+        var xhrObj = new XMLHttpRequest();
+        xhrObj.open('GET', '$url;', false);
+        xhrObj.send(null);
+        document.getElementById("$cssId").innerHTML=xhrObj.responseText;
+    </script>
+#end
+
+## -----------------------------------------------------------------
+## Macro Name:BuildTraceabilityData
+## Description: This macro builds a json string with all trace links data for given work item
+##              It uses the macro createTraceabilityTree to traverse throw all link items
+##              widget paremeter configuration
+## Inputs     :
+##              linkRoles = array of link roles to filter at each level
+##              inputItem = starting point workitem
+##              rootElement = boolean value to indicate if the inputItem is a root or not
+## Output     :
+##              JSONTree = Json string representing entire trace links data
+##              JSONItemCount = total number of work items in Json string
+## Return     : None
+##
+## -----------------------------------------------------------------
+#macro(BuildTraceabilityData $linkRoles $inputItem $rootElement $JSONTree $JSONItemCount)
+  #set($_currentIndex = 0)
+  #set($_currentTree = [])
+  #set($_treeStack = [])
+  #set($_currentParent = "")
+  #set($_parentStack = [])
+  #set($hitLimit = true)
+  #set($myJSONTree = "[")
+  #set($indexItemMap=$objectFactory.newMap())
+  #set($functionItemCount = 0)
+  #set($uniqueCount = 0)
+
+  #createTraceabilityTree($linkRoles $inputItem $rootElement $functionItemCount)
+  #set($myJSONTree = "${myJSONTree}]")
+  #set($_currentLevel = 1)
+  #set($_needsRow = true)
+
+  #set($JSONTree = $myJSONTree)
+  #set($JSONItemCount = $functionItemCount)
+#end
+
+
+## -----------------------------------------------------------------
+## Macro Name:BuildBidirectionalTraceabilityData
+## Description: This macro builds a json string with all trace links data for given work item
+##              It uses the macro createTraceabilityTree to traverse throw all link items
+##              widget paremeter configuration
+## Inputs     :
+##              linkRoles = array of link roles to filter at each level
+##              inputItem = starting point workitem
+##              rootElement = boolean value to indicate if the inputItem is a root or not
+## Output     :
+##              JSONTree = Json string representing entire trace links data
+##              JSONItemCount = total number of work items in Json string
+## Return     : None
+##
+## -----------------------------------------------------------------
+#macro(BuildBidirectionalTraceabilityData $linkRoles $inputItem $rootElement $JSONTree $JSONItemCount)
+  #set($_currentIndex = 0)
+  #set($_currentTree = [])
+  #set($_treeStack = [])
+  #set($_currentParent = "")
+  #set($_parentStack = [])
+  #set($hitLimit = true)
+  #set($myJSONTree = "[")
+  #set($indexItemMap=$objectFactory.newMap())
+  #set($functionItemCount = 0)
+  #set($uniqueCount = 0)
+
+  #set($inputRootItem = $inputItem )
+
+  #if( !$direction.equals("both") )
+      #createTraceabilityTree($linkRoles $inputItem $rootElement "backlinked" $functionItemCount)
+  #else
+      #set($direction = "backlinked" )
+      #createTraceabilityTree($linkRoles $inputItem $rootElement "backlinked" $functionItemCount)
+      #set($direction = "both" )
+  #end
+
+  #set($jsonLength = $myJSONTree.length() - 1)
+  #set($finalJson = $myJSONTree.toString().substring(0, $jsonLength ))
+  #set($myJSONTree = "${finalJson},")
+
+  #if( $direction.equals("both") )
+      #if($traceDepth > 1 )
+         #set($direction = "linked" )
+         #addLeftTree( $linkRoles $inputRootItem $rootElement  "linked" $functionItemCount)
+         #set($myJSONTree = "${myJSONTree}}]")
+      #else
+         #set($myJSONTree = "${myJSONTree}${q}linked${q}: []}]")
+      #end
+  #else
+      ## Add empty left tree
+      #set($myJSONTree = "${myJSONTree} ${q}linked${q}:[]}]")
+  #end
+
+  #set($_currentLevel = 1)
+  #set($_needsRow = true)
+
+  #set($JSONTree = $myJSONTree)
+  #set($JSONItemCount = $functionItemCount)
+#end
+
+#macro ( addLeftTree $linkRoles $inputItem $rootElement $childType $functionItemCount )
+    #set($_currentParent = $inputItem )
+    #set($referenceItems = $inputItem.getLinkedWorkItemsStructsDirect($_sort))
+    ## Skip Heading type
+    #set($linkedItems = [] )
+    #set($finalLinkedItems = [] )
+    #foreach($rlink in $referenceItems )
+      #if($rlink.linkedItem.type.id != "heading" )
+         #if( !$wis2xclude.contains( $rlink.linkedItem ))
+            #set($void = $linkedItems.add($rlink))
+         #end
+      #end
+    #end
+
+    #if($_currentRoles.size() > 0)
+       ## remove links that are not selected
+       #foreach($llink in $linkedItems )
+          #if($_currentRoles.contains($llink.linkRole.id))
+                #set($void = $finalLinkedItems.add($llink))
+          #end
+       #end
+    #else
+       #set($finalLinkedItems = $linkedItems )
+    #end
+
+    #set($myJSONTree = "${myJSONTree}${q}${childType}${q}: [")
+
+    ## ------------------------------------------------------------------------------------------
+    ## Fix IR#9437275 , tracedepth was nwrongly handled, causing tree not to display if input tracel level
+    ## is less than linkedItem count
+    ## ------------------------------------------------------------------------------------
+    #set($traceDepth = $traceDepth - 1 )
+    #foreach($fItem in $finalLinkedItems)
+        #createTraceabilityTree($linkRoles $fItem $rootElement "linked" $functionItemCount)
+        #set($myJSONTree = "${myJSONTree},")
+    #end
+    #set($myJSONTree = "${myJSONTree}]")
+#end
+
+## -----------------------------------------------------------------
+## Macro Name:createTraceabilityTree
+## Description: This macro is a core function to build json string from trace link data
+##              it traverse to the required levels to get trace link items and build
+##              a Json string
+## Inputs     :
+##              linkRoles = array of link roles to filter at each level
+##              inputItem = starting point workitem
+##              rootElement = boolean value to indicate if the inputItem is a root or not
+##              childType = linked or backlinked
+## Output     :
+##              functionItemCount = total number of work items in Json string
+##              This macros updates the global variable myJSONTree
+## Output     : None
+## Return     : None
+##
+## -----------------------------------------------------------------
+#macro(createTraceabilityTree $linkRoles $inputItem $rootElement $childType $functionItemCount)
+    #if($_currentIndex < $traceDepth)
+    #set($_rolesIndex = $_currentIndex - 1)
+      #if($_rolesIndex < 0 )
+         #set($_rolesIndex = 0 )
+      #end
+    #set($_currentRoles = $linkRoles.get($_rolesIndex))
+
+    #set($finalLinkedItems = [] )
+    #set($referenceItems = [] )
+
+    #if($rootElement == false )
+        ## based on the selected direction get either linked or backlinked items
+        #if($direction == "backlinked" )
+          #set($referenceItems = $inputItem.getLinkedWorkItemsStructsBack($_sort))
+        #else
+          #set($referenceItems = $inputItem.getLinkedWorkItemsStructsDirect($_sort))
+        #end ## end of direction
+
+        ## Skip Heading type and other workitems with excluded statuses
+        #set($linkedItems = [] )
+        #foreach($rlink in $referenceItems )
+          #if($rlink.linkedItem.type.id != "heading" )
+             #if( !$wis2xclude.contains( $rlink.linkedItem ))
+                 #set($void = $linkedItems.add($rlink))
+             #end
+          #end
+        #end
+
+
+        #if($_currentRoles.size() > 0)
+           ## remove links that are not selected
+           #foreach($llink in $linkedItems )
+              #if($_currentRoles.contains($llink.linkRole.id))
+                 #set($void = $finalLinkedItems.add($llink))
+              #end
+           #end
+        #else
+           #set($finalLinkedItems = $linkedItems )
+        #end
+
+        ##For each index keep updating number of workitems count
+        #if(!$indexItemMap.containsKey($_currentIndex))
+          #set($oldValue=$indexItemMap.put($_currentIndex,$finalLinkedItems.size()))
+        #else
+         #set($sizeCount = $finalLinkedItems.size() + $indexItemMap.get($_currentIndex) )
+         #set($oldValue = $indexItemMap.put($_currentIndex,$sizeCount))
+        #end
+
+        ##Get the highest value at any index from map
+        #foreach( $key in $indexItemMap.keySet() )
+           #if($functionItemCount < $indexItemMap.get($key))
+              #set($functionItemCount = $indexItemMap.get($key))
+           #end
+        #end
+        #set($totalItemCount = $totalItemCount + $finalLinkedItems.size())
+        #if($finalLinkedItems.size() > $totalMaxItems)
+          #set($hitLimit = true)
+          #set($finalLinkedItems = $finalLinkedItems.subList(0,$totalMaxItems))
+        #end
+    #else  ## if not root element
+      #set($void = $finalLinkedItems.add($inputItem))
+    #end
+
+    #foreach($link in $finalLinkedItems)
+       #set($uniqueCount = $uniqueCount + 1)
+       #if($totalItemCount < $totalMaxItems)
+          #if(!$_currentParent.equals(""))
+             #set($item = $link.linkedItem )
+          #else
+             #set($item = $link )
+          #end
+
+          #set($_subTree = [])
+          #set($void = $_currentTree.add($item.id ))
+          #set($void = $_currentTree.add(0))
+          #set($void = $_currentTree.add($_subTree))
+          #set($uniqueID = $uniqueCount)
+
+          ## build Json string
+          #if ($item.isUnresolvable()) ## if no access on work item, write no access for title, type ..
+            #set($_projectId= $item.projectId)
+            #set($myJSONTree = "${myJSONTree}{${q}name${q}: ${q}$item.id${q},") ##put the id of WI
+            #set($myJSONTree = "${myJSONTree}${q}nodeDispText${q}: ${q}$item.id : No Access${q},")
+            #set($myJSONTree = "${myJSONTree}${q}nodeDispType${q}: ${q}$idTitlePixel${q},")##put the display config type
+            #set($myJSONTree = "${myJSONTree}${q}title${q}: ${q}No Access${q},") ##put the title of WI
+            #set($myJSONTree = "${myJSONTree}${q}image${q}: ${q}No Access${q},") ##put the image used for WI
+            #set($itemurl = "#/project/$item.projectId/workitem?id=$item.id")
+            #set($myJSONTree = "${myJSONTree}${q}url${q}: ${q}$itemurl${q},") ##put the url for WI
+          #else ## item is resolvable
+            #set($_projectId= $item.projectId)
+            #set($myJSONTree = "${myJSONTree}{${q}name${q}: ${q}$item.id${q},") ##put the id of WI
+            #set($itemTitle = "")
+            #set($itemTitle = $!item.title )
+
+            ## Update the title to remove " symbol as it is considered as escape character in velocity and Javascript
+            #set($updatedtitle = $!item.title.replaceAll("\"", "").replaceAll("\\", "\\\\"))
+            #set($myJSONTree = "${myJSONTree}${q}title${q}: ${q}$updatedtitle${q},") ##put the title of WI
+
+            #set($wiRenderer = $transaction.workItems().getBy().ids( $item.getProjectId(), $item.id))
+            #set($myJSONTree = "${myJSONTree}${q}image${q}: ${q}$wiRenderer.fields().type().iconLink()${q},") ##put the image used for WI
+            #if( !$legendWITypeMap.keySet().contains($!item.type.name))
+                #set($void = $legendWITypeMap.put( $wiRenderer.getOldApi().getType().getName(), $wiRenderer.fields().type().iconLink() ))
+            #end
+
+
+            #set($itemurl = "#/project/$item.projectId/workitem?id=$item.id")
+            #set($myJSONTree = "${myJSONTree}${q}url${q}: ${q}$itemurl${q},") ##put the url for WI
+
+            ## process node title based on selected configuration option
+            #if($displayConfig == "WorkItemID")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispText${q}: ${q}$item.id${q},")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispType${q}: ${q}$idPixel${q},")##put the display config type
+            #elseif ($displayConfig == "WorkItemIDTitle")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispText${q}: ${q}$item.id : $updatedtitle${q},")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispType${q}: ${q}$idTitlePixel${q},")##put the display config type
+            #elseif ($displayConfig == "WorkItemTitle")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispText${q}: ${q}$updatedtitle${q},")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispType${q}: ${q}$titlePixel${q},")##put the display config type
+            #else
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispText${q}: ${q} ${q},")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispType${q}: ${q}$toolTipPixel${q},")
+              #set($myJSONTree = "${myJSONTree}${q}nodeDispTypeColor${q}: ${q}orange${q},")
+            #end
+         #end
+
+      #if(!$_currentParent.equals(""))
+         #set($myJSONTree = "${myJSONTree}${q}parent${q}: ${q}$_currentParent.id${q},")
+         #set($linkRole = $link.getLinkRole().getId())
+
+         #if($useSuspectLinksParam)
+         #set($isSuspect = $link.suspect )
+         #else
+           #set($isSuspect = false )
+         #end
+         ##put the color for link used
+         #if ($blueColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}blue${q},")
+         #elseif ($redColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}red${q},")
+         #elseif ($greenColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}green${q},")
+         #elseif ($magentaColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}magenta${q},")
+         #elseif ($lightgreenColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}lightgreen${q},")
+         #elseif ($lightblueColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}lightblue${q},")
+         #elseif ($orangeColorRolesNames.contains("${linkRole}"))
+           #set($myJSONTree = "${myJSONTree}${q}linkcolor${q}: ${q}orange${q},")
+         #end
+         #set($myJSONTree = "${myJSONTree}${q}suspect${q}: ${q}$isSuspect${q},")
+      #else
+         #set($myJSONTree = "${myJSONTree}${q}parent${q}: ${q}null${q},")
+      #end
+      #set($myJSONTree = "${myJSONTree}${q}${childType}${q}: [")
+      #pushTree()
+      #pushParent()
+      #set($_currentTree = $_subTree)
+      #set($_currentIndex = $_currentIndex + 1)
+      #set($_currentParent = $item)
+      #createTraceabilityTree($linkRoles $item false $childType $functionItemCount) ## Inside the loop will never be a root element
+      #set($myJSONTree = "${myJSONTree}]")
+      #popTree()
+      #popParent()
+      #set($_currentIndex = $_currentIndex - 1)
+      #set($myJSONTree = "${myJSONTree}},") ### #set($myJSONTree = "${myJSONTree}},")
+      #else ##warning added start
+         #if($firstWarning)
+            #warning("Limit exceeded - showing first $totalMaxItems items.")
+            #set($firstWarning = false)
+         #end
+      #end ##warning added end
+    #end
+
+    ## Remove last comma if necessary
+    #set ($stringLength = $myJSONTree.length() - 1)
+    #if($myJSONTree.substring($stringLength,$myJSONTree.length()).equals(","))
+      #set ($myJSONTree = $myJSONTree.substring(0,$stringLength))
+    #end
+  #end
+
+  #calculateCount()
+#end
+
+#macro(renderItem $item $level)
+   #set($wiRenderer = $transaction.workItems().getBy().ids( $item.getProjectId(), $item.id))
+   #if($displayConfig == "WorkItemIDTitle")
+       ## Opening links in new windows was introduced in Polarion 18
+       #if((!$platformService.getPolarionVersion().equals("17"))&&(!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+         $wiRenderer.render().withTitle().withLinks().openLinksInNewWindow()
+       #else
+         $wiRenderer.render().withTitle().withLinks()
+       #end
+   #elseif($displayConfig == "WorkItemID")
+       ## Opening links in new windows was introduced in Polarion 18
+       #if((!$platformService.getPolarionVersion().equals("17"))&&(!$platformService.getPolarionVersion().equals("2016"))&&(!$platformService.getPolarionVersion().equals("2015")))
+         $wiRenderer.render().withTitle(false).withLinks().openLinksInNewWindow()
+       #else
+         $wiRenderer.render().withTitle(false).withLinks()
+       #end
+   #else
+       #set($portalLink = $transaction.context().createPortalLink().project($item.getProjectId()).workItem($item.id).toEncodedAbsoluteUrl()) ##toEncodedAbsoluteUrlWithRedirect())
+       <img src="$wiRenderer.fields().type().iconLink()"/><a href="$portalLink">$wiRenderer.fields().title().render()</a>
+   #end
+   #if( $displayedWITypeMap.keySet().contains($item.type.name ) == false )
+       #set($void = $displayedWITypeMap.put( $item.type.name, $wiRenderer.fields().type().iconLink() ))
+   #end
+#end
+
+#macro( displayLegendTable )
+   <br><br><br><br>
+   <div id="iconlegend" align="right" width="40%"><p>
+   <table>
+   <tr><td width="60%"></td><td>
+   <table class="polarion-rpw-table-content" border="0">
+   <tr class="polarion-rpw-table-header-row"><th colspan="9" align="center" width="100%"><b>Icon Legend</b></th></tr>
+   #set($colCounter = 0)
+   #set($wiCount = 0)
+   #set($wiTypeSize = $displayedWITypeMap.keySet().size())
+   #foreach( $wiTypeName in $displayedWITypeMap.keySet())
+       #set($colCounter = $math.add($colCounter,1))
+       #set($wiCount = $math.add($wiCount,1))
+       #if($colCounter == 1)
+           <tr class="polarion-rpw-table-content-row">
+               <td><img src="$!displayedWITypeMap.get($wiTypeName)"/></td>
+               <td>$!wiTypeName</td>
+               <td></td>
+            #if($wiCount == $wiTypeSize)
+               </tr>
+            #end
+       #elseif($colCounter == 2)
+               <td><img src="$!displayedWITypeMap.get($wiTypeName)"/></td>
+               <td>$!wiTypeName</td>
+               <td></td>
+            #if($wiCount == $wiTypeSize)
+               </tr>
+            #end
+       #elseif($colCounter == 3)
+               <td><img src="$!displayedWITypeMap.get($wiTypeName)"/></td>
+               <td>$!wiTypeName</td>
+               <td></td>
+           </tr>
+           #set($colCounter = 0)
+       #end
+   #end
+   </table>
+   </td>
+   </tr>
+   </table>
+   </p>
+   </div>
+#end
+## -----------------------------------------------------------------
+## Macro Name: createLegendJSON
+## Description: This macro is builds a JSON for tree legends
+##
+## Inputs     :
+##              jsonLegend = empty json object string
+##
+## Output     :
+##              jsonLegend = JSON string having icons and work item types
+##
+## Output     : None
+## Return     : None
+##
+## -----------------------------------------------------------------
+
+
+#macro( createLegendJSON $jsonLegend )
+  #set($jsonLegend = "[")
+  #foreach( $wiTypeName in $legendWITypeMap.keySet())
+    #set($jsonLegend = "${jsonLegend}{${q}wi_type${q}: ${q}$!wiTypeName${q},")
+    #set($jsonLegend = "${jsonLegend}${q}icon${q}: ${q}$!legendWITypeMap.get($!wiTypeName)${q}},")
+  #end
+  ## Remove last comma if necessary
+  #set ($JosnStringLength = $jsonLegend.length() - 1)
+  #if($jsonLegend.substring($JosnStringLength,$jsonLegend.length()).equals(","))
+    #set ($jsonLegend = $jsonLegend.substring(0,$JosnStringLength))
+  #end
+  #set($jsonLegend = "${jsonLegend}]")
+#end
+
+#macro(printTree $tree $maxDepth)
+  #set($_item = false)
+  #set($_count = false)
+  #set($_subtree = false)
+  #foreach($node in $tree)
+    #if($node.id)
+      #set($_item = $node)
+    #elseif($node.size())
+      #set($_subtree = $node)
+    #else
+      #set($_count = $node)
+    #end
+    #if($_item && $_subtree && $_count)
+      #if($_needsRow)#set($_needsRow = false)<tr class="polarion-rpw-table-content-row">#end
+      <td  valign="top" #if($_count > 0)rowspan="$_count"#end>#renderItem($_item $_currentLevel)</td>
+      #set($_currentLevel = $_currentLevel + 1)
+      #printTree($node $maxDepth)
+      #set($_currentLevel = $_currentLevel - 1)
+      #set($_missingTd = $maxDepth - $_currentLevel)
+      #if(!$_needsRow)
+        #if($_missingTd > 0)
+          <td colspan="$_missingTd"></td>
+        #end
+        </tr>
+      #end
+      #set($_needsRow = true)
+    #end
+  #end
+#end
+
+#macro(printHeader )
+ ## get column header names
+ #set($columnCount = $traceDepth )
+ #set($columnHeaders = [])
+ #set($columnIndex = 0 )
+ #set($inputColumnTitleCount =  0 )
+ #set($inputColumnTitleCount = $!parameters.columns.size() )
+
+ #foreach($columnParam in $parameters.columns.get())
+    #set($columnTitle = $columnParam.value)
+    #if(!$columnTitle.equals(""))
+      #set($void = $columnHeaders.add($columnTitle))
+    #else
+      #set($columnTitle = "Level $columnIndex" )
+      #set($void = $columnHeaders.add($columnTitle))
+    #end
+ #end
+
+ ##set($columnIndex = $columnIndex + 1 )
+ #set($columnIndex = $columnHeaders.size())
+
+ #if( $columnIndex <= $traceDepth )
+     #foreach( $index in [$columnIndex ..$traceDepth])
+         #set($columnTitle = "Level $columnIndex" )
+         #set($void = $columnHeaders.add($columnTitle))
+         #set($columnIndex = $columnIndex + 1 )
+     #end
+ #end
+
+
+ ## Add headers
+ <thead>
+ <tr class="polarion-rpw-table-header-row">
+   #set($columnIndex = 0 )
+   #foreach($colTitle in $columnHeaders)
+     #if($columnIndex <= $traceDepth )
+        <th>$colTitle</th>
+        #set($columnIndex = $columnIndex + 1 )
+     #end
+   #end
+ </tr>
+ </thead>
+#end
+
+#macro(CreateTraceabilityTable $linkRoles $parent)
+
+    #set($tableId = $direction )
+
+    #if($direction == "backlinked")
+        <h2>$suspectChildrenText</h2>
+    #else
+        <h2>$suspectParentsText</h2>
+    #end
+
+    ## We do not want to export the buttons when printing or exporting to PDF
+    #if(!$widgetContext.target().isPdf() && !$widgetContext.target().isPrint())
+      <div style="display: inline-flex;">
+      ## start ----- add button to export table data to excel and pdf
+      <form id="excelform_$tableId" action="gdnExtensions/ExportToExcelServlet" method="POST">
+      ## parameters required to send the excel data and column data to servlet
+
+      <input type="hidden" id="urlToPass_$tableId" name="urlToPass">
+      <input type="hidden" id="exceldata_$tableId" name="exceldata" value="" />
+      <input type="hidden" id="columndata_$tableId" name="columndata" value="" />
+      <input type="hidden" id="pagename_$tableId" name="pagename" value="$page.label" />
+      #if ( $allowExport2Excel )
+           <input type="button" class="excel_export" value="Export to Excel" style="float:right;" exportId ="$tableId"/>
+      #end
+      </form>
+
+       <form id="pdfform_$tableId" action="pdfexport/ExportToPdfServlet" method="POST">
+       ## parameters required to send the PDF data and column data to servlet
+       <input type="hidden" id="title_$tableId" name="title" value="" />
+       <input type="hidden" id="content_$tableId" name="content" value="" />
+       <input type="hidden" id="content_body" name="bodycontent" value="" />
+       <input type="hidden" id="pagename_$tableId" name="pagename" value="$page.label" />
+       #if( $allowExport2PDF )
+           <input type="button" class="pdf_export" value="Export to PDF" style="margin-left:10px;float:right;" exportId ="$tableId"/>
+       #end
+       </form>
+       </div>
+       <br/>
+       <br/>
+      #end ##if(!$widgetContext.target().isPdf() && !$widgetContext.target().isPrint())
+  #set($_currentIndex = 0)
+  #set($_currentTree = [])
+  #set($_treeStack = [])
+  #set($hitLimit = false)
+
+  #createTable( $linkRoles true $parent)
+
+  #set($_currentLevel = 1)
+  #set($_needsRow = true)
+  #if($hitLimit)
+    #warning("Limit exceeded - showing first $maxItems items.")
+  #end
+  <div id="div_$tableId">
+    <table class="polarion-rpw-table-content" border="0" id="$tableId">
+  #printHeader()
+  #printTree($_currentTree $traceDepth )
+  </table>
+  </div>
+#end
+
+#macro(createTable $linkRoles $startingItem $parent)
+  #set($_items = [] )
+  #if($_currentIndex <= $traceDepth)
+    #set($_query = "ALL:ALL_VALUE")
+
+    #if(!$startingItem)
+      ##get project and work item ID
+      #set($_parentId = "$parent.getContextId().getContextName()/$parent.getObjectId().getLocalId().getObjectName()")
+      #set($_query =  "($_query) AND ")
+      #set($_rolesIndex = $_currentIndex )
+      #set($_currentRoles = $linkRoles.get($_rolesIndex))
+      #if($_currentRoles.size() > 0)
+         #set($_query = "${_query}(")
+         #foreach($role in $_currentRoles)
+           #if($direction == "backlinked" )
+               #set($_query = "${_query}linkedWorkItems:$role=$_parentId OR ")
+           #else
+               #set($_query = "${_query}(backlinkedWorkItems:$role=$_parentId AND NOT type:heading) OR ")
+           #end
+         #end
+         #set($_query = "${_query} id:nevermatchanything)")
+      #else
+         #if($direction == "backlinked" )
+            #set($_query = "${_query}linkedWorkItems:$_parentId")
+         #else
+            #set($_query = "${_query}backlinkedWorkItems:$_parentId AND NOT type:heading")
+         #end
+      #end
+
+      ## Add clause to exclude workitems with excluded statuses
+      #if( !$wis2excludeQry.equals(""))
+          #set($negateQuery = $trackerService.getDataService().getQueryHelper().negateQuery($wis2excludeQry))
+          #set($_query = "${_query} AND ${negateQuery}" )
+      #end
+      #set($_items = $trackerService.queryWorkItems($_query, $_sort))
+    #else
+      #set($void = $_items.add($parent))
+    #end
+
+    #if($_items.size() > $maxItems)
+      #set($hitLimit = true)
+      #set($_items = $_items.subList(0,$maxItems))
+    #end
+    #foreach($item in $_items)
+      #set($_subTree = [])
+      #set($void = $_currentTree.add($item))
+      #set($void = $_currentTree.add(0))
+      #set($void = $_currentTree.add($_subTree))
+      #pushTree()
+      #set($_currentTree = $_subTree)
+      #set($_currentIndex = $_currentIndex + 1)
+      #createTable($linkRoles false $item)
+      #popTree()
+      #set($_currentIndex = $_currentIndex - 1)
+    #end
+  #end
+
+  #calculateCount()
+#end
+
+## -----------------------------------------------------------------
+## Macro Name:calculateCount
+## Description: This macro is to build input (starting point) workitems combobox
+##              from list of Work Items, which are result of the query selected in
+##              widget parameter configuration
+## Inputs     : None
+## Output     : None
+## Return     : None
+##
+## -----------------------------------------------------------------
+#macro(calculateCount)
+  #set($_currentStackIndex = $_treeStack.size() - 1)
+  #set($_parentStackIndex = $_currentStackIndex - 1)
+  #if($_parentStackIndex >= 0)
+    #set($_current = $_treeStack.get($_currentStackIndex))
+    #set($_parent = $_treeStack.get($_parentStackIndex))
+    #set($_currentCountIndex = $_current.size() - 2)
+    #set($_currentCount = $_current.get($_currentCountIndex))
+    #if($_currentCount == 0)
+      #set($_currentCount = 1)
+      #updateCount($_current 1)
+    #end
+    #updateCount($_parent $_currentCount)
+  #end
+#end
+
+#macro(updateCount $tree $inc)
+  #set($_countIndex = $tree.size() - 2)
+  #set($_newCount = $tree.get($_countIndex) + $inc)
+  #set($void = $tree.set($_countIndex, $_newCount))
+#end
+
+#macro(pushTree)
+  #set($void = $_treeStack.add($_currentTree))
+#end
+
+#macro(popTree)
+  #set($_removeIndex = $_treeStack.size() - 1)
+  #set($_currentTree = $_treeStack.remove($_removeIndex))
+#end
+
+#macro(pushParent)
+#set($void = $_parentStack.add($_currentParent))
+#end
+
+#macro(popParent)
+  #set($_removeIndexParent = $_parentStack.size() - 1)
+  #set($_currentParent= $_parentStack.remove($_removeIndexParent ))
+#end
+
+###########################################
+##  M A I N  C O D E  S T A R T S  H E R E
+###########################################
+
+<body>
+
+#loadWidgetJsResource("resources/jquery-1.10.2.js")
+#loadWidgetJsResource("resources/d3.v3.min.js")
+
+
+<script type="text/javascript">
+  $(".widget-errors").hide();
+
+// global variable for error status
+var errorStatus = false;
+        // -------------------------------------------------
+// function to create array from table data.
+// inputs: table element
+// outputs: table cell values as array
+// --------------------------------------------------
+function table2Array(tbl, tableCellValueGetter) {
+  tableCellValueGetter = tableCellValueGetter || function(td) { return td.textContent || td.innerText; };
+  var tableArray = [];
+
+  try {
+      for (var rowCount = tbl.rows.length, rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+        tableArray.push([]);
+      }
+
+      for (var rowIndex = 0, tr; rowIndex < rowCount; rowIndex++) {
+        var tr = tbl.rows[rowIndex];
+        for (var colIndex = 0, colCount = tr.cells.length, offset = 0; colIndex < colCount; colIndex++) {
+          var td = tr.cells[colIndex], text = tableCellValueGetter(td, colIndex, rowIndex, tbl);
+          while (tableArray[rowIndex].hasOwnProperty(colIndex + offset)) {
+            offset++;
+          }
+
+          for (var i = 0, colSpan = parseInt(td.colSpan, 10) || 1; i < colSpan; i++) {
+            for (var j = 0, rowSpan = parseInt(td.rowSpan, 10) || 1; j < rowSpan; j++) {
+               // escape quotes to avoid conflicts in json
+               var textstr=text.replace(/"/gi, '\\"');
+               tableArray[rowIndex + j][colIndex + offset + i] = textstr;
+               var x = rowIndex + j;
+               var y = colIndex + offset + i;
+            }
+          }
+        }
+      }
+  }
+  catch ( e ) {
+     console.log('Failed to read table data ');
+     console.log(e);
+     var emptyData = [];
+     errorStatus = true;
+     return emptyData;
+  }
+  return tableArray;
+}
+
+function escapeJson (val) {
+
+    var newVal = val.replace(/[\\]/g, '\\\\')
+        .replace(/[\/]/g, '\\/')
+        .replace(/[\b]/g, '\\b')
+        .replace(/[\f]/g, '\\f')
+        .replace(/[\n]/g, '\\n')
+        .replace(/[\r]/g, '\\r')
+        .replace(/[\t]/g, '\\t')
+        .replace(/[\"]/g, '\\"')
+        .replace(/\\'/g, "\\'");
+    return newVal;
+}
+
+// -------------------------------------------------
+// function to create json string from table data.
+// inputs: table element
+// returns: json string with table data
+// --------------------------------------------------
+function table2Json ( tableId ) {
+   var json = [];
+
+   try{
+       var tbl = document.getElementById(tableId);
+       var tableCellValueGetter = null;
+
+       var tableMatrix = table2Array(tbl, tableCellValueGetter )
+       var rowCnt = tableMatrix.length;
+
+       if(rowCnt > 0 ){
+          var columnHeaders = tableMatrix[0];
+       }
+       json = json + "[";
+       for( var inx = 1; inx < rowCnt; inx ++ ) { // exclude first row, which is column header
+         var rowData = tableMatrix[inx];
+
+         var colCnt = rowData.length;
+
+         var colJson = '{';
+         for (var jnx = 0; jnx < colCnt; jnx ++ ) {
+            colJson = colJson + ',' ;
+            var escapedStr = escapeJson(rowData[jnx].trim());
+            colJson = colJson + '"' + columnHeaders[jnx] + '"' + ":" + '"' + escapedStr + '"';
+         }
+         colJson = colJson + "}";
+         if(inx > 1 )
+            json = json + ',';
+         json = json + colJson;
+      }
+      json = json + "]";
+      return json;
+    } catch (e){
+       console.log('Error in table2Json method. ' + e);
+       alert(e);
+       var emptyArr = [];
+       errorStatus = true;
+       return emptyArr; // empty array to avoid incorrect data export
+    }
+}
+## end ----- modifications for ExportToExcel
+
+
+
+## java script to invoke a servlet and export files
+$(document).ready(function(){
+
+    $(".pdf_export").click(function(){
+
+        var tableID= $(this).attr("exportId");
+        try{
+            var titleId = "title_"+tableID;
+            var contentId = "content_"+tableID;
+
+            var title = document.getElementById(titleId);
+            var content = document.getElementById(contentId);
+
+            var contentValue = $("#div_"+tableID).html();
+
+            var legendValue = $("#iconlegend").html();
+            contentValue = escapeHtml(contentValue) ;
+
+            contentValue = contentValue + legendValue;
+
+            if(tableID == "linked") {
+                title.value = "${suspectParentsText}";
+            }
+            else{
+                title.value = "${suspectChildrenText}";
+            }
+            content.value = contentValue;
+            $("#pdfform_"+tableID).submit();
+        }
+        catch (e)
+        {
+            console.log(e);
+            alert(e);
+        }
+    });
+
+    $(".excel_export").click(function(){
+        try
+        {
+            var tableID= $(this).attr("exportId");
+            var jsonStr  = table2Json (tableID);
+            var exceldata = document.getElementById("exceldata_"+tableID);
+            var columndata = document.getElementById("columndata_"+tableID);
+
+            if ( jsonStr.length > 0 ) {
+               exceldata.value = jsonStr;
+            } else {
+               exceldata.value = "[]";
+            }
+            var oTable = document.getElementById(tableID);
+
+            //get rows of table
+            var rowLength = oTable.rows.length;
+            var columns = "";
+            if(rowLength>0){
+                var oCells = oTable.rows.item(0).cells;
+                var cellLength = oCells.length;
+                for(var j = 0; j < cellLength; j++){
+                  /* get your cell info here */
+                   var cellVal = oCells.item(j).innerHTML;
+                   var elem = oCells.item(j).children[0];
+                   columns = columns+cellVal+",";
+
+                }
+            }
+
+            columndata.value = columns;
+        }
+        catch (e)
+        {
+            console.log(e);
+            alert(e);
+        }
+        if ( errorStatus ) {
+         alert('Failed to read table data. Please report to your administrator' );
+        }
+        else{
+            $("#excelform_"+tableID).submit();
+        }
+
+      });
+
+      $("#iconlegend").detach().prependTo("#tableTrace");
+});
+
+    function showhideinput() {
+    var x = document.getElementById('btnShowHide');
+    var y = document.getElementById('inputDiv');
+
+    if (y.style.display === 'none') {
+        y.style.display = 'block';
+        x.innerHTML= '-';
+
+    } else {
+        y.style.display = 'none';
+        x.innerHTML= '+';
+    }
+}
+
+function generateReport() {
+
+     try{
+        var getUrl = window.location;
+        var baseUrl = getUrl.protocol + "//" + getUrl.host + "/";
+        var url;
+        var spacePath = '$page.reference.spaceReference.spacePath'
+        if (spacePath == '_default')
+            url = baseUrl + 'polarion/#/project/$page.reference.projectId/wiki/$page.reference.name';
+        else
+            url = baseUrl + 'polarion/#/project/$page.reference.projectId/wiki/$page.reference.spaceReference.spacePath/$page.reference.name';
+
+        var parameters = "";
+        var Id =false;
+        var title = false;
+
+        var workItemId = document.forms["tracegraph"]["itemId"];
+        if(workItemId != null ){
+            if(!workItemId.value.trim().length == 0 ){
+                parameters = '?' + 'workItemId=' + workItemId.value;
+                Id = true;
+            }
+        }
+
+        var workItemTitle = document.forms["tracegraph"]["itemTitle"];
+        if(workItemTitle != null ){
+            if(!workItemTitle.value.trim().length == 0 ){
+                title = true;
+                if(!Id){
+                    parameters = '?' + 'workItemTitle=' + workItemTitle.value;
+                }
+                else {
+                    parameters = parameters + '&' + 'workItemTitle=' + workItemTitle.value;
+
+                }
+            }
+        }
+
+        if( !Id &&  !title){
+            $(".widget-errors").text("Enter a valid Work Item ID /Title to generate traceability report.").show();
+            return false;
+        }
+
+        var depthElement = document.forms["tracegraph"]["depth"];
+        if(depthElement != null ){
+            var depthStr = depthElement.value;
+            if( depthStr.trim().length > 0 ){
+                if(isNaN(depthStr)){
+                   // alert('Error: Enter a valid number for Depth of Trace');
+                   $(".widget-errors").text("Enter a valid number for Depth of Trace. ").show();
+                   return false;
+                } else {
+                if(parseInt(depthStr) >= 20 ) {
+                   // alert('Depth of Trace must be smaller than 20...');
+                   $(".widget-errors").text("Depth of Trace must be smaller than 20...").show();
+                   return false;
+                }
+              }
+            }else {
+               //alert('Enter a valid integer for Depth of Trace');
+               $(".widget-errors").text("Enter a valid integer for Depth of Trace. ").show();
+               return false;
+            }
+            parameters = parameters + '&depth=' + depthStr;
+        }
+
+        var formatElement = document.forms["tracegraph"]["format"];
+        if(formatElement != null) {
+            var reportFormat = formatElement.value;
+            parameters = parameters + '&format=' + reportFormat;
+        }
+
+        var zoomElement = document.forms["tracegraph"]["zoomcenter"];
+        if(zoomElement != null) {
+            var zoomcenter = zoomElement.value;
+            parameters = parameters + '&zoomcenter=' + zoomcenter;
+        }
+
+        var directionElement = document.forms["tracegraph"]["direction"];
+        if(directionElement != null) {
+            var direction = directionElement.value;
+            parameters = parameters + '&direction=' + direction;
+        }
+
+        var flipElement = document.forms["tracegraph"]["flipGraph"];
+        if(flipElement != null) {
+            var flip = flipElement.value;
+            parameters = parameters + '&flip=' + flip;
+        }
+
+        // Post
+        $(location).attr('href', url+parameters)
+      } catch (e){
+         console.log(e);
+         alert(e);
+      }
+      return;
+
+    }
+
+        function escapeHtml(text) {
+        'use strict';
+        return text.replace(/[\"']/g, function (a) {
+            return {
+                '"': '&quot;', "'": '&#39;'
+            }[a];
+        });
+    }
+
+function preConditions() {
+    isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    // Firefox 1.0+
+    isFirefox = typeof InstallTrigger !== 'undefined';
+    // Safari 3.0+
+    isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);
+    // Internet Explorer 6-11
+    isIE = /*@cc_on!@*/false || !!document.documentMode;
+    // Edge 20+
+    isEdge = !isIE && !!window.StyleMedia;
+    // Chrome 1+
+    //isChrome = !!window.chrome && !!window.chrome.webstore;
+    isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    // Blink engine detection
+    isBlink = (isChrome || isOpera) && !!window.CSS;
+
+    if(isChrome) {
+
+       printSVGHtml();
+       }
+    else{
+       alert("Print functionality is not supported in current browser.\nPlease use Chrome for this feature.");
+     }
+    }
+
+function printSVGHtml(){
+
+  console.log("printSVGHtml");
+
+  var mainSVGDivContent = "";
+
+  var svg = document.querySelector('svg');
+  var bB = svg.getBBox();
+  var viewBox = [bB.x, bB.y, bB.width, bB.height].join(" ");
+
+ //svg.setAttribute("viewBox", viewBox);
+
+  if ($('#mainSVG').length > 0) { //check if tree has actually been generated by calculating div length
+    //Remove overflow style before print
+    $('#mainSVG').css({"overflow-x": ""});
+    $('#mainSVG').css({"overflow-y": ""});
+    mainSVGDivContent = document.getElementById('mainSVG').outerHTML;
+    //Remove overflow style after print
+    $('#mainSVG').css({"overflow-x": "auto"});
+    $('#mainSVG').css({"overflow-y": "auto"});
+   }
+
+  var windowContent = '<!DOCTYPE html>';
+  windowContent += '<html>'
+  windowContent += '<body>'
+  var stylesSVG = '<style>.node{        cursor: pointer;    }    .overlay{    background-color:#EEE;    }    .node circle {      fill:#fff;      stroke: steelblue;      stroke-width: 1px;    }    .node text {      font: 11px sans-serif;    }    .link {     fill:none;      stroke: #515151;       stroke-width: 2px;    }     </style>'
+  var styleA4 = '<style>page{background:white;display:block;margin:0 auto} page[size="A4"]{width: 21cm;height: 29.7cm;}page[size="A4"][layout="portrait"]{width: 29.7cm; height: 21cm;} body.print-page{-webkit-transform: scale(0.80);transform: scale(0.80);    margin: -20px -20px 0;}</style>';
+  windowContent += stylesSVG;
+  windowContent += styleA4;
+  windowContent += '<div style="page-break-inside: avoid; background: white;  width: 100%;  height: 100%;  display: block;  margin: 0 auto;">';
+  windowContent += '<div style="color:#0E4A90; display:block; font-family:Arial,Helvetica,sans-serif; font-weight:bold; border-bottom-width: 4px; border-bottom-style: solid; border-bottom-color:#E1F0FF; "><h1>${page.label}</h1></div>'
+
+  windowContent += mainSVGDivContent;
+
+  windowContent += '</div>';
+  windowContent += '</body>';
+  windowContent += '</html>';
+  console.log("window Content ",windowContent);
+  var printWin = window.open('','','width=2850,height=3508','fullscreen=yes');//A4 size window
+  printWin.document.open();
+  printWin.document.write(windowContent);
+  printWin.document.addEventListener('load', function() {
+  printWin.focus();
+  printWin.print();
+  printWin.close();
+  }, true);
+}
+
+
+
+</script>
+
+
+<script>
+function autocomplete(inp, arr) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+      var parent, child, val = this.value;
+      closeAllLists();
+      if (!val || val.length < 2 ) { return false;}
+
+      currentFocus = -1;
+      parent = document.createElement("DIV");
+      parent.setAttribute("id", this.id + "autocomplete-list");
+      parent.setAttribute("class", "autocomplete-items");
+      this.parentNode.appendChild(parent);
+      for (var i = 0; i < arr.length; i++) {
+          if (arr[i].toLowerCase().indexOf( val.toLowerCase()) != -1 ) {
+          child = document.createElement("DIV");
+          child.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          child.innerHTML += arr[i].substr(val.length);
+          child.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          child.addEventListener("click", function(e) {
+              inp.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+          });
+          parent.appendChild(child);
+        }
+      }
+  });
+  inp.addEventListener("keydown", function(e) {
+      var items = document.getElementById(this.id + "autocomplete-list");
+      if (items) items = items.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        currentFocus++;
+        addActive(items);
+      } else if (e.keyCode == 38) {
+        currentFocus--;
+        addActive(items);
+      } else if (e.keyCode == 13) {
+        e.preventDefault();
+        if (currentFocus > -1) {
+          if (items) items[currentFocus].click();
+        }
+      }
+  });
+  function addActive(items) {
+    if (!items) return false;
+    removeActive(items);
+    if (currentFocus >= items.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (items.length - 1);
+    items[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(items) {
+    for (var i = 0; i < items.length; i++) {
+      items[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    var items = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < items.length; i++) {
+      if (elmnt != items[i] && elmnt != inp) {
+        items[i].parentNode.removeChild(items[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+var idList = $wiIds;
+var titleList = $wiTitles;
+var enableAC = $enableautocomplete;
+if ( enableAC ) {
+    if ( document.getElementById("itemId") != null ) {
+       autocomplete(document.getElementById("itemId"), idList );
+    }
+    if ( document.getElementById("itemTitle") != null ) {
+       autocomplete(document.getElementById("itemTitle"), titleList );
+    }
+}
+</script>
+
+</body>
+
+<FORM id="tracegraph">
+<style>
+
+.select-table-content {
+  width: 50%;
+  border-collapse: collapse;
+  border: 2px solid #ddd;
+}
+.legend {
+  padding: 5px;
+  font: 10px sans-serif;
+  background: yellow;
+  box-shadow: 2px 2px 1px #888;
+}
+.select-table-header-row > td {
+  padding: 9px 14px 9px 4px;
+  background-color: #F1F1F1;
+  border-bottom: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+}
+.select-table-content-row > td {
+  padding: 4px 4px 4px 4px;
+  border-bottom: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+}
+.select-table-content-row-nobottom > td {
+  padding: 4px 4px 4px 4px;
+  border-right: 2px solid #ddd;
+}
+.select-list-content {
+    width: 165px;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+.lftrgtbutton {
+    background-color: #ccc;
+    border: none;
+    border-radius: 3px;
+    color: black;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;5
+}
+.lftrgtbutton:hover {background-color: #ddd}
+
+.widget-errors{
+    background-color: #FFCCCC;
+    text-align: left;
+    margin: 4px 5px;
+    padding: 16px 4px 16px 36px;
+}
+.reportbutton:hover {background-color: #ddd}
+
+.reportbutton {
+  width:  108px;
+}
+.legenddiv {
+position: absolute;
+bottom: 0;
+right: 0;
+}
+
+@media print{
+    .reportbutton {display: none;}
+    .excel_export {display: none;}
+    .pdf_export {display: none;}
+}
+
+</style>
+
+    ## Get widget parameter values
+    #set($displayConfig = $parameters.displayOptionParam.singleValue)
+    #set($levelString = $parameters.level.singleValue)
+    #set($directionStr = $parameters.direction.singleValue)
+    #set($flipStr = $parameters.flipGraph.singleValue)
+    #set($outputFormat = $parameters.outputFormat.singleValue)
+    #set($zoomcenter = $parameters.zoomcenter.singleValue)
+    #set($userConfigParams = $parameters.configrules.values)
+
+    ##tree size parameters
+    #set($defaultTreeHeight = $parameters.treeSize.height.value)
+    #set($defaultTreeWidth = $parameters.treeSize.width.value)
+
+
+      ## get color for links
+      #set($blueColorRoles = $parameters.roleColors.blueColor.values)
+      #set($redColorRoles = $parameters.roleColors.redColor.values)
+      #set($greenColorRoles = $parameters.roleColors.greenColor.values)
+
+      #set($orangeColorRoles = $parameters.roleColors.orangeColor.values)
+      #set($magentaColorRoles = $parameters.roleColors.magentaColor.values)
+      #set($lightgreenColorRoles = $parameters.roleColors.lightgreenColor.values)
+      #set($lightblueColorRoles = $parameters.roleColors.lightblueColor.values)
+
+      ## get dotted color for links
+      #set($dottedblueColorRoles = $parameters.roleColors.dottedblueColor.values)
+      #set($dottedredColorRoles = $parameters.roleColors.dottedredColor.values)
+      #set($dottedgreenColorRoles = $parameters.roleColors.dottedgreenColor.values)
+      #set($dottedorangeColorRoles = $parameters.roleColors.dottedorangeColor.values)
+      #set($dottedmagentaColorRoles = $parameters.roleColors.dottedmagentaColor.values)
+      #set($dottedlightgreenColorRoles = $parameters.roleColors.dottedlightgreenColor.values)
+      #set($dottedlightblueColorRoles = $parameters.roleColors.dottedlightblueColor.values)
+
+
+      ## get link role names for blue color
+      #set($blueColorRolesNames = [] )
+      #foreach($role in $blueColorRoles )
+         #set($void = $blueColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for green color
+      #set($greenColorRolesNames = [] )
+      #foreach($role in $greenColorRoles )
+         #set($void = $greenColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for red color
+      #set($redColorRolesNames = [] )
+      #foreach($role in $redColorRoles )
+         #set($void = $redColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for orange color
+      #set($orangeColorRolesNames = [] )
+      #foreach($role in $orangeColorRoles )
+         #set($void = $orangeColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for magenta color
+      #set($magentaColorRolesNames = [] )
+      #foreach($role in $magentaColorRoles )
+         #set($void = $magentaColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for light green color
+      #set($lightgreenColorRolesNames = [] )
+      #foreach($role in $lightgreenColorRoles )
+         #set($void = $lightgreenColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for light blue color
+      #set($lightblueColorRolesNames = [] )
+      #foreach($role in $lightblueColorRoles )
+         #set($void = $lightblueColorRolesNames.add($role.fields().id().get()))
+      #end
+
+      ## get link colors for dotted lines
+
+      ## get link role names for dotted blue color
+      #set($dottedblueColorRolesNames = [] )
+      #foreach($role in $dottedblueColorRoles )
+         #set($void = $dottedblueColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for dotted green color
+      #set($dottedgreenColorRolesNames = [] )
+      #foreach($role in $dottedgreenColorRoles )
+         #set($void = $dottedgreenColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for red color
+      #set($dottedredColorRolesNames = [] )
+      #foreach($role in $dottedredColorRoles )
+         #set($void = $dottedredColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for orange color
+      #set($dottedorangeColorRolesNames = [] )
+      #foreach($role in $dottedorangeColorRoles )
+         #set($void = $dottedorangeColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for magenta color
+      #set($dottedmagentaColorRolesNames = [] )
+      #foreach($role in $dottedmagentaColorRoles )
+         #set($void = $dottedmagentaColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for light green color
+      #set($dottedlightgreenColorRolesNames = [] )
+      #foreach($role in $dottedlightgreenColorRoles )
+         #set($void = $dottedlightgreenColorRolesNames.add($role.fields().id().get()))
+      #end
+      ## get link role names for light blue color
+      #set($dottedlightblueColorRolesNames = [] )
+      #foreach($role in $dottedlightblueColorRoles )
+         #set($void = $dottedlightblueColorRolesNames.add($role.fields().id().get()))
+      #end
+
+
+
+    #set($useId = false)
+    #set($useTitle = false)
+    #set($useDirection = false)
+    #set($useFormat = false)
+    #set($useFlip = false)
+    #set($useDepth = false)
+    #set($useZoomcenter = false)
+
+    #if($userConfigParams.size() > 0)
+        #if($userConfigParams.contains("Id"))
+            #set($useId = true)
+        #end
+        #if($userConfigParams.contains("title"))
+            #set($useTitle = true)
+        #end
+        #if($userConfigParams.contains("direction"))
+            #set($useDirection = true)
+        #end
+        #if($userConfigParams.contains("output"))
+            #set($useFormat = true)
+        #end
+        #if($userConfigParams.contains("flipGraph"))
+            #set($useFlip = true)
+        #end
+        #if($userConfigParams.contains("depth"))
+            #set($useDepth = true)
+        #end
+        #if($userConfigParams.contains("zoomcenter"))
+            #set($useZoomcenter = true)
+        #end
+    #end
+
+
+    ## Form to capture user inputs within page
+    ## We only display the form in Polarion (and not when exporting to PDF or printing)
+    #if(!$widgetContext.target().isPdf() && !$widgetContext.target().isPrint())
+      <br />
+      <form name="tracegraph">
+      <div id="inputDiv">
+      <table>
+      #if( $useId || (!$useId && !$useTitle )) ## Default Item Id
+        <tr>
+        <td valign="center" align="right"> Work Item ID &nbsp;&nbsp;&nbsp; </td>
+        <td>
+        <div class="autocomplete">
+        <input id="itemId" type="text" name="itemId" autocomplete="off" placeholder="Work Item ID" style="width: 221px;">
+        </div>
+        </td>
+        </tr>
+      #end
+      #if($useTitle)
+        <tr>
+        <td valign="center" align="right"> Work Item Title &nbsp;&nbsp;&nbsp; </td>
+        <td>
+        <div class="autocomplete">
+        <input id="itemTitle" type="text" name="itemTitle" autocomplete="off" placeholder="Work Item Title" style="width: 221px;">
+        </div>
+        </td>
+        </tr>
+      #end
+      #if($useFormat)
+        <tr>
+        <td valign="center" align="right"> Report Format &nbsp;&nbsp;&nbsp;</td>
+        <td>
+        <select name="format" id="format" title="Select report format" style="width: 225px; height: 22px;">
+        #if($outputFormat == "tree")
+          <option value="tree" selected="selected">Tree</option>
+          <option value="table">Table</option>
+        #else
+          <option value="tree">Tree</option>
+          <option value="table" selected="selected">Table</option>
+        #end
+        </select>
+        </td>
+        </tr>
+      #end
+      #if($useDirection)
+          <tr>
+          <td valign="center" align="right"> Direction &nbsp;&nbsp;&nbsp; </td><td>
+          <select name="direction" id="direction" title="Select direction of analysis" style="width: 225px; height: 22px;">
+          #if($directionStr == "linked")
+            <option value="both">Both (Parents & Children)</option>
+            <option value="linked" selected="selected">Parents (Linked)</option>
+            <option value="backlinked">Children (BackLinked)</option>
+          #elseif($directionStr == "backlinked")
+            <option value="both">Both (Parents & Children)</option>
+            <option value="linked">Parents (Linked)</option>
+            <option value="backlinked" selected="selected">Children (BackLinked)</option>
+          #else
+            <option value="both" selected="selected">Both (Parents & Children)</option>
+            <option value="linked">Parents (Linked)</option>
+            <option value="backlinked">Children (BackLinked)</option>
+          #end
+          </select>
+          </td>
+          </tr>
+      #end
+      #if($useFlip)
+          <tr>
+          <td valign="center" align="right"> Tree Node Display &nbsp;&nbsp;&nbsp; </td><td>
+          <select name="flipGraph" id="flipGraph" title="Select Tree Node Display" style="width: 225px; height: 22px;">
+          #if($flipStr == "parent-children")
+            <option value="parent-children" selected="selected">Left - Parents, Right - Children</option>
+            <option value="children-parent">Left - Children, Right - Parents</option>
+          #elseif($flipStr == "children-parent")
+            <option value="parent-children">Left - Parents, Right - Children</option>
+            <option value="children-parent" selected="selected">Left - Children, Right - Parents</option>
+          #end
+          </select>
+          </td>
+          </tr>
+      #end
+      #if($useDepth)
+         <tr>
+         <td valign="center" align="right"> Depth of Trace &nbsp;&nbsp;&nbsp;</td>
+         <td>
+         <input type="text" value="$levelString" name="depth" id="depth" title="Enter depth of trace" style="width: 221px;">
+         </td>
+         </tr>
+      #end
+
+      #if($useZoomcenter)
+         <tr>
+         <td valign="center" align="right"> Zoom Location &nbsp;&nbsp;&nbsp;</td><td>
+         <select name="zoomcenter" id="zoomcenter" title="Select zoom location" style="width: 225px; height: 22px;">
+          #if($zoomcenter == "rootNode")
+           <option value="rootNode" selected="selected">Root Node</option>
+           <option value="mouseCursor">Mouse Cursor</option>
+           #else
+           <option value="rootNode">Root Node</option>
+           <option value="mouseCursor" selected="selected">Mouse Cursor</option>
+           #end
+          </select>
+          </td>
+          </tr>
+      #end
+      </table>
+      </div>
+      </form>
+
+      <table>
+      <tr>
+      <td>
+      <button id="btnShowHide" onclick="showhideinput();" title="show/hide input paameters" style="margin-left: 68px;"">-</button>
+      </td>
+      <td>&nbsp;&nbsp;&nbsp;</td>
+      <td>
+      <button onclick="generateReport()" class="reportbutton" style="margin-left:18px;" VALIGN=MIDDLE ALIGN=CENTER> Display Report </button>
+
+      #if( $allowExport2PdfTree && ($!urlParameters.format == "tree" || $!outputFormat == "tree") )
+         <button  onclick="preConditions()" class="reportbutton" style="margin-left:7px;">Print Tree</button>
+         <br>
+      #end
+
+      </td>
+      </tr>
+      </table>
+      <br>
+    <div class="widget-errors"></div>
+    #end ##if(!$widgetContext.target().isPdf() && !$widgetContext.target().isPrint())
+
+
+
+## Get Parameters from page url
+#set($urlDepthString = "")
+#set($urlInputId = "" )
+#set($urlInputTitle = '' )
+#set($urlDirection = "" )
+#set($urlFlip = "" )
+#set($urlReportFormat = "" )
+#set($urlZoomcenter = "" )
+
+#if($urlParameters.size()>0)
+
+    ## Get input work item id and other values
+    #set($urlInputId = $urlParameters.workItemId )
+    #set($urlInputTitle = $urlParameters.workItemTitle)
+    #set($urlDepthString = $!urlParameters.depth )
+    #set($urlDirection = $urlParameters.direction )
+    #set($urlFlip = $urlParameters.flip )
+    #set($urlReportFormat = $urlParameters.format )
+    #set($urlZoomcenter = $urlParameters.zoomcenter )
+
+    #if(!$urlReportFormat.equals(""))
+       #set($outputFormat = $urlReportFormat)
+    #end
+
+    #if(!$urlZoomcenter.equals(""))
+       #set($zoomcenter = $urlZoomcenter)
+    #end
+
+    #if(!$urlDirection.equals(""))
+       #set($directionStr = $urlDirection)
+    #end
+    #set($direction = $directionStr)
+
+    #if(!$urlFlip.equals(""))
+       #set($flipStr = $urlFlip)
+    #end
+    #set($flip = $flipStr)
+
+    #if(!$urlDepthString.equals(""))
+       #set($levelStr = $urlDepthString)
+    #end
+
+    <script>
+    ## set user selected values so that user knows what was selected
+    $(function() {
+    if(!$urlInputId.equals("")){
+      document.getElementById("itemId").value ="$urlInputId";
+    }
+    if(!$urlInputTitle.equals("")){
+      document.getElementById("itemTitle").value ="$urlInputTitle";
+    }
+    if(!$urlDepthString.equals("") ){
+       document.getElementById("depth").value ="$urlDepthString";
+    }
+    if(!$urlDirection.equals("")) {
+       document.getElementById("direction").value ="$urlDirection";
+    }
+    if(!$urlFlip.equals("")) {
+       document.getElementById("flipGraph").value ="$urlFlip";
+    }
+    if(!$urlReportFormat.equals("")) {
+       document.getElementById("format").value ="$urlReportFormat";
+    }
+
+    if(!$urlZoomcenter.equals("")) {
+       document.getElementById("zoomcenter").value ="$urlZoomcenter";
+    }
+    });
+</script>
+
+   ## Process Input Item(s)
+
+   #set($selectedWorkItem = "")
+   #if(!$urlInputId.equals(""))
+         #set($selectedWorkItem = $trackerService.findWorkItem( $page.reference.projectId, $urlInputId ))
+   #end
+
+   ## input items based on WI title
+    #if(!$urlInputTitle.equals("") && $selectedWorkItem.equals("")  )
+
+        #set ($quoteCR = '"')
+        #set($query = "project.id:$page.reference.projectId AND title:${quoteCR}${urlInputTitle}${quoteCR}")
+        #set($sort = "id")
+        #set($items = $trackerService.queryWorkItems($query, $sort))
+
+        #set($inx=0)
+        #foreach ($item in $items)
+            #if($inx == 0)
+                #set($selectedWorkItem = $item)
+                #set($inx=1)
+            #end
+        #end
+    #end
+
+
+   #if($selectedWorkItem.equals("") || $selectedWorkItem.isUnresolvable())
+       #warning("No work item found with Given ID/Title or failed to resolve work Item ")
+   #else
+
+       ## get link role names
+       #set($linkRoleNames = [] )
+
+       #set($inputLinkRoleNames = $parameters.linkRole.values)
+       #foreach($role in $inputLinkRoleNames )
+          #set($void = $linkRoleNames.add($role.fields().id().get()))
+       #end
+
+       #set($linkRoles = [$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames, $linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames,$linkRoleNames])
+
+       #set($displayConfig = $parameters.displayOptionParam.singleValue)
+
+       #if($urlDepthString.equals(""))
+           ## get depth/level from widget configuration
+           #set($depthString = $parameters.level.singleValue)
+       #else
+           #set($depthString = $urlDepthString )
+       #end
+       ## Convert the $depthParam (a string) to an integer
+       #set($depth = 0)
+       #set($depth = $depth.parseInt($depthString))
+
+       #if($urlDirection.equals(""))
+           ## get direction from widget configuration
+           #set($direction = $parameters.direction.singleValue)
+       #else
+           #set($direction = $urlDirection )
+       #end
+
+       #if($urlFlip.equals(""))
+           ## get flip from widget configuration
+           #set($flip = $parameters.flipGraph.singleValue)
+       #else
+           #set($flip = $urlFlip )
+       #end
+
+       #if($urlZoomcenter.equals(""))
+           ## get zoom center from widget configuration
+           #set($zoomcenter = $parameters.zoomcenter.singleValue)
+       #else
+           #set($zoomcenter = $urlZoomcenter )
+       #end
+
+       #if($outputFormat == "table" ) ## Display as Table
+           #set($traceDepth = $depth)
+           #set($inputId = $selectedWorkItem.id)
+           #set($totalItemCount = $totalItemCount + 1)
+
+           <div id="tableTrace">
+           #if($direction == "both")
+               #set($direction = "backlinked" )
+               #CreateTraceabilityTable( $linkRoles $selectedWorkItem )
+
+               #set($direction = "linked" )
+               #CreateTraceabilityTable( $linkRoles $selectedWorkItem )
+           #else
+               #CreateTraceabilityTable( $linkRoles $selectedWorkItem )
+           #end
+           </div>
+
+        #end  ## end of display table
+
+        #if($outputFormat == "tree" )
+
+          #set($JSONTree = "")
+          #set($jsonLegend = "")
+
+          #set($totalItemCount = $totalItemCount + 1)
+          #if($totalItemCount < $totalMaxItems )
+             #set($traceDepth = $depth + 1 )
+
+             #BuildBidirectionalTraceabilityData($linkRoles $selectedWorkItem true $JSONTree $JSONItemCount)
+             #createLegendJSON( $jsonLegend )
+             #set($addedCount = $completeJSONCount.add($JSONItemCount))
+          #else
+             #if($firstWarning)
+                #warning("Limit exceeded - showing first $totalMaxItems items.")
+                #set($firstWarning = false)
+             #end
+          #end
+
+          #if(!$JSONTree.equals(""))
+             #set($temp = $velocityCount - 1)
+             #set($canvasSize = $completeJSONCount.get($temp))
+
+
+<style type="text/css">
+/* .node circle {
+  cursor: pointer;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+} */
+.node text {
+  font: 10px sans-serif;
+}
+path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 7px;
+    font: 12px sans-serif;
+    background: #eef0f3;
+    border: 0px;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+
+</style>
+
+<div id="chart"></div>
+
+<script type="text/javascript">
+var defHeight = $defaultTreeHeight;
+var defWidth = $defaultTreeWidth;
+var zoomParam = "$zoomcenter";
+
+var legendDisplay = $displayLegend;
+
+    var margin = {
+    top: 30,
+    right: 10,
+    bottom: 10,
+    left: 10
+  },
+  width = defWidth - margin.left - margin.right,
+  halfWidth = width / 2,
+  height = defHeight - margin.top - margin.bottom,
+  i = 0,
+  duration = 1000,
+  root;
+  var t1, t2;
+
+  var m1 = margin.right ;
+  var m2 = margin.bottom+200 ;
+  var zm = '';
+
+  //Lets handle the drag
+  var drag = d3.behavior.drag()
+               .origin(function() {
+                 var t = d3.select(this);
+                 return {x: t.attr("x") + d3.transform(t.attr("transform")).translate[0],
+                         y: t.attr("y") + d3.transform(t.attr("transform")).translate[1]};
+                })
+               .on('dragend', dragEnd);
+  centerPos = {centX: m1, centY: m2};
+  var redrawScale = 1;
+  var redrawTranslate = [0,0];
+
+
+
+  function getElementCoords(element, coords) {
+    var ctm = element.getCTM(),
+    x = ctm.e + coords.x*ctm.a + coords.y*ctm.c,
+    y = ctm.f + coords.x*ctm.b + coords.y*ctm.d;
+    return {x: x, y: y};
+};
+
+
+
+function dragEnd(d) {
+  try{
+    var position = zm.translate();
+    centerPos.centX = position[0];
+    centerPos.centY = position[1];
+
+    zm = zm.center(null);
+
+
+
+    m1 = centerPos.centX;
+    m2 = centerPos.centY;
+    //zm.translate([m1, m2]);
+    if(zoomParam == 'rootNode'){
+
+			// Get post-transform coords from the element.
+			var circle = document.getElementById('svgCircle'),
+			x = +circle.getAttribute('cx'),
+			y = +circle.getAttribute('cy'),
+			coords = getElementCoords(circle, {x:x, y:y});
+
+			t1 = coords.x;
+			t2 = coords.y;
+			zm = zm.center([t1, t2]);
+      }else if (zoomParam == 'mouseCursor'){
+        zm = zm.center(null);
+      }
+
+	t1 = centerPos.centX;
+    t2 = centerPos.centY;
+
+  zm.translate([t1, t2]);
+  zm.scale(redrawScale);
+
+  }
+  catch(err){
+    console.log(err.message);
+  }
+}
+
+var dblclick_timer = false;
+var direction = "$urlDirection";
+var flipChildren = "$flip";
+
+if(direction == "linked")
+{
+  (flipChildren == "children-parent")?(flipChildren = "parent-children"):(flipChildren = "children-parent");
+}
+
+var getChildren = function(d) {
+  var a = [];
+  if (d.linked)
+    for (var i = 0; i < d.linked.length; i++) {
+      if(flipChildren == "children-parent"){
+        d.linked[i].isRight = true;
+      }else{
+       d.linked[i].isRight = false;
+      }
+
+      d.linked[i].parent = d;
+      a.push(d.linked[i]);
+    }
+  if (d.backlinked)
+    for (var i = 0; i < d.backlinked.length; i++) {
+      if(flipChildren == "children-parent"){
+        d.backlinked[i].isRight = false;
+      }else{
+        d.backlinked[i].isRight = true;
+      }
+      d.backlinked[i].parent = d;
+      a.push(d.backlinked[i]);
+    }
+  return a.length ? a : null;
+};
+
+
+var tree = d3.layout.tree()
+    .nodeSize([30,10])
+    .separation(function separation(a, b) {
+        return a.parent == b.parent ? 2 : 4;
+    });
+
+var diagonal = d3.svg.diagonal()
+  .projection(function(d) {
+    return [d.y, d.x];
+});
+
+var connector = diagonal;
+
+var calcLeft = function(d) {
+  var l = d.y;
+  if (!d.isRight) {
+    l = d.y - halfWidth;
+    l = halfWidth - l - 530;
+  }
+
+  return {
+    x: d.x,
+    y: l
+  };
+};
+
+
+var svg = d3.select("#chart").append("svg")
+  .attr("width", width + margin.right + margin.left)
+  .attr("height", height + margin.top + margin.bottom)
+  .attr("id","mainSVG")
+  .call(drag)
+  .append("g")
+  .attr("transform", "translate(" + (margin.right) + "," + (margin.bottom+220) + ")");
+
+  if(legendDisplay){
+   var iconLegendData = $jsonLegend;
+   var legendSvg = d3.select("svg");
+
+   var legend = legendSvg.append("g")
+   .attr("class", "legend")
+   .attr("x", width - 180)
+   .attr("y", 10)
+   .attr("height", 100)
+   .attr("width", 200);
+
+   legend.append("text")
+   .attr("x", width - 180)
+   .attr("y", 15)
+   .attr("height",25)
+   .attr("width",200)
+   .style("font", "12px sans-serif")
+   .style("font-weight","bold")
+   .text("Icon Legend");
+
+   legend.selectAll('g').data(iconLegendData)
+       .enter()
+       .append('g')
+       .each(function(d, i) {
+         var g = d3.select(this);
+
+         g.append("image")
+            .attr("xlink:href", function (d) { return d.icon; })
+            .attr("x", width - 180)
+            .attr("y", i * 25 + 25 )
+            .attr("width", "20px")   // In Firefox, width AND height must be set
+            .attr("height", "20px");
+
+         g.append("text")
+           .attr("x",width - 155)
+           .attr("y", i * 25 + 40)
+           .attr("height",30)
+           .attr("width",100)
+           .style("font", "12px sans-serif")
+           .text(function (d) { return d.wi_type; });
+
+       });
+  }
+
+     // Define the div for the tooltip
+      var div = d3.select("body").append("div")
+          .attr("class", "tooltip")
+          .style("opacity", 0);
+
+setTimeout(function() {
+
+  var jsonTree = ${JSONTree};
+
+  root =  jsonTree[0];
+  root.x0 = height / 2;
+  root.y0 = width;
+
+  var t1 = d3.layout.tree().nodeSize([30, 10])
+             .separation(function separation(a, b) {
+                return a.parent == b.parent ? 1.2 : 1.4;
+             })
+             .children(function(d) {
+                return d.linked;
+             });
+  var t2 = d3.layout.tree().nodeSize([30, 10])
+    .separation(function separation(a, b) {
+        return a.parent == b.parent ? 1.2 : 1.2;
+    }).children(function(d) {
+      return d.backlinked;
+    });
+
+
+  t1.nodes(root);
+  t2.nodes(root);
+
+  var rebuildChildren = function(node) {
+    node.children = getChildren(node);
+    if (node.children) node.children.forEach(rebuildChildren);
+  }
+  rebuildChildren(root);
+  root.isRight = false;
+  update(root);
+});
+
+var toArray = function(item, arr, d) {
+  arr = arr || [];
+  var dr = d || 1;
+
+  var i = 0,
+    l = item.children ? item.children.length : 0;
+  arr.push(item);
+
+  if (item.position && item.position === 'left') {
+    dr = -1;
+  }
+
+  item.y = dr * item.y;
+  for (; i < l; i++) {
+    toArray(item.children[i], arr, dr);
+  }
+  return arr;
+};
+
+function update(source) {
+  var nodes = toArray(root);
+  var links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) {
+    if (d.isRight) {
+      d.y = d.depth * 270 + halfWidth;
+    } else {
+      d.y = width - (d.depth * 270 + halfWidth);
+    }
+
+  });
+
+
+  // Update the nodes
+  var node = svg.selectAll("g.node")
+    .data(nodes, function(d) {
+      return d.id || (d.id = ++i);
+    });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("g")
+    .attr("class", "node")
+    .attr("transform", function(d) {
+      return "translate(" + source.y0 + "," + source.x0 + ")";
+    })
+    .on("mouseover", mouseover)
+    .on("mouseout", mouseout);
+
+ nodeEnter.append("circle")
+		.attr("id", "svgCircle")
+		.attr("class", "svgCircle")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", 12)
+        .attr("stroke", "black")
+        .attr("stroke-width", function (d) {
+          if(d.parent != "null") {
+            return 0;
+          }
+          else {
+            return 1;
+          }
+        })
+        .style("stroke-dasharray", ("3, 3"))
+          .style("fill", function (d) { return d._children ? "green" : "#fff"; });
+        #* .style("fill", function (d) {
+          if(d.parent != "null") {
+            return "#00000000";
+          }
+          else {
+            //return "#D7DBDD";
+            return "#00000000";
+          }
+    }) ;*#
+
+   nodeEnter.append("image")
+      .attr("xlink:href", function(d) { return d.image; })
+      .attr("x", "-10px")
+      .attr("y", "-10px")
+      .attr("width", "20px")   // In Firefox, width AND height must be set
+      .attr("height", "20px")  // If not, then image is not displayed
+      .attr("id", function(d){return "node" + d.id;})//id of the node.
+      .style("fill", function (d) { return d._children ? "green" : "#fff"; })
+      .on("click", click);
+
+
+
+  //Appending text to the node
+  nodeEnter.append("text")
+    .attr("dy", function(d) {
+      return d.isRight ? -14 : -14;
+    })
+    .attr("text-anchor", function(d) {
+      return d.isRight ? "left": "right";
+    })
+    .text(function(d) {
+      return ( d.nodeDispText.length > $nodeTitleTruncationParam) ?  d.nodeDispText.substr(0,$nodeTitleTruncationParam) + "..." : d.nodeDispText;
+    })
+    .style("fill-opacity", 1e-6);
+
+    //Appending hyperlink to the node itself and setting url using the JSON. URL is set on a rectangle
+    nodeEnter.append("a")
+      .attr("xlink:href", function(d) {
+         return d.url; }  )
+      .attr("target", "_blank")
+      .append("rect")
+      .attr("class", "clickable")
+      .attr("title", function (d) { return d.title; })
+      .attr("y", -25)
+      .attr("x", 0)
+      .attr("width", function(d){ return ((d.title.length > $nodeTitleTruncationParam) ? $nodeTitleTruncationParam * d.nodeDispType : (d.title.length) * d.nodeDispType);  })
+      .attr("height", 20)
+      .style("fill-opacity", 1e-6);
+
+    // Transition nodes to their new position.
+    var nodeUpdate = node.transition()
+        .duration(duration)
+        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+    //Fill the node to green color if it has children
+    nodeUpdate.select("circle")
+      .attr("r", "14px")
+      .style("fill", function(d)
+      {
+        if(d._children && d._children.length!=0)
+        {
+        return "green";
+        }
+        else
+        {
+        return "#fff";
+        }
+        });
+
+    nodeUpdate.select("text")
+        .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parents new position.
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .remove();
+
+  nodeExit.select("circle")
+    .attr("r", 1e-6);
+
+  nodeExit.select("text")
+    .style("fill-opacity", 1e-6);
+
+  // Update the links...
+  var link = svg.selectAll("path.link")
+    .data(tree.links(nodes), function(d) {
+      return d.target.id;
+    });
+
+  // Enter any new links at the parents previous position.
+  link.enter().insert("path", "g")
+    .attr("class", "link")
+    .attr("d", function(lk) {
+      var o = {x: source.x0, y: source.y0 };
+      return connector({source: o, target: o});
+    })
+    .attr("id", function(d){ return ("link" + d.source.id + "-" + d.target.id)})//unique id
+    .style("stroke", function(d) {
+     if(d.target.suspect == 'true') {
+        return "red"; }
+    else {
+        return d.target.linkcolor; }
+    })
+    .style("stroke-dasharray", function(d) {
+      if(d.target.suspect == 'true')
+       return "6,6";
+      else if(d.target.dottedline == 'true')
+       return "2,2";
+      });
+
+   // Transition links to their new position.
+   link.transition()
+    .duration(duration)
+    .attr("d", connector);
+
+   // Transition exiting nodes to the parents new position.
+     link.exit().transition()
+      .duration(duration)
+      .attr("d", function(lk) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+   //nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+
+   // Stash the old positions for transition.
+   nodes.forEach(function(d) {
+     d.x0 = d.x;
+     d.y0 = d.y;
+   });
+
+
+  //Calling zoom functionality
+  zoomCall(zoomParam);
+  //necessary so that zoom knows where to zoom and unzoom from
+  var positionNew = zm.translate();
+
+  zm.translate([m1, m2]);
+
+    // Toggle children on click.
+    function click(d) {
+
+    if (d.children) {
+      d._children = d.children;
+      d.children = null;
+    } else {
+      d.children = d._children;
+      d._children = null;
+    }
+    update(d);
+
+  }
+
+        // ---------------------------------------------------------------------------------------------
+        //Function mouseover definition
+        // ---------------------------------------------------------------------------------------------
+        function mouseover(d) {
+
+          div.transition()
+              .duration(200)
+              .style("opacity", .9);
+          div.html(d.name + ": "  + d.title)
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+
+          //Lets loop node and its family to highlight the path and selection
+          while (d.parent) {
+            if (d.parent != "null")
+               d3.selectAll("#link"+d.parent.id + "-" + d.id).style("stroke-width", "8px");//increase the width of path
+            d = d.parent;
+          }
+
+        }
+
+        // ---------------------------------------------------------------------------------------------
+        //Function mouseout definition
+        // ---------------------------------------------------------------------------------------------
+        function mouseout(d) {
+            d3.selectAll("path").style("stroke-width", "2px");//reset the width for all links
+            div.transition()
+                  .duration(500)
+                  .style("opacity", 0);
+        }
+
+        // ---------------------------------------------------------------------------------------------
+        //Function zoomCall definition
+        // ---------------------------------------------------------------------------------------------
+        function zoomCall(zoomParam)
+        {
+           if(zoomParam == "mouseCursor"){
+              d3.selectAll("svg")
+                .call(zm = d3.behavior.zoom().scaleExtent([0.1,3]).on("zoom", redraw))
+                .on("dblclick.zoom", null);//Disable double click zoom
+           } else {
+
+              d3.selectAll("svg")
+                .call(zm = d3.behavior.zoom().scaleExtent([0.1,3]).center([m1,m2]).on("zoom", redraw))
+                .on("dblclick.zoom", null);//Disable double click zoom
+           }
+        }
+
+        // ---------------------------------------------------------------------------------------------
+        //Function zoom definition
+        // ---------------------------------------------------------------------------------------------
+        //Redraw for zoom
+        function redraw() {
+
+            ## svg.attr("transform",
+            ##   "translate(" + d3.event.translate + ")"
+            ##    + " scale(" + d3.event.scale + ")");
+
+             var firstSelect = zoomParam;
+             var zoomCenterOnPage = "$useZoomcenter";
+             if(zoomCenterOnPage == "true"){
+                firstSelect = document.forms["tracegraph"]["zoomcenter"].value;
+             }
+
+              if(zoomParam == firstSelect){
+                 svg.attr("transform",
+                          "translate(" + d3.event.translate + ")"
+                           + " scale(" + d3.event.scale + ")");
+                           redrawScale = d3.event.scale;
+                           redrawTranslate = d3.event.translate;
+
+				if(zoomParam == "rootNode"){
+
+					// Get post-transform coords from the element.
+					var circle = document.getElementById('svgCircle'),
+					x = +circle.getAttribute('cx'),
+					y = +circle.getAttribute('cy'),
+					coords = getElementCoords(circle, {x:x, y:y});
+					t1 = coords.x;
+					t2 = coords.y;
+					zm = zm.center([t1, t2]);
+				}
+
+              } else {
+                 zoomParam = firstSelect;
+                 zoomCall(zoomParam);
+                 zm.translate([m1, m2]);
+              }
+        }
+    }
+    </script>
+
+        <meta charset="utf-8">
+        <div id="mainSVG">
+          <!DOCTYPE html>
+        <meta charset="utf-8">
+        </div>
+        #end   ## end of valid json string
+     #end ## valid tree format
+
+    ## Display Icon legend
+    #if( $displayLegend &&  $outputFormat != "tree")
+        #displayLegendTable()
+    #end
+
+   #end  ## end of valid input item
+#end

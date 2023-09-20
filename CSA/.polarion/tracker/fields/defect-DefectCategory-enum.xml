@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumeration>
+    <option description="A defect caused by settings or design which does not match specification" id="config" name="Configuration / Design" sortOrder="0"/>
+    <option description="A defect caused by incorrect system or test data." id="data" name="Data" sortOrder="1"/>
+    <option description="An issue which is the result of a function which could be improved." id="enhancement" name="Enhancement Request" sortOrder="2"/>
+    <option description="A defect caused by an incorrect or unclear user, functional, or design requirement for the system." id="req" name="Requirement / Specification" sortOrder="3"/>
+    <option description="An error caused by an issue with vendor-supplied software." id="vendorSW" name="Vendor Sofware" sortOrder="4"/>
+    <option description="An error caused by an incorrect or unclear test step or objective." id="testError" name="Test Case Error"/>
+    <option description="An error cause by human factors during testing." id="testerErrro" name="Tester Error"/>
+    <option description="Used to indicate this was incorrectly reported as a defect." id="nad" name="Not a Defect"/>
+</enumeration>

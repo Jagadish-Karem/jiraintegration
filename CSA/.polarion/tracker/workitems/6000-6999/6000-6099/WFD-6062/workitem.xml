@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="approvals">
+        <list>
+            <struct>
+                <item id="secureApprovalCommentId">1</item>
+                <item id="status">approved</item>
+                <item id="user">aSeller</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">2</item>
+                <item id="status">approved</item>
+                <item id="user">sDeveloper</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">3</item>
+                <item id="status">approved</item>
+                <item id="user">admin</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">4</item>
+                <item id="status">approved</item>
+                <item id="user">cUser</item>
+            </struct>
+        </list>
+    </field>
+    <field id="assignee">aSeller</field>
+    <field id="author">aSeller</field>
+    <field id="changeReason" text-type="text/plain" type="text">Initial release</field>
+    <field id="created">2023-08-03 07:26:18.203 -0700</field>
+    <field id="implementationMethod" type="enum:GAMP">1</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">refines</item>
+                <item id="workItem">WFD-6056</item>
+            </struct>
+        </list>
+    </field>
+    <field id="patientRisk" type="enum:directIndirectNone">1</field>
+    <field id="previousStatus">in_draft</field>
+    <field id="priority">50.0</field>
+    <field id="riskRating" type="enum:risk">low</field>
+    <field id="severity">normal</field>
+    <field id="status">in_approval</field>
+    <field id="testingType" type="enum:csv_testtype">audit</field>
+    <field id="title">Functional requirement #2</field>
+    <field id="type">functionalRequirement</field>
+    <field id="version" type="string">1</field>
+</work-item>

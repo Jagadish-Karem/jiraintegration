@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field id="testtype" name="Test Type" type="enum:TestType"/>
+    <field id="teststeps" name="Test Steps" required="true" type="struct:TestSteps"/>
+    <field id="pre" name="Prerequisites" type="text/html"/>
+</fields>

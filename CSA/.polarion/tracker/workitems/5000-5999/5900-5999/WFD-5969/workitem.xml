@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="ImplementationMethod" type="string">12</field>
+    <field id="PatientRisk" type="string">H</field>
+    <field id="RRR" type="string">4</field>
+    <field id="RT" type="string">Limited Scripted Testing</field>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="changeReason" text-type="text/html" type="text">Updated for WFD-2345</field>
+    <field id="created">2023-04-05 11:31:55.216 -0700</field>
+    <field id="hyperlinks">
+        <list>
+            <struct>
+                <item id="role">ref_int</item>
+                <item id="uri">http://localhost/repo/CSA/WaterfallDev/vendordocs/WaterFall_User_Requirements_Specifications_Demo_SRS (4).pdf</item>
+            </struct>
+        </list>
+    </field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="title">This is a user requirement for the test system</field>
+    <field id="type">userRequirement</field>
+    <field id="version" type="string">2.4</field>
+</work-item>

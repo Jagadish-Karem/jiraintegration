@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">Syed.Hussaini@bd.com</field>
+    <field id="created">2021-07-19 04:54:44.775 -0700</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Requirement Traceability Matrix</h1>
+  <p id="polarion_client2"></p><p id="polarion_client1"></p>
+  <div id="polarion_client8" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">########################### GLOBALS STARTS #########################
+#set($projectId = $page.getReference().projectId())
+#set($workstream = $pageParameters.Workstream.toLucene())
+#set($showall = $pageParameters.Show_All_User_Requirements.toLucene())
+#set($query = &quot;project.id:$projectId AND type:userRequirement&quot;)
+#set($userRequirements = $transaction.workItems().search().query(&quot;$query&quot;).sort(&quot;id&quot;))
+########################### GLOBALS ENDS #########################
+
+########################### MACRO STARTS #########################
+#macro(getRenderingVersion $pid $wid $renderedVersion)
+    #set($renderedVersion = $transaction.workItems().search().query(&quot;project.id:$pid AND id:$wid&quot;).toArrayList().get(0))
+#end
+
+#macro(getFrAndDsItems $wItem $wItemsList)
+    #set($linkedWorkItems = $wItem.fields().linkedWorkItems().back())
+    #foreach($lwi in $linkedWorkItems)
+        #if($lwi.getOldApi().getLinkedItem().getType().getId().equals(&quot;functionalRequirement&quot;) || $lwi.getOldApi().getLinkedItem().getType().getId().equals(&quot;designRequirement&quot;))
+            #getRenderingVersion($projectId $lwi.getOldApi().getLinkedItem().getId() $rvwi)
+            #set($void = $wItemsList.add($rvwi))
+        #end
+    #end
+#end
+
+
+#macro(getTestCases $wItem $wItemsList)
+    #set($linkedWorkItems = $wItem.fields().linkedWorkItems().back())
+    #foreach($lwi in $linkedWorkItems)
+        #set($type = $lwi.getOldApi().getLinkedItem().getType().getId())
+        #if($type.equals(&quot;scriptedTest&quot;) || $type.equals(&quot;unscriptedTest&quot;))
+            #getRenderingVersion($projectId $lwi.getOldApi().getLinkedItem().getId() $rvwi)
+            #set($void = $wItemsList.add($rvwi))
+        #end
+    #end
+#end
+
+########################### MACRO ENDS #########################
+
+&lt;style&gt;
+    input, button {
+        outline: none;
+        border: none;
+        background: 0 0;
+    }
+
+    .textbox{
+    	position: relative;
+        width: 25%;
+        box-sizing: border-box;
+        font-size: 1em;
+        line-height: 2em;
+        padding-left: 1em;
+        border: 1px solid #e7e7e7;
+        color: #6d7072;
+        background-color: white;
+        height: 50px;
+    }
+    
+    .textbox:focus{
+    	border-color: #005F87;
+    }
+
+    .button-custom{
+        font-size: 16px;
+        border-radius: 4px;
+        transition: all 0.5s;
+        font-weight: bold;
+        color: #717171;
+        text-shadow: 1px 1px 0px white;
+        border: 1px solid #C5C5C5;
+        background: #e5e5e5;
+        cursor: pointer;
+        height: 50px;
+        width: 100px;
+    }
+
+    .table-wrapper-L1 {
+        width: 100%;
+        font-family: &quot;Segoe UI&quot;, &quot;Selawik&quot;, &quot;Open Sans&quot;, Arial, sans-serif;
+    }
+
+    .table-wrapper {
+        position: relative;
+        padding-top: 60px;
+        background-color: #fff;
+    }
+
+    .table-wrapper.main {
+        overflow: hidden;
+    }
+
+    .table-wrapper.main th {
+        font-weight: bold;
+        font-size: 18px;
+        color: #fff;
+        background-color: #005F87;
+    }
+
+    .table-wrapper.main td {
+        font-size: 15px;
+        color: gray;
+        line-height: 1.4;
+    }
+
+   
+
+    .table-wrapper-head th {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .column1 {
+        width: 40%;
+        padding-left: 30px;
+    }
+
+    .column2 {
+        width: 30%;
+    }
+
+    .column3 {
+        width: 30%;
+    }
+
+    .table-wrapper-body {
+        max-height: 600px;
+        overflow-y: scroll;
+    }
+
+    .table-wrapper-body tr:nth-child(even) {
+        background-color: #f8f6ff;
+    }
+
+    .table-wrapper-body td {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    
+    ::placeholder {
+        color: black;
+        opacity: 1;
+      }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+&lt;/style&gt;
+
+###################### BUSINESS LOGICS STARTS ######################
+&lt;div id=&quot;main-report&quot;&gt;
+    &lt;div&gt;
+        &lt;input id=&quot;search-inp&quot; class=&quot;textbox&quot; type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Search in table...&quot; autocomplete=&quot;off&quot; style=&quot;display: inline;&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;table_data_div&quot; class=&quot;table-wrapper-L1&quot; style=&quot;margin-top: 5px;&quot;&gt;
+        &lt;div class=&quot;table-wrapper main&quot;&gt;
+            &lt;div class=&quot;table-wrapper-head&quot;&gt;
+                &lt;table id=&quot;main-table-head&quot; style=&quot;width: 100%;border-collapse: collapse;&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th class=&quot;column1&quot; style=&quot;text-align: left;font-weight: unset;padding-right: 10px;&quot;&gt;User Requirement&lt;/th&gt;
+                            &lt;th class=&quot;column2&quot; style=&quot;text-align: left;font-weight: unset;padding-right: 10px;&quot;&gt;Functional Requirement / Design Requirement&lt;/th&gt;
+                            &lt;th class=&quot;column3&quot; style=&quot;text-align: left;font-weight: unset;padding-right: 10px;&quot;&gt;Test Case&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;table-wrapper-body&quot;&gt;
+                &lt;table id=&quot;main-table&quot; style=&quot;width: 100%;border-collapse: collapse;&quot;&gt;
+                    &lt;tbody&gt;
+                        #foreach($ur in $userRequirements)
+                            &lt;tr&gt;
+                                &lt;td  class=&quot;column1&quot; style=&quot;font-weight: unset;padding-right: 10px;&quot;&gt;
+                                    &lt;p&gt;$ur.fields().id().render().withLinks() - $ur.fields().title().render()&lt;/p&gt;
+                                &lt;/td&gt;
+                                
+                                #set($frAndDsList = [])
+								#set($testCasesList = [])
+                                #set($DrList=[])
+								
+                                #getFrAndDsItems($ur $frAndDsList)
+                                
+								#if($frAndDsList.size()&gt;0)
+									#foreach($itemL1 in $frAndDsList)
+                                    	#getFrAndDsItems($itemL1 $DrList)
+										#getTestCases($itemL1 $testCasesList)
+									#end
+								#end
+                                #foreach($itemdr in $DrList)
+                                	#getTestCases($itemdr $testCasesList)
+                                #end
+								#getTestCases($ur $testCasesList)
+								
+								&lt;td class=&quot;column2&quot; style=&quot;font-weight: unset;padding-right: 10px;&quot;&gt;
+									#if($frAndDsList.size() == 0)
+                                        &lt;p&gt;No Functional Requirement / Design Requirement Found&lt;/p&gt;
+                                    #else
+                                        #foreach($item in $frAndDsList)
+                                            &lt;p&gt;$item.fields().id().render().withLinks() - $item.fields().title().render().withLinks()&lt;/p&gt;
+                                        #end
+                                         #foreach($itemdr in $DrList)
+                                            &lt;p&gt;$itemdr.fields().id().render().withLinks() - $itemdr.fields().title().render().withLinks()&lt;/p&gt;
+                                        #end
+                                    #end
+								&lt;/td&gt;
+								
+								&lt;td class=&quot;column3&quot; style=&quot;font-weight: unset;padding-right: 10px;&quot;&gt;
+									#if($testCasesList.size() == 0)
+                                        &lt;p&gt;No Test Case Found&lt;/p&gt;
+                                    #else
+                                        #foreach($test in $testCasesList)
+                                            &lt;p&gt;$test.fields().id().render().withLinks() - $test.fields().title().render().withLinks()&lt;/p&gt;
+                                        #end
+                                    #end
+                                    
+								&lt;/td&gt;
+							&lt;/tr&gt;	
+                        #end
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        $(document).ready(function(){
+            $(&quot;#main-report&quot;).find(&quot;.polarion-Hyperlink&quot;).each(function(){
+                var hostURL = window.location.origin;
+                var link = $(this).attr(&quot;href&quot;);
+                var linkToOpen = hostURL + link;
+                $(this).click(function(e){
+                    e.preventDefault();
+                    window.open(linkToOpen, &quot;_blank&quot;);
+                });
+            });
+        });
+        $(&quot;#search-inp&quot;).on(&quot;keyup&quot;, function () {
+            var value = $(this).val().toLowerCase();
+            $(&quot;#main-table tr&quot;).filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) &gt; -1)
+            });
+        });
+    &lt;/script&gt;
+&lt;/div&gt;</sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<span id="polarion-rp-parameters">
+  <sub id="Workstream" data-label="Workstream" data-type="Enumeration">
+    <sub id="values">
+      <sub>workStream_6</sub>
+    </sub>
+    <sub id="enumId">workStream</sub>
+    <sub id="allowNoValue">false</sub>
+    <sub id="allowMultipleValues">false</sub>
+    <sub id="loadForAllTypes">true</sub>
+  </sub>
+</span>]]></field>
+    <field id="title">Requirement Traceability Matrix</field>
+</rich-page>

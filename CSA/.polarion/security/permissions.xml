@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+    <customset id="WorkItem_InApproval_OR_Approved_Workitems" title="InApproval OR Approved Workitems">com.polarion.persistence.object.WorkItem(status:in_approval OR status:approved)</customset>
+    <customset id="Module_Lock_Document_in_all_status_except_InDraft" title="Lock Document in all status except InDraft">com.polarion.persistence.object.Module(status:(in_approval approved rejected obsolete))</customset>
+    <permission name="com.polarion">
+        <role name="pol_user">
+            <deny permission="@WorkItem_InApproval_OR_Approved_Workitems.modify"/>
+        </role>
+        <role name="project_assignable">
+            <grant permission="@WorkItem_InApproval_OR_Approved_Workitems.key.approvals.modify"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.create"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyContent"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.manageDocument"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.sign"/>
+            <grant permission="persistence.object.ModuleComment(.module:(@Module_Lock_Document_in_all_status_except_InDraft)).create"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyFields"/>
+            <deny permission="persistence.object.WorkItem.key.approvals.modify"/>
+            <deny permission="persistence.object.Module.sign"/>
+            <deny permission="persistence.object.WorkItem.delete"/>
+            <deny permission="persistence.object.Module.delete"/>
+        </role>
+        <role name="project_admin">
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.create"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyContent"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.manageDocument"/>
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.delete"/>
+            <grant permission="persistence.object.ModuleComment(.module:(@Module_Lock_Document_in_all_status_except_InDraft)).create"/>
+            <deny permission="persistence.object.Project.delete"/>
+        </role>
+        <role name="csv_project_assignable">
+            <grant permission="persistence.object.Project.read"/>
+            <grant permission="persistence.object.WorkItem.key.approvals.modify"/>
+        </role>
+        <role name="project_approver">
+            <grant permission="@WorkItem_InApproval_OR_Approved_Workitems.modify"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.sign"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyFields"/>
+            <grant permission="persistence.object.Module.manageSignatures"/>
+            <deny permission="persistence.object.Module.sign"/>
+            <grant permission="persistence.object.TestRun.modify"/>
+            <grant permission="tracker.WorkItem.resetApprovals"/>
+        </role>
+        <role name="project_reviewer">
+            <deny permission="@Module_Lock_Document_in_all_status_except_InDraft.manageSignatures"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.sign"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyFields"/>
+            <grant permission="persistence.object.Project.read"/>
+            <grant permission="persistence.object.WorkItem.read"/>
+            <grant permission="persistence.object.Comment.create"/>
+            <grant permission="tracker.WorkItem.watch"/>
+            <grant permission="persistence.object.Module.read"/>
+            <grant permission="persistence.object.ModuleComment.create"/>
+            <grant permission="persistence.object.Module.manageSignatures"/>
+            <grant permission="persistence.object.RichPage.read"/>
+            <grant permission="persistence.object.WikiPage.read"/>
+            <grant permission="persistence.object.Plan.read"/>
+            <grant permission="persistence.object.TestRun.read"/>
+            <grant permission="persistence.object.Baseline.read"/>
+            <grant permission="persistence.object.BaselineCollection.read"/>
+            <grant permission="reports.read"/>
+            <grant permission="persistence.object.Build.read"/>
+            <grant permission="builds.download"/>
+            <grant permission="persistence.object.WorkItem.key.approvals.modify"/>
+            <grant permission="tracker.WorkItem.resetApprovals"/>
+        </role>
+        <role name="project_bpo">
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.sign"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyFields"/>
+            <grant permission="persistence.object.Project.read"/>
+            <grant permission="persistence.object.WorkItem.read"/>
+            <grant permission="persistence.object.Comment.create"/>
+            <grant permission="tracker.WorkItem.watch"/>
+            <grant permission="persistence.object.WorkItem.key.approvals.modify"/>
+            <grant permission="persistence.object.Module.read"/>
+            <grant permission="persistence.object.ModuleComment.create"/>
+            <grant permission="persistence.object.Module.manageSignatures"/>
+            <grant permission="persistence.object.RichPage.read"/>
+            <grant permission="persistence.object.Plan.read"/>
+            <grant permission="persistence.object.TestRun.read"/>
+            <grant permission="persistence.object.TestRun.modify"/>
+            <grant permission="persistence.object.Baseline.read"/>
+            <grant permission="persistence.object.BaselineCollection.read"/>
+            <grant permission="reports.read"/>
+            <grant permission="persistence.object.Build.read"/>
+            <grant permission="builds.download"/>
+            <grant permission="persistence.object.WikiPage.read"/>
+            <grant permission="tracker.WorkItem.resetApprovals"/>
+        </role>
+        <role name="project_so">
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.sign"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyFields"/>
+            <grant permission="persistence.object.Project.read"/>
+            <grant permission="persistence.object.WorkItem.read"/>
+            <grant permission="persistence.object.Comment.create"/>
+            <grant permission="tracker.WorkItem.watch"/>
+            <grant permission="persistence.object.WorkItem.key.approvals.modify"/>
+            <grant permission="persistence.object.Module.read"/>
+            <grant permission="persistence.object.ModuleComment.create"/>
+            <grant permission="persistence.object.Module.manageSignatures"/>
+            <grant permission="persistence.object.RichPage.read"/>
+            <grant permission="persistence.object.Plan.read"/>
+            <grant permission="persistence.object.TestRun.read"/>
+            <grant permission="persistence.object.TestRun.modify"/>
+            <grant permission="persistence.object.Baseline.read"/>
+            <grant permission="persistence.object.BaselineCollection.read"/>
+            <grant permission="reports.read"/>
+            <grant permission="persistence.object.Build.read"/>
+            <grant permission="builds.download"/>
+            <grant permission="persistence.object.WikiPage.read"/>
+            <grant permission="tracker.WorkItem.resetApprovals"/>
+        </role>
+        <role name="project_qa">
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.sign"/>
+            <grant permission="@Module_Lock_Document_in_all_status_except_InDraft.modifyFields"/>
+            <grant permission="persistence.object.Project.read"/>
+            <grant permission="persistence.object.WorkItem.read"/>
+            <grant permission="persistence.object.Comment.create"/>
+            <grant permission="tracker.WorkItem.watch"/>
+            <grant permission="persistence.object.WorkItem.key.approvals.modify"/>
+            <grant permission="persistence.object.Module.read"/>
+            <grant permission="persistence.object.ModuleComment.create"/>
+            <grant permission="persistence.object.Module.manageSignatures"/>
+            <grant permission="persistence.object.RichPage.read"/>
+            <grant permission="persistence.object.Plan.read"/>
+            <grant permission="persistence.object.TestRun.read"/>
+            <grant permission="persistence.object.TestRun.modify"/>
+            <grant permission="persistence.object.Baseline.read"/>
+            <grant permission="persistence.object.BaselineCollection.read"/>
+            <grant permission="reports.read"/>
+            <grant permission="persistence.object.Build.read"/>
+            <grant permission="builds.download"/>
+            <grant permission="persistence.object.WikiPage.read"/>
+            <grant permission="tracker.WorkItem.resetApprovals"/>
+        </role>
+    </permission>
+</permissions>

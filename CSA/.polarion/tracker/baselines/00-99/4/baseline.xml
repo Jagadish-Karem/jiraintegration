@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<baseline>
+    <field id="author">admin</field>
+    <field id="baseDataRevision">1217</field>
+    <field id="baseObject">{Module}{moduleFolder}User Requirements Specifications#Demo SRS</field>
+    <field id="description" text-type="text/plain">Initial document creation.</field>
+    <field id="name">Version 2.1</field>
+</baseline>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="approvals">
+        <list>
+            <struct>
+                <item id="status">approved</item>
+                <item id="user">admin</item>
+            </struct>
+        </list>
+    </field>
+    <field id="author">jonathanm@complianceg.com</field>
+    <field id="changeReason" text-type="text/html" type="text/html">Initial work item creation.</field>
+    <field id="created">2023-03-30 07:09:00.485 -0700</field>
+    <field id="description" text-type="text/html"><![CDATA[<ol>
+  <li>Risk and Compliance Assessment</li>
+  <ol>
+    <li>GxP</li>
+    <li>SOX</li>
+    <li>HIPAA</li>
+  </ol>
+</ol>]]></field>
+    <field id="implementationMethod" type="enum:GAMP">1</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">refines</item>
+                <item id="workItem">WFD-5881</item>
+            </struct>
+            <struct>
+                <item id="role">relates_to</item>
+                <item id="workItem">WFD-5887</item>
+            </struct>
+        </list>
+    </field>
+    <field id="patientRisk" type="enum:directIndirectNone">3</field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="rel" type="string">rel1</field>
+    <field id="riskRating" type="enum:risk">medium</field>
+    <field id="severity">normal</field>
+    <field id="status">approved</field>
+    <field id="testingType" type="enum:csv_testtype">unscripted</field>
+    <field id="title">Assessment types</field>
+    <field id="type">functionalRequirement</field>
+    <field id="version" type="string">3.0</field>
+</work-item>

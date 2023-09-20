@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calculated-fields>
+    <calculated-field id="timeSpentOnMethods">
+        <sum>
+            <childField>	 timeSpent</childField>
+        </sum>
+
+    </calculated-field>
+
+</calculated-fields>

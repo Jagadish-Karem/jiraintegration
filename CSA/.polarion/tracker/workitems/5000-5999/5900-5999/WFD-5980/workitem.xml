@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">admin</field>
+    <field id="businessOwner" type="enum:@user[project_bpo]">aSeller</field>
+    <field id="created">2023-07-18 06:02:33.520 -0700</field>
+    <field id="dataIntegrityImpact" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="description" text-type="text/html"><![CDATA[Polarion provides Application Lifecycle Management (ALM) and validation management capabilities.  This includes the following high-level system capabilities:<br/>
+<ul>
+  <li>Document and requirement authoring and approval</li>
+  <li>Test case authoring, approval, execution, and review</li>
+  <li>Defect creation and management including approval</li>
+  <li>Reporting and metrics</li>
+</ul>]]></field>
+    <field id="eresApplicability" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="gxpApplicability" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="intendedUse" text-type="text/html" type="text/html">This is my intended use.</field>
+    <field id="intendedUseStatement" type="string">Need to convert this to description for display purposes.</field>
+    <field id="nprDate" type="date">2024-07-04</field>
+    <field id="overallRiskRating" type="enum:risk">unanalyzed</field>
+    <field id="patientSafetyImpact" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="productQualityImpact" type="enum:yesNoUnanalyzed">unanalyzed</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="systemGAMPCategory" type="enum:GAMP">unanalyzed</field>
+    <field id="systemName" type="string">Polarion ALM</field>
+    <field id="systemOwner" type="enum:@user[project_so]">sDeveloper</field>
+    <field id="systemVersion" type="string">2304</field>
+    <field id="title">Polarion ALM</field>
+    <field id="type">complianceAssessment</field>
+    <field id="valPlan" type="string">11_ Validation Final Reports / Compliance Group Validation Summary Report</field>
+    <field id="version" type="string">1</field>
+</work-item>

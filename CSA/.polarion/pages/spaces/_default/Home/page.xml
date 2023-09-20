@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">admin</field>
+    <field id="created">2019-06-11 18:03:43.598 -0700</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Validation Document Report</h1>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 100%;">
+  <p id="polarion_client5"></p>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<div class="polarion-rp-column" style="width: 49.554955%;">
+  <p id="polarion_hardcoded_2"></p>
+  <div id="polarion_client6" class="polarion-rp-widget-part" data-widget="com.polarion.pageParametersForm">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="title"></sub>
+      <sub id="content">
+        <sub>collapseSignatures</sub>
+        <sub>documentType</sub>
+        <sub>filterSignatures</sub>
+        <sub>query</sub>
+        <sub>sortBy</sub>
+        <sub>space</sub>
+      </sub>
+      <sub id="width">500</sub>
+    </span>
+  </div>
+  <p id="polarion_client7"></p>
+</div>
+<div class="polarion-rp-column" style="width: 50.445045%;">
+  <p id="polarion_hardcoded_3"></p>
+  <div id="polarion_client2" class="polarion-rp-widget-part" data-widget="com.polarion.separateByPieChart">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="title"></sub>
+      <sub id="dataSet">
+        <sub id="prototype">Document</sub>
+        <sub id="queryType">lucene</sub>
+        <sub id="luceneQuery" style="white-space: pre;">status:(in_draft in_approval approved)</sub>
+        <sub id="children">
+          <sub id="separateBy">
+            <sub id="field">status</sub>
+          </sub>
+        </sub>
+      </sub>
+      <sub id="showDataLabels">true</sub>
+      <sub id="showZeroValues">false</sub>
+      <sub id="advanced">
+        <sub id="height">350</sub>
+        <sub id="width">350</sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<div class="polarion-rp-column" style="width: 100%;">
+  <h2 id="polarion_client8">Document eSignature Status</h2>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<div class="polarion-rp-column" style="width: 100%;">
+  <div id="polarion_client10" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space: pre;">################################################################################
+##
+##  Document Status Report
+##
+## com.polarion.alm.shared.api.transaction.ReadOnlyTransaction $transaction
+## com.polarion.alm.shared.api.model.wi.WorkItem $item
+## com.polarion.alm.shared.api.model.rp.widget.RichPageWidgetRenderingContext $widgetContext
+## com.polarion.alm.server.api.model.document.ProxyDocument $document
+##
+
+#set($projectId = $page.getReference().projectId())
+#set($amp = &#39;&quot;&#39;)
+#set($queryDivId = $widgetContext.generateUniqueElementId())
+
+#set($documentTypeLucene = $pageParameters.documentType.toLucene())
+#set($documentTypeCount = $pageParameters.documentType.values().size())
+#set($spaceValue = $pageParameters.space.value())
+#set($queryValue = $pageParameters.query.value())
+#set($sortByValue = $pageParameters.sortBy.value())
+#set($collapseSignaturesValue = $pageParameters.collapseSignatures.value())
+#set($filter = $pageParameters.filterSignatures.singleValue())
+
+#set($query = &quot;project.id:$projectId AND type:$documentTypeLucene&quot;)
+#if(!$spaceValue.equals(&quot;&quot;))
+	#set($query = &quot;$query AND space.id.1:$amp$spaceValue$amp&quot;)
+#end
+#if(!$queryValue.equals(&quot;&quot;))
+	#set($query = &quot;$query AND $queryValue&quot;)
+#end
+
+#set($documents = $transaction.documents().search().query(&quot;$query&quot;).sort(&quot;$sortByValue&quot;))
+#set($documentCount = $documents.size())
+
+&lt;table class=&quot;polarion-rpw-table-main&quot;&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;
+				&lt;table class=&quot;polarion-rpw-table-content&quot; style=&quot;background-color: #D2D7DA;&quot;&gt;
+					&lt;tbody&gt;
+						&lt;tr class=&quot;polarion-rpw-table-header-row&quot;&gt;
+							&lt;th style=&quot;padding: 5px;&quot;&gt;Title&lt;/th&gt;
+							&lt;th style=&quot;padding: 5px;&quot;&gt;Status&lt;/th&gt;
+							&lt;th style=&quot;padding: 5px;&quot;&gt;Updated&lt;/th&gt;
+							##&lt;th style=&quot;padding: 5px;&quot;&gt;Updated By&lt;/th&gt;
+							##&lt;th style=&quot;padding: 5px;&quot;&gt;Created&lt;/th&gt;
+							##&lt;th style=&quot;padding: 5px;&quot;&gt;Author&lt;/th&gt;
+							#if($documentTypeCount &gt; 1)
+								&lt;th style=&quot;padding: 5px;&quot;&gt;Type&lt;/th&gt;
+							#end
+							##&lt;th style=&quot;padding: 5px;&quot;&gt;Revision&lt;/th&gt;
+							&lt;th style=&quot;padding: 5px;&quot;&gt;Version&lt;/th&gt;
+							&lt;th style=&quot;padding: 5px;&quot;&gt;Signatures&lt;/th&gt;
+							##&lt;th style=&quot;padding: 5px;&quot;&gt;Branched From&lt;/th&gt;
+							##&lt;th style=&quot;padding: 5px;&quot;&gt;Derived From&lt;/th&gt;
+						&lt;/tr&gt;
+						#foreach($document in $documents)
+							#set($statusColor = $document.fields().status().get().fields().color().get())
+							#set($signatureDivId = $widgetContext.generateUniqueElementId())
+							#set($arrowImgId = $widgetContext.generateUniqueElementId())
+							#set($signaturesCount = $document.fields().workflowSignatures().size())
+
+							&lt;tr class=&quot;polarion-rpw-table-content-row&quot; style=&quot;background-color: $statusColor;&quot;&gt;
+								&lt;td style=&quot;padding: 9px 14px 9px 8px;&quot;&gt;$document.render().withLinks()&lt;/td&gt;
+								&lt;td&gt;$document.fields().status().render()&lt;/td&gt;
+								&lt;td&gt;$document.fields().updated().render()&lt;/td&gt;
+								##&lt;td&gt;$document.fields().updatedBy().render()&lt;/td&gt;
+								##&lt;td&gt;$document.fields().created().render()&lt;/td&gt;
+								##&lt;td&gt;$document.fields().author().render()&lt;/td&gt;
+								#if($documentTypeCount &gt; 1)
+									&lt;td&gt;$document.fields().type().render()&lt;/td&gt;
+								#end
+								##&lt;td&gt;$document.getReference().actualRevision()&lt;/td&gt;
+								&lt;td&gt;#if(!$document.fields().get(&quot;version&quot;).get().equals(&quot;&quot;))$document.fields().get(&quot;version&quot;).render()#else-#end&lt;/td&gt;
+								&lt;td&gt;
+									#if($signaturesCount &gt; 0)
+										&lt;div&gt;
+											&lt;span style=&quot;cursor: pointer;&quot; onclick=&quot;var style = getElementById(&#39;$signatureDivId&#39;).style; style.display = (style.display.match(&#39;table&#39;)) ? &#39;none&#39; : &#39;table&#39;; var image = getElementById(&#39;$arrowImgId&#39;); image.src = (image.src.match(&#39;T-&#39;)) ? &#39;/polarion/ria/images/tree/T+.gif&#39; : &#39;/polarion/ria/images/tree/T-.gif&#39;;&quot;&gt;
+												&lt;a&gt;
+													&lt;img style=&quot;vertical-align: text-bottom; border: 0px; margin-right: 2px;&quot; id=&quot;$arrowImgId&quot; src=&quot;/polarion/ria/images/tree/T#if($collapseSignaturesValue)+#else-#end.gif&quot;&gt;Toggle Signature#if(!$filter.equals(&quot;new&quot;) &amp;&amp; $signaturesCount &gt; 1)s#end&amp;nbsp;($signaturesCount)
+												&lt;/a&gt;
+											&lt;/span&gt;
+										&lt;/div&gt;
+										&lt;div id=&quot;$signatureDivId&quot;#if($collapseSignaturesValue)style=&quot; display: none;&quot;#else style=&quot;display: table;&quot;#end&gt;
+											#foreach($signature in $document.fields().workflowSignatures())
+												#if(!$signature.fields().signatureState().optionId().equals(&quot;obsolete&quot;) || $filter.equals(&quot;obsolete&quot;))
+													#if(!$filter.equals(&quot;new&quot;) || $signaturesCount - $velocityCount == 0)
+														&lt;div style=&quot;margin: 2px; background-color: #ecf0f1; border-radius: 10px;&quot;&gt;
+															$signature.render().htmlFor().forFrame().replace(&quot;, &quot;, &quot;&quot;)
+														&lt;/div&gt;
+													#end
+												#end
+											#end
+										&lt;/div&gt;
+									#else
+										-
+									#end
+								&lt;/td&gt;
+								##&lt;td&gt;$document.fields().branchedFrom().render().withLinks()&lt;/td&gt;
+								##&lt;td&gt;$document.fields().derivedFrom().render().withLinks()&lt;/td&gt;
+							&lt;/tr&gt;
+						#end
+					&lt;/tbody&gt;
+				&lt;/table&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td class=&quot;polarion-rpw-table-footer&quot;&gt;
+				&lt;div class=&quot;polarion-rpw-table-counts&quot;&gt;
+					$documentCount documents found
+				&lt;/div&gt;
+				&lt;div class=&quot;polarion-rpw-table-show-query&quot;&gt;
+					&lt;img src=&quot;/polarion/ria/images/portlet/info.png&quot; title=&quot;Show query&quot; onclick=&quot;var style = getElementById(&#39;$queryDivId&#39;).style; style.display = (style.display == &#39;block&#39;) ? &#39;none&#39; : &#39;block&#39;;&quot;&gt;
+				&lt;/div&gt;
+				&lt;div id=&quot;$queryDivId&quot; class=&quot;polarion-rpw-table-query&quot;&gt;$query&lt;/div&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+        </sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<span id="polarion-rp-parameters">
+  <sub id="collapseSignatures" data-label="Collapse Signatures by Default" data-type="String">No</sub>
+  <sub id="documentType" data-label="Document Type" data-type="Enumeration">
+    <sub id="values">
+      <sub>generic</sub>
+      <sub>dataMigrationPlan</sub>
+      <sub>qualificationProtocol</sub>
+      <sub>qualificationReport</sub>
+      <sub>requirementSpecification</sub>
+      <sub>validationPlan</sub>
+      <sub>validationReport</sub>
+    </sub>
+    <sub id="enumId">documents/document-type</sub>
+    <sub id="allowNoValue">false</sub>
+    <sub id="allowMultipleValues">true</sub>
+    <sub id="loadForAllTypes">true</sub>
+  </sub>
+  <sub id="filterSignatures" data-label="Filter Signatures" data-type="String">Show Only Most Recent</sub>
+  <sub id="query" data-label="Query" data-type="String"></sub>
+  <sub id="sortBy" data-label="Sort By" data-type="String">status title</sub>
+  <sub id="space" data-label="Space" data-type="String"></sub>
+</span>]]></field>
+</rich-page>

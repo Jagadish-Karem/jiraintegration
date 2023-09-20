@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="author">admin</field>
+    <field id="created">2023-08-02 09:48:14.027 -0700</field>
+    <field id="description" text-type="text/html"><![CDATA[Refer to CSV-SOP-001 and CSV-SOP-004 as necessary to complete this test.  Ensure that all validation document types can be created, edited, and routed for approvals.  Consider the following actions as part of testing:<br/>
+<ul>
+  <li>Editing content and work items.</li>
+  <li>Restructuring content.</li>
+  <li>Adding and removing approvers.</li>
+  <li>Commenting.</li>
+  <li>Other document management features as deemed necessary by tester.</li>
+</ul>]]></field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">verifies</item>
+                <item id="workItem">WFD-6047</item>
+            </struct>
+        </list>
+    </field>
+    <field id="pre" text-type="text/html" type="text/html"><![CDATA[<ul>
+  <li><span style="font-style: italic;"></span><span style="font-style: normal;">The tester executing this test must have the <span style="font-style: italic;">project_assignable</span> role within the <span style="font-style: italic;">UAT</span> project. </span></li>
+  <li><span style="font-style: normal;"></span><span style="font-style: italic;"></span>The tester executing this test must have sufficient knowledge as an end user of Polarion to complete this test.</li>
+  <li>The tester executing this test must have current training on CSV-SOP-001 and CSV-SOP-004.</li>
+</ul>]]></field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">in_draft</field>
+    <field id="testtype" type="enum:TestType">uat</field>
+    <field id="title">Validation Document Management (UAT)</field>
+    <field id="type">unscriptedTest</field>
+    <field id="version" type="string">1</field>
+</work-item>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<work-item>
+    <field id="ImplementationMethod" type="string">11</field>
+    <field id="PatientRisk" type="string">H</field>
+    <field id="RRR" type="string">3</field>
+    <field id="RT" type="string">Unscripted Testing - Error Guessing</field>
+    <field id="approvals">
+        <list>
+            <struct>
+                <item id="secureApprovalCommentId">1</item>
+                <item id="status">approved</item>
+                <item id="user">aSeller</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">2</item>
+                <item id="status">approved</item>
+                <item id="user">sDeveloper</item>
+            </struct>
+            <struct>
+                <item id="secureApprovalCommentId">3</item>
+                <item id="status">approved</item>
+                <item id="user">admin</item>
+            </struct>
+        </list>
+    </field>
+    <field id="author">aSeller</field>
+    <field id="changeReason" text-type="text/html" type="text/html">Initial work item creation.</field>
+    <field id="created">2023-08-02 10:52:17.704 -0700</field>
+    <field id="linkedWorkItems">
+        <list>
+            <struct>
+                <item id="role">assess</item>
+                <item id="workItem">WFD-5980</item>
+            </struct>
+        </list>
+    </field>
+    <field id="outlineNumber">4.2-1</field>
+    <field id="previousStatus">in_approval</field>
+    <field id="priority">50.0</field>
+    <field id="severity">normal</field>
+    <field id="status">approved</field>
+    <field id="title">Polarion shall have the capability to perform risk assessments.</field>
+    <field id="type">userRequirement</field>
+    <field id="version" type="string">1</field>
+</work-item>

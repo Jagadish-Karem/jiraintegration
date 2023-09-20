@@ -1,0 +1,3 @@
+    #set ( $projectId = $object.getProjectId() )
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button"><a href="/polarion/#/project/$projectId/wiki/Reports/Impact Analysi?workItemId=$object.getId()&direction=both"><font size="4px" color="blue">Impact Analysis</font></a></button>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<specificationConfiguration>
+    <forImport>false</forImport>
+    <forRIF>false</forRIF>
+    <mappingConfiguration>
+        <mappingGroups direction="IMPORT" polarionType="functional_requirement" reqIfType="_2a8c7a58-3e80-4c64-b487-4685f8b9aab1">
+            <fieldMappings reqIfAttribute="relations"/>
+            <fieldMappings polarionField="title" reqIfAttribute="rmf-4397b350-1ccc-4692-b3b2-d5a678f9245b"/>
+            <fieldMappings reqIfAttribute="rmf-2119b2a4-a808-426b-a757-2444c34020aa"/>
+            <fieldMappings reqIfAttribute="rmf-4ad014ac-c12a-485c-a5e0-2b68bd83eff4"/>
+            <fieldMappings reqIfAttribute="rmf-d39f938f-2df5-4a16-a8b3-cc122b2a5d0e"/>
+            <fieldMappings polarionField="description" reqIfAttribute="rmf-9e2ce5fb-2c14-484b-a546-299c10105eac"/>
+            <fieldMappings reqIfAttribute="type"/>
+        </mappingGroups>
+        <mappingGroups direction="IMPORT" polarionType="heading" reqIfType="_86077b8d-bfab-4164-b9b1-0edfecb626e3">
+            <fieldMappings reqIfAttribute="relations"/>
+            <fieldMappings polarionField="title" reqIfAttribute="rmf-eed4c2d2-e5b6-4d3c-b6be-9e00e2062add"/>
+            <fieldMappings reqIfAttribute="rmf-d7cf155f-7428-4b4c-b805-c6f3ec957260"/>
+            <fieldMappings reqIfAttribute="rmf-0e1b0b5a-68c2-429a-b770-205cb1e92c3d"/>
+            <fieldMappings reqIfAttribute="rmf-e31d10e3-a77f-489b-91e6-2b09621e4326"/>
+            <fieldMappings polarionField="description" reqIfAttribute="rmf-d91422c0-db16-4b44-ae69-4e23d71894e6"/>
+            <fieldMappings reqIfAttribute="type"/>
+        </mappingGroups>
+        <mappingGroups direction="IMPORT" polarionType="user_requirement" reqIfType="_fa148c85-11cf-42a4-91f0-9436c673a4e4">
+            <fieldMappings reqIfAttribute="relations"/>
+            <fieldMappings polarionField="title" reqIfAttribute="rmf-49e83bfe-5a3d-44e9-8b7e-144038b620f4"/>
+            <fieldMappings reqIfAttribute="rmf-0fc31375-21c3-4b50-8488-49e426ad5486"/>
+            <fieldMappings reqIfAttribute="rmf-2054ebed-e6a1-4a1a-8155-0a02aac389e8"/>
+            <fieldMappings reqIfAttribute="rmf-60637603-0886-4324-94ee-c473f6af1ee6"/>
+            <fieldMappings polarionField="description" reqIfAttribute="rmf-326044e9-98eb-44aa-8a67-b138618fe90d"/>
+            <fieldMappings reqIfAttribute="type"/>
+        </mappingGroups>
+        <mappingGroups direction="EXPORT" polarionType="functional_requirement" reqIfType="_2a8c7a58-3e80-4c64-b487-4685f8b9aab1">
+            <fieldMappings reqIfAttribute="relations"/>
+            <fieldMappings polarionField="title" reqIfAttribute="rmf-4397b350-1ccc-4692-b3b2-d5a678f9245b"/>
+            <fieldMappings polarionField="author" reqIfAttribute="rmf-2119b2a4-a808-426b-a757-2444c34020aa"/>
+            <fieldMappings polarionField="created" reqIfAttribute="rmf-4ad014ac-c12a-485c-a5e0-2b68bd83eff4"/>
+            <fieldMappings polarionField="id" reqIfAttribute="rmf-d39f938f-2df5-4a16-a8b3-cc122b2a5d0e"/>
+            <fieldMappings polarionField="description" reqIfAttribute="rmf-9e2ce5fb-2c14-484b-a546-299c10105eac"/>
+        </mappingGroups>
+        <mappingGroups direction="EXPORT" polarionType="heading" reqIfType="_86077b8d-bfab-4164-b9b1-0edfecb626e3">
+            <fieldMappings reqIfAttribute="relations"/>
+            <fieldMappings polarionField="title" reqIfAttribute="rmf-eed4c2d2-e5b6-4d3c-b6be-9e00e2062add"/>
+            <fieldMappings polarionField="author" reqIfAttribute="rmf-d7cf155f-7428-4b4c-b805-c6f3ec957260"/>
+            <fieldMappings polarionField="created" reqIfAttribute="rmf-0e1b0b5a-68c2-429a-b770-205cb1e92c3d"/>
+            <fieldMappings polarionField="id" reqIfAttribute="rmf-e31d10e3-a77f-489b-91e6-2b09621e4326"/>
+            <fieldMappings polarionField="description" reqIfAttribute="rmf-d91422c0-db16-4b44-ae69-4e23d71894e6"/>
+        </mappingGroups>
+        <mappingGroups direction="EXPORT" polarionType="user_requirement" reqIfType="_fa148c85-11cf-42a4-91f0-9436c673a4e4">
+            <fieldMappings reqIfAttribute="relations"/>
+            <fieldMappings polarionField="title" reqIfAttribute="rmf-49e83bfe-5a3d-44e9-8b7e-144038b620f4"/>
+            <fieldMappings polarionField="author" reqIfAttribute="rmf-0fc31375-21c3-4b50-8488-49e426ad5486"/>
+            <fieldMappings polarionField="created" reqIfAttribute="rmf-2054ebed-e6a1-4a1a-8155-0a02aac389e8"/>
+            <fieldMappings polarionField="id" reqIfAttribute="rmf-60637603-0886-4324-94ee-c473f6af1ee6"/>
+            <fieldMappings polarionField="description" reqIfAttribute="rmf-326044e9-98eb-44aa-8a67-b138618fe90d"/>
+        </mappingGroups>
+    </mappingConfiguration>
+    <exportNew>true</exportNew>
+    <polarionConfiguration document="System Requirements Specification" space="3_ User Requirements Specification" useCurrentUser="true" useTitleAsRoot="true">
+        <ignoreStructureLinks>true</ignoreStructureLinks>
+    </polarionConfiguration>
+    <reqIfConfiguration documentName="SRS.reqif" doorsCompatibilityMode="false" fileName="SRS.reqifz" rif="false"/>
+    <updateMetadata>true</updateMetadata>
+</specificationConfiguration>

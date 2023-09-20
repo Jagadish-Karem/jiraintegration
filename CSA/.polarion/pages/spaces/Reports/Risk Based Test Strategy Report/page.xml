@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rich-page>
+    <field id="author">Syed.Hussaini@bd.com</field>
+    <field id="created">2021-07-23 00:13:02.533 -0700</field>
+    <field id="homePageContent" text-type="text/html"><![CDATA[<div class="polarion-rp-column" style="width: 100%;">
+  <h1 id="polarion_hardcoded_0">Risk Based Test Strategy Report</h1>
+</div>
+<div class="polarion-rp-row-separator" page_min_width="1000"></div>
+<div class="polarion-rp-column" style="width: 100%;">
+  <p id="polarion_client2"></p>
+  <div id="polarion_client1" class="polarion-rp-widget-part" data-widget="com.polarion.scriptBlock">
+    <span class="polarion-rp-widget-parameters">
+      <sub id="script">
+        <sub id="script" style="white-space:pre;">################################################################################
+##
+## Risk Based Test Strategy Report V2.0
+##
+## com.polarion.alm.shared.api.transaction.ReadOnlyTransaction $transaction
+## com.polarion.alm.shared.api.model.wi.WorkItem $item
+## com.polarion.alm.shared.api.model.rp.widget.RichPageWidgetRenderingContext $widgetContext
+## com.polarion.alm.server.api.model.document.ProxyDocument $document
+##
+#set($projectId = $page.getReference().projectId())
+#set($workstream = $pageParameters.Workstream.toLucene())
+#set($query = &quot;project.id:$projectId AND type:functionalRequirement&quot;)
+#set($workitems = $transaction.workItems().search().query(&quot;$query&quot;).sort(&quot;$sortByValue&quot;))
+&lt;div align=&quot;center&quot;&gt;
+##&lt;h1&gt; Risk Based Test Strategy By Release for $projectId &lt;/h1&gt;
+&lt;/div&gt;
+##Table style:
+&lt;pre&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+
+.main {
+    font-size: 18px;
+    color: #fff;
+    background-color: #005F87;
+}
+
+.table-wrapper {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.main th {
+	padding-top: 18px;
+    padding-bottom: 18px;
+    font-weight: unset;
+}
+
+.table-wrapper-body tr:nth-child(even) {
+    background-color: #f8f6ff;
+}
+
+.table-wrapper-body {
+    display: block;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.table-wrapper-body tr {
+    display: table;
+    width: 100%;
+  	//table-layout: fixed;/* even columns width , fix width of table too*/
+}
+
+thead tr{
+	display: table;
+	//table-layout: fixed;
+    width: 100%;
+}
+
+.headdata1 {
+width: 10%;
+text-align:center;
+}
+
+.headdata2 {
+width: 10%;
+text-align:center;
+}
+
+.headdata3 {
+width: 40%;
+text-align:center;
+}
+
+.headdata4 {
+width: 20%;
+text-align:center;
+}
+
+.headdata5 {
+width: 20%;
+text-align:center;
+}
+
+.tbody-row td {
+    font-size: 12px;
+    color: gray;
+    line-height: 1.4;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     padding-left: 20px;
+     padding-right: 5px;
+     text-align:left;
+}
+&lt;/style&gt;
+
+
+&lt;/pre&gt;
+&lt;div class=&quot;table-wrapper-L1&quot;&gt;
+&lt;table id=&quot;reportTbl&quot;  class=&quot;table-wrapper&quot;&gt;
+	&lt;thead&gt;
+      &lt;tr class=&quot;main&quot;&gt;
+          &lt;th class=&quot;headdata2&quot;&gt;Functional Requirement&lt;/th&gt;
+          &lt;th class=&quot;headdata3&quot;&gt;Title&lt;/th&gt;
+          &lt;th class=&quot;headdata4&quot;&gt;Risk Rating&lt;/th&gt;
+          &lt;th class=&quot;headdata5&quot;&gt;Testing Type&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+#set($counter =0)
+&lt;tbody class=&quot;table-wrapper-body&quot;&gt;
+#foreach($workitem in $workitems)
+#set($wiType = $workitem.fields().type().optionId())
+		&lt;tr class=&quot;tbody-row&quot;&gt;
+             &lt;td class=&quot;headdata2&quot;&gt;$workitem.fields().id.render().withLinks()&lt;/td&gt;
+              &lt;td class=&quot;headdata3&quot;&gt; $workitem.fields().title.render()&lt;/td&gt;
+              &lt;td class=&quot;headdata4&quot;&gt;$workitem.fields().riskRating.render()&lt;/td&gt;
+            
+             ##elseif($workitem.fields().get(&quot;riskRating&quot;).get().equals(&quot;5&quot;))
+              &lt;td class=&quot;headdata5&quot;&gt;$workitem.fields().get(&quot;testingType&quot;).render()&lt;/td&gt;
+		&lt;/tr&gt;
+		#end
+     &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;  
+
+&lt;script&gt;
+    $(document).ready(function(){
+        $(&quot;.tbody-row&quot;).each(function(){
+            var riskRatingObj = $(this).find(&quot;td:nth-child(4)&quot;);
+            var riskRating = parseInt(riskRatingObj.text());
+            switch(riskRating){
+                case 1: 
+                    $(this).css(&quot;background-color&quot;, &quot;#4dd676&quot;);
+                    break;
+                case 2:
+                    $(this).css(&quot;background-color&quot;, &quot;#dffcd7&quot;);
+                    break;
+                case 3:
+                    $(this).css(&quot;background-color&quot;, &quot;#f7f4b7&quot;);
+                    break;
+                case 4:
+                    $(this).css(&quot;background-color&quot;, &quot;#ffd4a1&quot;);
+                    break;
+                case 5: 
+                    $(this).css(&quot;background-color&quot;, &quot;#faccbb&quot;);
+                    break;
+            }
+        });
+    });    
+&lt;/script&gt;</sub>
+      </sub>
+    </span>
+  </div>
+</div>
+<div class="polarion-rp-row-separator"></div>
+<span id="polarion-rp-parameters">
+  <sub id="Release" data-label="Release" data-type="Enumeration">
+    <sub id="values">
+      <sub>rel1</sub>
+    </sub>
+    <sub id="enumId">rel</sub>
+    <sub id="subtype">user_requirement</sub>
+    <sub id="allowNoValue">true</sub>
+    <sub id="allowMultipleValues">true</sub>
+  </sub>
+  <sub id="Testing_Type" data-label="Testing Type" data-type="Enumeration">
+    <sub id="values">
+      <sub>limited</sub>
+    </sub>
+    <sub id="enumId">testing_Type</sub>
+    <sub id="allowNoValue">false</sub>
+    <sub id="allowMultipleValues">false</sub>
+    <sub id="loadForAllTypes">true</sub>
+  </sub>
+  <sub id="Workstream" data-label="Workstream" data-type="Enumeration">
+    <sub id="values">
+      <sub>workStream_6</sub>
+    </sub>
+    <sub id="enumId">workStream</sub>
+    <sub id="allowNoValue">false</sub>
+    <sub id="allowMultipleValues">false</sub>
+    <sub id="loadForAllTypes">true</sub>
+  </sub>
+</span>]]></field>
+    <field id="title">Risk Based Test Strategy Report</field>
+</rich-page>

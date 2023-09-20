@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fields>
+    <field id="system_name" name="System Name" type="string"/>
+    <field id="change_approach" name="Change Approach" required="true" type="enum:change_approach"/>
+    <field id="change_type" name="Emergency Change?" required="true" type="enum:yesNoGlobal"/>
+    <field id="change_risk" name="Change Risk" required="true" type="enum:change_severity"/>
+    <field id="reason_for_change" name="Reason for Change" type="text/html"/>
+    <field id="impact_assessment" name="Impact Assessment" type="text/html"/>
+    <field id="change_summary" name="Change Summary" type="text/html"/>
+    <field default="0" id="version" name="Version" type="integer"/>
+    <field id="riskMitigation" name="Risk Mitigation" type="text"/>
+</fields>
