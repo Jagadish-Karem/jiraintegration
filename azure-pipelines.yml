@@ -58,20 +58,18 @@ stages:
     pool:
       vmImage: 'windows-2019'
     steps:
-     - task: PowerShell@2
-       inputs:
+    - task: PowerShell@2
+      inputs:
         targetType: 'inline'
-     - script: |
-              # Set Jira parameters
-              $jiraUrl = "https://compliance-g.atlassian.net"
-              $jiraTicketId = "PSD-103"
-              $jiraApiKey = "ATATT3xFfGF0DgMTKUNYXvvHLXOVADXuftr1cs5x8CQcWL0g9C5zuyoiTiWhpP1IdX5owcmvmZmrMx9l8FAMYCFu0ypeBG3CZa-eGg0Z7Lts0wzFBQ8GpUxDQcptjYRBRTv1cK606DFVDFFXXzOZzC8Sw1XCN4ZlewTK1Sd_eBrqs5xakOfOLB8=A1956388"
-
-              # Construct the Jira API URL to get ticket status
-              $apiUrl = "$jiraUrl/rest/api/latest/issue/$jiraTicketId"
-
-              # Make an HTTP GET request to Jira API
-              $response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($jiraApiKey)")))} -Method Get
-              # Make an HTTP GET request to Jira API
-              $ticketStatus = $response.fields.status.name
-              echo "name is $response.fields.status.name"
+        script: |
+          # Set Jira parameters
+          $jiraUrl = "https://compliance-g.atlassian.net"
+          $jiraTicketId = "PSD-103"
+          $jiraApiKey = "ATATT3xFfGF0DgMTKUNYXvvHLXOVADXuftr1cs5x8CQcWL0g9C5zuyoiTiWhpP1IdX5owcmvmZmrMx9l8FAMYCFu0ypeBG3CZa-eGg0Z7Lts0wzFBQ8GpUxDQcptjYRBRTv1cK606DFVDFFXXzOZzC8Sw1XCN4ZlewTK1Sd_eBrqs5xakOfOLB8=A1956388"
+          # Construct the Jira API URL to get ticket status
+          $apiUrl = "$jiraUrl/rest/api/latest/issue/$jiraTicketId"
+          # Make an HTTP GET request to Jira API
+          $response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($jiraApiKey)")))} -Method Get
+          # Retrieve the ticket status from the response
+          $ticketStatus = $response.fields.status.name
+          Write-Host "Ticket status is: $ticketStatus"
