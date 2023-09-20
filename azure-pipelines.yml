@@ -38,17 +38,17 @@ stages:
       displayName: 'Universal publish'
       inputs:
         command: publish
-        vstsFeed: '52591567-6866-4998-9f76-4e79b9c7fbbf/8de3d97e-b449-47cd-ba34-7db012db1b87'
-        vstsFeedPublish: '52591567-6866-4998-9f76-4e79b9c7fbbf/8de3d97e-b449-47cd-ba34-7db012db1b87'
+        vstsFeed: 'deddc8e4-2978-46b5-bce1-12f4becb2a11/c0493aac-8cda-4ba2-ae10-46ed3a1d986f'
+        vstsFeedPublish: 'deddc8e4-2978-46b5-bce1-12f4becb2a11/c0493aac-8cda-4ba2-ae10-46ed3a1d986f'
         vstsFeedPackagePublish: csv
 
     - task: DownloadPackage@1
-      displayName: 'Download Package 21b51a48-49df-4ed4-bc8a-26a5a5d3ae37'
+      displayName: 'Download Package c3f254fa-dbfc-4892-9fab-f162749333f7'
       inputs:
         packageType: upack
-        feed: '52591567-6866-4998-9f76-4e79b9c7fbbf/8de3d97e-b449-47cd-ba34-7db012db1b87'
-        view: '1c363b9d-2b9e-465e-8f7b-07f407dcfec2'
-        definition: '21b51a48-49df-4ed4-bc8a-26a5a5d3ae37'
+        feed: 'deddc8e4-2978-46b5-bce1-12f4becb2a11/c0493aac-8cda-4ba2-ae10-46ed3a1d986f'
+        view: 'a7e6578b-4e33-47a1-b596-37540a4bb1c9'
+        definition: 'c3f254fa-dbfc-4892-9fab-f162749333f7'
         version: '*'
 
 - stage: Validation
