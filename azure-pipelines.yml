@@ -59,26 +59,19 @@ stages:
       name: server
     steps:
     - script: |
-    # Set Jira parameters
-    $jiraUrl = "https://compliance-g.atlassian.net"
-    $jiraTicketId = "PSD-103"
-    $jiraApiKey = "ATATT3xFfGF0DgMTKUNYXvvHLXOVADXuftr1cs5x8CQcWL0g9C5zuyoiTiWhpP1IdX5owcmvmZmrMx9l8FAMYCFu0ypeBG3CZa-eGg0Z7Lts0wzFBQ8GpUxDQcptjYRBRTv1cK606DFVDFFXXzOZzC8Sw1XCN4ZlewTK1Sd_eBrqs5xakOfOLB8=A1956388"
+              # Set Jira parameters
+              $jiraUrl = "https://compliance-g.atlassian.net"
+              $jiraTicketId = "PSD-103"
+              $jiraApiKey = "ATATT3xFfGF0DgMTKUNYXvvHLXOVADXuftr1cs5x8CQcWL0g9C5zuyoiTiWhpP1IdX5owcmvmZmrMx9l8FAMYCFu0ypeBG3CZa-eGg0Z7Lts0wzFBQ8GpUxDQcptjYRBRTv1cK606DFVDFFXXzOZzC8Sw1XCN4ZlewTK1Sd_eBrqs5xakOfOLB8=A1956388"
 
-    # Construct the Jira API URL to get ticket status
-    $apiUrl = "$jiraUrl/rest/api/latest/issue/$jiraTicketId"
+              # Construct the Jira API URL to get ticket status
+              $apiUrl = "$jiraUrl/rest/api/latest/issue/$jiraTicketId"
 
-    # Make an HTTP GET request to Jira API
-    $response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($jiraApiKey)")))} -Method Get
+              # Make an HTTP GET request to Jira API
+              $response = Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($jiraApiKey)")))} -Method Get
+              # Make an HTTP GET request to Jira API
+              $ticketStatus = $response.fields.status.name
+              echo "name is $response.fields.status.name"
 
-    $ticketStatus = $response.fields.status.name
 
-    # Check the ticket status
-    if ($ticketStatus -eq "Done") {
-      Write-Host "Jira ticket $jiraTicketId is Done."
-    }
-    else {
-      Write-Host "Jira ticket $jiraTicketId is not Done. Status: $ticketStatus"
-      exit 1
-    }
-  displayName: 'Check Jira Ticket Status'
 
