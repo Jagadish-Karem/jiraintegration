@@ -78,6 +78,6 @@ stages:
         - task: CmdLine@2
           displayName: Create Work Item
           inputs:
-            script: 'az boards query --wiql "SELECT [System.State] FROM workitems WHERE [System.Title] = "Build20230921.4""'
+            script: az boards query --wiql "SELECT [System.State] FROM workitems WHERE [System.Title] = "Build20230921.4""
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
