@@ -1,0 +1,19 @@
+parameters:
+  - name: AssignedToUser
+steps:
+  - task: CmdLine@2
+    displayName: Install Azure DevOps Extension
+    inputs:
+      script: 'az extension add --name azure-devops'
+  - task: CmdLine@2
+    displayName: Configure Default Settings
+    inputs:
+      script: |
+       
+        az devops configure --defaults organization=$(System.CollectionUri) project=$(System.TeamProject)
+  - task: CmdLine@2
+    displayName: Create Work Item
+    inputs:
+      script: 'az boards work-item create --title "Build $(Build.BuildNumber) " --type "Issue" --assigned-to ${{parameters.AssignedToUser}}  --description "Build failure.<div>Pipeline Name - $(Build.DefinitionName)"'
+    env:
+      AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
