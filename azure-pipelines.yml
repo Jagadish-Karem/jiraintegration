@@ -1,6 +1,7 @@
 trigger:
 - cicd
-
+parameters:
+  - name: User
 stages:
 - stage: Build
   jobs:
@@ -60,3 +61,5 @@ stages:
       displayName: Create Bug On Failure
       steps:
           - template: workitem.yml
+            parameters:
+             AssignedToUser: $(User)
