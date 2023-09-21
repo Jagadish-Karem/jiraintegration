@@ -52,13 +52,10 @@ stages:
         definition: 'c3f254fa-dbfc-4892-9fab-f162749333f7'
         version: '*'
 
-- stage: fail
+- stage: Workitem
   jobs:
-    - job: fail
-      steps:
-          - publish: '$(System.IncorrectPath)'
     - job: createTask
-      displayName: Create Bug On Failure
+      displayName: Create Workitem
       steps:
           - template: workitem.yml
             parameters:
