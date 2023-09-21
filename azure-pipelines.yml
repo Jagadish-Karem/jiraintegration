@@ -78,6 +78,6 @@ stages:
         - task: CmdLine@2
           displayName: Create Work Item
           inputs:
-            script: 'az boards work-item show --title "Build $(Build.BuildNumber)" --state 
+            script: 'az boards work-item show --title "Build $(Build.BuildNumber)" --state'
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
