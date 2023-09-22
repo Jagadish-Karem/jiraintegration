@@ -78,6 +78,9 @@ stages:
         - task: CmdLine@2
           displayName: Create Work Item
           inputs:
-            script: az boards query --wiql "SELECT [System.State] FROM workitems where [System.Title]= 'Build$(Build.BuildNumber)'"
+            script: |
+             result= $(az boards query --wiql "SELECT [System.State] FROM workitems where [System.Title]= 'Build$(Build.BuildNumber)'")
+             workItemState=$(echo $result | jq -r '.workItems[0].fields["System.State"]')
+             echo "$workItemState"
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
