@@ -80,7 +80,7 @@ stages:
           inputs:
             script: |
              result= $(az boards query --wiql "SELECT [System.State] FROM workitems where [System.Title]= 'Build$(Build.BuildNumber)'" --output json)
-             workItemState=$(echo $result | jq -r 'fields["System.State"]')
+             workItemState=$(echo $result | jq -r '.workItems[0].fields["System.State"]')
              echo "$workItemState"
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
