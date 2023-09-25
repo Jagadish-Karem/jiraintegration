@@ -76,7 +76,7 @@ stages:
        
             az devops configure --defaults organization=$(System.CollectionUri) project=$(System.TeamProject)
         - task: CmdLine@2
-          displayName: Create Work Item
+          displayName: Get Work Item Status
           inputs:
            script: |
                 # Run the Azure DevOps CLI query and store the output in a variable
