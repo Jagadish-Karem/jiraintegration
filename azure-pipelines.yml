@@ -87,4 +87,5 @@ stages:
     
                 # Set the variable
                 echo "##vso[task.setvariable variable=workItemState]$workItemState"
-                displayName: 'Run Azure DevOps CLI Query and Store Output'
+          env:
+            AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
