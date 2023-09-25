@@ -78,7 +78,13 @@ stages:
         - task: CmdLine@2
           displayName: Create Work Item
           inputs:
-            script: result= $(az boards query --wiql "SELECT [System.State] FROM workitems where [System.Title]= 'Build$(Build.BuildNumber)'")
-             echo "$result"
-          env:
-            AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+           script: |
+                # Run the Azure DevOps CLI query and store the output in a variable
+                result=$(az boards query --wiql "SELECT [System.State] FROM workitems WHERE [System.Title] = 'Build$(Build.BuildNumber)'" --output json)
+    
+                # Extract the desired information from the JSON output (modify as needed)
+                workItemState=$(echo $result | jq -r '.workItems[0].fields["System.State"]')
+    
+                # Set the variable
+                echo "##vso[task.setvariable variable=workItemState]$workItemState"
+                displayName: 'Run Azure DevOps CLI Query and Store Output'
