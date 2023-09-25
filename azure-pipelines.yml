@@ -83,7 +83,7 @@ stages:
                 result=$(az boards query --wiql "SELECT [System.State] FROM workitems WHERE [System.Title] = 'Build$(Build.BuildNumber)'" --output json)
     
                 # Extract the desired information from the JSON output (modify as needed)
-                workItemState=$(echo $result | jq -r '$[0].fields["System.State"]')
+                workItemState=$(echo $result | jq -r '.[0].fields["System.State"]')
     
                 # Set the variable
                 echo "##vso[task.setvariable variable=workItemState]$workItemState"
