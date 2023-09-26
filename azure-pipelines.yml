@@ -118,7 +118,7 @@ stages:
 
 - stage: Stage4
   dependsOn: Wistate
-  condition: and(succeeded(Wistate), eq(variables['workItemState'], 'Done'))
+  condition: and(succeeded('Wistate'), eq(variables['workItemState'], 'Done'))
   jobs:
     - job: updateState
       displayName: Update Workitem State
