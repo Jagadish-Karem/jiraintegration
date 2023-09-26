@@ -2,13 +2,11 @@ trigger:
 - cicd
 
 schedules:
-- cron: "10 10 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "40 10 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
     - main
-parameters:
-  - name: User
 stages:
 - stage: Build
   jobs:
