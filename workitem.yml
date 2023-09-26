@@ -1,5 +1,6 @@
 parameters:
   - name: AssignedToUser
+  - name: workitemtitle
 steps:
   - task: CmdLine@2
     displayName: Install Azure DevOps Extension
