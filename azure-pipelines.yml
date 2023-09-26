@@ -11,9 +11,9 @@ stages:
 - stage: Build
   condition: |
               and(
-              ne(variables['Build.Reason'], 'Schedule'),  # Only run if triggered by a schedule
-              eq(variables['Build.Reason'], 'Manual'),    # Don't run if manually triggered
-              ne(variables['Build.Reason'], 'IndividualCI')  # Don't run for individual CI triggers
+              ne(variables['Build.Reason'], 'Schedule'),
+              eq(variables['Build.Reason'], 'Manual'),
+              ne(variables['Build.Reason'], 'IndividualCI')
               )
   jobs:
   - job: BuildJob
