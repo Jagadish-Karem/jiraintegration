@@ -64,8 +64,8 @@ stages:
       steps:
           - template: workitem.yml
             parameters:
-             AssignedToUser: $(User)
-             workitemtitle: $(WItitle)
+              AssignedToUser: $(User)
+              workitemtitle: $(WItitle)
 
 - stage: state
   condition: eq(variables['Build.CronSchedule.DisplayName'], 'DailySchedule')
