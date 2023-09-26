@@ -69,8 +69,9 @@ stages:
        displayName: get state of work item
        steps:
         - task: Delay@1
+          displayName: 'Delay by 10 minutes'
           inputs:
-           delayForMinutes: '5'
+           delayForMinutes: 10
         - task: CmdLine@2
           displayName: Install Azure DevOps Extension
           inputs:
