@@ -1,13 +1,6 @@
 trigger:
 - cicd
 
-schedules:
-- cron: "0 7 26 9 2023"  # Schedule to run daily at midnight UTC (adjust as needed)
-  displayName: DailySchedule
-  branches:
-    include:
-    - main
-
 parameters:
   - name: User
 stages:
@@ -70,7 +63,7 @@ stages:
              AssignedToUser: $(User)
 
 - stage: state
-  condition: eq(variables['Build.CronSchedule.DisplayName'], 'DailySchedule')
+  
   jobs:
     -  job: getstate 
        displayName: get state of work item
@@ -85,6 +78,9 @@ stages:
            script: |
        
             az devops configure --defaults organization=$(System.CollectionUri) project=$(System.TeamProject)
+        - task: Delay@1
+          inputs:
+           delayForMinutes: '5' # string. Required. Delay Time (minutes). Default: 0.
         - task: CmdLine@2
           displayName: Get Work Item Status
           inputs:
