@@ -1,5 +1,10 @@
 trigger:
 - cicd
+
+schedules:
+- cron: "8 6 26 * *"  # Schedule to run daily at midnight UTC (adjust as needed)
+  displayName: DailySchedule
+
 parameters:
   - name: User
 stages:
@@ -61,6 +66,7 @@ stages:
             parameters:
              AssignedToUser: $(User)
 - stage: state
+  dependsOn: DailySchedule
   jobs:
     -  job: getstate 
        displayName: get state of work item
