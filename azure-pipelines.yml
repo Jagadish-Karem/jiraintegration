@@ -68,6 +68,9 @@ stages:
     -  job: getstate 
        displayName: get state of work item
        steps:
+        - task: Delay@1
+          inputs:
+           delayForMinutes: '5'
         - task: CmdLine@2
           displayName: Install Azure DevOps Extension
           inputs:
@@ -78,9 +81,6 @@ stages:
            script: |
        
             az devops configure --defaults organization=$(System.CollectionUri) project=$(System.TeamProject)
-        - task: Delay@1
-          inputs:
-           delayForMinutes: '5' # string. Required. Delay Time (minutes). Default: 0.
         - task: CmdLine@2
           displayName: Get Work Item Status
           inputs:
