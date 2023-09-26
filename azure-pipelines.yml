@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "20 14 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "38 14 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
