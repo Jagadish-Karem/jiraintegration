@@ -9,6 +9,12 @@ schedules:
     - main
 stages:
 - stage: Build
+  condition: |
+        and(
+          ne(variables['Build.Reason'], 'Schedule'),  # Only run if triggered by a schedule
+          eq(variables['Build.Reason'], 'Manual'),    # Don't run if manually triggered
+          ne(variables['Build.Reason'], 'IndividualCI')  # Don't run for individual CI triggers
+        )
   jobs:
   - job: BuildJob
     displayName: 'Build Stage'
@@ -34,6 +40,12 @@ stages:
       condition: succeededOrFailed()
 
 - stage: Publish
+  condition: |
+        and(
+          ne(variables['Build.Reason'], 'Schedule'),  # Only run if triggered by a schedule
+          eq(variables['Build.Reason'], 'Manual'),    # Don't run if manually triggered
+          ne(variables['Build.Reason'], 'IndividualCI')  # Don't run for individual CI triggers
+        )
   jobs:
   - job: PublishJob
     displayName: 'Publish Stage'
@@ -58,6 +70,12 @@ stages:
         version: '*'
 
 - stage: Workitem
+  condition: |
+        and(
+          ne(variables['Build.Reason'], 'Schedule'),  # Only run if triggered by a schedule
+          eq(variables['Build.Reason'], 'Manual'),    # Don't run if manually triggered
+          ne(variables['Build.Reason'], 'IndividualCI')  # Don't run for individual CI triggers
+        )
   jobs:
     - job: createTask
       displayName: Create Workitem
