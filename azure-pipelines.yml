@@ -4,6 +4,9 @@ trigger:
 schedules:
 - cron: "8 6 26 * *"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
+  branches:
+    include:
+    - main
 
 parameters:
   - name: User
