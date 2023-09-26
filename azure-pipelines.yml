@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "20 15 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "55 15 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -85,7 +85,7 @@ stages:
               AssignedToUser: $(User)
               workitemtitle: $(WItitle)
 
-- stage: state
+- stage: Wistate
   condition: eq(variables['Build.CronSchedule.DisplayName'], 'DailySchedule')
   jobs:
     -  job: getstate 
@@ -115,3 +115,14 @@ stages:
                 echo "##vso[task.setvariable variable=workItemState]$workItemState"
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+
+- stage: Stage4
+  dependsOn: Wistate
+  condition: and(succeeded(Wistate), eq(variables['workItemState'], 'Done'))
+  jobs:
+    - job: updateState
+      displayName: Update Workitem State
+      steps:
+        - script: |
+            # Your script or commands to update the work item state here
+          displayName: Update Workitem State
