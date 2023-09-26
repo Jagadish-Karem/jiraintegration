@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "8 6 26 * *"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "25 6 26 * *"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -69,7 +69,7 @@ stages:
             parameters:
              AssignedToUser: $(User)
 - stage: state
-  dependsOn: DailySchedule
+  condition: eq(variables['Build.CronSchedule.DisplayName'], 'DailySchedule')
   jobs:
     -  job: getstate 
        displayName: get state of work item
