@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "38 14 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "5 15 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -106,7 +106,7 @@ stages:
           inputs:
            script: |
                 # Run the Azure DevOps CLI query and store the output in a variable
-                result=$(az boards query --wiql "SELECT [System.State] FROM workitems WHERE [System.Title] = '$WItitle'" --output json)
+                result=$(az boards query --wiql "SELECT [System.State] FROM workitems WHERE [System.Title] = '$(WItitle)'" --output json)
     
                 # Extract the desired information from the JSON output (modify as needed)
                 workItemState=$(echo $result | jq -r '.[0].fields["System.State"]')
