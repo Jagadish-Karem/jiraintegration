@@ -130,7 +130,7 @@ stages:
   jobs:
     - job: checkstate
       variables:
-       varFromStageA: $[ stageDependencies Wistate.getstate.outputs['getstateresult.workItemState'] ]
+       varFromStageA: $[ stageDependencies.Wistate.getstate.outputs['getstateresult.workItemState'] ]
       steps:
       - checkout: none
       - script: |
