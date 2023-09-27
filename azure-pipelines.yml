@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "59 8 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "5 10 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -112,14 +112,14 @@ stages:
                 workItemState=$(echo $result | jq -r '.[0].fields["System.State"]')
     
                 # Set the variable
-                echo "##vso[task.setvariable variable=workItemState]$workItemState"
+                echo "##vso[task.setvariable variable=workItemState;isOutput=true]$workItemState"
           name: getstateresult
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
 
 - stage: Release
   variables:
-   workIState: $workItemState
+   workIState: $[ stageDependencies.Wistate.getstate.outputs['getstateresult.workItemState'] ]
   dependsOn: Wistate
   condition: |
         and(
