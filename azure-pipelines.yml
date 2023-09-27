@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "27 16 26 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "55 4 27 9 2"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -118,7 +118,7 @@ stages:
 
 - stage: Stage4
   dependsOn: Wistate
-  condition: and(succeeded('Wistate'), eq(variables['workItemState'], 'Done'))
+
   jobs:
     - job: updateState
       displayName: Update Workitem State
