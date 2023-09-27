@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "19 6 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "35 6 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -117,11 +117,13 @@ stages:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
 
 - stage: Stage4
+  dependsOn: Wistate
   condition: |
         and(
           eq(variables['Build.Reason'], 'Schedule'),  
           ne(variables['Build.Reason'], 'Manual'),  
-          ne(variables['Build.Reason'], 'IndividualCI')  
+          ne(variables['Build.Reason'], 'IndividualCI'),
+          eq(variables['workItemState'], 'Done')  
         )
   jobs:
     - job: updateState
