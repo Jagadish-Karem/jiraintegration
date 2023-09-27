@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "33 7 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "40 8 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -113,6 +113,7 @@ stages:
     
                 # Set the variable
                 echo "##vso[task.setvariable variable=workItemState]$workItemState"
+          name: getstateresult
           env:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
 
@@ -125,11 +126,13 @@ stages:
           eq(variables['Build.Reason'], 'Schedule'),  
           ne(variables['Build.Reason'], 'Manual'),  
           ne(variables['Build.Reason'], 'IndividualCI'),
-          eq(dependencies.Build.outputs['Wistate.Set Outcome Variable.workItemState'], 'Done')
         )
   jobs:
-    - job: updateState
-      displayName: Update Workitem State
+    - job: checkstate
+      variables:
+       varFromStageA: $[ stageDependencies Wistate.getstate.outputs['getstateresult.workItemState'] ]
       steps:
-        - script: |
-            echo "state is $workIState"
+      - checkout: none
+      - script: |
+          echo "This Job will print value from Stage STAGE_X"
+          echo $(varFromStageA)
