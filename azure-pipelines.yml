@@ -117,7 +117,12 @@ stages:
             AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
 
 - stage: Stage4
-
+  condition: |
+        and(
+          eq(variables['Build.Reason'], 'Schedule'),  
+          ne(variables['Build.Reason'], 'Manual'),  
+          ne(variables['Build.Reason'], 'IndividualCI')  
+        )
   jobs:
     - job: updateState
       displayName: Update Workitem State
