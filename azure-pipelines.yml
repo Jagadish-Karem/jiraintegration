@@ -2,7 +2,7 @@ trigger:
 - cicd
 
 schedules:
-- cron: "2 7 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
+- cron: "16 7 27 9 *"  # Schedule to run daily at midnight UTC (adjust as needed)
   displayName: DailySchedule
   branches:
     include:
@@ -118,7 +118,7 @@ stages:
 
 - stage: Release
   variables:
-   workItemState: $workItemState
+   workIState: $workItemState
   dependsOn: Wistate
   condition: |
         and(
@@ -131,6 +131,4 @@ stages:
       displayName: Update Workitem State
       steps:
         - script: |
-            # Your script or commands to update the work item state here
-            displayName: Update Workitem State
-            echo $workItemState
+            echo $workIState
